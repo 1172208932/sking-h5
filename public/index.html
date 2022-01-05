@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <title>活动标题</title>
+    <script src="//yun.duiba.com.cn/spark/v2/spark.base.fz.wxpollyfill.js"></script>
+    <script src="//yun.duiba.com.cn/js-libs/rem/1.1.3/rem.min.js"></script>
+    <script src="//yun.duiba.com.cn/h5/lib/zepto.min.js"></script>
+    <script>
+        function getApp() {
+            return {
+                cloud: {},
+                cloudName: "clientTemplate2C",
+                requestType: "mock"
+            }
+        }
+
+        var CFG = CFG || {};
+        CFG.projectId = location.pathname.split('/')[2] || '1';
+
+        function getUrlParam(name) {
+            var search = window.location.search;
+            var matched = search
+                .slice(1)
+                .match(new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i'));
+            return search.length ? matched && matched[2] : null;
+        }
+
+        CFG.appID = '${APPID}';
+        if (!getUrlParam("appID")) {
+            // alert("【警告】检测到活动url中没有appID参数\n缺少该参数会导致埋点、分享、app信息获取错误。")
+        }
+    </script>
+</head>
+
+<body>
+    <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+</body>
+
+
+</html>

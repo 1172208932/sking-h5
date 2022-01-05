@@ -1,0 +1,75 @@
+@import "../../res.less";
+
+.loading {
+  width: 750px;
+  height: 1624px;
+  left: 0px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  .bg174 {
+    width: 750px;
+    height: 1624px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    .sparkBg("loading/bg174.png");
+  }
+  .progressBar {
+    width: 524px;
+    height: 22px;
+    left: 113px;
+    top: 717px;
+    position: absolute;
+    overflow: hidden;
+    border-radius: 6px;
+    .atBottom {
+      width: 524px;
+      height: 22px;
+      left: 0px;
+      top: 0px;
+      position: absolute;
+      .sparkBg("loading/底部173.png");
+    }
+    .loadingBg{
+      width: 516px;
+      height: 14px;
+      left: 5px;
+      top: 4px;
+      overflow: hidden;
+      position: absolute;
+      border-radius: 6px;
+    }
+    .above {
+      display: block;
+      position: relative;
+      width: 516px;
+      height: 14px;
+      // animation: loading 1.6s linear 1;
+      .sparkBg("loading/上面.png");
+      border-radius: 6px;
+    }
+  }
+  .inLoad {
+    width: 117px;
+    height: 23px;
+    left: 322px;
+    top: 758px;
+    position: absolute;
+    font-size: 24px;
+    line-height: 23px;
+    color: #ffffff;
+  }
+}
+
+
+@keyframes loading {
+  0% {
+    transform: translateX(-520px);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
+}
