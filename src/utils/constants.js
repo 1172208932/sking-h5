@@ -37,3 +37,5 @@ export function ERROR_MESSSAGE(errorCode) {
   }
   return message;
 }
+
+export const USER_AVATAR = "https://yun.duiba.com.cn/aurora/assets/65892f1a1fb9bde97f06acf79c64f8d966dc2ae2.png"
