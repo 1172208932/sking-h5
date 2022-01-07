@@ -1,30 +1,57 @@
-'use strict';
+"use strict";
 
-import React from 'react';
-import { RES_PATH } from '../../../sparkrc.js';
-import { observer } from 'mobx-react';
-import store from '../../store/index';
-import modalStore from '@src/store/modal';
-import API from '../../api';
-import './myprize.less';
+import React from "react";
+import { observer } from "mobx-react";
+import store from "../../store/index";
+import modalStore from "@src/store/modal";
+import API from "../../api";
+import {dateFormatter} from "@src/utils/utils"
+import "./myprize.less";
 
 @observer
 class Myprize extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      list: [],
+    };
   }
+
+  componentDidMount() {
+    this.getPrizeList();
+  }
+
+  getPrizeList = async () => {
+    const { success, data } = await API.getMyPrize();
+    if (success && data?.length) {
+      this.setState({
+        list: data,
+      });
+    }
+  };
   render() {
+    const { list } = this.state;
     return (
       <div className="myprize">
         <span className="popoverBaseplate3"></span>
-        <span className="shutDown"></span>
-        <span className="me"></span>
-        <div className="layer1">
-          <span className="rectangular2139"></span>
-          <span className="rectangular1730"></span>
-          <span className="namePrize">奖品名称</span>
-          <span className="layer20214">2021.4.17</span>
+        <span
+          className="shutDown"
+          onClick={() => modalStore.closePop("Myprize")}
+        ></span>
+        <div className="prizelistbox">
+          {list.map((item, index) => {
+            return (
+              <div className="prizelistitem" key={index}>
+                <img className="prizelistimg" src={item?.extra?.icon}/>
+                <div className="right-detail">
+                  <span className="namePrize textover">{item?.extra?.name}</span>
+                  <span className="time-prize">{dateFormatter(item?.gmtCreate,'yyyy.MM.dd')}</span>
+                </div>
+              </div>
+            );
+          })}
         </div>
+
         <span className="iceAndSnowAtmosphere2"></span>
       </div>
     );

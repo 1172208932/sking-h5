@@ -122,8 +122,118 @@ const doExchange = {
   success: true,
 };
 
+const getMyPrize = {
+  data: [
+    {
+      extra: {
+        name: "道具",
+        icon: "//yun.dui88.com/images/201907/tua0um9jjp.jpg",
+        refType: "coupon",
+        refId: "49354",
+        type: 1,
+      },
+      strategyId: 11,
+      gmtCreate: 1565213353000,
+      id: 331,
+      prizeId: "g4c4c3edd",
+    },
+    {
+      extra: {
+        name: "2_优惠券-大转盘03",
+        icon: "//yun.dui88.com/images/201907/tua0um9jjp.jpg",
+        refType: "coupon",
+        refId: "49354",
+        type: 2,
+      },
+      strategyId: 11,
+      gmtCreate: 1565213116000,
+      id: 330,
+      prizeId: "g0e432eeb",
+    },
+    {
+      extra: {
+        name: "3_异常福袋",
+        icon: "//yun.dui88.com/images/201907/tua0um9jjp.jpg",
+        refType: "coupon",
+        refId: "49354",
+        type: 4,
+      },
+      strategyId: 11,
+      gmtCreate: 1565212826000,
+      id: 329,
+      prizeId: "g900c8442",
+    },
+    {
+      extra: {
+        name: "正常福袋",
+        icon: "//yun.dui88.com/images/201907/tua0um9jjp.jpg",
+        refType: "coupon",
+        refId: "49354",
+        type: 4,
+      },
+      gmtCreate: 1565205625000,
+      id: 328,
+      strategyId: 11,
+      prizeId: "g4c7ba888",
+    },
+    {
+      extra: {
+        name: "优惠券-大转盘05",
+        icon: "//yun.dui88.com/images/201907/tua0um9jjp.jpg",
+        refType: "coupon",
+        refId: "49354",
+        type: 2,
+      },
+      strategyId: 11,
+      gmtCreate: 1565203101000,
+      id: 327,
+      prizeId: "g900c8442",
+    },
+    {
+      extra: {
+        name: "优惠券-大转盘03",
+        icon: "//yun.dui88.com/images/201907/tua0um9jjp.jpg",
+        refType: "coupon",
+        refId: "49354",
+        type: 2,
+      },
+      strategyId: 11,
+      gmtCreate: 1565203040000,
+      id: 326,
+      prizeId: "g0e432eeb",
+    },
+    {
+      extra: {
+        name: "优惠券-大转盘04",
+        icon: "//yun.dui88.com/images/201907/tua0um9jjp.jpg",
+        refType: "coupon",
+        refId: "49354",
+        type: 2,
+      },
+      gmtCreate: 1565197386000,
+      id: 325,
+      prizeId: "gc1a8c03c",
+    },
+    {
+      extra: {
+        name: "优惠券-大转盘02",
+        icon: "//yun.dui88.com/images/201907/tua0um9jjp.jpg",
+        refType: "coupon",
+        refId: "49354",
+        type: 2,
+      },
+      gmtCreate: 1565197080000,
+      id: 324,
+      strategyId: 11,
+      prizeId: "g0e432eeb",
+    },
+  ],
+  success: true,
+};
+
 module.exports = {
   getIndex,
   listExchangeLimit,
   doExchange,
+  getMyPrize,
 };

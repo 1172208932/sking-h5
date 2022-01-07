@@ -9,14 +9,29 @@ import API from '../../api';
 import {USER_AVATAR} from "../../utils/constants"
 import './homePage.less';
 import { _throttle } from '@src/utils/utils.js';
+import { Marquee, Toast } from "@spark/ui";
 
 @observer
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      carouselList: [], // 中奖轮播
+    }
   }
   componentDidMount() {
     store.getHomeInfo();
+    this.getCarousel();
+  }
+
+  // 中奖轮播
+  getCarousel = async() => {
+    const {success,data} = await API.carousel()
+    if(success&&data?.list?.length) {
+      this.setState({
+        carouselList: data.list
+      })
+    }
   }
 
   clickRule = _throttle(async() => {
@@ -24,12 +39,18 @@ class HomePage extends React.Component {
     !ruleInfo && await store.initRule();
     modalStore.pushPop("Rule")
   })
+
   render() {
-    const {homeInfo} = store
+    const {homeInfo} = store;
+    const {carouselList} = this.state;
     return (
       <div className="homePagebox">
       <div className="homepage">
         <span className="title"></span>
+        <span className="leftPerson"></span>
+        <span className="rightPerson"></span>
+
+        {/* 开始游戏按钮 */}
         <span className="startga"></span>
         <span className="gesturesAperture"></span>
         {/* 左上角icon */}
@@ -45,13 +66,22 @@ class HomePage extends React.Component {
             <span className="coin"></span>
             <span className="layer3418 textover">{homeInfo?.goldNum || 0}</span>
           </div>
+          {/* 轮播 */}
+          <div className="lunbo">
+            <Marquee
+              time={2000}
+              direction="top"
+              baseData={carouselList}
+              renderItem={(data) => <div className="marquee-item">{data.name}获得{data.prizeName}</div>}
+            />
+          </div>
         </div>
 
         {/* 右上角 */}
         <div className="topright">
           <div className="tiShi textover">有{homeInfo?.pvNum || 0}位用户与你一起闯关</div>
           {/* 我的奖品 */}
-          <span className="jiangPin" onClick={() => window.location.href = CFG.recordUrl}></span>
+          <span className="jiangPin" onClick={() => modalStore.pushPop("Myprize")}></span>
           {/* 活动规则 */}
           <span className="guiZe" onClick={this.clickRule}></span>
         </div>

@@ -16,12 +16,28 @@
   .sparkBg("homePage/bgindex.png");
   
   .title {
-    width: 729px;
-    height: 211px;
-    left: 442px;
-    top: 175px;
+    width: 639px;
+    height: 183px;
+    left: 495px;
+    top: 180px;
     position: absolute;
     .sparkBg("homePage/title.png");
+  }
+  .leftPerson {
+    position: absolute;
+    width: 493px;
+    height: 421px;
+    left: 136px;
+    top: 184px;
+    .sparkBg("homePage/谷爱凌.png");
+  }
+  .rightPerson {
+    position: absolute;
+    width: 512px;
+    height: 287px;
+    left: 917px;
+    top: 258px;
+    .sparkBg("homePage/牛蒙蒙.png");
   }
   .startga {
     width: 364px;
@@ -155,6 +171,18 @@
         color: rgba(235, 247, 255, 1);
       }
     }
+    .lunbo {
+      position: absolute;
+      left: 0px;
+      top: 90px;
+      width: 418px;
+      height: 39px;
+      padding: 0 20px 0 52px;
+      box-sizing: border-box;
+      color: #fff;
+      font-size: 20px;
+      .sparkBg("homePage/轮播.png");
+    }
   }
   .topright {
     width: 448px;
@@ -194,4 +222,11 @@
       .sparkBg("homePage/规则.png");
     }
   }
+}
+
+
+.sui-marquee-container .marquee-list .marquee-item {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

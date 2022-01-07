@@ -2,9 +2,8 @@
 .myprize {
   width: 820px;
   height: 564px;
-  left: 413px;
-  top: 100px;
   position: absolute;
+  transform: rotate(90deg);
   .popoverBaseplate3 {
     width: 615px;
     height: 533px;
@@ -19,60 +18,50 @@
     left: 645px;
     top: 0px;
     position: absolute;
-    .sparkBg("myPrize/关闭.png");
+    .sparkBg("common/close.png");
   }
-  .me {
-    width: null;
-    height: null;
-    left: null;
-    top: null;
+  .prizelistbox {
+    width: 535px;
+    height: 376px;
     position: absolute;
-    .sparkBg("myPrize/主题.png");
-  }
-  .layer1 {
-    width: 538px;
-    height: 116px;
-    left: 113px;
     top: 135px;
-    position: absolute;
-    .rectangular2139 {
-      width: 538px;
+    left: 113px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    .prizelistitem {
+      width: 100%;
       height: 116px;
-      left: 0px;
-      top: 0px;
-      position: absolute;
-      opacity: 0.55;
-      .sparkBg("myPrize/矩形2139.png");
-    }
-    .rectangular1730 {
-      width: 82px;
-      height: 82px;
-      left: 20px;
-      top: 16px;
-      position: absolute;
-      .sparkBg("myPrize/矩形1730.png");
-    }
-    .namePrize {
-      width: 119px;
-      height: 27px;
-      left: 121px;
-      top: 27px;
-      position: absolute;
-      opacity: 0.9;
-      font-size: 28px;
-      line-height: 27px;
-      color: rgba(56, 112, 160, 1);
-    }
-    .layer20214 {
-      width: 119px;
-      height: 18px;
-      left: 120px;
-      top: 73px;
-      position: absolute;
-      opacity: 0.8;
-      font-size: 24px;
-      line-height: 18px;
-      color: rgba(56, 112, 160, 1);
+      margin-bottom: 17px;
+      padding: 15px;
+      display: flex;
+      background: #ebf2f9;
+      border: 2px solid #dae5ea;
+      border-radius: 10px;
+      box-sizing: border-box;
+      .prizelistimg {
+        width: 82px;
+        height: 82px;
+        margin-right: 15px;
+        border-radius: 10px;
+        background: #fff;
+      }
+      .right-detail {
+        width: 407px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        color: rgba(56, 112, 160, 1);
+        .namePrize {
+          width: 100%;
+          font-size: 28px;
+          font-weight: bold;
+        }
+        .time-prize {
+          width: 100%;
+          font-size: 24px;
+        }
+      }
+     
     }
   }
   .iceAndSnowAtmosphere2 {
@@ -82,6 +71,6 @@
     top: 147px;
     position: absolute;
     pointer-events: none;
-    .sparkBg("common/冰雪氛围2.png");
+    .sparkBg("common/冰雪氛围.png");
   }
 }

@@ -53,7 +53,7 @@ function generateAPI(apiList) {
 				try {
 					token = await getPxToken();
 				} catch (e) {
-					Toast('星速台token获取失败，***请补全该处理逻辑***');
+					Toast('星速台token获取失败');
 					return;
 				}
 			}
@@ -68,12 +68,12 @@ function generateAPI(apiList) {
 			const result = await callApi(uri, params, method, mergedHeaders, false, secret, secretKey, contentType)
 				.catch(e => {
 					//捕获网络异常
-					Toast((e.message || '网络异常') + ' ***请补全该处理逻辑***');
+					Toast(e.message || '网络异常');
 				});
 			if (result) {
 				//判断接口错误
 				if (!result.success) {
-					Toast((result.message || '接口错误') + ' ***请补全该处理逻辑***');
+					Toast(result.message || '接口错误');
 				}
 				//返回整个结果
 				return result;

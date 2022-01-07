@@ -12,6 +12,8 @@ const apiCfg = {
     method: "post",
     withToken: true,
   },
+  getMyPrize: `records.query`, // 我的奖品页
+  carousel: `carousel_1/query.do`, // 首页中奖轮播
 }
 
 export default apiCfg;
