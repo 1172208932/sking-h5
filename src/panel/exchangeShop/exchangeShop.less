@@ -106,7 +106,27 @@
             .button {
               width: 204px;
               height: 48px;
-              .sparkBg("兑换商店明日预1/按钮.png");
+              &.canBuy {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+                color: #6b3e05;
+                font-size: 22px;
+                font-weight: bold;
+                .sparkBg("兑换商店明日预1/兑换按钮.png");
+                .coin {
+                  width: 32px;
+                  height: 31px;
+                  .sparkBg("兑换商店明日预1/小金币.png");
+                }
+              }
+              &.tomorrowbuy {
+                .sparkBg("兑换商店明日预1/即将开启.png");
+              }
+              &.noMoney {
+                .sparkBg("兑换商店明日预1/金币不足.png");
+              }
             }
           }
         }

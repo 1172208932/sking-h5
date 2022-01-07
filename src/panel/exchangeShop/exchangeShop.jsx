@@ -7,13 +7,16 @@ import store from "../../store/index";
 import modalStore from "@src/store/modal";
 import API from "../../api";
 import "./exchangeShop.less";
+import { _throttle } from "@src/utils/utils.js";
+import { Toast } from "@spark/ui";
 
 @observer
 class ExchangeShop extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      list: [],
+      todayResult: [], // 当天兑换列表
+      tomorrowResult: [], // 明日预告兑换列表
       isNow: true,
     };
   }
@@ -24,9 +27,10 @@ class ExchangeShop extends React.Component {
 
   getList = async () => {
     const { success, data } = await API.listExchangeLimit();
-    if (success && data?.conditions?.length) {
+    if (success && data) {
       this.setState({
-        list: data.conditions,
+        todayResult: data?.todayResult?.conditions,
+        tomorrowResult: data?.tomorrowResult?.conditions,
       });
     }
   };
@@ -37,12 +41,36 @@ class ExchangeShop extends React.Component {
       isNow: flag,
     });
   };
+
+  clickBtn = _throttle((item) => {
+    const { isNow } = this.state;
+    console.log(item,1,isNow,store?.homeInfo?.goldNum,item?.consumeSps?.[0]?.quantity <= store?.homeInfo?.goldNum)
+    if (!isNow) {
+      Toast("即将开启，明日0点开抢!");
+      return false;
+    }
+    if (item?.consumeSps?.[0]?.quantity <= store?.homeInfo?.goldNum) {
+      // 去兑换
+      modalStore.pushPop("ExchangeConfirm", {
+        detail: {
+          needCoin: item.consumeSps[0].quantity,
+          name: item?.options?.[0]?.optionName,
+          gear: item.gear,
+          ruleId: item?.options?.[0]?.ruleId,
+        },
+      },true);
+    } else {
+      // 金币不足
+      Toast("金币不足，快去赚金币吧!");
+    }
+  });
   render() {
     const { homeInfo } = store;
-    const { list, isNow } = this.state;
+    const { isNow, todayResult, tomorrowResult } = this.state;
     const bg = isNow
       ? `url(${RES_PATH}/兑换商店明日预1/nowbg.png)`
       : `url(${RES_PATH}/兑换商店明日预1/tomorro.png)`;
+    const list = isNow ? todayResult : tomorrowResult;
     return (
       <div className="exchangeShopWillAdvance1Tomorrow">
         <div className="popupWindowBottom">
@@ -79,7 +107,30 @@ class ExchangeShop extends React.Component {
                         <span className="number">
                           数量 {item?.options?.[0]?.optionStock}
                         </span>
-                        <span className="button"></span>
+                        {/* 按钮区域 */}
+                        {/* xx金币抢购 */}
+                        <div
+                          className="button canBuy"
+                          onClick={() => this.clickBtn(item)}
+                        >
+                          {isNow &&
+                            item?.consumeSps?.[0]?.quantity <=
+                              homeInfo?.goldNum && (
+                              <div className="button canBuy">
+                                <p>{item?.consumeSps?.[0]?.quantity}</p>
+                                <div className="coin"></div>
+                                <p>抢购</p>
+                              </div>
+                            )}
+                          {/* 即将开启 */}
+                          {!isNow && <div className="button tomorrowbuy"></div>}
+                          {/* 金币不足 */}
+                          {isNow &&
+                            item?.consumeSps?.[0]?.quantity >
+                              homeInfo?.goldNum && (
+                              <div className="button noMoney"></div>
+                            )}
+                        </div>
                       </div>
                     </div>
                   </div>

@@ -27,6 +27,11 @@ const modalStore = makeAutoObservable({
     // console.log("this.popList:::",toJS(this.popList));
   },
   closePop(key) {
+    // 关闭所有弹窗
+    if(key=="all") {
+      this.popList.clear();
+      return false
+    }
     if (key) {
       let cacheList = this.popList.slice();
       cacheList = cacheList.filter(obj => (obj.key != key));

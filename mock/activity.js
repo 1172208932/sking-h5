@@ -35,86 +35,117 @@ const getIndex = {
 const listExchangeLimit = {
   success: true,
   data: {
-    limitType: 1,
-    exchangeLimitCount: 2,
-    conditions: [
-      {
-        gear: 1,
-        consumeSps: [
-          {
-            spId: "sp_1",
-            quantity: 1,
-            spName: "道具名称",
-            spImg:
-              "http://yun.duiba.com.cn/polaris/丝倍亮小型犬幼年年期全价犬粮7.5kg.c27e9ef4b4d418e8a90faa76798e20cb4f18a490.jpg",
-          },
-        ],
-        options: [
-          {
-            ruleId: "ru_1",
-            optionId: "123",
-            optionName: "狗粮",
-            optionStock: 1,
-            optionImg:
-              "http://yun.duiba.com.cn/polaris/丝倍亮小型犬幼年年期全价犬粮7.5kg.c27e9ef4b4d418e8a90faa76798e20cb4f18a490.jpg",
-            prizeId: "123",
-            prizeType: 1,
-            userLimitCount: 1,
-          },
-        ],
-      },
-      {
-        gear: 1,
-        consumeSps: [
-          {
-            spId: "sp_1",
-            quantity: 1,
-            spName: "道具名称",
-            spImg:
-              "http://yun.duiba.com.cn/polaris/丝倍亮小型犬幼年年期全价犬粮7.5kg.c27e9ef4b4d418e8a90faa76798e20cb4f18a490.jpg",
-          },
-        ],
-        options: [
-          {
-            ruleId: "ru_1",
-            optionId: "123",
-            optionName:
-              "狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮",
-            optionStock: 1,
-            optionImg:
-              "http://yun.duiba.com.cn/polaris/丝倍亮小型犬幼年年期全价犬粮7.5kg.c27e9ef4b4d418e8a90faa76798e20cb4f18a490.jpg",
-            prizeId: "123",
-            prizeType: 1,
-            userLimitCount: 1,
-          },
-        ],
-      },
-      {
-        gear: 1,
-        consumeSps: [
-          {
-            spId: "sp_1",
-            quantity: 1,
-            spName: "道具名称",
-            spImg:
-              "http://yun.duiba.com.cn/polaris/丝倍亮小型犬幼年年期全价犬粮7.5kg.c27e9ef4b4d418e8a90faa76798e20cb4f18a490.jpg",
-          },
-        ],
-        options: [
-          {
-            ruleId: "ru_1",
-            optionId: "123",
-            optionName: "狗粮",
-            optionStock: 1,
-            optionImg:
-              "http://yun.duiba.com.cn/polaris/丝倍亮小型犬幼年年期全价犬粮7.5kg.c27e9ef4b4d418e8a90faa76798e20cb4f18a490.jpg",
-            prizeId: "123",
-            prizeType: 1,
-            userLimitCount: 1,
-          },
-        ],
-      },
-    ],
+    todayResult: {
+      limitType: 1,
+      exchangeLimitCount: 2,
+      conditions: [
+        {
+          gear: 1,
+          consumeSps: [
+            {
+              spId: "sp_1",
+              quantity: 48375,
+              spName: "道具名称",
+              spImg:
+                "http://yun.duiba.com.cn/polaris/丝倍亮小型犬幼年年期全价犬粮7.5kg.c27e9ef4b4d418e8a90faa76798e20cb4f18a490.jpg",
+            },
+          ],
+          options: [
+            {
+              ruleId: "ru_1",
+              optionId: "123",
+              optionName: "狗粮",
+              optionStock: 12,
+              optionImg:
+                "http://yun.duiba.com.cn/polaris/丝倍亮小型犬幼年年期全价犬粮7.5kg.c27e9ef4b4d418e8a90faa76798e20cb4f18a490.jpg",
+              prizeId: "123",
+              prizeType: 1,
+              userLimitCount: 1,
+            },
+          ],
+        },
+        {
+          gear: 2,
+          consumeSps: [
+            {
+              spId: "sp_1",
+              quantity: 48376,
+              spName: "道具名称",
+              spImg:
+                "http://yun.duiba.com.cn/polaris/丝倍亮小型犬幼年年期全价犬粮7.5kg.c27e9ef4b4d418e8a90faa76798e20cb4f18a490.jpg",
+            },
+          ],
+          options: [
+            {
+              ruleId: "ru_1",
+              optionId: "123",
+              optionName:
+                "狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮",
+              optionStock: 1,
+              optionImg:
+                "http://yun.duiba.com.cn/polaris/丝倍亮小型犬幼年年期全价犬粮7.5kg.c27e9ef4b4d418e8a90faa76798e20cb4f18a490.jpg",
+              prizeId: "123",
+              prizeType: 1,
+              userLimitCount: 1,
+            },
+          ],
+        },
+        {
+          gear: 3,
+          consumeSps: [
+            {
+              spId: "sp_1",
+              quantity: 48374,
+              spName: "道具名称",
+              spImg:
+                "http://yun.duiba.com.cn/polaris/丝倍亮小型犬幼年年期全价犬粮7.5kg.c27e9ef4b4d418e8a90faa76798e20cb4f18a490.jpg",
+            },
+          ],
+          options: [
+            {
+              ruleId: "ru_1",
+              optionId: "123",
+              optionName: "狗粮",
+              optionStock: 1,
+              optionImg:
+                "http://yun.duiba.com.cn/polaris/丝倍亮小型犬幼年年期全价犬粮7.5kg.c27e9ef4b4d418e8a90faa76798e20cb4f18a490.jpg",
+              prizeId: "123",
+              prizeType: 1,
+              userLimitCount: 1,
+            },
+          ],
+        },
+      ],
+    },
+    tomorrowResult: {
+      conditions: [
+        {
+          gear: 1,
+          consumeSps: [
+            {
+              spId: "sp_1",
+              quantity: 10000,
+              spName: "道具名称",
+              spImg:
+                "http://yun.duiba.com.cn/polaris/丝倍亮小型犬幼年年期全价犬粮7.5kg.c27e9ef4b4d418e8a90faa76798e20cb4f18a490.jpg",
+            },
+          ],
+          options: [
+            {
+              ruleId: "ru_1",
+              optionId: "123",
+              optionName: "狗粮",
+              optionStock: 198198319831983198319831983198319833,
+              optionImg:
+                "http://yun.duiba.com.cn/polaris/丝倍亮小型犬幼年年期全价犬粮7.5kg.c27e9ef4b4d418e8a90faa76798e20cb4f18a490.jpg",
+              prizeId: "123",
+              prizeType: 1,
+              userLimitCount: 1,
+            },
+          ],
+        },
+      ]
+    }
   },
 };
 

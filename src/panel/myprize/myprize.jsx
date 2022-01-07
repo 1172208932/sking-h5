@@ -5,7 +5,7 @@ import { observer } from "mobx-react";
 import store from "../../store/index";
 import modalStore from "@src/store/modal";
 import API from "../../api";
-import {dateFormatter} from "@src/utils/utils"
+import {dateFormatter, _throttle} from "@src/utils/utils"
 import "./myprize.less";
 
 @observer
@@ -29,6 +29,15 @@ class Myprize extends React.Component {
       });
     }
   };
+
+  goToLink = _throttle((item) => {
+    const {id, url} = item
+		if (url) {
+			location.href = url
+		} else {
+			location.href = `/aaw/projectx/takePrize?projectOrderNo=${id}`
+		}
+  })
   render() {
     const { list } = this.state;
     return (
@@ -41,7 +50,7 @@ class Myprize extends React.Component {
         <div className="prizelistbox">
           {list.map((item, index) => {
             return (
-              <div className="prizelistitem" key={index}>
+              <div className="prizelistitem" key={index} onClick={() => this.goToLink(item)}>
                 <img className="prizelistimg" src={item?.extra?.icon}/>
                 <div className="right-detail">
                   <span className="namePrize textover">{item?.extra?.name}</span>
