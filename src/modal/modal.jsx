@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import Myprize from "../components/myprize/myprize";
-import Rule from "../components/rule/rule";
-import { ExchangeShop, ExchangeConfirm } from "../panel/index.js";
+import { ExchangeShop, ExchangeConfirm, Rule, Myprize } from "../panel/index.js";
 import './modal.less';
 import { observer } from 'mobx-react';
 import modalStore from '../store/modal';
@@ -9,8 +7,8 @@ import { toJS } from 'mobx';
 export const cfg = {
   ExchangeShop,
   ExchangeConfirm,
-  Rule: Rule,
-  Myprize: Myprize
+  Rule,
+  Myprize,
 };
 
 @observer
