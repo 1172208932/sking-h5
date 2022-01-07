@@ -48,7 +48,7 @@ class Myprize extends React.Component {
           onClick={() => modalStore.closePop("Myprize")}
         ></span>
         <div className="prizelistbox">
-          {list.map((item, index) => {
+          {list?.length ? list.map((item, index) => {
             return (
               <div className="prizelistitem" key={index} onClick={() => this.goToLink(item)}>
                 <img className="prizelistimg" src={item?.extra?.icon}/>
@@ -58,7 +58,9 @@ class Myprize extends React.Component {
                 </div>
               </div>
             );
-          })}
+          }): 
+          <p className="nodata">暂无数据</p>
+          }
         </div>
 
         <span className="iceAndSnowAtmosphere2"></span>

@@ -2,7 +2,7 @@
 const rule = require("./common/rule");
 const drawNum = require("./common/drawNum");
 const carousel = require("./common/carousel");
-const {getIndex,doExchange,listExchangeLimit,getMyPrize} = require("./activity")
+const {getIndex,doExchange,listExchangeLimit,getMyPrize, getRank} = require("./activity")
 const proxy = {
   "GET /projectRule.query": rule,
   "GET /drawNum.query": drawNum,
@@ -11,5 +11,6 @@ const proxy = {
   "GET /exchange_1/listExchangeLimit.do":listExchangeLimit,
   "GET /records.query":getMyPrize,
   "GET /carousel_1/query.do": carousel,
+  "GET /scoring/ranking.do":getRank
 };
 module.exports = proxy;

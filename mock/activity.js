@@ -4,13 +4,13 @@ const getIndex = {
     avatar:
       "//yun.duiba.com.cn/aurora/assets/a51a8f870e3031792ae2b27e435fca4abb79181d.png",
     activityEndTime: 24837630.012418807,
-    pvNum: 86505640.30935124,
+    pvNum: 86505640.30935124, //用户参与数量
     assistInfo: {
-      assistNum: 28979992.29352188,
-      assistGoldNum: "aliqua cillum Ut",
+      assistNum: 0, //邀请人数
+      assistGoldNum: 127283683648374, //获得金币数量
     },
     goldNum: 48375,
-    rankScore: 121121221121221,
+    rankScore: 121121221121221, //排行榜分数
     gameInfo: [
       {
         level: "adipisicing ipsum Duis",
@@ -144,8 +144,8 @@ const listExchangeLimit = {
             },
           ],
         },
-      ]
-    }
+      ],
+    },
   },
 };
 
@@ -262,9 +262,75 @@ const getMyPrize = {
   success: true,
 };
 
+const getRank = {
+  message: "cillum dolor ad qui",
+  data: {
+    rankPrize: [
+      {
+        rank: "1-50",
+        prizeName: "这是十多个风华绝代舒服的复古经典黑色",
+        prizeImg: "//yun.duiba.com.cn/aurora/assets/683541868bd38fd6842e532c405a6e2b9fa775c9.png",
+      },
+      {
+        rank: "50-150",
+        prizeName: "这是十多个风华绝代舒服的复古经典黑色",
+        prizeImg: "//yun.duiba.com.cn/aurora/assets/683541868bd38fd6842e532c405a6e2b9fa775c9.png",
+      },
+      {
+        rank: "152-1150",
+        prizeName: "这是十多个风华绝代舒服的复古经典黑色",
+        prizeImg: "//yun.duiba.com.cn/aurora/assets/683541868bd38fd6842e532c405a6e2b9fa775c9.png",
+      },
+      {
+        rank: "1111-51110",
+        prizeName: "这是十多个风华绝代舒服的复古经典黑色",
+        prizeImg: "//yun.duiba.com.cn/aurora/assets/683541868bd38fd6842e532c405a6e2b9fa775c9.png",
+      }
+    ],
+    rankList: [{
+      nickname: "小银杏大的会计核算",
+      rankNum: 1,
+      score: 4537537,
+      avatar: "//yun.duiba.com.cn/aurora/assets/a51a8f870e3031792ae2b27e435fca4abb79181d.png",
+    },{
+      nickname: "小银杏大的会计核算",
+      rankNum: 1,
+      score: 4537537,
+      avatar: "//yun.duiba.com.cn/aurora/assets/a51a8f870e3031792ae2b27e435fca4abb79181d.png",
+    },{
+      nickname: "小银杏大的会计核算",
+      rankNum: 1,
+      score: 4537537,
+      avatar: "//yun.duiba.com.cn/aurora/assets/a51a8f870e3031792ae2b27e435fca4abb79181d.png",
+    },{
+      nickname: "小银杏大的会计核算",
+      rankNum: 1,
+      score: 4537537,
+      avatar: "//yun.duiba.com.cn/aurora/assets/a51a8f870e3031792ae2b27e435fca4abb79181d.png",
+    },{
+      nickname: "小银杏大的会计核算",
+      rankNum: 1,
+      score: 4537537,
+      avatar: "//yun.duiba.com.cn/aurora/assets/a51a8f870e3031792ae2b27e435fca4abb79181d.png",
+    },{
+      nickname: "小银杏大的会计核算last",
+      rankNum: 1,
+      score: 4537537,
+      avatar: "//yun.duiba.com.cn/aurora/assets/2f7fb2d7a5397ca10bed4574c2c8f37b3c362bf8.png",
+    }],
+    myRank: {
+      rankNum: 500,
+      score: 43656357437743734,
+    },
+  },
+  code: "ut dolore commodo id ad",
+  success: true,
+};
+
 module.exports = {
   getIndex,
   listExchangeLimit,
   doExchange,
   getMyPrize,
+  getRank,
 };

@@ -10,7 +10,6 @@ import {USER_AVATAR} from "../../utils/constants"
 import './homePage.less';
 import { _throttle } from '@src/utils/utils.js';
 import { Marquee, Toast } from "@spark/ui";
-
 @observer
 class HomePage extends React.Component {
   constructor(props) {
@@ -19,9 +18,17 @@ class HomePage extends React.Component {
       carouselList: [], // 中奖轮播
     }
   }
-  componentDidMount() {
-    store.getHomeInfo();
+  async componentDidMount() {
+    await store.getHomeInfo();
+    this.indexDataChange();
     this.getCarousel();
+  }
+
+  // 首页接口数据处理
+  indexDataChange = () => {
+    if(store.homeInfo?.assistInfo?.assistNum > 0) {
+      modalStore.pushPop("InviteSuccess")
+    }
   }
 
   // 中奖轮播
@@ -97,7 +104,8 @@ class HomePage extends React.Component {
 
         {/* 右下角 */}
         <div className="bottomr">
-          <span className="ultimateLeaderboard"></span>
+          {/* 排行榜 */}
+          <span className="ultimateLeaderboard" onClick={() => modalStore.pushPop("Rank")}></span>
           <span className="moreGifts"></span>
         </div>
        

@@ -82,7 +82,7 @@ async function loadOneAsset(url) {
  * 加载一张图片
  * @param {string} url 地址
  */
-function loadOneImg(url) {
+export function loadOneImg(url) {
     return new Promise(resolve => {
         const img = new Image();
         img.onload = () => resolve(img);
