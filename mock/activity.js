@@ -1,6 +1,7 @@
 const getIndex = {
   message: "Ut Excepteur ad proident sint",
   data: {
+    nickName: "小巨蛋小巨蛋小巨蛋小巨蛋小巨蛋小巨蛋",
     avatar:
       "//yun.duiba.com.cn/aurora/assets/a51a8f870e3031792ae2b27e435fca4abb79181d.png",
     activityEndTime: 24837630.012418807,
@@ -267,63 +268,157 @@ const getRank = {
   data: {
     rankPrize: [
       {
-        rank: "1-50",
+        rank: "1-5000000",
         prizeName: "这是十多个风华绝代舒服的复古经典黑色",
-        prizeImg: "//yun.duiba.com.cn/aurora/assets/683541868bd38fd6842e532c405a6e2b9fa775c9.png",
+        prizeImg:
+          "//yun.duiba.com.cn/aurora/assets/683541868bd38fd6842e532c405a6e2b9fa775c9.png",
       },
       {
-        rank: "50-150",
+        rank: "50-15000000",
         prizeName: "这是十多个风华绝代舒服的复古经典黑色",
-        prizeImg: "//yun.duiba.com.cn/aurora/assets/683541868bd38fd6842e532c405a6e2b9fa775c9.png",
+        prizeImg:
+          "//yun.duiba.com.cn/aurora/assets/683541868bd38fd6842e532c405a6e2b9fa775c9.png",
       },
       {
-        rank: "152-1150",
+        rank: "152-115000000",
         prizeName: "这是十多个风华绝代舒服的复古经典黑色",
-        prizeImg: "//yun.duiba.com.cn/aurora/assets/683541868bd38fd6842e532c405a6e2b9fa775c9.png",
+        prizeImg:
+          "//yun.duiba.com.cn/aurora/assets/683541868bd38fd6842e532c405a6e2b9fa775c9.png",
       },
-      {
-        rank: "1111-51110",
-        prizeName: "这是十多个风华绝代舒服的复古经典黑色",
-        prizeImg: "//yun.duiba.com.cn/aurora/assets/683541868bd38fd6842e532c405a6e2b9fa775c9.png",
-      }
     ],
-    rankList: [{
-      nickname: "小银杏大的会计核算",
-      rankNum: 1,
-      score: 4537537,
-      avatar: "//yun.duiba.com.cn/aurora/assets/a51a8f870e3031792ae2b27e435fca4abb79181d.png",
-    },{
-      nickname: "小银杏大的会计核算",
-      rankNum: 1,
-      score: 4537537,
-      avatar: "//yun.duiba.com.cn/aurora/assets/a51a8f870e3031792ae2b27e435fca4abb79181d.png",
-    },{
-      nickname: "小银杏大的会计核算",
-      rankNum: 1,
-      score: 4537537,
-      avatar: "//yun.duiba.com.cn/aurora/assets/a51a8f870e3031792ae2b27e435fca4abb79181d.png",
-    },{
-      nickname: "小银杏大的会计核算",
-      rankNum: 1,
-      score: 4537537,
-      avatar: "//yun.duiba.com.cn/aurora/assets/a51a8f870e3031792ae2b27e435fca4abb79181d.png",
-    },{
-      nickname: "小银杏大的会计核算",
-      rankNum: 1,
-      score: 4537537,
-      avatar: "//yun.duiba.com.cn/aurora/assets/a51a8f870e3031792ae2b27e435fca4abb79181d.png",
-    },{
-      nickname: "小银杏大的会计核算last",
-      rankNum: 1,
-      score: 4537537,
-      avatar: "//yun.duiba.com.cn/aurora/assets/2f7fb2d7a5397ca10bed4574c2c8f37b3c362bf8.png",
-    }],
+    rankList: [
+      {
+        nickName: "小银杏大的会计核算",
+        rankNum: 1,
+        score: 45337,
+        avatar:
+          "//yun.duiba.com.cn/aurora/assets/a51a8f870e3031792ae2b27e435fca4abb79181d.png",
+      },
+      {
+        nickName: "小银杏大的会计核算",
+        rankNum: 1,
+        score: 4537537,
+        avatar:
+          "//yun.duiba.com.cn/aurora/assets/a51a8f870e3031792ae2b27e435fca4abb79181d.png",
+      },
+      {
+        nickName: "小银杏大的会计核算",
+        rankNum: 1,
+        score: 4537537,
+        avatar:
+          "//yun.duiba.com.cn/aurora/assets/a51a8f870e3031792ae2b27e435fca4abb79181d.png",
+      },
+      {
+        nickName: "小银杏大的会计核算",
+        rankNum: 1,
+        score: 47,
+        avatar:
+          "//yun.duiba.com.cn/aurora/assets/a51a8f870e3031792ae2b27e435fca4abb79181d.png",
+      },
+      {
+        nickName: "小银杏大的会计核算",
+        rankNum: 1,
+        score: 437,
+        avatar:
+          "//yun.duiba.com.cn/aurora/assets/a51a8f870e3031792ae2b27e435fca4abb79181d.png",
+      },
+      {
+        nickName: "小银杏大的会计核算last",
+        rankNum: 1,
+        score: 7,
+        avatar:
+          "//yun.duiba.com.cn/aurora/assets/2f7fb2d7a5397ca10bed4574c2c8f37b3c362bf8.png",
+      },
+    ],
     myRank: {
-      rankNum: 500,
+      rankNum: 520,
       score: 43656357437743734,
     },
   },
   code: "ut dolore commodo id ad",
+  success: true,
+};
+
+const turnTableDraw = {
+  success: true,
+  data: {
+    extra: 1,
+    options: [
+      {
+        prizeId: "sp_6",
+        url: "http://www.baidu.com",
+        optionName: "肯德基炸鸡圈",
+        optionImg:
+          "//yun.duiba.com.cn/aurora/assets/d8b6eaa9b0292dc53e5cbc15a8ff89e023e2d8aa.png",
+      },
+    ],
+  },
+};
+
+const turnTableQuery = {
+  code: null,
+  data: {
+    options: [
+      {
+        optionId: 12112,
+        optionImg: "//yun.duiba.com.cn/aurora/assets/a51a8f870e3031792ae2b27e435fca4abb79181d.png",
+        optionName: "抽奖奖品1",
+        prizeId: "sp_1",
+        prizeType: 1,
+        url: "http://www.baidu.com",
+      },{
+        optionId: 12112,
+        optionImg: "//yun.duiba.com.cn/aurora/assets/2f7fb2d7a5397ca10bed4574c2c8f37b3c362bf8.png",
+        optionName: "抽奖奖品2",
+        prizeId: "sp_2",
+        prizeType: 1,
+        url: "http://www.baidu.com",
+      },{
+        optionId: 12112,
+        optionImg: "//yun.duiba.com.cn/aurora/assets/9b89c69bf6115206c661d887938d0ceee5cc927f.png",
+        optionName: "抽奖奖品3",
+        prizeId: "sp_3",
+        prizeType: 1,
+        url: "http://www.baidu.com",
+      },{
+        optionId: 12112,
+        optionImg: "//yun.duiba.com.cn/aurora/assets/2368d666b9c3caccc46c99b5f331a7432503b2a9.png",
+        optionName: "抽奖奖品4",
+        prizeId: "sp_4",
+        prizeType: 1,
+        url: "http://www.baidu.com",
+      },{
+        optionId: 12112,
+        optionImg: "//yun.duiba.com.cn/aurora/assets/798e474e87d316de19974e9cbdce6e2d72876901.png",
+        optionName: "抽奖奖品5",
+        prizeId: "sp_5",
+        prizeType: 1,
+        url: "http://www.baidu.com",
+      },{
+        optionId: 12112,
+        optionImg: "//yun.duiba.com.cn/aurora/assets/aaabdca89f8b88c3648d9f3a33fde3a86bad459b.png",
+        optionName: "抽奖奖品6",
+        prizeId: "sp_6",
+        prizeType: 1,
+        url: "http://www.baidu.com",
+      },{
+        optionId: 12112,
+        optionImg: "//yun.duiba.com.cn/aurora/assets/1a2df0ff03d86b978e894bdf034f48d62817b0b0.png",
+        optionName: "抽奖奖品7",
+        prizeId: "sp_7",
+        prizeType: 1,
+        url: "http://www.baidu.com",
+      },{
+        optionId: 12112,
+        optionImg: "//yun.duiba.com.cn/aurora/assets/e8159bf64974c3b5b509b1c9f33a396d72cdfa8b.png",
+        optionName: "抽奖奖品8",
+        prizeId: "sp_8",
+        prizeType: 1,
+        url: "http://www.baidu.com",
+      },
+    ],
+  },
+  message: null,
   success: true,
 };
 
@@ -333,4 +428,6 @@ module.exports = {
   doExchange,
   getMyPrize,
   getRank,
+  turnTableDraw,
+  turnTableQuery
 };

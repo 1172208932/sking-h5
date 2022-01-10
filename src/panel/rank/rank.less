@@ -20,33 +20,115 @@
     position: absolute;
     .sparkBg("common/close.png");
   }
-  .text {
-    width: 520px;
+  .rank-prizeList {
+    width: 590px;
     height: 190px;
-    left: 121px;
+    left: 85px;
     top: 145px;
     position: absolute;
     .beforeInvitingFriends {
-      width: 530px;
-      height: 23px;
-      left: 0px;
-      top: 0px;
-      position: absolute;
+      width: 100%;
+      text-align: center;
       font-size: 24px;
-      line-height: 23px;
       color: rgba(25, 29, 32, 1);
     }
-    .no150 {
-      width: 80px;
-      height: 18px;
-      left: 82px;
-      top: 172px;
-      position: absolute;
-      font-size: 18px;
-      line-height: 18px;
-      color: rgba(88, 88, 88, 1);
+    .prizeListBox {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: 22px;
+      .rankprizeItem {
+        width: 135px;
+        margin-right: 7px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &:last-child {
+          margin-right: 0;
+        }
+        .imgbox {
+          width: 108px;
+          height: 112px;
+          border-radius: 10px;
+          background: #e7f0f9;
+          border: 2px solid #dee8ed;
+          box-sizing: border-box;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          img {
+            max-width: 100%;
+            max-height: 100%;
+          }
+        }
+        .rankprizescore {
+          width: 100%;
+          text-align: center;
+          font-size: 18px;
+          color: rgba(88, 88, 88, 1);
+          margin-top: 10px;
+        }
+      }
     }
   }
+
+  .rank-rankList {
+    width: 590px;
+    left: 85px;
+    top: 404px;
+    position: absolute;
+    color: #4587bf;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .myrank {
+      width:545px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      font-size: 20px;
+      .myrank-rank {
+        width: 98px;
+        height: 40px;
+        margin-right: 20px;
+        text-align: center;
+        line-height: 40px;
+      }
+      .rank-nickName {
+        display: flex;
+        align-items: center;
+        margin-right: 5px;
+        .rank-avatar {
+          width: 28px;
+          height: 28px;
+          margin-right: 15px;
+          border-radius: 4px;
+          overflow: hidden;
+        }
+        .rank-name {
+          width: 260px;
+        }
+      }
+      .rank-score{
+        width: 124px;
+        text-align: center;
+        font-weight: bold;
+      }
+    }
+    .rank-otherRank {
+      width:545px;
+      height: 133px;
+      overflow-x: hidden;
+      overflow-y: auto;
+      padding-bottom: 30px;
+      box-sizing: border-box;
+    }
+  }
+  .nodata {
+    margin-top: 30px;
+    text-align: center;
+  }
+
   .button3 {
     width: 298px;
     height: 52px;
@@ -54,14 +136,6 @@
     top: 557px;
     position: absolute;
     .sparkBg("排行榜/按钮3.png");
-  }
-  .jPrizesFigure {
-    width: 389px;
-    height: 116px;
-    left: 189px;
-    top: 191px;
-    position: absolute;
-    .sparkBg("排行榜/j奖品图.png");
   }
   .snowAndIceAtmosphere {
     width: 820px;
