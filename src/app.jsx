@@ -10,9 +10,11 @@ MD();
 //此处为spark-cli动态生成
 // import Loading from "@src/pages/loading/loading";
 import HomePage from "@src/pages/homePage/homePage";
+import Gamepage from "./pages/gamepage/gamepage";
 const pageMap = {
   // loading: <Loading/>,
   homePage: <HomePage/>,
+  Gamepage: <Gamepage/>
 };
 @observer
 class App extends Component {
