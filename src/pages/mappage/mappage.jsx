@@ -23,7 +23,7 @@ class Mappage extends React.Component {
           <span className="mapBgimg2"></span>
         </div>
         <div className="levelbox">
-          <div className="alreadylevel">
+          <div className="alreadylevel" onClick={()=>store.changePage("Gamepage")}>
             <div className="startlist">
               <span className="startitem1"></span>
               <span className="startitem2"></span>

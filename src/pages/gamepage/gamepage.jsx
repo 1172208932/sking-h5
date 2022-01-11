@@ -7,6 +7,7 @@ import store from '../../store/index';
 import modalStore from '@src/store/modal';
 import API from '../../api';
 import './gamepage.less';
+import gameStore from './gameStore.js';
 
 @observer
 class Gamepage extends React.Component {
@@ -17,7 +18,6 @@ class Gamepage extends React.Component {
     this.initCanvas();
   }
   gamestage;
-  //TODO:canvas 居中还没做
   initCanvas() {
     var canvas = document.getElementById('gamestage')
     canvas.width = 1624;
@@ -41,9 +41,23 @@ class Gamepage extends React.Component {
     })()
   }
 
-  canvasUI() {
+  async canvasUI() {
     //let img = new FYGE.Sprite("")
-    console.log()
+    console.log("初始化canvasUI")
+    gameStore.offsetX = (1624 - document.body.clientWidth) / 2
+    gameStore.offsetY = (750 - document.body.clientHeight) / 2
+    gameStore.bgCon = new FYGE.Container();
+    this.gamestage.addChild(gameStore.bgCon)
+
+    var test = new FYGE.TextField();
+    gameStore.bgCon.addChild(test)
+    test.text = "123121123"
+    test.size = 55
+    test.fillColor = "#ff0000"
+    test.position.set(gameStore.offsetX, 0)
+
+    gameStore.createPhysicsWorld()
+
   }
   render() {
     return (
