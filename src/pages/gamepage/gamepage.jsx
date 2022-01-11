@@ -13,6 +13,36 @@ class Gamepage extends React.Component {
   constructor(props) {
     super(props);
   }
+  componentDidMount(){
+    this.initCanvas();
+  }
+  gamestage;
+  initCanvas() {
+    var canvas = document.getElementById('gamestage')
+    canvas.width = 1624;
+    canvas.height = 750;
+    this.gamestage = new FYGE.Stage(canvas, 1624, 750,
+      document.body.clientWidth,
+      document.body.clientHeight,
+      FYGE.RENDERER_TYPE.WEBGL)
+    var mouseEvent = this.gamestage.onMouseEvent.bind(this.gamestage);
+    canvas.addEventListener("touchstart", mouseEvent, false);
+    canvas.addEventListener("touchmove", mouseEvent, false);
+    canvas.addEventListener("touchend", mouseEvent, false);
+    //加载舞台
+    console.info("4")
+    this.gamestage.addEventListener(FYGE.Event.INIT_STAGE, this.canvasUI, this);
+    let self = this;
+    (function loop() {
+      FYGE.Tween.flush();
+      self.gamestage.flush()
+      requestAnimationFrame(loop)
+    })()
+  }
+
+  canvasUI(){
+    //let img = new FYGE.Sprite("")
+  }
   render() {
     return (
       <div className="gamepage">
@@ -39,7 +69,9 @@ class Gamepage extends React.Component {
           <span className="startready"></span>
           <span className="startgo"></span>
         </div>
+        <canvas className="canvas" id="gamestage"></canvas>
         <div className="iconarea">
+          
           <div className="distance">
             <span className="distancebg"></span>
             <span className="distancenum">3234m</span>
