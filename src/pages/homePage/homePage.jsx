@@ -58,7 +58,9 @@ class HomePage extends React.Component {
         <span className="rightPerson"></span>
 
         {/* 开始游戏按钮 */}
-        <span className="startga"></span>
+        <span className="startga" onClick={()=>{
+          store.changePage('Mappage')
+        }}></span>
         <span className="gesturesAperture"></span>
         {/* 左上角icon */}
         <div className="topleft">

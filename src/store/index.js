@@ -1,10 +1,10 @@
-import { makeAutoObservable } from "mobx";
-import API from "../api/index";
-
+import { makeAutoObservable } from 'mobx';
+import API from '../api/index';
 const store = makeAutoObservable({
-  ruleInfo: "",
-  curPage: "homePage",
-  homeInfo: {}, // 首页数据
+  ruleInfo: '',
+  curPage: 'homePage',
+  homeInfo: {},
+  // 首页数据
   setRule(ruleInfo) {
     this.ruleInfo = ruleInfo;
   },
@@ -22,7 +22,7 @@ const store = makeAutoObservable({
   },
   async getHomeInfo() {
     const { success, data } = await API.getIndex();
-    success && this.setHomeInfo(data)
+    success && this.setHomeInfo(data);
   },
 });
 export default store;
