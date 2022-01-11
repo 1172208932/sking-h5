@@ -19,9 +19,9 @@ class Gamepage extends React.Component {
   gamestage;
   initCanvas() {
     var canvas = document.getElementById('gamestage')
-    canvas.width = 750;
-    canvas.height = 1624;
-    this.gamestage = new FYGE.Stage(canvas, 750, 1624,
+    canvas.width = 1624;
+    canvas.height = 750;
+    this.gamestage = new FYGE.Stage(canvas, 1624, 750,
       document.body.clientWidth,
       document.body.clientHeight,
       FYGE.RENDERER_TYPE.WEBGL)
@@ -41,7 +41,7 @@ class Gamepage extends React.Component {
   }
 
   canvasUI(){
-
+    //let img = new FYGE.Sprite("")
   }
   render() {
     return (
