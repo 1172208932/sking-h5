@@ -108,10 +108,8 @@ class HomePage extends React.Component {
         <div className="bottomr">
           {/* 排行榜 */}
           <span className="ultimateLeaderboard" onClick={() => modalStore.pushPop("Rank")}></span>
-          <span className="moreGifts"></span>
+          <span className="moreGifts" onClick={() => window.location.href = homeInfo.url}></span>
         </div>
-       
-    
       </div>
       </div>
     );

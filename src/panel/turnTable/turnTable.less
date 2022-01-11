@@ -1,0 +1,122 @@
+@import "../../res.less";
+.turntable {
+  width: 1544px;
+  height: 747px;
+  position: absolute;
+  transform: rotate(90deg);
+  .light {
+    width: 773px;
+    height: 725px;
+    left: 425px;
+    top: 0px;
+    position: absolute;
+    .sparkBg("turnTable/light.png");
+  }
+  .drawbg {
+    width: 651px;
+    height: 509px;
+    left: 440px;
+    top: 164px;
+    position: absolute;
+    .sparkBg("turnTable/drawbg.png");
+  }
+  .title {
+    width: 632px;
+    height: 108px;
+    left: 491px;
+    top: 60px;
+    position: absolute;
+    .sparkBg("turnTable/标题.png");
+  }
+  .go {
+    width: 145px;
+    height: 135px;
+    left: 733px;
+    top: 360px;
+    position: absolute;
+    .sparkBg("turnTable/GO.png");
+  }
+  .ribbon {
+    width: 669px;
+    height: 340px;
+    left: 462px;
+    top: 84px;
+    position: absolute;
+    pointer-events: none;
+    .sparkBg("turnTable/彩带.png");
+  }
+  .snowAndIceAtmosphere {
+    width: 1544px;
+    height: 747px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    pointer-events: none;
+    .sparkBg("turnTable/冰雪氛围.png");
+  }
+  .turnBox {
+    width: 452px;
+    height: 423px;
+    position: relative;
+    left: 581px;
+    top: 216px;
+    .turn-prize {
+      position: absolute;
+      width: 144px;
+      height: 134px;
+      background: #f5fcfe;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
+    .turn-prize-choose {
+      background: #fef6cd;
+      border: 4px solid red;
+      box-sizing: border-box;
+    }
+    .turn-prize0 {
+      left: 0px;
+      top: 5px;
+    }
+  
+    .turn-prize1 {
+      left: 152px;
+      top: 5px;
+    }
+  
+    .turn-prize2 {
+      left: 304px;
+      top: 5px;
+    }
+  
+    .turn-prize3 {
+      left: 304px;
+      top: 145px;
+    }
+  
+    .turn-prize4 {
+      left: 304px;
+      top: 285px;
+    }
+  
+    .turn-prize5 {
+      left: 152px;
+      top: 285px;
+    }
+  
+    .turn-prize6 {
+      left: 0px;
+      top: 285px;
+    }
+  
+    .turn-prize7 {
+      left: 0px;
+      top: 145px;
+    }
+  }
+}

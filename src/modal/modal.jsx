@@ -1,8 +1,5 @@
-import React, { Component } from "react"; // import Gamepage from "../components/gamepage/gamepage";
-// import Iconarea from "../components/iconarea/iconarea";
-// import Startpop from "../components/startpop/startpop";
-
-import { ExchangeShop, ExchangeConfirm, Rule, Myprize, Rank, InviteSuccess } from "../panel/index.js";
+import React, { Component } from "react";
+import { ExchangeShop, ExchangeConfirm, Rule, Myprize, Rank, InviteSuccess, TurnTable, DrawPrize } from "../panel/index.js";
 import './modal.less';
 import { observer } from 'mobx-react';
 import modalStore from '../store/modal';
@@ -13,7 +10,9 @@ export const cfg = {
   Rule,
   Myprize,
   Rank,
-  InviteSuccess
+  InviteSuccess,
+  TurnTable,
+  DrawPrize,
 };
 
 @observer

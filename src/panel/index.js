@@ -4,4 +4,6 @@ import Rule from "./rule/rule"
 import Myprize from "./myprize/myprize"
 import Rank from "./rank/rank"
 import InviteSuccess from "./inviteSuccess/inviteSuccess"
-export {ExchangeShop, ExchangeConfirm,Rule,Myprize,Rank,InviteSuccess}
+import TurnTable from "./turnTable/turntable"
+import DrawPrize from "./drawPrize/drawPrize"
+export {ExchangeShop, ExchangeConfirm,Rule,Myprize,Rank,InviteSuccess,TurnTable,DrawPrize}
