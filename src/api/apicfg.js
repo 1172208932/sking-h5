@@ -6,9 +6,9 @@ const apiCfg = {
     method: "post"
   },
   getIndex: `scoring/index.do`,
-  listExchangeLimit:`exchange_1/listExchangeLimit.do`,
+  listExchangeLimit:`exchange/listExchangeLimit.do`,
   doExchange: {
-    uri: `exchange_1/doExchange.do`,
+    uri: `exchange/doExchange.do`,
     method: "post",
     withToken: true,
   },
@@ -20,7 +20,44 @@ const apiCfg = {
     uri: `draw_1/drawPrize.do`,
     method: "post",
     withToken: true,
-  }
+  },
+  answerQuery: {// 获取题目
+    uri: `answer_1/getQuestion.do`,
+    method: "post",
+    withToken: true,
+  },
+  answerStart: {// 开始答题
+    uri: `answer_1/start.do`,
+    method: "post",
+    withToken: true,
+  },
+  answerSubmit: {// 提交答案
+    uri: `answer_1/submit.do`,
+    method: "post",
+    withToken: true,
+  },
+  answerComplete: {// 完成提交
+    uri: `answer_1/doCompleted.do`,
+    method: "post",
+    withToken: true,
+  },
+  resurgence: {//复活参与游戏(扣少量金币的时候掉)
+    uri: `scoring/resurgence.do`,
+    withToken: true,
+  },
+  doAssist: {
+    uri:`assist_1/doAssist.do`,
+    method: "post",
+    withToken: true,
+    hideError: true, // 隐藏该接口报错的toast
+  },
+  signQuery: `sign_1/query.do`,
+  signOptions: `sign_1/queryOptions.do`,//查询签到奖品配置
+  doSign: {
+    uri: `sign_1/doSign.do`,
+    withToken: true,
+    method: "post",
+  },
 }
 
 export default apiCfg;

@@ -10,6 +10,7 @@ import {USER_AVATAR} from "../../utils/constants"
 import './homePage.less';
 import { _throttle } from '@src/utils/utils.js';
 import { Marquee, Toast } from "@spark/ui";
+import { SvgaPlayer } from '@spark/animation';
 @observer
 class HomePage extends React.Component {
   constructor(props) {
@@ -26,8 +27,25 @@ class HomePage extends React.Component {
 
   // 首页接口数据处理
   indexDataChange = () => {
+    // 有人助力成功弹窗
     if(store.homeInfo?.assistInfo?.assistNum > 0) {
       modalStore.pushPop("InviteSuccess")
+    }
+    // 用户助力
+    this.toAssist();
+  }
+
+  toAssist = async() => {
+    if(CFG.inviteCode && !sessionStorage.getItem("inviteCode")) {
+      const {success} = await API.doAssist({
+        inviteCode: CFG.inviteCode
+      })
+      sessionStorage.setItem("inviteCode",CFG.inviteCode)
+      if(success) {
+        Toast("助力成功")
+      } else {
+        Toast("助力失败")
+      }
     }
   }
 
@@ -54,12 +72,11 @@ class HomePage extends React.Component {
       <div className="homePagebox">
       <div className="homepage">
         <span className="title"></span>
-        <span className="leftPerson"></span>
-        <span className="rightPerson"></span>
+        <SvgaPlayer src={`${RES_PATH}/svga/标题与人物.svga`} className='title-person'></SvgaPlayer>
 
         {/* 开始游戏按钮 */}
-        <span className="startga"></span>
-        <span className="gesturesAperture"></span>
+        <SvgaPlayer className="startga" src={`${RES_PATH}/svga/开始游戏.svga`}/>
+        <SvgaPlayer className="gesturesAperture" src={`${RES_PATH}/svga/手势单击.svga`} />
         {/* 左上角icon */}
         <div className="topleft">
           {/* 头像 */}
@@ -97,9 +114,11 @@ class HomePage extends React.Component {
         {/* 左下角 */}
         <div className="bottoml">
           {/* 兑换商店 */}
-          <span className="duiHuanShangDian" onClick={() => modalStore.pushPop("ExchangeShop")}></span>
+          <div className="duiHuanShangDian" onClick={() => modalStore.pushPop("ExchangeShop")}>
+            <SvgaPlayer src={`${RES_PATH}/svga/兑换商店.svga`} className='store-svga'></SvgaPlayer>
+          </div>
           {/* 得金币 */}
-          <span className="deJinBi"></span>
+          <span className="deJinBi" onClick={() => modalStore.pushPop("Task")}></span>
         </div>
 
         {/* 右下角 */}

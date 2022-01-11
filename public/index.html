@@ -32,7 +32,7 @@
         }
 
         CFG.appID = '${APPID}';
-        CFG.recordUrl = "1234.html";
+        CFG.inviteCode = getUrlParam("inviteCode");
         if (!getUrlParam("appID")) {
             // alert("【警告】检测到活动url中没有appID参数\n缺少该参数会导致埋点、分享、app信息获取错误。")
         }

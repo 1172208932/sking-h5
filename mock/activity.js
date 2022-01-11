@@ -422,6 +422,129 @@ const turnTableQuery = {
   success: true,
 };
 
+const answerStart = {
+  success: true,
+  data: {
+    startId: "1212", //开始ID
+  }
+}
+
+const answerQuery = {
+  success: true,
+  data: {
+    content: "怎么可以优雅的滑雪怎么可以优雅的滑雪怎么可以优雅的滑雪怎么可以优雅的滑雪怎么可以优雅的滑雪怎么可以优雅的滑雪怎么可以优雅的滑雪",
+    answers: [
+      "坡道障碍滑雪",
+      "是德国第三个圣诞节还是对酒当歌手机号",
+      "打飞机估计会受到各方就会打给谁发回国倒计时的",
+    ],
+    currentIndex: 1, //本次答题的序号
+  }
+}
+
+const answerSubmit = {
+  success: true,
+  data: {
+    answer: {
+      right: true, // 是否正确
+      correctAnswers: ["2"], // 正确项的索引
+    }
+  }
+}
+const answerComplete = {
+  success: true,
+  data: {
+    extra: "newStartId", // 答题成功返回的开始游戏id
+  }
+}
+
+// 复活参与游戏
+const resurgence = {
+  success: true,
+  data: "fuhuostartID"
+}
+
+const doAssist = {
+  success: false,
+  data: "1",
+  message: "121271277",
+  code: 1,
+}
+
+const doSign = {
+  success: true,
+  data: {
+    options: [
+      {
+        name: "金币",
+        sendCount: 20,
+      }
+    ]
+  }
+}
+const signQuery = {
+  success: true,
+  data: {
+    todaySign: false, //今天是否签到 true-签到
+    signDay: 0,//连续/累计签到天数
+  }
+}
+
+//查询签到奖品配置
+const signOptions = {
+  success: true,
+  data: [{
+    options: [
+      {
+        name: "金币",
+        sendCount: 20,
+      }
+    ]
+  },{
+    options: [
+      {
+        name: "金币",
+        sendCount: 20,
+      }
+    ]
+  },{
+    options: [
+      {
+        name: "金币",
+        sendCount: 20,
+      }
+    ]
+  },{
+    options: [
+      {
+        name: "金币",
+        sendCount: 20,
+      }
+    ]
+  },{
+    options: [
+      {
+        name: "金币",
+        sendCount: 220,
+      }
+    ]
+  },{
+    options: [
+      {
+        name: "金币",
+        sendCount: 120,
+      }
+    ]
+  },{
+    options: [
+      {
+        name: "金币",
+        sendCount: 320,
+      }
+    ]
+  }]
+}
+
 module.exports = {
   getIndex,
   listExchangeLimit,
@@ -429,5 +552,14 @@ module.exports = {
   getMyPrize,
   getRank,
   turnTableDraw,
-  turnTableQuery
+  turnTableQuery,
+  answerStart,
+  answerQuery,
+  answerSubmit,
+  answerComplete,
+  resurgence,
+  doAssist,
+  doSign,
+  signQuery,
+  signOptions
 };

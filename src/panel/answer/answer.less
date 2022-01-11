@@ -1,0 +1,72 @@
+@import "../../res.less";
+.iDidntChoose1 {
+  width: 704px;
+  height: 432px;
+  position: absolute;
+  transform: rotate(90deg);
+  padding: 0 63px;
+  box-sizing: border-box;
+  .popupWindowBottom {
+    width: 704px;
+    height: 432px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    .sparkBg("答题未选1/弹窗底板.png");
+  }
+  .title {
+    width: 595px;
+    top: 48px;
+    position: absolute;
+    font-size: 36px;
+    color: rgba(30, 74, 121, 1);
+  }
+  .answerlist{
+    width: 574px;
+    height: 210px;
+    position: absolute;
+    top: 159px;
+    left: 71px;
+    .answeritem {
+      width: 100%;
+      height: 53px;
+      padding: 0 22px 0 29px;
+      border-radius: 8px;
+      background: #dcf3f8;
+      margin-bottom: 23px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      &.errorBg {
+        background: #f83c3c;
+        color: #fff;
+      }
+      &.rightBg {
+        background: #2a9b38;
+        color: #fff;
+      }
+      .answertitle {
+        width: 487px;
+        font-size: 30px;
+        color: #1e4a79;
+      }
+      .rightIcon {
+        max-width: 34px;
+        min-width: 26px;
+        max-height: 26px;
+        min-height: 24px;
+        .right {
+          width: 34px;
+          height: 24px;
+          .sparkBg("答题未选1/对.png");
+        }
+        .wrong {
+          width: 26px;
+          height: 26px;
+          .sparkBg("答题未选1/错.png");
+        }
+      }
+    }
+  }
+}

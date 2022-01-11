@@ -42,3 +42,5 @@ output.js.map
 .psb
 
 #src/assets/
+
+dist

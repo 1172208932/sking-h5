@@ -6,4 +6,7 @@ import Rank from "./rank/rank"
 import InviteSuccess from "./inviteSuccess/inviteSuccess"
 import TurnTable from "./turnTable/turntable"
 import DrawPrize from "./drawPrize/drawPrize"
-export {ExchangeShop, ExchangeConfirm,Rule,Myprize,Rank,InviteSuccess,TurnTable,DrawPrize}
+import Answer from "./answer/answer"
+import GameFail from "./gameFail/gameFail"
+import Task from "./task/task"
+export {ExchangeShop, ExchangeConfirm,Rule,Myprize,Rank,InviteSuccess,TurnTable,DrawPrize,Answer,GameFail, Task}

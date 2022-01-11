@@ -1,0 +1,55 @@
+@import "../../res.less";
+.gameFailPanel {
+  width: 861px;
+  height: 676px;
+  position: absolute;
+  transform: rotate(90deg);
+  .content-gamefail {
+    width: 704px;
+    height: 562px;
+    left: 71px;
+    top: 0px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    .sparkBg("复活弹窗1/bg.png");
+    p {
+      text-align: center;
+      margin-top: 340px;
+      font-size: 30px;
+      color: rgba(32, 94, 139, 1);
+    }
+  }
+  .again-fail {
+    width: 395px;
+    height: 88px;
+    left: 441px;
+    top: 588px;
+    position: absolute;
+    .sparkBg("复活弹窗1/again.png");
+    .participateInAnswer2 {
+      width: 122px;
+      height: 37px;
+      right: 0;
+      top: -20px;
+      position: absolute;
+      .sparkBg("复活弹窗1/矩形918.png");
+      .participationAnswer3 {
+        width: 122px;
+        font-size: 20px;
+        line-height: 33px;
+        text-align: center;
+        color: rgba(255, 255, 255, 1);
+      }
+    }
+  }
+
+  .out {
+    width: 395px;
+    height: 88px;
+    left: 0px;
+    top: 588px;
+    position: absolute;
+    .sparkBg("复活弹窗1/out.png");
+  }
+}

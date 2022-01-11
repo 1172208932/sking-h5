@@ -25,7 +25,7 @@ function getRequestParams(value) {
 			method: 'get'
 		}
 	} else if (typeof value === 'object') {
-		const {uri, method = 'get', headers, withToken, secret, secretKey, contentType = 'form'} = value;
+		const {uri, method = 'get', headers, withToken, secret, secretKey, contentType = 'form', hideError} = value;
 		return {
 			uri,
 			method,
@@ -34,6 +34,7 @@ function getRequestParams(value) {
 			secret,
 			secretKey,
 			contentType,
+			hideError,
 		}
 	} else {
 		console.error('getRequestParams: 传参有误');
@@ -45,8 +46,7 @@ function generateAPI(apiList) {
 	const api = {};
 	for (let key in apiList) {
 		let value = apiList[key];
-
-		const {method, uri, headers: mHeaders, withToken, secret, secretKey, contentType} = getRequestParams(value);
+		const {method, uri, headers: mHeaders, withToken, secret, secretKey, contentType, hideError} = getRequestParams(value);
 		api[key] = async (params = {}, headers) => {
 			let token;
 			if (withToken) {
@@ -62,7 +62,6 @@ function generateAPI(apiList) {
 			if (withToken && token) {
 				params.token = token;
 			}
-
 			params = {...params, ...mergeData};
 
 			const result = await callApi(uri, params, method, mergedHeaders, false, secret, secretKey, contentType)
@@ -72,7 +71,7 @@ function generateAPI(apiList) {
 				});
 			if (result) {
 				//判断接口错误
-				if (!result.success) {
+				if (!result.success && !hideError) {
 					Toast(result.message || '接口错误');
 				}
 				//返回整个结果
