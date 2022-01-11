@@ -56,7 +56,7 @@ class Gamepage extends React.Component {
     test.fillColor = "#ff0000"
     test.position.set(gameStore.offsetX, 0)
 
-    gameStore.createPhysicsWorld()
+    // gameStore.createPhysicsWorld()
 
   }
   render() {
