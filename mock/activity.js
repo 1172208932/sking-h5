@@ -20,7 +20,7 @@ const getIndex = {
         receive: "consectetur officia magna",
       },
     ],
-    url: "dolor exercitation dolor adipisicing id",
+    url: "http://www.baidu.com",
     rankPrize: [
       {
         rank: "cupidatat",
