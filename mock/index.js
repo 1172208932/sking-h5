@@ -2,7 +2,7 @@
 const rule = require("./common/rule");
 const drawNum = require("./common/drawNum");
 const carousel = require("./common/carousel");
-const {getIndex,doExchange,listExchangeLimit,getMyPrize, getRank, turnTableQuery, turnTableDraw, answerQuery, answerStart, answerSubmit,answerComplete, resurgence, doAssist, doSign,signOptions,signQuery} = require("./activity")
+const {getIndex,doExchange,listExchangeLimit,getMyPrize, getRank, turnTableQuery, turnTableDraw, answerQuery, answerStart, answerSubmit,answerComplete, resurgence, doAssist, doSign,signOptions,signQuery, inviteRecord,rankingAward} = require("./activity")
 const proxy = {
   "GET /projectRule.query": rule,
   "GET /drawNum.query": drawNum,
@@ -23,6 +23,7 @@ const proxy = {
   "POST /sign_1/doSign.do": doSign,
   "GET /sign_1/query.do": signQuery,
   "GET /sign_1/queryOptions.do": signOptions,
-
+  "GET /assist_1/queryInviteRecords.do": inviteRecord,
+  "GET /scoring/rankingAward.do": rankingAward
 };
 module.exports = proxy;

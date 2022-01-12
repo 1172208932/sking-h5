@@ -6,11 +6,13 @@ import { observer } from 'mobx-react';
 import store from '../../store/index';
 import modalStore from '@src/store/modal';
 import API from '../../api';
-import {USER_AVATAR} from "../../utils/constants"
 import './homePage.less';
 import { _throttle } from '@src/utils/utils.js';
 import { Marquee, Toast } from "@spark/ui";
 import { SvgaPlayer } from '@spark/animation';
+import AvatarBox from "@src/components/AvatarBox/AvatarBox"
+import CoinBox from "@src/components/CoinBox/CoinBox"
+
 @observer
 class HomePage extends React.Component {
   constructor(props) {
@@ -80,16 +82,9 @@ class HomePage extends React.Component {
         {/* 左上角icon */}
         <div className="topleft">
           {/* 头像 */}
-          <div className="picture2">
-            <img className="picture3" src={homeInfo?.avatar || USER_AVATAR}/>
-            <span className="currentScore">当前分数</span>
-            <span className="layer34173 textover">{homeInfo?.rankScore||0}</span>
-          </div>
+          <AvatarBox/>
           {/* 金币数量 */}
-          <div className="goldCoins">
-            <span className="coin"></span>
-            <span className="layer3418 textover">{homeInfo?.goldNum || 0}</span>
-          </div>
+          <CoinBox/>
           {/* 轮播 */}
           <div className="lunbo">
             <Marquee
