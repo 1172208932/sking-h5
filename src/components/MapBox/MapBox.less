@@ -1,0 +1,65 @@
+@import "../../res.less";
+
+.mapBox {
+  width: 14413px;
+  height: 317px;
+  left: 341px;
+  top: 288px;
+  position: relative;
+  .mapItem {
+    max-width: 113px;
+    max-height: 134px;
+    min-width: 104px;
+    min-height: 75px;
+    position: absolute;
+    .starBox {
+      width: 100px;
+      height: 31px;
+      position: absolute;
+      top: -32px;
+      img {
+        &:nth-child(2) {
+          margin:0 7px 5px 7px;
+        }
+      }
+    }
+    .levelBox {
+      max-width: 113px;
+      max-height: 134px;
+      min-width: 104px;
+      min-height: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &.needwait {
+        width: 110px;
+        height: 99px;
+        .sparkBg("mappage/敬请期待.png");
+      }
+      &.lockBtn {
+        width: 110px;
+        height: 99px;
+        padding: 0 10px 10px 0;
+        box-sizing: border-box;
+        .sparkBg("mappage/lockBtn.png");
+        
+      }
+      &.greenBtn {
+        padding: 0 0 20px 0;
+        box-sizing: border-box;
+
+        .sparkBg("mappage/greenLevelBg.png");
+      }
+      &.giftBtn {
+        width: 113px;
+        height: 134px;
+        .sparkBg("mappage/gift.png");
+
+      }
+      .num {
+        max-width: 18px;
+        max-height: 22px;
+      }
+    }
+  }
+}

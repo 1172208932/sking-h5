@@ -18,10 +18,10 @@ const getIndex = {
     rankScore: 121121221121221, //排行榜分数
     gameInfo: [
       {
-        level: "adipisicing ipsum Duis",
-        score: "Lorem mollit adipisicing",
-        star: "fugiat magna aliquip irure nostrud",
-        receive: "consectetur officia magna",
+        level: "1",
+        score: "0",
+        star: "1",
+        receive: "1",
       },
     ],
     url: "http://www.baidu.com",

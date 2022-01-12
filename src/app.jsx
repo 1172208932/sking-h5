@@ -12,12 +12,15 @@ MD();
 import HomePage from "@src/pages/homePage/homePage";
 import Gamepage from "./pages/gamepage/gamepage";
 import Mappage from "./pages/mappage/mappage";
+import Testpage from "./components/testpage/testpage";
+
 
 const pageMap = {
   // loading: <Loading/>,
   homePage: <HomePage />,
   Gamepage: <Gamepage />,
-  Mappage: <Mappage />
+  Mappage: <Mappage />,
+  Testpage: <Testpage/>
 };
 @observer
 class App extends Component {

@@ -7,18 +7,25 @@ import store from "../../store/index";
 import modalStore from "@src/store/modal";
 import API from "../../api";
 import "./mappage.less";
-import AvatarBox from "@src/components/AvatarBox/AvatarBox"
-import CoinBox from "@src/components/CoinBox/CoinBox"
-import DecCoinBox from "@src/components/DecCoinBox/DecCoinBox"
+import AvatarBox from "@src/components/AvatarBox/AvatarBox";
+import CoinBox from "@src/components/CoinBox/CoinBox";
+import DecCoinBox from "@src/components/DecCoinBox/DecCoinBox";
 import LastPrize from "@src/components/LastPrize/LastPrize.jsx";
+import MapBox from "@src/components/MapBox/MapBox.jsx";
 @observer
 class Mappage extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {};
   }
 
+  getMapInfo = () => {
+    
+    MapPosition.map((item) => {});
+  };
+
   render() {
-    const {homeInfo} = store;
+    const { homeInfo } = store;
     return (
       <div className="mappage">
         {/* 背景 */}
@@ -36,7 +43,9 @@ class Mappage extends React.Component {
           </div>
           {/* 扣除多少金币 */}
           <DecCoinBox />
-          <div className="mapPage-tiShi textover">有{homeInfo?.pvNum || 0}位用户与你一起闯关</div>
+          <div className="mapPage-tiShi textover">
+            有{homeInfo?.pvNum || 0}位用户与你一起闯关
+          </div>
           {/* 返回首页按钮 */}
           <span
             className="backbtn"
@@ -46,64 +55,16 @@ class Mappage extends React.Component {
           ></span>
         </div>
         {/* 100关 */}
-        <div className="levelbox">
-          <div
-            className="alreadylevel"
-            onClick={() => store.changePage("Gamepage")}
-          >
-            <div className="startlist">
-              <span className="startitem1"></span>
-              <span className="startitem2"></span>
-              <span className="startitem3"></span>
-            </div>
-            <div className="nostartlist">
-              <span className="nostart1"></span>
-              <span className="nostart2"></span>
-              <span className="nostart3"></span>
-            </div>
-            <span className="levelbg"></span>
-            <div className="levelnumbox">
-              <span className="level_1"></span>
-              <span className="level_2"></span>
-              <span className="level_3"></span>
-              <span className="level_4"></span>
-              <span className="level_5"></span>
-              <span className="level_6"></span>
-              <span className="level_7"></span>
-              <span className="level_8"></span>
-              <span className="level_9"></span>
-              <span className="level_0"></span>
-            </div>
-          </div>
-          <div className="nextedlevel">
-            <span className="nextedbg"></span>
-            <span className="nextedtest">0</span>
-          </div>
-          <div className="forwardlevel">
-            <span className="forwardicon"></span>
-          </div>
-        </div>
-        {/* 礼盒 */}
-        <div className="gifticonbox">
-          <span className="gift2"></span>
-          <span className="gift1"></span>
-          <span className="gift3"></span>
-          <span className="gift4"></span>
-          <span className="gift5"></span>
-          <span className="gift6"></span>
-          <span className="gift7"></span>
-          <span className="gift8"></span>
-          <span className="gift9"></span>
-        </div>
+        <MapBox/>
 
         {/* 终极大奖 */}
-        <LastPrize/>
+        <LastPrize />
 
         {/* 人 */}
-        <div className="headiconbox">
+        {/* <div className="headiconbox">
           <span className="headboxbottombg"></span>
           <span className="headboxbottomimg"></span>
-        </div>
+        </div> */}
       </div>
     );
   }

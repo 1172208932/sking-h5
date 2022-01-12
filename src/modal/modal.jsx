@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Testpage from "../components/testpage/testpage";
 import { ExchangeShop, ExchangeConfirm, Rule, Myprize, Rank, InviteSuccess, TurnTable, DrawPrize, Answer, GameFail, Task } from "../panel/index.js";
 import './modal.less';
 import { observer } from 'mobx-react';
@@ -16,6 +17,7 @@ export const cfg = {
   Answer,
   GameFail,
   Task,
+  Testpage: Testpage
 };
 
 @observer
