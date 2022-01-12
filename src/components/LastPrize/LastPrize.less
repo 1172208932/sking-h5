@@ -1,0 +1,129 @@
+@import "../../res.less";
+
+.giftbox {
+  width: 515px;
+  height: 666px;
+  left: 14692px;
+  top: 72px;
+  position: absolute;
+
+  .giftboximg {
+    width: 358px;
+    height: 272px;
+    left: 82px;
+    top: 163px;
+    position: absolute;
+    .sparkBg("mapPage/giftBoxImg.png");
+  }
+
+  .giftlist {
+    width: 487px;
+    height: 207px;
+    left: 0px;
+    top: 459px;
+    position: absolute;
+    .sparkBg("mapPage/giftListBg.png");
+    .lastPrizeBox {
+      width: 446px;
+      position: absolute;
+      top: 50px;
+      left: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .lastPrizeItem {
+        width: 141px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .imgbox {
+          width: 100px;
+          height: 100px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 5px;
+          background: #fff;
+          border-radius: 4px;
+          overflow: hidden;
+          img {
+            max-width: 100%;
+            max-height: 100%;
+          }
+        }
+        .prizeItem-score {
+          width: 100%;
+          text-align: center;
+          color: #fff;
+          font-size: 22px;
+        }
+      }
+    }
+  }
+
+  .giftboxtitle {
+    width: 500px;
+    height: 134px;
+    left: 15px;
+    top: 0px;
+    position: absolute;
+    .sparkBg("mapPage/giftBoxTitle.png");
+  }
+  .lastprizeBtn {
+    width: 304px;
+    height: 93px;
+    left: 104px;
+    top: 367px;
+    position: absolute;
+    .btn {
+      width: 304px;
+      height: 93px;
+      .sparkBg("mapPage/openGiftBtn.png");
+      &.need100 {
+        .sparkBg("mapPage/openGiftBtn.png");
+      }
+      &.waitReceive {
+        .sparkBg("mapPage/getGiftBtn.png");
+      }
+      &.received {
+        .sparkBg("mapPage/已领取.png");
+      }
+    }
+    .gesturesAperture {
+      width: 144px;
+      height: 151px;
+      left: 210px;
+      top: 8px;
+      position: absolute;
+      pointer-events: none;
+    }
+  }
+  
+
+  .opengiftbtn {
+    width: 304px;
+    height: 93px;
+    left: 104px;
+    top: 367px;
+    position: absolute;
+    .sparkBg("mapPage/openGiftBtn.png");
+  }
+
+  .getgiftbtn {
+    width: 304px;
+    height: 93px;
+    left: 104px;
+    top: 367px;
+    position: absolute;
+    .sparkBg("mapPage/getGiftBtn.png");
+  }
+
+  .giftboxpoint {
+    width: 110px;
+    height: 112px;
+    left: 307px;
+    top: 379px;
+    position: absolute;
+    .sparkBg("mapPage/giftBoxPoint.png");
+  }
+}

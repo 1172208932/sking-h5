@@ -1,6 +1,10 @@
 const getIndex = {
   message: "Ut Excepteur ad proident sint",
   data: {
+    joinGolds: 88,//参与消耗金币数
+    reGolds: 10,//复活消耗金币数
+    inviteGolds: 24,//邀请获得金币数
+    rankReceiveFlag: 3,//地图页终极大奖：1-无法领取 2-待领取 3-已领取
     nickName: "小巨蛋小巨蛋小巨蛋小巨蛋小巨蛋小巨蛋",
     avatar:
       "//yun.duiba.com.cn/aurora/assets/a51a8f870e3031792ae2b27e435fca4abb79181d.png",
@@ -23,9 +27,17 @@ const getIndex = {
     url: "http://www.baidu.com",
     rankPrize: [
       {
-        rank: "cupidatat",
-        prizeName: "sed laboris in sit non",
-        prizeImg: "in eu ullamco cupidatat fugiat",
+        rank: "1-10",
+        prizeName: "大声疾呼公司经过伤筋动骨",
+        prizeImg: "//yun.duiba.com.cn/aurora/assets/515ed09f2dd8458e1a9f0daeb24ad965ace57bf7.png",
+      },{
+        rank: "31-10",
+        prizeName: "大声疾呼公司经过伤筋211212动骨",
+        prizeImg: "//yun.duiba.com.cn/aurora/assets/515ed09f2dd8458e1a9f0daeb24ad965ace57bf7.png",
+      },{
+        rank: "1121212-2112212110",
+        prizeName: "大声疾呼公司经过伤筋动骨",
+        prizeImg: "//yun.duiba.com.cn/aurora/assets/515ed09f2dd8458e1a9f0daeb24ad965ace57bf7.png",
       },
     ],
   },
@@ -571,6 +583,22 @@ const stepNewGuide = {
 }
 
 
+const inviteRecord ={
+  success: true,
+  data: {
+    totalCount: 4,//总条数
+  }
+}
+
+const rankingAward = {
+  success: true,
+  data: {
+    prizeImg: "//yun.duiba.com.cn/aurora/assets/515ed09f2dd8458e1a9f0daeb24ad965ace57bf7.png",
+    prizeName: "what",
+    url: "http://www.baidu.com"
+  }
+}
+
 module.exports = {
   getIndex,
   listExchangeLimit,
@@ -589,5 +617,7 @@ module.exports = {
   signQuery,
   signOptions,
   queryNewGuide,
-  stepNewGuide
+  stepNewGuide,
+  inviteRecord,
+  rankingAward
 };

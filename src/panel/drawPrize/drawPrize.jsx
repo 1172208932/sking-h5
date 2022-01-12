@@ -14,6 +14,14 @@ class DrawPrize extends React.Component {
     super(props);
   }
 
+  clickClose = () => {
+    const {popData} = this.props;
+    modalStore.closePop("DrawPrize");
+    if(popData?.prizeInfo?.needToPrize && popData?.prizeInfo?.url) {
+      window.location.href = popData.prizeInfo.url
+    }
+  }
+
   render() {
     const {popData} = this.props;
     return (
@@ -25,7 +33,7 @@ class DrawPrize extends React.Component {
             <img src={popData?.prizeInfo?.optionImg} alt="" />
           </div>
         </div>
-        <span className="button" onClick={() => modalStore.closePop("DrawPrize")}></span>
+        <span className="button" onClick={this.clickClose}></span>
         <span className="snowAndIceAtmosphere"></span>
       </div>
     );

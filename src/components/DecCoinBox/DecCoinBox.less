@@ -1,0 +1,33 @@
+@import "../../res.less";
+.delcoinbox {
+  width: 181px;
+  height: 61px;
+  left: 617px;
+  top: 31px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,.3);
+  border-radius: 30px;
+
+  .icon {
+    width: 49px;
+    height: 46px;
+    .sparkBg("mapPage/icon.png");
+  }
+
+  .sub {
+    width: 17px;
+    height: 8px;
+    margin: 0 5px;
+    .sparkBg("mapPage/sub.png");
+  }
+  .iconImg {
+    max-width: 22px;
+    max-height: 29px;
+    &.iconImg0,&.iconImg5,&.iconImg6,&.iconImg8,&.iconImg9 {
+      margin-top: 2px;
+    }
+  }
+}
