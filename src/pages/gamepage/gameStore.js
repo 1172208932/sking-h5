@@ -50,40 +50,41 @@ const gameStore = makeAutoObservable({
         this.bgCon.addChild(shape);   // debug
         
 		//绘制地面线路
-		shape.beginStroke(0xff0000, 1); // debug
-		for (let i = 0; i < level1.length; i++) {
-            for(let n = 0;n<level1[i].length;n++){
-                const y = level1[i][n].y;
-                heights.push(-y);   // 加入高度组
-                shape.lineTo(this.offsetX+level1[i][n].x, y );   // debug
-            }
-			
+		
+        this.shape0 = new FYGE.Shape(); // debug
+		this.bgCon.addChild(this.shape0);   // debug
+		//绘制地面线路
+		this.shape0.beginStroke(0xff0000, 4); // debug
+		for (let i = 0; i < 20; i++) {
+			const y = level1[i];
+			heights.push(-y);   // 加入高度组
+			this.shape0.lineTo( i*100, y + 300);   // debug
 		}
-		shape.endStroke();  // debug
-
+		this.shape0.endStroke();  // debug
 
 
 		//生成地面刚体
 		//物理绘制
 		const dx = 100;
 
-		// 第一组地面
-		const hfShape = new p2.Heightfield({
+        // 第一组地面
+        
+		const heighshape = new p2.Heightfield({
 			heights: heights,
 			elementWidth: dx,
 		});
-		const hfShapeBody = new p2.Body({
+		this.line0 = new p2.Body({
 			mass: 0,
-			position: [level1[0].x, -400],
+			position: [0, -300],
 		});
-		hfShapeBody.addShape(hfShape);
-		this.phyworld.addBody(hfShapeBody);
+		this.line0.addShape(heighshape);
+		this.phyworld.addBody(this.line0);
 
         //结束拦截
         const panelShape = new p2.Plane();
 		const panelBody = new p2.Body({
 			mass: 0,    //重量
-			position:[level1[level1.length - 1].x, -(level1[level1.length - 1].y + 400)],//位置要改
+			position: [(level1.length-1)*100, -(level1[level1.length - 1] + 360)],
 		});
 		panelBody.addShape(panelShape);
 
@@ -93,12 +94,84 @@ const gameStore = makeAutoObservable({
 
 		//添加各种障碍additives
 		// for (let addi = 0; addi < this.additives.length; addi++) {
-		// 	let coin = new Obstacle(this.additives[addi], world, this.box)
+		// 	let coin = new Obstacle(this.additives[addi], world, this.bgCon)
 		// 	this.additiveslist.push(coin)
 
 		// }
         
     },
+    addLine(subdivision,world){
+		console.log("???")
+		var heights = []
+		var useShape;
+		var useLine;
+		if(subdivision%2 == 0){
+			this.shape0 = new FYGE.Shape();
+			this.bgCon.addChild(this.shape0);
+			useShape = this.shape0
+			this.line0 = new p2.Body({
+				mass: 0,
+				position: [(subdivision*20-1)*100, -300],
+			});
+			world.addBody(this.line0);
+			useLine = this.line0
+		}else{
+			this.shape1 = new FYGE.Shape();
+			this.bgCon.addChild(this.shape1);
+			useShape = this.shape1
+			this.line1 = new p2.Body({
+				mass: 0,
+				position: [(subdivision*20-1)*100, -300],
+			});
+			world.addBody(this.line1);
+			useLine = this.line1
+		}
+		console.log((subdivision*20-1)*100,level1[subdivision*20-1])//为啥查一个
+		//绘制地面线路
+		useShape.beginStroke(0xff0000, 4); // debug
+		for (let i = subdivision*20-1; i < (subdivision*20+20<level1.length?subdivision*20+20:level1.length); i++) {
+			const y = level1[i];
+			heights.push(-y);   // 加入高度组
+			useShape.lineTo( i*100, y + 300);   // debug
+		}
+		useShape.endStroke();  // debug
+
+
+
+		//生成地面刚体
+		//物理绘制
+		const dx = 100;
+
+		// 第一组地面
+		const hfShapeshape = new p2.Heightfield({
+			heights: heights,
+			elementWidth: dx,
+		});
+		useLine.addShape(hfShapeshape);
+	},
+	removeLine(subdivision,world){
+		if(subdivision<0){
+			return
+		}
+		console.log(subdivision)
+		var useShape;
+		var useLine;
+		if(subdivision%2 == 0){
+			this.bgCon.removeChild(this.shape0)
+			this.world.removeBody(this.line0);
+		}else{
+			this.bgCon.removeChild(this.shape1)
+			this.world.removeBody(this.line1);
+		}
+		if(useLine && useShape){
+			
+		}else{
+			console.log("移除了")
+		}
+		console.log(this.bgCon.children)
+		
+		
+	},
 });
 export default gameStore;
 
