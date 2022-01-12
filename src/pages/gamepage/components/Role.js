@@ -37,12 +37,12 @@ export default class Role extends Sprite {
         this.addChild(circle);
         // circledrawRoundedRect
         circle.beginFill(0xff0000, 0.5)
-            .drawCircle(0, 0, 4)
+            .drawCircle(0, 0, 8)
             // .drawRoundedRect(0,0,40,40)
             .endFill();
 
         // new Box({width:40,height:40})
-        const circleShape = this.circleShape = new p2.Circle({ radius: 4, material: new p2.Material()});
+        const circleShape = this.circleShape = new p2.Circle({ radius: 8, material: new p2.Material()});
         //  new Circle({ radius: 20 });
         const circleBody  = this.circleBody = new p2.Body({
             mass: 1,    //重量
@@ -57,12 +57,12 @@ export default class Role extends Sprite {
         this.addChild(circle2);
         // circledrawRoundedRect
         circle2.beginFill(0xff0000, 0.5)
-            .drawCircle(0, 0, 4)
+            .drawCircle(0, 0, 8)
             // .drawRoundedRect(0,0,40,40)
             .endFill();
 
 
-        const circleShape2 = this.circleShape2= new p2.Circle({ radius: 4 , material: new p2.Material()});
+        const circleShape2 = this.circleShape2= new p2.Circle({ radius: 8 , material: new p2.Material()});
         //  new Circle({ radius: 20 });
         const circleBody2  = this.circleBody2 = new p2.Body({
             mass: 1,    //重量
@@ -93,7 +93,7 @@ export default class Role extends Sprite {
         const carShape= this.carShape = new p2.Box({ width: 40, height: 80 , material: new p2.Material()});
         //  new Circle({ radius: 20 });
         const carBody = this.carBody = new p2.Body({
-            mass: 8,    //重量
+            mass: 3,    //重量
             // position: [100, -410],
             // position: [180, -410],
             angularDamping:1,

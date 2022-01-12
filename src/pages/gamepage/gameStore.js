@@ -77,6 +77,28 @@ const gameStore = makeAutoObservable({
 		this.role = new Role()
 		this.bgCon.addChild(this.role)
 
+		var contactMaterial1  = new p2.ContactMaterial(this.heighshape.material,this.role.circleShape.material, {
+                restitution: 0, // This means no bounce!
+				surfaceVelocity: -82000,
+				friction: 0.8
+            });
+		this.phyworld.addContactMaterial(contactMaterial1)
+
+		var contactMaterial2 =new p2.ContactMaterial(this.heighshape.material,this.role.circleShape2.material, {
+			restitution: 0, // This means no bounce!
+			surfaceVelocity: -82000,
+			friction: 0.8
+		});
+		this.phyworld.addContactMaterial(contactMaterial2)
+
+		var contactMaterial3  = new p2.ContactMaterial(this.heighshape.material,this.role.carShape.material, {
+			restitution: 0, // This means no bounce!
+			surfaceVelocity: -82000,
+			friction: 0
+		});
+		this.phyworld.addContactMaterial(contactMaterial3)
+
+
 		this.phyworld.addBody(this.role.circleBody);
 		this.phyworld.addBody(this.role.circleBody2);
 		this.phyworld.addBody(this.role.carBody);
@@ -84,25 +106,6 @@ const gameStore = makeAutoObservable({
 		let revoluteFront = new p2.LockConstraint(this.role.carBody, this.role.circleBody2);
 		this.phyworld.addConstraint(revoluteBack);
 		this.phyworld.addConstraint(revoluteFront);
-
-
-		var contactMaterial1  = new p2.ContactMaterial(this.heighshape.material,this.role.circleShape.material, {
-                restitution: 0, // This means no bounce!
-				surfaceVelocity: 0.5,
-            });
-		this.phyworld.addContactMaterial(contactMaterial1)
-
-		var contactMaterial2 =new p2.ContactMaterial(this.heighshape.material,this.role.circleShape2.material, {
-			restitution: 0, // This means no bounce!
-			surfaceVelocity: 0.5,
-		});
-		this.phyworld.addContactMaterial(contactMaterial2)
-
-		var contactMaterial3  = new p2.ContactMaterial(this.heighshape.material,this.role.carShape.material, {
-			restitution: 0, // This means no bounce!
-			surfaceVelocity: 0.5,
-		});
-		this.phyworld.addContactMaterial(contactMaterial3)
 
 	},
 
@@ -158,7 +161,7 @@ const gameStore = makeAutoObservable({
 		this.role.carBody.fixedRotation = true
 
 
-		this.role.carBody.applyForce([0, 2 * 200000], [0, 0]);
+		this.role.carBody.applyForce([0, 2 * 100000], [0, 0]);
 		this.count ++;
 	},
     phyworld:'',
@@ -177,6 +180,8 @@ const gameStore = makeAutoObservable({
         this.shape0 = new FYGE.Shape(); // debug
 		this.bgCon.addChild(this.shape0);   // debug
 		//绘制地面线路
+		// let level1 = [ 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110,]
+
 		this.shape0.beginStroke(0xff0000, 4); // debug
 		for (let i = 0; i < 20; i++) {
 			const y = level1[i];
@@ -240,6 +245,19 @@ const gameStore = makeAutoObservable({
 				(e.bodyB.id == this.role.circleBody.id && e.bodyA.id == this.line0.id) ||
 				(e.bodyA == this.role.circleBody2 && e.bodyB == this.line0) ||
 				(e.bodyB == this.role.circleBody2 && e.bodyA == this.line0)
+			) {
+				// console.log(e)
+				// console.log(hfShapeBody)
+				this.role.carBody.fixedRotation = false
+				console.log('碰撞到地面了')
+				this.count = 0
+				// this.role.carBody.angle = 0
+			}
+			if (
+				(e.bodyA.id == this.role.circleBody.id && e.bodyB.id == this.line1.id) ||
+				(e.bodyB.id == this.role.circleBody.id && e.bodyA.id == this.line1.id) ||
+				(e.bodyA == this.role.circleBody2 && e.bodyB == this.line1) ||
+				(e.bodyB == this.role.circleBody2 && e.bodyA == this.line1)
 			) {
 				// console.log(e)
 				// console.log(hfShapeBody)
