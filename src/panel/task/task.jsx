@@ -17,12 +17,14 @@ class Task extends React.Component {
     this.state = {
       signPrizeConfig: null,
       signDetail: null,
+      totalInviteCount: 0,
     };
   }
 
   componentDidMount() {
     this.getSignPrizeList();
     this.getSignDetail();
+    this.queryInviteNum();
   }
 
   // 查询签到奖品配置
@@ -45,6 +47,7 @@ class Task extends React.Component {
     }
   };
 
+  // 点击签到
   clickSign = _throttle(async(index) => {
     const { signDetail } = this.state;
     if(signDetail?.todaySign) return false;
@@ -56,8 +59,23 @@ class Task extends React.Component {
       }
     }
   })
+
+  // 查询已邀请人数
+  queryInviteNum = async() => {
+    const {success,data} = await API.inviteRecord({
+      pageNum: 1,
+      pageSize: 10,
+      queryIntervalType: 1,//1=当日、4=永久
+    })
+    if(success) {
+      this.setState({
+        totalInviteCount: data?.totalCount
+      })
+    }
+  }
   render() {
-    const { signPrizeConfig, signDetail } = this.state;
+    const {homeInfo} = store;
+    const { signPrizeConfig, signDetail, totalInviteCount } = this.state;
     return (
       <div className="taskPopup1">
         <span className="snowAndIceAtmosphere"></span>
@@ -93,8 +111,8 @@ class Task extends React.Component {
           <div className="inviteBox">
             <img src="" alt="" className="avatar-invite" />
             <div className="centerInfo-invite">
-              <p className="title textover">邀请好友（1/10)</p>
-              <p className="subTitle textover">邀请好友可得20金币</p>
+              <p className="title textover">邀请好友（{totalInviteCount}/10)</p>
+              <p className="subTitle textover">邀请好友可得{homeInfo?.inviteGolds}金币</p>
             </div>
             {/* 去邀请TODO */}
             <div className="inviteBtn"></div>

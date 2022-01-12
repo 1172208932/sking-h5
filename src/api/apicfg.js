@@ -58,6 +58,8 @@ const apiCfg = {
     withToken: true,
     method: "post",
   },
+  inviteRecord: `assist_1/queryInviteRecords.do`, //查询我的邀请记录
+  rankingAward: `scoring/rankingAward.do`,
 }
 
 export default apiCfg;
