@@ -40,9 +40,6 @@ const gameStore = makeAutoObservable({
     
         //     }
         //   )
-        
-
-
     },
 
 	addRole(){
@@ -174,8 +171,47 @@ const gameStore = makeAutoObservable({
 		// 	this.additiveslist.push(coin)
 
 		// }
-        
+
+		this.listenContact()
     },
+
+	listenContact(){
+		//碰装检测
+		this.phyworld.on("beginContact", (e) => {
+
+			let pengzhuangID = 0;
+			pengzhuangID = e.bodyB.id
+
+			// debugger
+			// console.log(hfShapeBody)
+
+			if (
+				(e.bodyA.id == this.role.circleBody.id && e.bodyB.id == this.line0.id) ||
+				(e.bodyB.id == this.role.circleBody.id && e.bodyA.id == this.line0.id) ||
+				(e.bodyA == this.role.circleBody2 && e.bodyB == this.line0) ||
+				(e.bodyB == this.role.circleBody2 && e.bodyA == this.line0)
+			) {
+				// console.log(e)
+				// console.log(hfShapeBody)
+				this.role.carBody.fixedRotation = false
+				console.log('碰撞到地面了')
+				// this.role.carBody.angle = 0
+			}
+
+			// for (let i = 0; i < this.additives.length; i++) {
+			// 	// console.log(this.additiveslist[i].rectBody.id)
+			// 	if (pengzhuangID == this.additiveslist[i].rectBody.id) {
+			// 		if (this.additiveslist[i].type == "coin" || this.additiveslist[i].type == "bigcoin") {
+			// 			world.removeBody(this.additiveslist[i].rectBody)
+			// 			this.box.removeChild(this.additiveslist[i].rectcoin)
+			// 			console.log("getCoin")
+			// 		} else {
+			// 			console.log("die")
+			// 		}
+			// 	}
+			// }
+		})
+	},
     addLine(subdivision,world){
 		console.log("???")
 		var heights = []
