@@ -80,8 +80,6 @@ const gameStore = makeAutoObservable({
 
 		this.addMaterial(this.heighshape)
 		
-
-
 		this.phyworld.addBody(this.role.circleBody);
 		this.phyworld.addBody(this.role.circleBody2);
 		this.phyworld.addBody(this.role.carBody);
