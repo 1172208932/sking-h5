@@ -64,7 +64,6 @@ class HomePage extends React.Component {
     !ruleInfo && await store.initRule();
     modalStore.pushPop("Rule")
   })
-
   render() {
     const {homeInfo} = store;
     const {carouselList} = this.state;

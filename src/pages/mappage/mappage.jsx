@@ -7,13 +7,42 @@ import store from '../../store/index';
 import modalStore from '@src/store/modal';
 import API from '../../api';
 import './mappage.less';
-
+import { hideLoading, showLoading } from '@spark/ui';
+import { Tool } from '@src/utils/Tool.js';
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 @observer
 class Mappage extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      queryNewGuideInfo: '', // 中奖轮播
+    }
   }
 
+
+  componentDidMount() {
+    this.queryNewGuide()
+  }
+  async queryNewGuide() {
+
+    let queryNewGuideInfo = await API.queryNewGuide()
+    console.info('queryNewGuideInfo:', queryNewGuideInfo)
+    this.setState({
+      queryNewGuideInfo: queryNewGuideInfo.data
+    })
+
+    let toWidth = Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - document.documentElement.clientWidth
+    console.log("toWidth:", toWidth)
+    var percent = { toWidth: 100 }
+    await delay(1000)
+    Tool.tweenReaptToto2(document.documentElement, 0, toWidth, toWidth)
+
+  }
+  scroolToBottom() {
+    // setTimeout(() => {
+    //   document.documentElement.scrollLeft = document.body.scrollLeft = Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - document.documentElement.clientWidth
+    // }, 0);
+  }
   render() {
     return (
       <div className="mappage">
@@ -23,7 +52,7 @@ class Mappage extends React.Component {
           <span className="mapBgimg2"></span>
         </div>
         <div className="levelbox">
-          <div className="alreadylevel" onClick={()=>store.changePage("Gamepage")}>
+          <div className="alreadylevel" onClick={() => store.changePage("Gamepage")}>
             <div className="startlist">
               <span className="startitem1"></span>
               <span className="startitem2"></span>

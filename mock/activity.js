@@ -366,49 +366,49 @@ const turnTableQuery = {
         prizeId: "sp_1",
         prizeType: 1,
         url: "http://www.baidu.com",
-      },{
+      }, {
         optionId: 12112,
         optionImg: "//yun.duiba.com.cn/aurora/assets/2f7fb2d7a5397ca10bed4574c2c8f37b3c362bf8.png",
         optionName: "抽奖奖品2",
         prizeId: "sp_2",
         prizeType: 1,
         url: "http://www.baidu.com",
-      },{
+      }, {
         optionId: 12112,
         optionImg: "//yun.duiba.com.cn/aurora/assets/9b89c69bf6115206c661d887938d0ceee5cc927f.png",
         optionName: "抽奖奖品3",
         prizeId: "sp_3",
         prizeType: 1,
         url: "http://www.baidu.com",
-      },{
+      }, {
         optionId: 12112,
         optionImg: "//yun.duiba.com.cn/aurora/assets/2368d666b9c3caccc46c99b5f331a7432503b2a9.png",
         optionName: "抽奖奖品4",
         prizeId: "sp_4",
         prizeType: 1,
         url: "http://www.baidu.com",
-      },{
+      }, {
         optionId: 12112,
         optionImg: "//yun.duiba.com.cn/aurora/assets/798e474e87d316de19974e9cbdce6e2d72876901.png",
         optionName: "抽奖奖品5",
         prizeId: "sp_5",
         prizeType: 1,
         url: "http://www.baidu.com",
-      },{
+      }, {
         optionId: 12112,
         optionImg: "//yun.duiba.com.cn/aurora/assets/aaabdca89f8b88c3648d9f3a33fde3a86bad459b.png",
         optionName: "抽奖奖品6",
         prizeId: "sp_6",
         prizeType: 1,
         url: "http://www.baidu.com",
-      },{
+      }, {
         optionId: 12112,
         optionImg: "//yun.duiba.com.cn/aurora/assets/1a2df0ff03d86b978e894bdf034f48d62817b0b0.png",
         optionName: "抽奖奖品7",
         prizeId: "sp_7",
         prizeType: 1,
         url: "http://www.baidu.com",
-      },{
+      }, {
         optionId: 12112,
         optionImg: "//yun.duiba.com.cn/aurora/assets/e8159bf64974c3b5b509b1c9f33a396d72cdfa8b.png",
         optionName: "抽奖奖品8",
@@ -500,42 +500,42 @@ const signOptions = {
         sendCount: 20,
       }
     ]
-  },{
+  }, {
     options: [
       {
         name: "金币",
         sendCount: 20,
       }
     ]
-  },{
+  }, {
     options: [
       {
         name: "金币",
         sendCount: 20,
       }
     ]
-  },{
+  }, {
     options: [
       {
         name: "金币",
         sendCount: 20,
       }
     ]
-  },{
+  }, {
     options: [
       {
         name: "金币",
         sendCount: 220,
       }
     ]
-  },{
+  }, {
     options: [
       {
         name: "金币",
         sendCount: 120,
       }
     ]
-  },{
+  }, {
     options: [
       {
         name: "金币",
@@ -544,6 +544,32 @@ const signOptions = {
     ]
   }]
 }
+
+//查询是否完成新手引导
+const queryNewGuide = {
+  "success": true,
+  "code": "",
+  "data": {
+    "skipNewGuide": false,
+    "completeGuide": true,
+    "alreadyGuideSteps": 3,
+    "allGuideSteps": 3,
+    "extra": ""
+  }
+}
+
+//递进新手引导完成的步数
+const stepNewGuide = {
+  "success": true,
+  "code": "",
+  "data": {
+    "completeGuide": true,
+    "alreadyGuideSteps": 3,
+    "allGuideSteps": 3,
+    "extra": ""
+  }
+}
+
 
 module.exports = {
   getIndex,
@@ -561,5 +587,7 @@ module.exports = {
   doAssist,
   doSign,
   signQuery,
-  signOptions
+  signOptions,
+  queryNewGuide,
+  stepNewGuide
 };

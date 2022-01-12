@@ -58,6 +58,17 @@ const apiCfg = {
     withToken: true,
     method: "post",
   },
+
+  queryNewGuide: {
+    uri: `guide_1/queryNewGuide.do`,
+    method: "post",
+  },
+
+  stepNewGuide: {
+    uri: `guide_1/doSstepNewGuidegn.do`,
+    withToken: true,
+    method: "get",
+  },
 }
 
 export default apiCfg;
