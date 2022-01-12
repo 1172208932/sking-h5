@@ -44,8 +44,9 @@ class Gamepage extends React.Component {
   async canvasUI() {
     //let img = new FYGE.Sprite("")
     console.log("初始化canvasUI")
-    gameStore.offsetX = (1624 - document.body.clientWidth) / 2
-    gameStore.offsetY = (750 - document.body.clientHeight) / 2
+    gameStore.offsetX = (1624 - (document.body.clientWidth > 1624 ? 1624 : document.body.clientWidth)) / 2
+    gameStore.offsetY = (750 - (document.body.clientHeight > 750 ? 750 : document.body.clientHeight)) / 2
+    console.log(document.body.clientWidth > 1624 ? 1624 : document.body.clientWidth)
     gameStore.bgCon = new FYGE.Container();
     this.gamestage.addChild(gameStore.bgCon)
 
@@ -56,7 +57,20 @@ class Gamepage extends React.Component {
     test.fillColor = "#ff0000"
     test.position.set(gameStore.offsetX, 0)
 
-    // gameStore.createPhysicsWorld()
+    gameStore.createPhysicsWorld()
+
+    gameStore.addRole()
+
+    //帧刷新
+    this.gamestage.addEventListener(FYGE.Event.ENTER_FRAME, () => {
+      gameStore.enterFrame(this.gamestage)
+    });
+
+    //点击
+    this.gamestage.addEventListener(FYGE.MouseEvent.CLICK, () => {
+      gameStore.clickStage()
+    });
+
 
   }
   render() {
