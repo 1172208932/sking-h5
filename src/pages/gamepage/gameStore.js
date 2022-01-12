@@ -9,6 +9,7 @@ const gameStore = makeAutoObservable({
 	// 双击
 	timer:null,
 	count:null,
+	ifFly:false,
 
     bgCon:'',
     phyCon:'',
@@ -71,9 +72,7 @@ const gameStore = makeAutoObservable({
 		this.role.circle2.position.set(circleBody2X, circleBody2Y);
 		this.role.car.position.set(carBodyX - 40, carBodyY);
 
-		// console.log(carBody.angle)
-
-
+		console.log(this.role.carBody.angle)
 		this.bgCon.x = -x + stage.width / 4   //镜头跟随
 		this.bgCon.y = -y + stage.height / 4
 
@@ -84,32 +83,19 @@ const gameStore = makeAutoObservable({
 
 
 	clickStage(){
+		if(this.count >1){return}
 		const x = this.role.circleBody.position[0];
 		const y = -this.role.circleBody.position[1];
 
 		const x2 = this.role.circleBody2.position[0];
 		const y2 = -this.role.circleBody2.position[1];
 
-		this.timer = setTimeout(() => { // 初始化一个延时
-			if (this.count === 1) {
-				this.role.carBody.angle = 0
-				this.role.carBody.fixedRotation = true
+		this.role.carBody.angle = 0
+		this.role.carBody.fixedRotation = true
 
-				console.log('单击')
-				/* 单击后要处理的业务 */
-				this.role.carBody.applyForce([0, 2 * 100000], [0, 0]);
-			} else {
-				this.role.carBody.angle = 0
 
-				this.role.carBody.fixedRotation = true
-
-				console.log('双击')
-				/* 双击后要处理的业务 */
-				this.role.carBody.applyForce([0, 2 * 180000], [0, 0]);
-			}
-			clearTimeout(this.timer)
-			this.count = 0
-		}, 300)
+		this.role.carBody.applyForce([0, 2 * 150000], [0, 0]);
+		this.count ++;
 	},
     phyworld:'',
     additiveslist:[],
@@ -195,6 +181,7 @@ const gameStore = makeAutoObservable({
 				// console.log(hfShapeBody)
 				this.role.carBody.fixedRotation = false
 				console.log('碰撞到地面了')
+				this.count = 0
 				// this.role.carBody.angle = 0
 			}
 
