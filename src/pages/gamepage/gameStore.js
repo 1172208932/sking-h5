@@ -85,12 +85,25 @@ const gameStore = makeAutoObservable({
 		this.phyworld.addConstraint(revoluteBack);
 		this.phyworld.addConstraint(revoluteFront);
 
-		this.phyworld.addContactMaterial(new p2.ContactMaterial(this.heighshape.material,this.role.circleShape.material, {
-                restitution: 0 // This means no bounce!
-            }));
-		this.phyworld.addContactMaterial(new p2.ContactMaterial(this.heighshape.material,this.role.circleShape2.material, {
-			restitution: 0 // This means no bounce!
-		}));
+
+		var contactMaterial1  = new p2.ContactMaterial(this.heighshape.material,this.role.circleShape.material, {
+                restitution: 0, // This means no bounce!
+				surfaceVelocity: 0.5,
+            });
+		this.phyworld.addContactMaterial(contactMaterial1)
+
+		var contactMaterial2 =new p2.ContactMaterial(this.heighshape.material,this.role.circleShape2.material, {
+			restitution: 0, // This means no bounce!
+			surfaceVelocity: 0.5,
+		});
+		this.phyworld.addContactMaterial(contactMaterial2)
+
+		var contactMaterial3  = new p2.ContactMaterial(this.heighshape.material,this.role.carShape.material, {
+			restitution: 0, // This means no bounce!
+			surfaceVelocity: 0.5,
+		});
+		this.phyworld.addContactMaterial(contactMaterial3)
+
 	},
 
 	enterFrame( stage){
@@ -145,7 +158,7 @@ const gameStore = makeAutoObservable({
 		this.role.carBody.fixedRotation = true
 
 
-		this.role.carBody.applyForce([0, 2 * 150000], [0, 0]);
+		this.role.carBody.applyForce([0, 2 * 200000], [0, 0]);
 		this.count ++;
 	},
     phyworld:'',
@@ -178,7 +191,6 @@ const gameStore = makeAutoObservable({
 		const dx = 100;
 
         // 第一组地面
-        
 		const heighshape = this.heighshape = new p2.Heightfield({
 			heights: heights,
 			elementWidth: dx,

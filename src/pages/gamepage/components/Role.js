@@ -6,8 +6,10 @@ const Shape = FYGE.Shape;
 export default class Role extends Sprite {
     // 前轮
     circle
+    
     circleShape
     circleShape2
+    carShape
     // 后轮
     circle2
     // 车身
@@ -88,7 +90,7 @@ export default class Role extends Sprite {
             // .drawRoundedRect(0,0,40,40)
             .endFill();
 
-        const carShape = new p2.Box({ width: 40, height: 80 });
+        const carShape= this.carShape = new p2.Box({ width: 40, height: 80 , material: new p2.Material()});
         //  new Circle({ radius: 20 });
         const carBody = this.carBody = new p2.Body({
             mass: 8,    //重量
