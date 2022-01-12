@@ -47,8 +47,11 @@ class Gamepage extends React.Component {
     gameStore.offsetX = (1624 - (document.body.clientWidth > 1624 ? 1624 : document.body.clientWidth)) / 2
     gameStore.offsetY = (750 - (document.body.clientHeight > 750 ? 750 : document.body.clientHeight)) / 2
     console.log(document.body.clientWidth > 1624 ? 1624 : document.body.clientWidth)
+    gameStore.bgArea = new FYGE.Container();
+    this.gamestage.addChild(gameStore.bgArea)
     gameStore.bgCon = new FYGE.Container();
     this.gamestage.addChild(gameStore.bgCon)
+    
 
     var test = new FYGE.TextField();
     gameStore.bgCon.addChild(test)
@@ -60,6 +63,8 @@ class Gamepage extends React.Component {
     gameStore.createPhysicsWorld()
 
     gameStore.addRole()
+
+    gameStore.initbg()
 
     //帧刷新
     this.gamestage.addEventListener(FYGE.Event.ENTER_FRAME, () => {

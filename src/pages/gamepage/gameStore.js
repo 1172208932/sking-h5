@@ -2,6 +2,7 @@ import { makeAutoObservable } from 'mobx';
 import { level, level1 } from '@src/lujingInfo/lujing';
 import p2 from 'p2/build/p2';
 import Role from './components/Role'
+import { RES_PATH } from '../../../sparkrc.js';
 
 const gameStore = makeAutoObservable({
 
@@ -15,8 +16,10 @@ const gameStore = makeAutoObservable({
     phyCon:'',
     offsetX:'',
     offsetY:'',
+    bgArea:'',
+    bgList:'',
 
-    initUI() {
+    initbg() {
         //加载图片
         // FYGE.GlobalLoader.loadImage((s, image) => {
         //     //纹理
@@ -41,8 +44,35 @@ const gameStore = makeAutoObservable({
     
         //     }
         //   )
-    },
+        
 
+
+        FYGE.GlobalLoader.loadImage((s, image) => {
+            //纹理
+            var texture = FYGE.Texture.fromImage(image);
+            //显示对象
+            var spr = new FYGE.Sprite(texture)
+            this.bgArea.addChild(spr)
+        }, `${RES_PATH}GamePage/level1/sky.png`)
+
+        FYGE.GlobalLoader.loadImage((s, image) => {
+            //纹理
+            var texture = FYGE.Texture.fromImage(image);
+            //显示对象
+            var spr = new FYGE.Sprite(texture)
+            spr.y = 86
+            this.bgArea.addChild(spr)
+        }, `${RES_PATH}GamePage/level1/skylast.png`)
+
+
+    },
+    MoveBg(){
+
+    },
+    stopMoveBg(){
+
+    },
+    subdivision:0,
 	addRole(){
 		this.role = new Role()
 		this.bgCon.addChild(this.role)
@@ -72,13 +102,27 @@ const gameStore = makeAutoObservable({
 		this.role.circle2.position.set(circleBody2X, circleBody2Y);
 		this.role.car.position.set(carBodyX - 40, carBodyY);
 
-		console.log(this.role.carBody.angle)
+
+
 		this.bgCon.x = -x + stage.width / 4   //镜头跟随
-		this.bgCon.y = -y + stage.height / 4
+        this.bgCon.y = -y + stage.height *0.6
+        // this.bgArea.x = -x + stage.width / 4 ;
 
 		this.role.circle.position.set(x, y);
-		// console.log(circleBody.angle)
-		this.role.car.rotation = -this.role.carBody.angle / Math.PI * 180
+        this.role.car.rotation = -this.role.carBody.angle / Math.PI * 180
+        
+        //位置
+        if(this.role.carBody.position[0]> 2000*(this.subdivision+1)-500 ){
+            this.subdivision++;
+            this.removetype = true
+            this.addLine(this.subdivision,this.phyworld)
+
+        }
+        if(this.role.carBody.position[0]>this.subdivision*2000 && this.removetype){
+            console.log("remove")
+            this.removetype = false
+            this.removeLine((this.subdivision-1),this.phyworld)
+        }
 	},
 
 
@@ -199,6 +243,10 @@ const gameStore = makeAutoObservable({
 			// }
 		})
 	},
+	line0:'',
+    line1:'',
+    shape0:'',
+    shape1:'',
     addLine(subdivision,world){
 		console.log("???")
 		var heights = []
@@ -257,10 +305,10 @@ const gameStore = makeAutoObservable({
 		var useLine;
 		if(subdivision%2 == 0){
 			this.bgCon.removeChild(this.shape0)
-			this.world.removeBody(this.line0);
+			world.removeBody(this.line0);
 		}else{
 			this.bgCon.removeChild(this.shape1)
-			this.world.removeBody(this.line1);
+			world.removeBody(this.line1);
 		}
 		if(useLine && useShape){
 			
