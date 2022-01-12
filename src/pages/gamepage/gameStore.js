@@ -12,6 +12,7 @@ const gameStore = makeAutoObservable({
 	count:null,
 	ifFly:false,
 	heighshape:null,
+	hfShapeshape:null,
     bgCon:'',
     phyCon:'',
     offsetX:'',
@@ -77,26 +78,8 @@ const gameStore = makeAutoObservable({
 		this.role = new Role()
 		this.bgCon.addChild(this.role)
 
-		var contactMaterial1  = new p2.ContactMaterial(this.heighshape.material,this.role.circleShape.material, {
-                restitution: 0, // This means no bounce!
-				surfaceVelocity: -82000,
-				friction: 0.8
-            });
-		this.phyworld.addContactMaterial(contactMaterial1)
-
-		var contactMaterial2 =new p2.ContactMaterial(this.heighshape.material,this.role.circleShape2.material, {
-			restitution: 0, // This means no bounce!
-			surfaceVelocity: -82000,
-			friction: 0.8
-		});
-		this.phyworld.addContactMaterial(contactMaterial2)
-
-		var contactMaterial3  = new p2.ContactMaterial(this.heighshape.material,this.role.carShape.material, {
-			restitution: 0, // This means no bounce!
-			surfaceVelocity: -82000,
-			friction: 0
-		});
-		this.phyworld.addContactMaterial(contactMaterial3)
+		this.addMaterial(this.heighshape)
+		
 
 
 		this.phyworld.addBody(this.role.circleBody);
@@ -106,7 +89,29 @@ const gameStore = makeAutoObservable({
 		let revoluteFront = new p2.LockConstraint(this.role.carBody, this.role.circleBody2);
 		this.phyworld.addConstraint(revoluteBack);
 		this.phyworld.addConstraint(revoluteFront);
+	},
 
+	addMaterial(heighshape){
+		var contactMaterial1  = new p2.ContactMaterial(heighshape.material,this.role.circleShape.material, {
+			restitution: 0, // This means no bounce!
+			surfaceVelocity: -82000,
+			friction: 0.8
+		});
+		this.phyworld.addContactMaterial(contactMaterial1)
+
+		var contactMaterial2 =new p2.ContactMaterial(heighshape.material,this.role.circleShape2.material, {
+			restitution: 0, // This means no bounce!
+			surfaceVelocity: -82000,
+			friction: 0.8
+		});
+		this.phyworld.addContactMaterial(contactMaterial2)
+
+		var contactMaterial3  = new p2.ContactMaterial(heighshape.material,this.role.carShape.material, {
+			restitution: 0, // This means no bounce!
+			surfaceVelocity: -82000,
+			friction: 0
+		});
+		this.phyworld.addContactMaterial(contactMaterial3)
 	},
 
 	enterFrame( stage){
@@ -328,11 +333,15 @@ const gameStore = makeAutoObservable({
 		const dx = 100;
 
 		// 第一组地面
-		const hfShapeshape = new p2.Heightfield({
+		const hfShapeshape = this.hfShapeshape = new p2.Heightfield({
 			heights: heights,
 			elementWidth: dx,
+			material:new p2.Material()
 		});
 		useLine.addShape(hfShapeshape);
+
+		this.addMaterial(this.hfShapeshape)
+
 	},
 	removeLine(subdivision,world){
 		if(subdivision<0){
