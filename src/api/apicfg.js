@@ -58,6 +58,17 @@ const apiCfg = {
     withToken: true,
     method: "post",
   },
+
+  queryNewGuide: {
+    uri: `guide_1/queryNewGuide.do`,
+    method: "post",
+  },
+
+  stepNewGuide: {
+    uri: `guide_1/doSstepNewGuidegn.do`,
+    withToken: true,
+    method: "get",
+  },
   inviteRecord: `assist_1/queryInviteRecords.do`, //查询我的邀请记录
   rankingAward: `scoring/rankingAward.do`,
 }

@@ -2,6 +2,7 @@ import { makeAutoObservable } from 'mobx';
 import { level, level1 } from '@src/lujingInfo/lujing';
 import p2 from 'p2/build/p2';
 import Role from './components/Role'
+import { RES_PATH } from '../../../sparkrc.js';
 
 const gameStore = makeAutoObservable({
 
@@ -9,13 +10,19 @@ const gameStore = makeAutoObservable({
 	// 双击
 	timer:null,
 	count:null,
-
+	ifFly:false,
+	heighshape:null,
+	hfShapeshape:null,
     bgCon:'',
     phyCon:'',
     offsetX:'',
     offsetY:'',
+    bgArea1:'',
+    bgArea2:'',
 
-    initUI() {
+    bgList:'',
+
+    initbg() {
         //加载图片
         // FYGE.GlobalLoader.loadImage((s, image) => {
         //     //纹理
@@ -40,15 +47,51 @@ const gameStore = makeAutoObservable({
     
         //     }
         //   )
-        
 
+		this.bgArea2.addChild(FYGE.Sprite.fromUrl( `${RES_PATH}GamePage/level1/sky.png`))
+        FYGE.GlobalLoader.loadImage((s, image) => {
+            //纹理
+            var texture = FYGE.Texture.fromImage(image);
+            //显示对象
+            var spr = new FYGE.Sprite(texture)
+            spr.y = 86
+			console.log(spr.width,'width')
+            this.bgArea2.addChild(spr)
+			var spr2 = new FYGE.Sprite(texture)
+            spr2.y = 86
+			spr2.x = spr.width
+			this.bgArea2.addChild(spr2)
+        }, `${RES_PATH}GamePage/level1/skylast.png`)
+
+        FYGE.GlobalLoader.loadImage((s, image) => {
+            //纹理
+            var texture = FYGE.Texture.fromImage(image);
+			console.log(this.offsetY,'this.offsetY')
+            //显示对象
+            var spr = new FYGE.Sprite(texture)
+            spr.y = 184+this.offsetY
+			console.log(spr.width,'width')
+            this.bgArea1.addChild(spr)
+			var spr2 = new FYGE.Sprite(texture)
+            spr2.y = 184+this.offsetY
+			spr2.x = spr.width
+			this.bgArea1.addChild(spr2)
+        }, `${RES_PATH}GamePage/level1/bg1.png`)
 
     },
+    MoveBg(){
 
+    },
+    stopMoveBg(){
+
+    },
+    subdivision:0,
 	addRole(){
 		this.role = new Role()
 		this.bgCon.addChild(this.role)
 
+		this.addMaterial(this.heighshape)
+		
 		this.phyworld.addBody(this.role.circleBody);
 		this.phyworld.addBody(this.role.circleBody2);
 		this.phyworld.addBody(this.role.carBody);
@@ -56,6 +99,29 @@ const gameStore = makeAutoObservable({
 		let revoluteFront = new p2.LockConstraint(this.role.carBody, this.role.circleBody2);
 		this.phyworld.addConstraint(revoluteBack);
 		this.phyworld.addConstraint(revoluteFront);
+	},
+
+	addMaterial(heighshape){
+		var contactMaterial1  = new p2.ContactMaterial(heighshape.material,this.role.circleShape.material, {
+			restitution: 0, // This means no bounce!
+			surfaceVelocity: -82000,
+			friction: 0.8
+		});
+		this.phyworld.addContactMaterial(contactMaterial1)
+
+		var contactMaterial2 =new p2.ContactMaterial(heighshape.material,this.role.circleShape2.material, {
+			restitution: 0, // This means no bounce!
+			surfaceVelocity: -82000,
+			friction: 0.8
+		});
+		this.phyworld.addContactMaterial(contactMaterial2)
+
+		var contactMaterial3  = new p2.ContactMaterial(heighshape.material,this.role.carShape.material, {
+			restitution: 0, // This means no bounce!
+			surfaceVelocity: -82000,
+			friction: 0
+		});
+		this.phyworld.addContactMaterial(contactMaterial3)
 	},
 
 	enterFrame( stage){
@@ -74,45 +140,53 @@ const gameStore = makeAutoObservable({
 		this.role.circle2.position.set(circleBody2X, circleBody2Y);
 		this.role.car.position.set(carBodyX - 40, carBodyY);
 
-		// console.log(carBody.angle)
 
 
 		this.bgCon.x = -x + stage.width / 4   //镜头跟随
-		this.bgCon.y = -y + stage.height / 4
-
+        this.bgCon.y = -y + stage.height *0.6
+        // this.bgArea.x = -x + stage.width / 4 ;
+		
+		// 滚动背景
+		if(this.bgArea2.x <= -4872){
+			this.bgArea2.x = -1624
+		}
+		this.bgArea2.x = this.bgArea2.x -1
+		if(this.bgArea1.x <= -4872){
+			this.bgArea1.x = -1624
+		}
+		this.bgArea1.x = this.bgArea1.x -9
 		this.role.circle.position.set(x, y);
-		// console.log(circleBody.angle)
-		this.role.car.rotation = -this.role.carBody.angle / Math.PI * 180
+        this.role.car.rotation = -this.role.carBody.angle / Math.PI * 180
+        
+        // 位置
+        if(this.role.carBody.position[0]> 2000*(this.subdivision+1)-500 ){
+            this.subdivision++;
+            this.removetype = true
+            this.addLine(this.subdivision,this.phyworld)
+
+        }
+        if(this.role.carBody.position[0]>this.subdivision*2000 && this.removetype){
+            console.log("remove")
+            this.removetype = false
+            this.removeLine((this.subdivision-1),this.phyworld)
+        }
 	},
 
 
 	clickStage(){
+		if(this.count >1){return}
 		const x = this.role.circleBody.position[0];
 		const y = -this.role.circleBody.position[1];
 
 		const x2 = this.role.circleBody2.position[0];
 		const y2 = -this.role.circleBody2.position[1];
 
-		this.timer = setTimeout(() => { // 初始化一个延时
-			if (this.count === 1) {
-				this.role.carBody.angle = 0
-				this.role.carBody.fixedRotation = true
+		this.role.carBody.angle = 0
+		this.role.carBody.fixedRotation = true
 
-				console.log('单击')
-				/* 单击后要处理的业务 */
-				this.role.carBody.applyForce([0, 2 * 100000], [0, 0]);
-			} else {
-				this.role.carBody.angle = 0
 
-				this.role.carBody.fixedRotation = true
-
-				console.log('双击')
-				/* 双击后要处理的业务 */
-				this.role.carBody.applyForce([0, 2 * 180000], [0, 0]);
-			}
-			clearTimeout(this.timer)
-			this.count = 0
-		}, 300)
+		this.role.carBody.applyForce([0, 2 * 100000], [0, 0]);
+		this.count ++;
 	},
     phyworld:'',
     additiveslist:[],
@@ -130,6 +204,8 @@ const gameStore = makeAutoObservable({
         this.shape0 = new FYGE.Shape(); // debug
 		this.bgCon.addChild(this.shape0);   // debug
 		//绘制地面线路
+		// let level1 = [ 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110,]
+
 		this.shape0.beginStroke(0xff0000, 4); // debug
 		for (let i = 0; i < 20; i++) {
 			const y = level1[i];
@@ -144,10 +220,10 @@ const gameStore = makeAutoObservable({
 		const dx = 100;
 
         // 第一组地面
-        
-		const heighshape = new p2.Heightfield({
+		const heighshape = this.heighshape = new p2.Heightfield({
 			heights: heights,
 			elementWidth: dx,
+			material:new p2.Material()
 		});
 		this.line0 = new p2.Body({
 			mass: 0,
@@ -174,8 +250,65 @@ const gameStore = makeAutoObservable({
 		// 	this.additiveslist.push(coin)
 
 		// }
-        
+
+		this.listenContact()
     },
+
+	listenContact(){
+		//碰装检测
+		this.phyworld.on("beginContact", (e) => {
+
+			let pengzhuangID = 0;
+			pengzhuangID = e.bodyB.id
+
+			// debugger
+			// console.log(hfShapeBody)
+
+			if (
+				(e.bodyA.id == this.role.circleBody.id && e.bodyB.id == this.line0.id) ||
+				(e.bodyB.id == this.role.circleBody.id && e.bodyA.id == this.line0.id) ||
+				(e.bodyA == this.role.circleBody2 && e.bodyB == this.line0) ||
+				(e.bodyB == this.role.circleBody2 && e.bodyA == this.line0)
+			) {
+				// console.log(e)
+				// console.log(hfShapeBody)
+				this.role.carBody.fixedRotation = false
+				console.log('碰撞到地面了')
+				this.count = 0
+				// this.role.carBody.angle = 0
+			}
+			if (
+				(e.bodyA.id == this.role.circleBody.id && e.bodyB.id == this.line1.id) ||
+				(e.bodyB.id == this.role.circleBody.id && e.bodyA.id == this.line1.id) ||
+				(e.bodyA == this.role.circleBody2 && e.bodyB == this.line1) ||
+				(e.bodyB == this.role.circleBody2 && e.bodyA == this.line1)
+			) {
+				// console.log(e)
+				// console.log(hfShapeBody)
+				this.role.carBody.fixedRotation = false
+				console.log('碰撞到地面了')
+				this.count = 0
+				// this.role.carBody.angle = 0
+			}
+
+			// for (let i = 0; i < this.additives.length; i++) {
+			// 	// console.log(this.additiveslist[i].rectBody.id)
+			// 	if (pengzhuangID == this.additiveslist[i].rectBody.id) {
+			// 		if (this.additiveslist[i].type == "coin" || this.additiveslist[i].type == "bigcoin") {
+			// 			world.removeBody(this.additiveslist[i].rectBody)
+			// 			this.box.removeChild(this.additiveslist[i].rectcoin)
+			// 			console.log("getCoin")
+			// 		} else {
+			// 			console.log("die")
+			// 		}
+			// 	}
+			// }
+		})
+	},
+	line0:'',
+    line1:'',
+    shape0:'',
+    shape1:'',
     addLine(subdivision,world){
 		console.log("???")
 		var heights = []
@@ -219,11 +352,15 @@ const gameStore = makeAutoObservable({
 		const dx = 100;
 
 		// 第一组地面
-		const hfShapeshape = new p2.Heightfield({
+		const hfShapeshape = this.hfShapeshape = new p2.Heightfield({
 			heights: heights,
 			elementWidth: dx,
+			material:new p2.Material()
 		});
 		useLine.addShape(hfShapeshape);
+
+		this.addMaterial(this.hfShapeshape)
+
 	},
 	removeLine(subdivision,world){
 		if(subdivision<0){
@@ -234,10 +371,10 @@ const gameStore = makeAutoObservable({
 		var useLine;
 		if(subdivision%2 == 0){
 			this.bgCon.removeChild(this.shape0)
-			this.world.removeBody(this.line0);
+			world.removeBody(this.line0);
 		}else{
 			this.bgCon.removeChild(this.shape1)
-			this.world.removeBody(this.line1);
+			world.removeBody(this.line1);
 		}
 		if(useLine && useShape){
 			

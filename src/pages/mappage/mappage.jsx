@@ -12,18 +12,45 @@ import CoinBox from "@src/components/CoinBox/CoinBox";
 import DecCoinBox from "@src/components/DecCoinBox/DecCoinBox";
 import LastPrize from "@src/components/LastPrize/LastPrize.jsx";
 import MapBox from "@src/components/MapBox/MapBox.jsx";
+import { Tool } from '@src/utils/Tool.js';
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 @observer
 class Mappage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      queryNewGuideInfo: '', // 中奖轮播
+    };
   }
 
   getMapInfo = () => {
     
     MapPosition.map((item) => {});
   };
+    
+  componentDidMount() {
+    this.queryNewGuide()
+  }
+  async queryNewGuide() {
 
+    let queryNewGuideInfo = await API.queryNewGuide()
+    console.info('queryNewGuideInfo:', queryNewGuideInfo)
+    this.setState({
+      queryNewGuideInfo: queryNewGuideInfo.data
+    })
+
+    let toWidth = Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - document.documentElement.clientWidth
+    console.log("toWidth:", toWidth)
+    var percent = { toWidth: 100 }
+    await delay(1000)
+    Tool.tweenReaptToto2(document.documentElement, 0, toWidth, toWidth)
+
+  }
+  scroolToBottom() {
+    // setTimeout(() => {
+    //   document.documentElement.scrollLeft = document.body.scrollLeft = Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - document.documentElement.clientWidth
+    // }, 0);
+  }
   render() {
     const { homeInfo } = store;
     return (

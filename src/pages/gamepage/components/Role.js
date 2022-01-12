@@ -6,6 +6,10 @@ const Shape = FYGE.Shape;
 export default class Role extends Sprite {
     // 前轮
     circle
+    
+    circleShape
+    circleShape2
+    carShape
     // 后轮
     circle2
     // 车身
@@ -33,12 +37,12 @@ export default class Role extends Sprite {
         this.addChild(circle);
         // circledrawRoundedRect
         circle.beginFill(0xff0000, 0.5)
-            .drawCircle(0, 0, 4)
+            .drawCircle(0, 0, 8)
             // .drawRoundedRect(0,0,40,40)
             .endFill();
 
         // new Box({width:40,height:40})
-        const circleShape = new p2.Circle({ radius: 4 });
+        const circleShape = this.circleShape = new p2.Circle({ radius: 8, material: new p2.Material()});
         //  new Circle({ radius: 20 });
         const circleBody  = this.circleBody = new p2.Body({
             mass: 1,    //重量
@@ -53,12 +57,12 @@ export default class Role extends Sprite {
         this.addChild(circle2);
         // circledrawRoundedRect
         circle2.beginFill(0xff0000, 0.5)
-            .drawCircle(0, 0, 4)
+            .drawCircle(0, 0, 8)
             // .drawRoundedRect(0,0,40,40)
             .endFill();
 
 
-        const circleShape2 = new p2.Circle({ radius: 4 });
+        const circleShape2 = this.circleShape2= new p2.Circle({ radius: 8 , material: new p2.Material()});
         //  new Circle({ radius: 20 });
         const circleBody2  = this.circleBody2 = new p2.Body({
             mass: 1,    //重量
@@ -73,7 +77,8 @@ export default class Role extends Sprite {
         const car = this.car = new FYGE.Shape();
 
         const role = car.addChild(FYGE.Sprite.fromUrl("//yun.duiba.com.cn/aurora/assets/b9a82aa3e1f0ab0dc2c2b7604ead33f215c9da4f.png"))
-        role.position.set(0,-82)
+        role.anchorTexture.set(0, 1);
+        role.position.set(0,28)
         role.scale.set(0.5,0.5)
         // role.width = 150;
         // role.height = 15;
@@ -85,13 +90,13 @@ export default class Role extends Sprite {
             // .drawRoundedRect(0,0,40,40)
             .endFill();
 
-        const carShape = new p2.Box({ width: 40, height: 80 });
+        const carShape= this.carShape = new p2.Box({ width: 40, height: 80 , material: new p2.Material()});
         //  new Circle({ radius: 20 });
         const carBody = this.carBody = new p2.Body({
-            mass: 8,    //重量
+            mass: 3,    //重量
             // position: [100, -410],
             // position: [180, -410],
-
+            angularDamping:1,
             position: [140, -170],
             // fixedRotation: true,
         });
