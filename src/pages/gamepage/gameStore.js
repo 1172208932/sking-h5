@@ -1,7 +1,14 @@
 import { makeAutoObservable } from 'mobx';
 import { level, level1 } from '@src/lujingInfo/lujing';
-import p2 from 'p2/build/p2'
+import p2 from 'p2/build/p2';
+import Role from './components/Role'
+
 const gameStore = makeAutoObservable({
+
+	role:null,
+	// 双击
+	timer:null,
+	count:null,
 
     bgCon:'',
     phyCon:'',
@@ -38,6 +45,75 @@ const gameStore = makeAutoObservable({
 
     },
 
+	addRole(){
+		this.role = new Role()
+		this.bgCon.addChild(this.role)
+
+		this.phyworld.addBody(this.role.circleBody);
+		this.phyworld.addBody(this.role.circleBody2);
+		this.phyworld.addBody(this.role.carBody);
+		let revoluteBack = new p2.LockConstraint(this.role.carBody, this.role.circleBody);
+		let revoluteFront = new p2.LockConstraint(this.role.carBody, this.role.circleBody2);
+		this.phyworld.addConstraint(revoluteBack);
+		this.phyworld.addConstraint(revoluteFront);
+	},
+
+	enterFrame( stage){
+		this.phyworld.step(1 / 60);
+
+		const x = this.role.circleBody.position[0];
+		const y = -this.role.circleBody.position[1];
+
+		const carBodyX = this.role.carBody.position[0];
+		const carBodyY = -this.role.carBody.position[1];
+
+		const circleBody2X = this.role.circleBody2.position[0];
+		const circleBody2Y = -this.role.circleBody2.position[1];
+
+
+		this.role.circle2.position.set(circleBody2X, circleBody2Y);
+		this.role.car.position.set(carBodyX - 40, carBodyY);
+
+		// console.log(carBody.angle)
+
+
+		this.bgCon.x = -x + stage.width / 4   //镜头跟随
+		this.bgCon.y = -y + stage.height / 4
+
+		this.role.circle.position.set(x, y);
+		// console.log(circleBody.angle)
+		this.role.car.rotation = -this.role.carBody.angle / Math.PI * 180
+	},
+
+
+	clickStage(){
+		const x = this.role.circleBody.position[0];
+		const y = -this.role.circleBody.position[1];
+
+		const x2 = this.role.circleBody2.position[0];
+		const y2 = -this.role.circleBody2.position[1];
+
+		this.timer = setTimeout(() => { // 初始化一个延时
+			if (this.count === 1) {
+				this.role.carBody.angle = 0
+				this.role.carBody.fixedRotation = true
+
+				console.log('单击')
+				/* 单击后要处理的业务 */
+				this.role.carBody.applyForce([0, 2 * 100000], [0, 0]);
+			} else {
+				this.role.carBody.angle = 0
+
+				this.role.carBody.fixedRotation = true
+
+				console.log('双击')
+				/* 双击后要处理的业务 */
+				this.role.carBody.applyForce([0, 2 * 180000], [0, 0]);
+			}
+			clearTimeout(this.timer)
+			this.count = 0
+		}, 300)
+	},
     phyworld:'',
     additiveslist:[],
     createPhysicsWorld(){
