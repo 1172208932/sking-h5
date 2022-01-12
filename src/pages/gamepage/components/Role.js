@@ -6,6 +6,8 @@ const Shape = FYGE.Shape;
 export default class Role extends Sprite {
     // 前轮
     circle
+    circleShape
+    circleShape2
     // 后轮
     circle2
     // 车身
@@ -38,7 +40,7 @@ export default class Role extends Sprite {
             .endFill();
 
         // new Box({width:40,height:40})
-        const circleShape = new p2.Circle({ radius: 4 });
+        const circleShape = this.circleShape = new p2.Circle({ radius: 4, material: new p2.Material()});
         //  new Circle({ radius: 20 });
         const circleBody  = this.circleBody = new p2.Body({
             mass: 1,    //重量
@@ -58,7 +60,7 @@ export default class Role extends Sprite {
             .endFill();
 
 
-        const circleShape2 = new p2.Circle({ radius: 4 });
+        const circleShape2 = this.circleShape2= new p2.Circle({ radius: 4 , material: new p2.Material()});
         //  new Circle({ radius: 20 });
         const circleBody2  = this.circleBody2 = new p2.Body({
             mass: 1,    //重量
@@ -73,7 +75,8 @@ export default class Role extends Sprite {
         const car = this.car = new FYGE.Shape();
 
         const role = car.addChild(FYGE.Sprite.fromUrl("//yun.duiba.com.cn/aurora/assets/b9a82aa3e1f0ab0dc2c2b7604ead33f215c9da4f.png"))
-        role.position.set(0,-82)
+        role.anchorTexture.set(0, 1);
+        role.position.set(0,28)
         role.scale.set(0.5,0.5)
         // role.width = 150;
         // role.height = 15;
@@ -91,7 +94,7 @@ export default class Role extends Sprite {
             mass: 8,    //重量
             // position: [100, -410],
             // position: [180, -410],
-
+            angularDamping:1,
             position: [140, -170],
             // fixedRotation: true,
         });

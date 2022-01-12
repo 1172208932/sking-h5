@@ -11,7 +11,7 @@ const gameStore = makeAutoObservable({
 	timer:null,
 	count:null,
 	ifFly:false,
-
+	heighshape:null,
     bgCon:'',
     phyCon:'',
     offsetX:'',
@@ -84,6 +84,13 @@ const gameStore = makeAutoObservable({
 		let revoluteFront = new p2.LockConstraint(this.role.carBody, this.role.circleBody2);
 		this.phyworld.addConstraint(revoluteBack);
 		this.phyworld.addConstraint(revoluteFront);
+
+		this.phyworld.addContactMaterial(new p2.ContactMaterial(this.heighshape.material,this.role.circleShape.material, {
+                restitution: 0 // This means no bounce!
+            }));
+		this.phyworld.addContactMaterial(new p2.ContactMaterial(this.heighshape.material,this.role.circleShape2.material, {
+			restitution: 0 // This means no bounce!
+		}));
 	},
 
 	enterFrame( stage){
@@ -172,9 +179,10 @@ const gameStore = makeAutoObservable({
 
         // 第一组地面
         
-		const heighshape = new p2.Heightfield({
+		const heighshape = this.heighshape = new p2.Heightfield({
 			heights: heights,
 			elementWidth: dx,
+			material:new p2.Material()
 		});
 		this.line0 = new p2.Body({
 			mass: 0,
