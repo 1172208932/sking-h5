@@ -32,8 +32,10 @@ class Gamepage extends React.Component {
   componentWillUnmount() {
     EventBus.off('UPDATE_SCORE', this.updateScore);
   }
-  updateScore(e){
+  updateScore(e) {
+    console.log('updateScore:=========>>>>>>', e)
     // e.detail.score
+    this.setCurScore(e.detail.score)
   }
 
   setStarInfo() {
@@ -91,9 +93,7 @@ class Gamepage extends React.Component {
 
 
     gameStore.getData()
-
     gameStore.addRole()
-
     gameStore.initbg()
 
     //帧刷新
@@ -154,7 +154,27 @@ class Gamepage extends React.Component {
                     <span className="thaimlab">{`到达终点且获得 ${starInfo?.[store.currentGameLevel - 1]?.star3}分`}</span>
                   </div>
                   <div className="starttitle">
-                    <span className="title"></span>
+                    <span className="title_di"></span>
+
+                    <span className="title_ge" 
+                      style={{ background: `url(${RES_PATH}GamePage/${store.currentGameLevel.toString()[0]}.png) no-repeat top left / 100% 100%` }}
+                    ></span>
+
+                    {
+                      store.currentGameLevel > 9 && <span className="title_shi"
+                        style={{ background: `url(${RES_PATH}GamePage/${store.currentGameLevel.toString()[1]}.png) no-repeat top left / 100% 100%` }}
+                      ></span>
+                    }
+
+                    {
+                      store.currentGameLevel > 99 && <span className="title_bai"
+                        style={{ background: `url(${RES_PATH}GamePage/${store.currentGameLevel.toString()[2]}.png) no-repeat top left / 100% 100%` }}
+                      ></span>
+                    }
+
+
+
+                    <span className="title_guan"></span>
                   </div>
                   <span className="startsnow"></span>
                 </div>
