@@ -9,7 +9,7 @@ import API from '../../api';
 import './gamepage.less';
 import gameStore from './gameStore.js';
 import EventBus from '@duiba/event-bus';
-
+import { SvgaPlayer } from '@spark/animation';
 import { toJS } from "mobx";
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 @observer
@@ -31,8 +31,10 @@ class Gamepage extends React.Component {
   componentWillUnmount() {
     EventBus.off('UPDATE_SCORE', this.updateScore);
   }
-  updateScore(e){
+  updateScore(e) {
+    console.log('updateScore:=========>>>>>>', e)
     // e.detail.score
+    this.setCurScore(e.detail.score)
   }
 
   setStarInfo() {
@@ -90,9 +92,7 @@ class Gamepage extends React.Component {
 
 
     gameStore.getData()
-
     gameStore.addRole()
-
     gameStore.initbg()
 
     //帧刷新
