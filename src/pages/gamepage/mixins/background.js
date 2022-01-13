@@ -50,7 +50,7 @@ export const Background = {
     },
 
     MoveBg() {
-        console.log(this.bgArea1,'this.bgArea1')
+        // console.log(this.bgArea1,'this.bgArea1')
         // debugger
         // 滚动背景
         if (this.bgArea2.x <= -4872) {

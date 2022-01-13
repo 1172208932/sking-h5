@@ -119,19 +119,56 @@
       }
 
       .starttitle {
-        width: 201px;
+        width: 500px;
         height: 76px;
-        left: 737px;
+        left: calc(50% - (500px / 2));
         top: 234px;
         position: absolute;
-
-        .title {
-          width: 201px;
+        text-overflow:ellipsis;
+        white-space: nowrap;
+        align-items:center;
+        justify-content:center;
+        display: flex;
+        .title_di {
+          width: 74px;
           height: 76px;
-          left: 0px;
           top: 0px;
-          position: absolute;
-          .sparkBg("GamePage/标题.png");
+          position: relative;
+          .sparkBg("GamePage/第.png");
+      
+        }
+
+        .title_guan {
+          width: 74px;
+          height: 76px;
+          top: 0px;
+          position: relative;
+          .sparkBg("GamePage/关.png");
+     
+        }
+        .title_ge {
+          width: 49px;
+          height: 65px;
+          top: 0px;
+          position: relative;
+          // .sparkBg("GamePage/1.png");
+      
+        }
+        .title_shi {
+          width: 49px;
+          height: 65px;
+          top: 0px;
+          position: relative;
+          // .sparkBg("GamePage/0.png");
+      
+        }
+        .title_bai {
+          width: 49px;
+          height: 65px;
+          top: 0px;
+          position: relative;
+          // .sparkBg("GamePage/0.png");
+      
         }
       }
 
