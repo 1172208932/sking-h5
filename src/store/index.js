@@ -4,7 +4,8 @@ const store = makeAutoObservable({
   ruleInfo: '',
   curPage: 'homePage',
   homeInfo: {},
-  currentGameLevel :1,
+  currentGameLevel: 1, // 正在闯关的level
+  startId: null, // 正在闯关的startID
   // 首页数据
   setRule(ruleInfo) {
     this.ruleInfo = ruleInfo;
@@ -25,5 +26,11 @@ const store = makeAutoObservable({
     const { success, data } = await API.getIndex();
     success && this.setHomeInfo(data);
   },
+  setCurrentGameLevel(level) {
+    this.currentGameLevel = level;
+  },
+  setStartId(id) {
+    this.startId = id
+  }
 });
 export default store;
