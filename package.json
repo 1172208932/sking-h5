@@ -11,6 +11,7 @@
         "build": "cross-env NODE_ENV=production node ./config/scripts/assets/generateAssetList.js && node ./config/scripts/assets/index.js imgmin imgup && node ./config/webpack.prod.config.js"
     },
     "dependencies": {
+        "@duiba/event-bus": "^1.0.0",
         "@spark/animation": "^2.0.49",
         "@spark/api-base": "^2.0.7",
         "@spark/projectx": "^2.0.5",

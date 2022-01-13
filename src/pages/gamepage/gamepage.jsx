@@ -8,6 +8,7 @@ import modalStore from '@src/store/modal';
 import API from '../../api';
 import './gamepage.less';
 import gameStore from './gameStore.js';
+import EventBus from '@duiba/event-bus';
 
 @observer
 class Gamepage extends React.Component {
@@ -15,8 +16,17 @@ class Gamepage extends React.Component {
     super(props);
   }
   componentDidMount() {
+    EventBus.on('UPDATE_SCORE', this.updateScore, this);
     this.initCanvas();
   }
+  componentWillUnmount() {
+    EventBus.off('UPDATE_SCORE', this.updateScore);
+}
+
+  updateScore(e){
+    // e.detail.score
+  }
+
   gamestage;
   initCanvas() {
     var canvas = document.getElementById('gamestage')
@@ -47,13 +57,12 @@ class Gamepage extends React.Component {
     gameStore.offsetX = (1624 - (document.body.clientWidth > 1624 ? 1624 : document.body.clientWidth)) / 2
     gameStore.offsetY = (750 - (document.body.clientHeight > 750 ? 750 : document.body.clientHeight)) / 2
     console.log(document.body.clientWidth > 1624 ? 1624 : document.body.clientWidth)
-    gameStore.bgArea2 = new FYGE.Container();
-    this.gamestage.addChild(gameStore.bgArea2)
-    gameStore.bgArea1 = new FYGE.Container();
-    this.gamestage.addChild(gameStore.bgArea1)
+
+
+    gameStore.initbgUI(this.gamestage)
+
     gameStore.bgCon = new FYGE.Container();
     this.gamestage.addChild(gameStore.bgCon)
-    
 
     var test = new FYGE.TextField();
     gameStore.bgCon.addChild(test)
