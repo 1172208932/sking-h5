@@ -1,5 +1,5 @@
 import { makeAutoObservable } from 'mobx';
-import { level1, poplevel1 } from '@src/lujingInfo/lujing';
+import { level1, proplevel1 } from '@src/lujingInfo/lujing';
 import p2 from 'p2/build/p2';
 import { RES_PATH } from '../../../sparkrc.js';
 import { mix } from './mix';
@@ -20,7 +20,7 @@ const gameStore = makeAutoObservable(mix({
     propInfo:'',
     getData(){
         this.lineInfo = level1
-        this.propInfo = poplevel1
+        this.propInfo = proplevel1
         this.createPhysicsWorld()
     },
 
@@ -66,7 +66,7 @@ const gameStore = makeAutoObservable(mix({
         this.role.carBody.angle = 0
         this.role.carBody.fixedRotation = true
 
-		this.role.carBody.applyForce([0, 2 * 130000], [0, 0]);
+		this.role.carBody.applyForce([100, 2 * 130000], [0, 0]);
 		this.count ++;
 	},
 

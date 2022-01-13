@@ -3,6 +3,7 @@ import {
     RES_PATH
 } from '../../../../sparkrc.js';
 import gameStore from '../gameStore.js';
+import { propSize } from '@src/lujingInfo/lujing.js';
 const Sprite = FYGE.Sprite;
 const Shape = FYGE.Shape;
 
@@ -13,20 +14,21 @@ export default class Obstacle {
     rectcoin;//展示节点
     width;
     height;
-    constructor(item, world, box) {
+    constructor(item,lineInfo, world, box) {
         this.type = item.type
 
+        this.width = propSize[this.type].width;
+        this.height = propSize[this.type].height;
 
+        this.rectcoin = new FYGE.Sprite()
+            box.addChild(this.rectcoin);
         //加载图片
         FYGE.GlobalLoader.loadImage((s, image) => {
             //纹理
             var texture = FYGE.Texture.fromImage(image);
             //显示对象
-            this.rectcoin = new FYGE.Sprite(texture)
-            box.addChild(this.rectcoin);
-            this.rectcoin.position.set(item.x, -item.y + 300)
-            this.width = this.rectcoin.width;
-            this.height = this.rectcoin.height;
+            this.rectcoin.texture = texture
+            
         }, `${RES_PATH}GamePage/level1/${this.type}.png`)
 
         var shapeshow = new Shape()
@@ -49,29 +51,33 @@ export default class Obstacle {
             });
         } else if (this.type == "stone") {
             shapeshow.beginFill(0xff0000, 0.5)
+                .drawRect(0, 0, 79, 68)
+                .endFill();
+            this.rectShape = new p2.Box({
+                width: 79, height: 68,
+                material: new p2.Material()
+            });
+        } else if (this.type == "bigstone") {
+            shapeshow.beginFill(0xff0000, 0.5)
                 .drawRect(0, 0, 142, 120)
                 .endFill();
             this.rectShape = new p2.Box({
                 width: 142, height: 120,
                 material: new p2.Material()
             });
-        } else if (this.type == "bigstone") {
-            shapeshow.beginFill(0xff0000, 0.5)
-                .drawRect(0, 0, 301, 161)
-                .endFill();
-            this.rectShape = new p2.Box({
-                width: 301, height: 161,
-                material: new p2.Material()
-            });
         }
-        shapeshow.position.set(item.x, -item.y + 300)
 
-        //  new Circle({ radius: 20 });
-        console.log(this.rectShape.height, 'rectShape')
-
+        var showY = -item.y
+        if(this.type != "snow"){
+            showY = lineInfo[Math.floor(item.x/100)]-this.rectShape.height+10
+        }else{
+            showY = -item.y
+        }
+        this.rectcoin.position.set(item.x, showY + 300)
+        shapeshow.position.set(item.x, showY + 300)
         this.rectBody = new p2.Body({
             mass: 0,    //重量
-            position: [item.x + this.rectShape.width / 2, item.y - 300 - this.rectShape.height / 2]
+            position: [item.x + this.rectShape.width / 2, (-showY) - 300 - this.rectShape.height / 2]
         });
 
         this.rectBody.addShape(this.rectShape);
