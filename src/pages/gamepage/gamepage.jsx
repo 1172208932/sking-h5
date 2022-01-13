@@ -8,6 +8,8 @@ import modalStore from '@src/store/modal';
 import API from '../../api';
 import './gamepage.less';
 import gameStore from './gameStore.js';
+import EventBus from '@duiba/event-bus';
+
 import { toJS } from "mobx";
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 @observer
@@ -22,9 +24,17 @@ class Gamepage extends React.Component {
     };
   }
   componentDidMount() {
+    EventBus.on('UPDATE_SCORE', this.updateScore, this);
     this.initCanvas();
     this.setStarInfo()
   }
+  componentWillUnmount() {
+    EventBus.off('UPDATE_SCORE', this.updateScore);
+  }
+  updateScore(e){
+    // e.detail.score
+  }
+
   setStarInfo() {
     let { starInfo } = Object.assign({}, toJS(store.homeInfo));
     console.info('gamepage ===>>>>>>> starInfo:', starInfo)
@@ -32,6 +42,7 @@ class Gamepage extends React.Component {
       starInfo
     })
   }
+
   gamestage;
   initCanvas() {
     var canvas = document.getElementById('gamestage')
@@ -62,10 +73,10 @@ class Gamepage extends React.Component {
     gameStore.offsetX = (1624 - (document.body.clientWidth > 1624 ? 1624 : document.body.clientWidth)) / 2
     gameStore.offsetY = (750 - (document.body.clientHeight > 750 ? 750 : document.body.clientHeight)) / 2
     console.log(document.body.clientWidth > 1624 ? 1624 : document.body.clientWidth)
-    gameStore.bgArea2 = new FYGE.Container();
-    this.gamestage.addChild(gameStore.bgArea2)
-    gameStore.bgArea1 = new FYGE.Container();
-    this.gamestage.addChild(gameStore.bgArea1)
+
+
+    gameStore.initbgUI(this.gamestage)
+
     gameStore.bgCon = new FYGE.Container();
     this.gamestage.addChild(gameStore.bgCon)
 
