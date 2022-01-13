@@ -48,6 +48,7 @@ export const RoleControl = {
         this.phyworld.addContactMaterial(contactMaterial3)
     },
     updateRole(stage) {
+        if(!this.role){return}
         const x = this.role.circleBody.position[0];
         const y = -this.role.circleBody.position[1];
 
@@ -64,8 +65,8 @@ export const RoleControl = {
         this.role.circle.position.set(x, y);
         this.role.car.rotation = -this.role.carBody.angle / Math.PI * 180
 
-        this.bgCon.x = -x + stage.width / 4 //镜头跟随
-        this.bgCon.y = -y + stage.height * 0.6
+        this.bgCon.x = -x + stage.width / 8 //镜头跟随
+        this.bgCon.y = -y + stage.height * 0.4
     },
 
     roleContact(e) {
@@ -93,7 +94,17 @@ export const RoleControl = {
             console.log('碰撞到地面了')
             this.count = 0
             // this.role.carBody.angle = 0
-        }else {
+        }else if (
+            e.bodyA.id == this.endId || e.bodyB.id == this.endId
+        ) {
+            // console.log(e)
+            // console.log(hfShapeBody)
+            this.role.carBody.fixedRotation = false
+            console.log('游戏结束')
+			this.count = 0
+			this.gameWin();
+            // this.role.carBody.angle = 0
+        }else{
 			console.log(e,this.role.circleBody.id,this.role.circleBody2,this.line1.id,this.line0.id)
 			for(let i =0; i<this.additiveslist.length;i++){
 				if( e.bodyB.id == this.additiveslist[i].rectBody.id
@@ -104,12 +115,38 @@ export const RoleControl = {
 							console.log("getCoin")
 						}else {
 							console.log("die")
-							console.log(this.additiveslist[i].type)
+							this.gameEnd = true
+							this.dieItem = this.additiveslist[i]
+							this.role.carBody.sleep()
+							this.role.circleBody.sleep()
+							this.role.circleBody2.sleep()
 						}
 					}
 			}
 			
 		}
-    }
+	},
+	//复活
+	reviveCar(){
+		this.gameEnd = false
+		this.phyworld.removeBody(this.dieItem.rectBody)
+		this.bgCon.removeChild(this.dieItem.rectcoin)
+		this.role.carBody.wakeUp()
+		this.role.circleBody.wakeUp()
+		this.role.circleBody2.wakeUp()
+	},
+	//死亡
+	dieCar(){
+
+	},
+	//游戏结束
+	gameWin(){
+		this.role.carBody.sleep()
+		this.role.circleBody.sleep()
+		this.role.circleBody2.sleep()
+		alert("游戏结束")
+		
+	}
+	
 
 }

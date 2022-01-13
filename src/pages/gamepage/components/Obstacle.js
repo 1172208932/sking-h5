@@ -9,7 +9,9 @@ export default class Obstacle {
     type = ""
 	rectShape;//刚体形状
 	rectBody;//刚体
-	rectcoin;//展示节点
+    rectcoin;//展示节点
+    width;
+    height;
 	constructor(item, world, box) {
 		this.type = item.type
 		
@@ -22,6 +24,8 @@ export default class Obstacle {
             this.rectcoin = new FYGE.Sprite(texture)
             box.addChild(this.rectcoin);
             this.rectcoin.position.set(item.x, -item.y+300)
+            this.width = this.rectcoin.width;
+            this.height = this.rectcoin.height;
         }, `${RES_PATH}GamePage/level1/${this.type}.png`)
         
         var shapeshow = new Shape()
@@ -50,9 +54,11 @@ export default class Obstacle {
         shapeshow.position.set(item.x, -item.y+300)
         
 		//  new Circle({ radius: 20 });
+		console.log(this.rectShape.height,'rectShape')
+
 		this.rectBody = new p2.Body({
 			mass: 0,    //重量
-			position: [item.x, item.y-300],
+			position: [item.x+this.rectShape.width/2, item.y-300-this.rectShape.height/2],
 			// fixedRotation: true,
 		});
 		this.rectBody.addShape(this.rectShape);

@@ -2,9 +2,10 @@
 const rule = require("./common/rule");
 const drawNum = require("./common/drawNum");
 const carousel = require("./common/carousel");
+const getIndex = require("./homeInfo");
 
 
-const {getIndex,doExchange,listExchangeLimit,getMyPrize, getRank, turnTableQuery, turnTableDraw, answerQuery, answerStart, answerSubmit,answerComplete, resurgence, doAssist, doSign,signOptions,signQuery, queryNewGuide, stepNewGuide,inviteRecord,rankingAward} = require("./activity")
+const {doExchange,listExchangeLimit,getMyPrize, getRank, turnTableQuery, turnTableDraw, answerQuery, answerStart, answerSubmit,answerComplete, resurgence, doAssist, doSign,signOptions,signQuery, queryNewGuide, stepNewGuide,inviteRecord,rankingAward,startGame} = require("./activity")
 const proxy = {
   "GET /projectRule.query": rule,
   "GET /drawNum.query": drawNum,
@@ -30,6 +31,7 @@ const proxy = {
   "GET /guide_1/stepNewGuide.do": stepNewGuide,
 
   "GET /assist_1/queryInviteRecords.do": inviteRecord,
-  "GET /scoring/rankingAward.do": rankingAward
+  "GET /scoring/rankingAward.do": rankingAward,
+  "GET /scoring/start.do":startGame
 };
 module.exports = proxy;

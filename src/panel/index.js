@@ -9,4 +9,6 @@ import DrawPrize from "./drawPrize/drawPrize"
 import Answer from "./answer/answer"
 import GameFail from "./gameFail/gameFail"
 import Task from "./task/task"
-export {ExchangeShop, ExchangeConfirm,Rule,Myprize,Rank,InviteSuccess,TurnTable,DrawPrize,Answer,GameFail, Task}
+import ToInvite from "./toInvite/toInvite"
+import NoMoney from "./noMoney/noMoney"
+export {ExchangeShop, ExchangeConfirm,Rule,Myprize,Rank,InviteSuccess,TurnTable,DrawPrize,Answer,GameFail, Task,ToInvite,NoMoney}

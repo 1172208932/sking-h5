@@ -1,3 +1,18 @@
+export const propSize = {
+    "snow":{
+        width:52,height:56
+    },
+    "grass":{
+        width:244,height:146
+    },
+    "stone":{
+        width:142,height:120
+    },
+    "bigstone":{
+        width:301,height:161
+    },
+}
+
 export const level1 = [
     15,
     36,

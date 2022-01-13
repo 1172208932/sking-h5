@@ -10,6 +10,7 @@ import './gamepage.less';
 import gameStore from './gameStore.js';
 import EventBus from '@duiba/event-bus';
 import { SvgaPlayer } from '@spark/animation';
+
 import { toJS } from "mobx";
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 @observer
@@ -93,7 +94,6 @@ class Gamepage extends React.Component {
 
 
     gameStore.getData()
-    gameStore.addRole()
     gameStore.initbg()
 
     //帧刷新
@@ -121,6 +121,9 @@ class Gamepage extends React.Component {
     this.setState({
       gameStep: 0,
       startpop: false
+    },()=>{
+      gameStore.addRole()
+      gameStore.beginGame = true
     });
   }
   //设置当前分数
