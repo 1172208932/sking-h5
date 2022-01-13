@@ -25,7 +25,7 @@ class App extends Component {
     let { curPage } = store;
     return (
       <div>
-        {{ ...pageMap[curPage], props: { changePage: "homePage" } }}
+        {{ ...pageMap[curPage], props: { changePage: "homePage" }}}
         <Modal />
       </div>
     );

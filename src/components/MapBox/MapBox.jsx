@@ -9,6 +9,7 @@ import { MapPosition, USER_AVATAR } from "@src/utils/constants.js";
 import { RES_PATH } from "../../../sparkrc.js";
 import { SvgaPlayer } from "@spark/animation";
 import { _throttle } from "@src/utils/utils";
+import API from "../../api";
 @observer
 class MapBox extends React.Component {
   constructor(props) {
@@ -64,12 +65,13 @@ class MapBox extends React.Component {
       }
       if (
         i == gameLen &&
-        homeInfo?.gameInfo?.[gameLen - 1].level.indexOf("gift") >= 0 &&
-        homeInfo?.gameInfo?.[gameLen - 1].receive != 1
+        homeInfo?.gameInfo?.[gameLen - 1]?.level.indexOf("gift") >= 0 &&
+        homeInfo?.gameInfo?.[gameLen - 1]?.receive != 1
       ) {
         // 后面的那一个是蓝色，手指在该项，
-        list[i].class = "lockBtn";
+        list[i].class = i >= 21 ? "needwait":"lockBtn";
       }
+
 
       // left&top
       if (i <= 10) {
@@ -99,7 +101,7 @@ class MapBox extends React.Component {
       // 绿色按钮，可以玩
       // 需要再判断下TODO
       console.log(1);
-      this.clickToPlay();
+      this.clickToPlay(item.level);
       // store.changePage("Gamepage")
     } else if (item.class == "giftBtn") {
       // 礼盒按钮
@@ -108,15 +110,25 @@ class MapBox extends React.Component {
   });
 
   // 绿色的可以闯关的按钮
-  clickToPlay = () => {
+  clickToPlay = (level) => {
     const { homeInfo } = store;
     console.log(2, homeInfo?.joinGolds, homeInfo?.goldNum);
     if (homeInfo?.joinGolds > homeInfo?.goldNum) {
       modalStore.pushPop("NoMoney");
     } else {
-      store.changePage("Gamepage")
+      store.setCurrentGameLevel(level);
+      this.startGame()
     }
   };
+
+  // 开始游戏
+  startGame = async() => {
+    const {success,data} = await API.startGame()
+    if(success && data) {
+      store.setStartId(data)
+      store.changePage("Gamepage");
+    }
+  }
 
   // 礼盒按钮
   clickGift = (index) => {
@@ -174,8 +186,7 @@ class MapBox extends React.Component {
                 )}
                 {/* 头像+手指：该玩这关了 */}
                 {((index == gameLen &&
-                  item.class != "lockBtn" &&
-                  item.class != "greenBtn") ||
+                  item.class != "lockBtn"&&item.class!='needwait') ||
                   (index == gameLen - 1 &&
                     item.class == "giftBtn" &&
                     homeInfo?.gameInfo?.[index]?.receive != 1)) && (

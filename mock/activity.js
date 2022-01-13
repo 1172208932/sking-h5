@@ -552,6 +552,11 @@ const rankingAward = {
   }
 }
 
+const startGame = {
+  success: true,
+  data: "gameRecordUI"
+}
+
 module.exports = {
   listExchangeLimit,
   doExchange,
@@ -571,5 +576,6 @@ module.exports = {
   queryNewGuide,
   stepNewGuide,
   inviteRecord,
-  rankingAward
+  rankingAward,
+  startGame
 };

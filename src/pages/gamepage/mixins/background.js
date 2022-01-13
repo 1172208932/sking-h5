@@ -156,4 +156,5 @@ export const Background = {
 
         this.bgArea3X = this.bgArea3X - 5
     },
+    
 }

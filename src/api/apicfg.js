@@ -71,6 +71,10 @@ const apiCfg = {
   },
   inviteRecord: `assist_1/queryInviteRecords.do`, //查询我的邀请记录
   rankingAward: `scoring/rankingAward.do`,
+  startGame: {
+    uri: `scoring/start.do`,
+    withToken: true,
+  }
 }
 
 export default apiCfg;
