@@ -81,8 +81,7 @@ export const RoleControl = {
             console.log('碰撞到地面了')
             this.count = 0
             // this.role.carBody.angle = 0
-        }
-        if (
+        }else if (
             (e.bodyA.id == this.role.circleBody.id && e.bodyB.id == this.line1.id) ||
             (e.bodyB.id == this.role.circleBody.id && e.bodyA.id == this.line1.id) ||
             (e.bodyA == this.role.circleBody2 && e.bodyB == this.line1) ||
@@ -94,7 +93,23 @@ export const RoleControl = {
             console.log('碰撞到地面了')
             this.count = 0
             // this.role.carBody.angle = 0
-        }
+        }else {
+			console.log(e,this.role.circleBody.id,this.role.circleBody2,this.line1.id,this.line0.id)
+			for(let i =0; i<this.additiveslist.length;i++){
+				if( e.bodyB.id == this.additiveslist[i].rectBody.id
+					|| e.bodyA.id == this.additiveslist[i].rectBody.id){
+						if(this.additiveslist[i].type == "snow"){
+							this.phyworld.removeBody(this.additiveslist[i].rectBody)
+							this.bgCon.removeChild(this.additiveslist[i].rectcoin)
+							console.log("getCoin")
+						}else {
+							console.log("die")
+							console.log(this.additiveslist[i].type)
+						}
+					}
+			}
+			
+		}
     }
 
 }

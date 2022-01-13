@@ -1,10 +1,11 @@
 import { makeAutoObservable } from 'mobx';
-import { level, level1 } from '@src/lujingInfo/lujing';
+import { level1, poplevel1 } from '@src/lujingInfo/lujing';
 import p2 from 'p2/build/p2';
 import { RES_PATH } from '../../../sparkrc.js';
 import { mix } from './mix';
 import { Background } from './mixins/background.js';
 import { RoleControl } from './mixins/roleControl.js'
+import Obstacle from './components/Obstacle.js';
 const gameStore = makeAutoObservable(mix({
 	heighshape:null,
 	hfShapeshape:null,
@@ -18,7 +19,7 @@ const gameStore = makeAutoObservable(mix({
     propInfo:'',
     getData(){
         this.lineInfo = level1
-        this.propInfo = ""
+        this.propInfo = poplevel1
         this.createPhysicsWorld()
     },
 
@@ -84,7 +85,6 @@ const gameStore = makeAutoObservable(mix({
         this.shape0 = new FYGE.Shape(); // debug
 		this.bgCon.addChild(this.shape0);   // debug
 		//绘制地面线路
-		// let level1 = [ 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110,]
         
 		this.shape0.beginStroke(0xff0000, 4); // debug
 		for (let i = 0; i < 20; i++) {
@@ -130,11 +130,11 @@ const gameStore = makeAutoObservable(mix({
 
 
 		//添加各种障碍additives
-		// for (let addi = 0; addi < this.additives.length; addi++) {
-		// 	let coin = new Obstacle(this.additives[addi], world, this.bgCon)
-		// 	this.additiveslist.push(coin)
+		for (let addi = 0; addi < this.propInfo.length; addi++) {
+			let coin = new Obstacle(this.propInfo[addi], this.phyworld, this.bgCon)
+			this.additiveslist.push(coin)
 
-		// }
+		}
 
 		this.listenContact()
     },
@@ -172,7 +172,6 @@ const gameStore = makeAutoObservable(mix({
     shape0:'',
     shape1:'',
     addLine(subdivision,world){
-		console.log("???")
 		var heights = []
 		var useShape;
 		var useLine;
@@ -267,40 +266,4 @@ const gameStore = makeAutoObservable(mix({
 export default gameStore;
 
 
-export class Obstacle {
-	type = ""
-	rectShape;//刚体形状
-	rectBody;//刚体
-	rectcoin;//展示节点
-	constructor(item, world, box) {
-		this.type = item.type
-		this.rectShape = new p2.Box({ width: 40, height: 80 });
-		//  new Circle({ radius: 20 });
-		this.rectBody = new p2.Body({
-			mass: 0,    //重量
-			position: [item.x, -item.y],
-			// fixedRotation: true,
-		});
-		this.rectBody.addShape(this.rectShape);
 
-		world.addBody(this.rectBody);
-
-		this.rectcoin = new FYGE.Shape();
-		box.addChild(this.rectcoin);
-		// circledrawRoundedRect
-		if(this.type == "bigstone"){
-			this.rectcoin.beginFill(0xff0000, 0.5)
-			.drawRect(0, 0, 40, 80)
-			// .drawRoundedRect(0,0,40,40)
-			.endFill();
-		}else {
-			this.rectcoin.beginFill(0xff0000, 0.5)
-			.drawRect(0, 0, 40, 40)
-			// .drawRoundedRect(0,0,40,40)
-			.endFill();
-		}
-		
-		this.rectcoin.position.set(item.x, item.y)
-	}
-
-}
