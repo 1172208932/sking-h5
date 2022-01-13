@@ -1,0 +1,100 @@
+import {
+    RES_PATH
+} from '../../../../sparkrc.js';
+import Role from '../components/Role'
+import p2 from 'p2/build/p2';
+
+export const RoleControl = {
+    role: null,
+    // 双击
+    timer: null,
+    count: null,
+    ifFly: false,
+
+    addRole() {
+        this.role = new Role()
+        this.bgCon.addChild(this.role)
+
+        this.addMaterial(this.heighshape)
+
+        this.phyworld.addBody(this.role.circleBody);
+        this.phyworld.addBody(this.role.circleBody2);
+        this.phyworld.addBody(this.role.carBody);
+        let revoluteBack = new p2.LockConstraint(this.role.carBody, this.role.circleBody);
+        let revoluteFront = new p2.LockConstraint(this.role.carBody, this.role.circleBody2);
+        this.phyworld.addConstraint(revoluteBack);
+        this.phyworld.addConstraint(revoluteFront);
+    },
+    addMaterial(heighshape) {
+        var contactMaterial1 = new p2.ContactMaterial(heighshape.material, this.role.circleShape.material, {
+            restitution: 0, // This means no bounce!
+            surfaceVelocity: -82000,
+            friction: 0.8
+        });
+        this.phyworld.addContactMaterial(contactMaterial1)
+
+        var contactMaterial2 = new p2.ContactMaterial(heighshape.material, this.role.circleShape2.material, {
+            restitution: 0, // This means no bounce!
+            surfaceVelocity: -82000,
+            friction: 0.8
+        });
+        this.phyworld.addContactMaterial(contactMaterial2)
+
+        var contactMaterial3 = new p2.ContactMaterial(heighshape.material, this.role.carShape.material, {
+            restitution: 0, // This means no bounce!
+            surfaceVelocity: -82000,
+            friction: 0
+        });
+        this.phyworld.addContactMaterial(contactMaterial3)
+    },
+    updateRole(stage) {
+        const x = this.role.circleBody.position[0];
+        const y = -this.role.circleBody.position[1];
+
+        const carBodyX = this.role.carBody.position[0];
+        const carBodyY = -this.role.carBody.position[1];
+
+        const circleBody2X = this.role.circleBody2.position[0];
+        const circleBody2Y = -this.role.circleBody2.position[1];
+
+
+        this.role.circle2.position.set(circleBody2X, circleBody2Y);
+        this.role.car.position.set(carBodyX - 40, carBodyY);
+
+        this.role.circle.position.set(x, y);
+        this.role.car.rotation = -this.role.carBody.angle / Math.PI * 180
+
+        this.bgCon.x = -x + stage.width / 4 //镜头跟随
+        this.bgCon.y = -y + stage.height * 0.6
+    },
+
+    roleContact(e) {
+        if (
+            (e.bodyA.id == this.role.circleBody.id && e.bodyB.id == this.line0.id) ||
+            (e.bodyB.id == this.role.circleBody.id && e.bodyA.id == this.line0.id) ||
+            (e.bodyA == this.role.circleBody2 && e.bodyB == this.line0) ||
+            (e.bodyB == this.role.circleBody2 && e.bodyA == this.line0)
+        ) {
+            // console.log(e)
+            // console.log(hfShapeBody)
+            this.role.carBody.fixedRotation = false
+            console.log('碰撞到地面了')
+            this.count = 0
+            // this.role.carBody.angle = 0
+        }
+        if (
+            (e.bodyA.id == this.role.circleBody.id && e.bodyB.id == this.line1.id) ||
+            (e.bodyB.id == this.role.circleBody.id && e.bodyA.id == this.line1.id) ||
+            (e.bodyA == this.role.circleBody2 && e.bodyB == this.line1) ||
+            (e.bodyB == this.role.circleBody2 && e.bodyA == this.line1)
+        ) {
+            // console.log(e)
+            // console.log(hfShapeBody)
+            this.role.carBody.fixedRotation = false
+            console.log('碰撞到地面了')
+            this.count = 0
+            // this.role.carBody.angle = 0
+        }
+    }
+
+}
