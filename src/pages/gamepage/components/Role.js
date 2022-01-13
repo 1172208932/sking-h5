@@ -86,11 +86,11 @@ export default class Role extends Sprite {
         this.addChild(car);
         // circledrawRoundedRect
         car.beginFill(0xff0000, 0.5)
-            .drawRect(0, 0, 40, 80)
+            .drawRect(0, 0, 90, 113)
             // .drawRoundedRect(0,0,40,40)
             .endFill();
 
-        const carShape= this.carShape = new p2.Box({ width: 40, height: 80 , material: new p2.Material()});
+        const carShape= this.carShape = new p2.Box({ width: 90, height: 113 , material: new p2.Material()});
         //  new Circle({ radius: 20 });
         const carBody = this.carBody = new p2.Body({
             mass: 3,    //重量
