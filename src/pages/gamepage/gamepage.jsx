@@ -18,6 +18,7 @@ class Gamepage extends React.Component {
       gameStep: 0,//第？关 0  准备1  出发2
       startpop: true, //是否需要显示开始
       starInfo: '',//关卡信息
+      curScore: 0,
     };
   }
   componentDidMount() {
@@ -110,8 +111,14 @@ class Gamepage extends React.Component {
       startpop: false
     });
   }
+  //设置当前分数
+  setCurScore(curScore) {
+    this.setState({
+      curScore
+    })
+  }
   render() {
-    const { gameStep, startpop, starInfo } = this.state
+    const { gameStep, startpop, starInfo, curScore } = this.state
     return (
       <div className="homePagebox">
         <div className="gamepage">
@@ -161,20 +168,25 @@ class Gamepage extends React.Component {
             <div className="bar">
               <div className="three">
                 <span className="bj"></span>
-                <span className="baron"></span>
+                <div className="baron_mask" style={{ width: `${curScore / Math.floor(starInfo?.[store.currentGameLevel - 1]?.star3) * 4.79}rem` }}>
+                  <span className="baron"></span>
+                  <SvgaPlayer className="baron_svga" src={`${RES_PATH}/svga/流光高亮.svga`} />
+                </div>
+
+
                 <div className="twoarea">
                   <span className="twobg"></span>
-                  <span className="twoscore">900</span>
+                  <span className="twoscore">{`${starInfo?.[store.currentGameLevel - 1]?.star2}`}</span>
                   <span className="twostar"></span>
                 </div>
                 <div className="threearea">
                   <span className="threebg"></span>
-                  <span className="threescore">1500</span>
+                  <span className="threescore">{`${starInfo?.[store.currentGameLevel - 1]?.star3}`}</span>
                   <span className="threestar"></span>
                 </div>
               </div>
               <span className="bartip">当前分数</span>
-              <span className="barscore">345</span>
+              <span className="barscore">{curScore}</span>
             </div>
             <div className="sound">
               <span className="soundf"></span>
