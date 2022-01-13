@@ -13,6 +13,7 @@ import DecCoinBox from "@src/components/DecCoinBox/DecCoinBox";
 import LastPrize from "@src/components/LastPrize/LastPrize.jsx";
 import MapBox from "@src/components/MapBox/MapBox.jsx";
 import { Tool } from '@src/utils/Tool.js';
+import { toJS } from "mobx";
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 @observer
 class Mappage extends React.Component {
@@ -20,31 +21,42 @@ class Mappage extends React.Component {
     super(props);
     this.state = {
       queryNewGuideInfo: '', // 中奖轮播
+      showMask: false
     };
   }
 
   getMapInfo = () => {
-    
-    MapPosition.map((item) => {});
+
+    MapPosition.map((item) => { });
   };
-    
+
   componentDidMount() {
-    // this.queryNewGuide()
+    let homeInfo = Object.assign({}, toJS(store.homeInfo));
+    console.info('homeInfo:', homeInfo)
+    this.queryNewGuide()
     this.moveMap()
   }
   async queryNewGuide() {
 
     let queryNewGuideInfo = await API.queryNewGuide()
     console.info('queryNewGuideInfo:', queryNewGuideInfo)
-    this.setState({
-      queryNewGuideInfo: queryNewGuideInfo.data
-    })
+    if (!queryNewGuideInfo.data.completeGuide) {
+      this.setState({
+        queryNewGuideInfo: queryNewGuideInfo.data,
+        showMask: true
+      }, async () => {
+        let toWidth = Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - document.documentElement.clientWidth
+        console.log("toWidth:", toWidth)
+        var percent = { toWidth: 100 }
+        await delay(1000)
+        Tool.tweenReaptToto2(document.documentElement, 0, toWidth, toWidth, () => {
+          this.setState({
+            showMask: false
+          })
+        })
+      })
+    }
 
-    let toWidth = Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - document.documentElement.clientWidth
-    console.log("toWidth:", toWidth)
-    var percent = { toWidth: 100 }
-    await delay(1000)
-    Tool.tweenReaptToto2(document.documentElement, 0, toWidth, toWidth)
 
   }
   scroolToBottom() {
@@ -68,6 +80,7 @@ class Mappage extends React.Component {
   }
   render() {
     const { homeInfo } = store;
+    const { showMask } = this.state
     return (
       <div className="mappage">
         {/* 背景 */}
@@ -97,10 +110,17 @@ class Mappage extends React.Component {
           ></span>
         </div>
         {/* 100关 */}
-        <MapBox/>
+        <MapBox />
 
         {/* 终极大奖 */}
         <LastPrize />
+
+        {
+          showMask &&
+          <div className="mapBgbox_mask">
+          </div>
+        }
+
       </div>
     );
   }
