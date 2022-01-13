@@ -9,6 +9,7 @@ import API from '../../api';
 import './gamepage.less';
 import gameStore from './gameStore.js';
 import EventBus from '@duiba/event-bus';
+import { SvgaPlayer } from '@spark/animation';
 
 import { toJS } from "mobx";
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))

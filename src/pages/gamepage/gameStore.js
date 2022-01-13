@@ -42,8 +42,8 @@ const gameStore = makeAutoObservable(mix({
             this.subdivision++;
             this.removetype = true
             this.addLine(this.subdivision,this.phyworld)
-
         }
+
         if(this.role.carBody.position[0]>this.subdivision*2000 && this.removetype){
             console.log("remove")
             this.removetype = false
