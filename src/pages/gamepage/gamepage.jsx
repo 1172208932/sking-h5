@@ -84,15 +84,6 @@ class Gamepage extends React.Component {
     gameStore.bgCon = new FYGE.Container();
     this.gamestage.addChild(gameStore.bgCon)
 
-
-    var test = new FYGE.TextField();
-    gameStore.bgCon.addChild(test)
-    test.text = "123121123"
-    test.size = 55
-    test.fillColor = "#ff0000"
-    test.position.set(gameStore.offsetX, 0)
-
-
     gameStore.getData()
     gameStore.initbg()
 

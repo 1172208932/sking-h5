@@ -3,6 +3,7 @@ import {
 } from '../../../../sparkrc.js';
 import Role from '../components/Role'
 import p2 from 'p2/build/p2';
+import Obstacle from '../components/Obstacle.js';
 
 export const RoleControl = {
     role: null,
@@ -17,6 +18,12 @@ export const RoleControl = {
 
         this.addMaterial(this.heighshape)
 
+		//添加各种障碍additives
+        for (let addi = 0; addi < this.propInfo.length; addi++) {
+            let coin = new Obstacle(this.propInfo[addi], this.phyworld, this.bgCon)
+            this.additiveslist.push(coin)
+
+        }
         this.phyworld.addBody(this.role.circleBody);
         this.phyworld.addBody(this.role.circleBody2);
         this.phyworld.addBody(this.role.carBody);
@@ -105,7 +112,6 @@ export const RoleControl = {
 			this.gameWin();
             // this.role.carBody.angle = 0
         }else{
-			console.log(e,this.role.circleBody.id,this.role.circleBody2,this.line1.id,this.line0.id)
 			for(let i =0; i<this.additiveslist.length;i++){
 				if( e.bodyB.id == this.additiveslist[i].rectBody.id
 					|| e.bodyA.id == this.additiveslist[i].rectBody.id){

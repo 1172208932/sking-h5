@@ -34,7 +34,6 @@ const gameStore = makeAutoObservable(mix({
 		this.updateRole(stage)
 
         // this.bgArea.x = -x + stage.width / 4 ;
-
         if (!this.gameEnd) {
             this.MoveBg()
         }
@@ -133,35 +132,10 @@ const gameStore = makeAutoObservable(mix({
         this.endId = panelBody.id
 
 
-        this.propInfo = this.propSort(this.propInfo)
-        console.log("排序完了么")
-        //添加各种障碍additives
-        for (let addi = 0; addi < this.propInfo.length; addi++) {
-            let coin = new Obstacle(this.propInfo[addi], this.phyworld, this.bgCon)
-            this.additiveslist.push(coin)
 
-        }
+        
 
         this.listenContact()
-    },
-
-    propSort(arr) {
-        console.log("排序前",arr)
-        var len = arr.length;
-        var minIndex, temp;
-        for (var i = 0; i < len - 1; i++) {
-            minIndex = i;
-            for (var j = i + 1; j < len; j++) {
-                if (arr[j].x < arr[minIndex].x) {     // 寻找最小的数
-                    minIndex = j;                 // 将最小数的索引保存
-                }
-            }
-            temp = arr[i];
-            arr[i] = arr[minIndex];
-            arr[minIndex] = temp;
-        }
-        console.log("排序后",arr)
-        return arr;
     },
 
 	listenContact() {
