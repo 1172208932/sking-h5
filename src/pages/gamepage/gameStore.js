@@ -7,6 +7,7 @@ import { Background } from './mixins/background.js';
 import { RoleControl } from './mixins/roleControl.js'
 import Obstacle from './components/Obstacle.js';
 const gameStore = makeAutoObservable(mix({
+	beginGame:false,
 	heighshape:null,
 	hfShapeshape:null,
     bgCon:'',
@@ -31,7 +32,7 @@ const gameStore = makeAutoObservable(mix({
 
 	enterFrame( stage){
 		this.phyworld.step(1 / 60);
-
+		if(!this.beginGame){return}
 		this.updateRole(stage)
 
         // this.bgArea.x = -x + stage.width / 4 ;
@@ -65,7 +66,7 @@ const gameStore = makeAutoObservable(mix({
 		this.role.carBody.fixedRotation = true
 
 
-		this.role.carBody.applyForce([0, 2 * 150000], [0, 0]);
+		this.role.carBody.applyForce([0, 2 * 130000], [0, 0]);
 		this.count ++;
 	},
 

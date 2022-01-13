@@ -93,7 +93,6 @@ class Gamepage extends React.Component {
 
 
     gameStore.getData()
-    gameStore.addRole()
     gameStore.initbg()
 
     //帧刷新
@@ -121,6 +120,9 @@ class Gamepage extends React.Component {
     this.setState({
       gameStep: 0,
       startpop: false
+    },()=>{
+      gameStore.addRole()
+      gameStore.beginGame = true
     });
   }
   //设置当前分数

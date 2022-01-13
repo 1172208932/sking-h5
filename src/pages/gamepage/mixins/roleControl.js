@@ -48,6 +48,7 @@ export const RoleControl = {
         this.phyworld.addContactMaterial(contactMaterial3)
     },
     updateRole(stage) {
+        if(!this.role){return}
         const x = this.role.circleBody.position[0];
         const y = -this.role.circleBody.position[1];
 
@@ -64,8 +65,8 @@ export const RoleControl = {
         this.role.circle.position.set(x, y);
         this.role.car.rotation = -this.role.carBody.angle / Math.PI * 180
 
-        this.bgCon.x = -x + stage.width / 4 //镜头跟随
-        this.bgCon.y = -y + stage.height * 0.6
+        this.bgCon.x = -x + stage.width / 8 //镜头跟随
+        this.bgCon.y = -y + stage.height * 0.4
     },
 
     roleContact(e) {
