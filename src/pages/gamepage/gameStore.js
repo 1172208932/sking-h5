@@ -21,6 +21,13 @@ const gameStore = makeAutoObservable({
     bgArea2:'',
 
     bgList:'',
+    lineInfo:'',
+    propInfo:'',
+    getData(){
+        this.lineInfo = level1
+        this.propInfo = ""
+        this.createPhysicsWorld()
+    },
 
     initbg() {
         //加载图片
@@ -205,14 +212,19 @@ const gameStore = makeAutoObservable({
 		this.bgCon.addChild(this.shape0);   // debug
 		//绘制地面线路
 		// let level1 = [ 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110, 110,]
-
+        
 		this.shape0.beginStroke(0xff0000, 4); // debug
 		for (let i = 0; i < 20; i++) {
-			const y = level1[i];
+			const y = this.lineInfo[i];
 			heights.push(-y);   // 加入高度组
-			this.shape0.lineTo( i*100, y + 300);   // debug
-		}
-		this.shape0.endStroke();  // debug
+            this.shape0.lineTo( i*100, y + 300);   // debug
+            if(i>0)
+            this.shape0.addChild(this.stockArea(i))
+        }
+        
+        this.shape0.endStroke();  // debug
+        
+        // Shapestock.beginGradientFill([])
 
 
 		//生成地面刚体
@@ -236,7 +248,7 @@ const gameStore = makeAutoObservable({
         const panelShape = new p2.Plane();
 		const panelBody = new p2.Body({
 			mass: 0,    //重量
-			position: [(level1.length-1)*100, -(level1[level1.length - 1] + 360)],
+			position: [(this.lineInfo.length-1)*100, -(this.lineInfo[this.lineInfo.length - 1] + 360)],
 		});
 		panelBody.addShape(panelShape);
 
@@ -304,7 +316,9 @@ const gameStore = makeAutoObservable({
 			// 	}
 			// }
 		})
-	},
+    },
+    
+    //后续延展刚体
 	line0:'',
     line1:'',
     shape0:'',
@@ -335,13 +349,14 @@ const gameStore = makeAutoObservable({
 			world.addBody(this.line1);
 			useLine = this.line1
 		}
-		console.log((subdivision*20-1)*100,level1[subdivision*20-1])//为啥查一个
+		console.log((subdivision*20-1)*100,this.lineInfo[subdivision*20-1])//为啥查一个
 		//绘制地面线路
 		useShape.beginStroke(0xff0000, 4); // debug
-		for (let i = subdivision*20-1; i < (subdivision*20+20<level1.length?subdivision*20+20:level1.length); i++) {
-			const y = level1[i];
+		for (let i = subdivision*20-1; i < (subdivision*20+20<this.lineInfo.length?subdivision*20+20:this.lineInfo.length); i++) {
+			const y = this.lineInfo[i];
 			heights.push(-y);   // 加入高度组
-			useShape.lineTo( i*100, y + 300);   // debug
+            useShape.lineTo( i*100, y + 300);   // debug
+            useShape.addChild(this.stockArea(i))
 		}
 		useShape.endStroke();  // debug
 
@@ -384,7 +399,22 @@ const gameStore = makeAutoObservable({
 		console.log(this.bgCon.children)
 		
 		
-	},
+    },
+    //填充
+    stockArea(i){
+        console.log(i,"当前")
+        if(i<160){
+            return
+        }
+        var Shapestock = new FYGE.Shape();
+        Shapestock.beginGradientFill([0,0,0,this.lineInfo[i]+800],[[0,"#ffffff",1],[1,'#82b1e3',1]])
+        Shapestock.lineTo((i-1)*100, (this.lineInfo[i-1]) + 300)
+        Shapestock.lineTo(i*100, this.lineInfo[i] + 300)
+        Shapestock.lineTo(i*100,  this.lineInfo[i]+500)
+        Shapestock.lineTo((i-1)*100,  this.lineInfo[i]+500)
+        Shapestock.endFill()
+        return Shapestock;
+    }
 });
 export default gameStore;
 

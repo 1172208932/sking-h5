@@ -62,7 +62,8 @@ class Gamepage extends React.Component {
     test.fillColor = "#ff0000"
     test.position.set(gameStore.offsetX, 0)
 
-    gameStore.createPhysicsWorld()
+
+    gameStore.getData()
 
     gameStore.addRole()
 
@@ -84,6 +85,7 @@ class Gamepage extends React.Component {
     return (
       <div className="homePagebox">
         <div className="gamepage">
+        <canvas className="canvas" id="gamestage"></canvas>
           <div className="startpop">
             <div className="startaim">
               <div className="startbg" />
@@ -107,7 +109,7 @@ class Gamepage extends React.Component {
             <span className="startready"></span>
             <span className="startgo"></span>
           </div>
-          <canvas className="canvas" id="gamestage"></canvas>
+          
           <div className="iconarea">
 
             <div className="distance">
