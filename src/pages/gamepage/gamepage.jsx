@@ -109,18 +109,18 @@ class Gamepage extends React.Component {
   }
   async setTimeStatus() {
     await delay(1500)
-    // this.setState({
-    //   gameStep: 1,
-    // });
-    // await delay(1500)
-    // this.setState({
-    //   gameStep: 2,
-    // });
-    // await delay(1500)
-    // this.setState({
-    //   gameStep: 0,
-    //   startpop: false
-    // });
+    this.setState({
+      gameStep: 1,
+    });
+    await delay(1500)
+    this.setState({
+      gameStep: 2,
+    });
+    await delay(1500)
+    this.setState({
+      gameStep: 0,
+      startpop: false
+    });
   }
   //设置当前分数
   setCurScore(curScore) {
