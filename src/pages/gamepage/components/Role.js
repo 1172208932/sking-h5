@@ -30,8 +30,34 @@ export default class Role extends Sprite {
         // speedUpBtnAni.position.set(0,-10)
         // // this._speedUpBtnIcon.visible = false
         // this.addChild(speedUpBtnAni)
+        SvgaParser.loadSvga('https://yun.duiba.com.cn/aurora/assets/da64169b4e806806999ba8bf73e95ba7539dfd99.svga', (data) => {
+            console.log(this,'this')
+            //创建SvgaAni对象
+            const svga = this.car.addChild(new FYGE.SvgaAni(data));
+
+            // svga.anchorTexture.set(1, 1);
+            
+            //设置svga位置~
+            svga.position.set(-180, -40);
+        
+            //从0到最后一帧播放一次动画，并进行回调
+            svga.startAniRange(0, svga.totalFrames, 0);
+        })
 
 
+        // SvgaParser.loadSvga('https://yun.duiba.com.cn/aurora/assets/da64169b4e806806999ba8bf73e95ba7539dfd99.svga', (data) => {
+        //     console.log(this,'this')
+        //     //创建SvgaAni对象
+        //     const svga = this.car.addChild(new FYGE.SvgaAni(data));
+
+        //     // svga.anchorTexture.set(1, 1);
+            
+        //     //设置svga位置~
+        //     svga.position.set(-180, -40);
+        
+        //     //从0到最后一帧播放一次动画，并进行回调
+        //     svga.startAniRange(0, svga.totalFrames, 0);
+        // })
 
         const circle = this.circle = new FYGE.Shape();
         this.addChild(circle);
@@ -78,7 +104,7 @@ export default class Role extends Sprite {
 
         const role = car.addChild(FYGE.Sprite.fromUrl("//yun.duiba.com.cn/aurora/assets/b9a82aa3e1f0ab0dc2c2b7604ead33f215c9da4f.png"))
         role.anchorTexture.set(0, 1);
-        role.position.set(0,28)
+        role.position.set(0,36)
         role.scale.set(0.5,0.5)
         // role.width = 150;
         // role.height = 15;

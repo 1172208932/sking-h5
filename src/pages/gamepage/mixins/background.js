@@ -37,11 +37,9 @@ export const Background = {
         FYGE.GlobalLoader.loadImage((s, image) => {
             //纹理
             var texture = FYGE.Texture.fromImage(image);
-            console.log(this.offsetY, 'this.offsetY')
             //显示对象
             var spr = new FYGE.Sprite(texture)
             spr.y = 184 + this.offsetY
-            console.log(spr.width, 'width')
             this.bgArea1.addChild(spr)
             var spr2 = new FYGE.Sprite(texture)
             spr2.y = 184 + this.offsetY
@@ -79,11 +77,9 @@ export const Background = {
             spr3.x = this.bgArea2X
             spr3.y = 220 + this.offsetY
 
-            console.log(this.bgArea2X, spr3.width, 'this.bgArea2X1')
 
             this.bgArea2X = this.bgArea2X + spr3.width * 0.8
             this.bgArea2.addChildAt(spr3, 1)
-            console.log(this.bgArea2X, 'this.bgArea2X1')
         }, urlList[index])
     },
 
@@ -98,11 +94,9 @@ export const Background = {
             spr3.x = this.bgArea3X
             spr3.y = urlTopList3[index] + this.offsetY
 
-            console.log(this.bgArea3X, spr3.width, 'this.bgArea3X1')
 
             this.bgArea3X = this.bgArea3X + spr3.width * 0.8
             this.bgArea3.addChildAt(spr3, 1)
-            console.log(this.bgArea3X, 'this.bgArea3X1')
         }, urlList3[index])
     },
 

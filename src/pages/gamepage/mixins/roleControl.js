@@ -53,6 +53,31 @@ export const RoleControl = {
             friction: 0
         });
         this.phyworld.addContactMaterial(contactMaterial3)
+
+
+        
+    console.log(this.line0)
+    console.log(this.role.carBody,'this.role.carBody')
+
+        // var prismatic = new p2.PrismaticConstraint(this.line1,  this.role.carBody, {
+        //     localAnchorA :  [ 1, 0],    // Anchor point in bodyA, where the axis starts
+        //     localAnchorB :  [-1, 0],    // Anchor point in bodyB, that will slide along the axis
+        //     localAxisA :    [ 0, 1],    // An axis defined locally in bodyA
+        //     upperLimit :    0.5,        // Upper limit along the axis
+        //     lowerLimit :    -0.5,       // Lower limit along the axis
+        // });
+        // this.phyworld.addConstraint(prismatic);
+
+        // var prismatic2 = new p2.PrismaticConstraint( this.line0,  this.role.carBody, {
+        //     localAnchorA :  [ 1, 0],    // Anchor point in bodyA, where the axis starts
+        //     localAnchorB :  [1, 1],    // Anchor point in bodyB, that will slide along the axis
+        //     localAxisA :    [ 1, 0],    // An axis defined locally in bodyA
+        //     upperLimit :    0.5,        // Upper limit along the axis
+        //     lowerLimit :    -0.5,       // Lower limit along the axis
+        // });
+        // this.phyworld.addConstraint(prismatic2);
+
+
     },
     updateRole(stage) {
         if(!this.role){return}
@@ -120,6 +145,7 @@ export const RoleControl = {
 							this.bgCon.removeChild(this.additiveslist[i].rectcoin)
 							console.log("getCoin")
 						}else {
+                            this.count = 0;
 							console.log("die")
 							this.gameEnd = true
 							this.dieItem = this.additiveslist[i]
