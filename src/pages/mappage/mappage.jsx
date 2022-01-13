@@ -29,7 +29,8 @@ class Mappage extends React.Component {
   };
     
   componentDidMount() {
-    this.queryNewGuide()
+    // this.queryNewGuide()
+    this.moveMap()
   }
   async queryNewGuide() {
 
@@ -50,6 +51,20 @@ class Mappage extends React.Component {
     // setTimeout(() => {
     //   document.documentElement.scrollLeft = document.body.scrollLeft = Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - document.documentElement.clientWidth
     // }, 0);
+  }
+
+  /**
+   * 关卡移动
+   * 当关卡》3时，位于从左到右的第三关
+   * @returns 
+   */
+  moveMap = () => {
+    const { homeInfo } = store;
+    let len = homeInfo?.gameInfo?.length ? homeInfo.gameInfo.length : 0;
+    if(len>=3) {
+      // 3移动1，4移动2个
+      window.scrollTo(331+(14413/108)*(len-3),0);
+    }
   }
   render() {
     const { homeInfo } = store;
@@ -86,12 +101,6 @@ class Mappage extends React.Component {
 
         {/* 终极大奖 */}
         <LastPrize />
-
-        {/* 人 */}
-        {/* <div className="headiconbox">
-          <span className="headboxbottombg"></span>
-          <span className="headboxbottomimg"></span>
-        </div> */}
       </div>
     );
   }

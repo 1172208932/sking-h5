@@ -1,0 +1,183 @@
+module.exports =  {
+  message: "Ut Excepteur ad proident sint",
+  data: {
+    joinGolds: 88,//参与消耗金币数
+    reGolds: 10,//复活消耗金币数
+    inviteGolds: 24,//邀请获得金币数
+    rankReceiveFlag: 3,//地图页终极大奖：1-无法领取 2-待领取 3-已领取
+    nickName: "小巨蛋小巨蛋小巨蛋小巨蛋小巨蛋小巨蛋",
+    avatar:
+      "//yun.duiba.com.cn/aurora/assets/a51a8f870e3031792ae2b27e435fca4abb79181d.png",
+    activityEndTime: 24837630.012418807,
+    pvNum: 86505640.30935124, //用户参与数量
+    assistInfo: {
+      assistNum: 0, //邀请人数
+      assistGoldNum: 127283683648374, //获得金币数量
+    },
+    goldNum: 120,
+    rankScore: 121121221121221, //排行榜分数
+    gameInfo: [
+      {
+        level: "1",
+        score: "0",
+        star: "1",
+      },
+      {
+        level: "2",
+        score: "0",
+        star: "3",
+      }, {
+        level: "3",
+        score: "0",
+        star: "1",
+      },
+      {
+        level: "4",
+        score: "0",
+        star: "3",
+      }, {
+        level: "5",
+        score: "0",
+        star: "1",
+      },
+      {
+        level: "6",
+        score: "0",
+        star: "3",
+      }, {
+        level: "7",
+        score: "0",
+        star: "1",
+      },
+      {
+        level: "8",
+        score: "0",
+        star: "3",
+      },
+       {
+        level: "9",
+        score: "0",
+        star: "1",
+      },
+      {
+        level: "10",
+        score: "0",
+        star: "3",
+      }, 
+      {
+        level: "10_gift", // i=10,len=11
+        score: "0",
+        star: "0",
+        receive: "0",//"0-未完成 1-已领取 2-待领取
+      },
+      // {
+      //   level: "11",
+      //   score: "0",
+      //   star: "3",
+      //   receive: "1",
+      // },
+      //  {
+      //   level: "12",
+      //   score: "0",
+      //   star: "1",
+      //   receive: "1",
+      // },
+      // {
+      //   level: "13",
+      //   score: "0",
+      //   star: "3",
+      //   receive: "1",
+      // },
+      // {
+      //   level: "14",
+      //   score: "0",
+      //   star: "3",
+      //   receive: "1",
+      // },
+      //  {
+      //   level: "15",
+      //   score: "0",
+      //   star: "1",
+      //   receive: "1",
+      // },
+      // {
+      //   level: "16",
+      //   score: "0",
+      //   star: "3",
+      //   receive: "1",
+      // },
+      // {
+      //   level: "17",
+      //   score: "0",
+      //   star: "3",
+      //   receive: "1",
+      // },
+      // {
+      //   level: "18",
+      //   score: "0",
+      //   star: "3",
+      //   receive: "1",
+      // },
+      //  {
+      //   level: "19",
+      //   score: "0",
+      //   star: "1",
+      //   receive: "1",
+      // },
+      // {
+      //   level: "20",
+      //   score: "0",
+      //   star: "3",
+      //   receive: "1",
+      // },
+      // {
+      //   level: "20_gift",
+      //   score: "0",
+      //   star: "0",
+      //   receive: "0",//receive":"0-未领取 1-已领取 2-待领取
+      // },
+      // {
+      //   level: "21",
+      //   score: "0",
+      //   star: "3",
+      //   receive: "1",
+      // },
+      // {
+      //   level: "22",
+      //   score: "0",
+      //   star: "3",
+      //   receive: "1",
+      // },
+      //  {
+      //   level: "23",
+      //   score: "0",
+      //   star: "1",
+      //   receive: "1",
+      // },
+      // {
+      //   level: "24",
+      //   score: "0",
+      //   star: "3",
+      //   receive: "1",
+      // },
+    ],
+    url: "http://www.baidu.com",
+    rankPrize: [
+      {
+        rank: "1-10",
+        prizeName: "大声疾呼公司经过伤筋动骨",
+        prizeImg: "//yun.duiba.com.cn/aurora/assets/515ed09f2dd8458e1a9f0daeb24ad965ace57bf7.png",
+      },{
+        rank: "31-10",
+        prizeName: "大声疾呼公司经过伤筋211212动骨",
+        prizeImg: "//yun.duiba.com.cn/aurora/assets/515ed09f2dd8458e1a9f0daeb24ad965ace57bf7.png",
+      },{
+        rank: "1121212-2112212110",
+        prizeName: "大声疾呼公司经过伤筋动骨",
+        prizeImg: "//yun.duiba.com.cn/aurora/assets/515ed09f2dd8458e1a9f0daeb24ad965ace57bf7.png",
+      },
+    ],
+  },
+  code: "Duis dolor velit",
+  success: true,
+};

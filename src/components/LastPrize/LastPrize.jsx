@@ -67,7 +67,7 @@ class LastPrize extends React.Component {
             }`}
             onClick={this.clickReceive}
           ></div>
-          {/* 开始游戏按钮 */}
+          {/* 手势 */}
           {homeInfo?.rankReceiveFlag == 2 && (
             <SvgaPlayer
               className="gesturesAperture"

@@ -143,12 +143,8 @@ class TurnTable extends React.Component {
     store.getHomeInfo();
   }
 
-
-
-
-
   render() {
-    const { drawList, prizeIndex } = this.state;
+    const { drawList, prizeIndex, inDraw } = this.state;
     return (
       <div className="turntable">
         <span className="light"></span>
@@ -173,7 +169,9 @@ class TurnTable extends React.Component {
             : null}
         </div>
          {/* GO */}
-         <span className="go" onClick={this.clickStart}></span>
+         <div className="go" onClick={this.clickStart}>
+           <div className={`togo ${inDraw ? '' : 'move'}`}></div>
+         </div>
         <span className="ribbon"></span>
       </div>
     );
