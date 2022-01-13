@@ -25,6 +25,7 @@ class HomePage extends React.Component {
     await store.getHomeInfo();
     this.indexDataChange();
     this.getCarousel();
+    // modalStore.pushPop("RockPrize")
   }
 
   // 首页接口数据处理
@@ -35,6 +36,10 @@ class HomePage extends React.Component {
     }
     // 用户助力
     this.toAssist();
+    // 助力上限
+    if(store?.homeInfo?.assistInfo?.limitNum > 0) {
+      modalStore.pushPop("InviteLimit")
+    }
   }
 
   toAssist = async() => {

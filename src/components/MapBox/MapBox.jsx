@@ -99,36 +99,13 @@ class MapBox extends React.Component {
     console.log(item, index);
     if (item.class == "greenBtn") {
       // 绿色按钮，可以玩
-      // 需要再判断下TODO
-      console.log(1);
-      this.clickToPlay(item.level);
-      // store.changePage("Gamepage")
+      store.startGame(item.level);
     } else if (item.class == "giftBtn") {
       // 礼盒按钮
       this.clickGift(index);
     }
   });
 
-  // 绿色的可以闯关的按钮
-  clickToPlay = (level) => {
-    const { homeInfo } = store;
-    console.log(2, homeInfo?.joinGolds, homeInfo?.goldNum);
-    if (homeInfo?.joinGolds > homeInfo?.goldNum) {
-      modalStore.pushPop("NoMoney");
-    } else {
-      store.setCurrentGameLevel(level);
-      this.startGame()
-    }
-  };
-
-  // 开始游戏
-  startGame = async() => {
-    const {success,data} = await API.startGame()
-    if(success && data) {
-      store.setStartId(data)
-      store.changePage("Gamepage");
-    }
-  }
 
   // 礼盒按钮
   clickGift = (index) => {
