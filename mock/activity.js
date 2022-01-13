@@ -1,76 +1,3 @@
-const getIndex = {
-  message: "Ut Excepteur ad proident sint",
-  data: {
-    joinGolds: 88,//参与消耗金币数
-    reGolds: 10,//复活消耗金币数
-    inviteGolds: 24,//邀请获得金币数
-    rankReceiveFlag: 3,//地图页终极大奖：1-无法领取 2-待领取 3-已领取
-    nickName: "小巨蛋小巨蛋小巨蛋小巨蛋小巨蛋小巨蛋",
-    avatar:
-      "//yun.duiba.com.cn/aurora/assets/a51a8f870e3031792ae2b27e435fca4abb79181d.png",
-    activityEndTime: 24837630.012418807,
-    pvNum: 86505640.30935124, //用户参与数量
-    assistInfo: {
-      assistNum: 0, //邀请人数
-      assistGoldNum: 127283683648374, //获得金币数量
-    },
-    goldNum: 48375,
-    rankScore: 121121221121221, //排行榜分数
-    gameInfo: [
-      {
-        level: "1",
-        score: "0",
-        star: "1",
-        receive: "1",
-      },
-    ],
-    url: "http://www.baidu.com",
-    rankPrize: [
-      {
-        rank: "1-10",
-        prizeName: "大声疾呼公司经过伤筋动骨",
-        prizeImg: "//yun.duiba.com.cn/aurora/assets/515ed09f2dd8458e1a9f0daeb24ad965ace57bf7.png",
-      },{
-        rank: "31-10",
-        prizeName: "大声疾呼公司经过伤筋211212动骨",
-        prizeImg: "//yun.duiba.com.cn/aurora/assets/515ed09f2dd8458e1a9f0daeb24ad965ace57bf7.png",
-      },{
-        rank: "1121212-2112212110",
-        prizeName: "大声疾呼公司经过伤筋动骨",
-        prizeImg: "//yun.duiba.com.cn/aurora/assets/515ed09f2dd8458e1a9f0daeb24ad965ace57bf7.png",
-      },
-    ],
-    starInfo: [
-      {
-        "level": "1",
-        "star2": 111,
-        "star1": -21961016.039620325,
-        "star3": 2222
-      },
-      {
-        "level": "2",
-        "star2": 2222,
-        "star1": -91712480.21939173,
-        "star3": 33333
-      },
-      {
-        "level": "3",
-        "star2": 4444,
-        "star1": 43446922.92147857,
-        "star3": 5555
-      },
-      {
-        "level": "4",
-        "star2": 666,
-        "star1": -14169123.906866238,
-        "star3": 7777
-      }
-    ]
-  },
-  code: "Duis dolor velit",
-  success: true,
-};
-
 const listExchangeLimit = {
   success: true,
   data: {
@@ -626,7 +553,6 @@ const rankingAward = {
 }
 
 module.exports = {
-  getIndex,
   listExchangeLimit,
   doExchange,
   getMyPrize,

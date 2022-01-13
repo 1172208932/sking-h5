@@ -34,7 +34,18 @@
     left: 733px;
     top: 360px;
     position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     .sparkBg("turnTable/GO.png");
+    .togo {
+      width: 108px;
+      height: 92px;
+      .sparkBg("turnTable/togo.png");
+      &.move {
+        animation: breath 1s infinite;
+      }
+    }
   }
   .ribbon {
     width: 669px;
@@ -76,7 +87,7 @@
     }
     .turn-prize-choose {
       background: #fef6cd;
-      border: 4px solid red;
+      border: 4px solid #fdd570;
       box-sizing: border-box;
     }
     .turn-prize0 {

@@ -12,6 +12,9 @@
     min-width: 104px;
     min-height: 75px;
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     .starBox {
       width: 100px;
       height: 31px;
@@ -21,6 +24,46 @@
         &:nth-child(2) {
           margin:0 7px 5px 7px;
         }
+      }
+    }
+    .head-hand {
+      position: absolute;
+      top: -78px;
+      width: 144px;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      z-index: 1;
+      pointer-events: none;
+      .headiconbox {
+        width: 78px;
+        height: 88px;
+        position: absolute;
+        top: 0;
+        pointer-events: none;
+        .headboxbottombg {
+          width: 78px;
+          height: 88px;
+          .sparkBg("mapPage/headBoxBottomBg.png");
+        }
+    
+        .headboxbottomimg {
+          width: 70px;
+          height: 70px;
+          left: 5px;
+          top: 4px;
+          position: absolute;
+          border-radius: 35px;
+          .sparkBg("mapPage/headBoxBottomImg.png");
+        }
+      }
+      .gesturesAperture {
+        width: 144px;
+        height: 151px;
+        top: 70px;
+        right: -30px;
+        position: absolute;
+        pointer-events: none;
       }
     }
     .levelBox {
