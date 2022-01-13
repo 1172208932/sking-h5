@@ -22,6 +22,7 @@ class Gamepage extends React.Component {
       startpop: true, //是否需要显示开始
       starInfo: '',//关卡信息
       curScore: 0,
+      soundon: true,
     };
   }
   componentDidMount() {
@@ -83,17 +84,7 @@ class Gamepage extends React.Component {
     gameStore.bgCon = new FYGE.Container();
     this.gamestage.addChild(gameStore.bgCon)
 
-
-    var test = new FYGE.TextField();
-    gameStore.bgCon.addChild(test)
-    test.text = "123121123"
-    test.size = 55
-    test.fillColor = "#ff0000"
-    test.position.set(gameStore.offsetX, 0)
-
-
     gameStore.getData()
-    gameStore.addRole()
     gameStore.initbg()
 
     //帧刷新
@@ -121,6 +112,9 @@ class Gamepage extends React.Component {
     this.setState({
       gameStep: 0,
       startpop: false
+    },()=>{
+      gameStore.addRole()
+      gameStore.beginGame = true
     });
   }
   //设置当前分数
@@ -130,7 +124,7 @@ class Gamepage extends React.Component {
     })
   }
   render() {
-    const { gameStep, startpop, starInfo, curScore } = this.state
+    const { gameStep, startpop, starInfo, curScore, soundon } = this.state
     return (
       <div className="homePagebox">
         <div className="gamepage">
@@ -156,7 +150,7 @@ class Gamepage extends React.Component {
                   <div className="starttitle">
                     <span className="title_di"></span>
 
-                    <span className="title_ge" 
+                    <span className="title_ge"
                       style={{ background: `url(${RES_PATH}GamePage/${store.currentGameLevel.toString()[0]}.png) no-repeat top left / 100% 100%` }}
                     ></span>
 
@@ -221,8 +215,29 @@ class Gamepage extends React.Component {
               <span className="barscore">{curScore}</span>
             </div>
             <div className="sound">
-              <span className="soundf"></span>
-              <span className="soundon"></span>
+
+              {
+                !soundon && <span className="soundf"
+                  onClick={() => {
+                    console.log('打开声音')
+                    this.setState({
+                      soundon: true
+                    })
+                  }}
+                ></span>
+              }
+
+              {
+                soundon && <span className="soundon"
+                  onClick={() => {
+                    console.log('关闭声音')
+                    this.setState({
+                      soundon: false
+                    })
+                  }}
+                ></span>
+              }
+
             </div>
             <span className="back"></span>
           </div>
