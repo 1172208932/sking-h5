@@ -32,6 +32,8 @@ const proxy = {
 
   "GET /assist_1/queryInviteRecords.do": inviteRecord,
   "GET /scoring/rankingAward.do": rankingAward,
-  "GET /scoring/start.do":startGame
+  "GET /scoring/start.do":startGame,
+  "GET /draw_2/query.do": turnTableQuery,
+  "POST /draw_2/drawPrize.do": turnTableDraw,
 };
 module.exports = proxy;

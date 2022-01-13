@@ -1,5 +1,7 @@
 import { makeAutoObservable } from 'mobx';
 import API from '../api/index';
+import modalStore from "@src/store/modal";
+
 const store = makeAutoObservable({
   ruleInfo: '',
   curPage: 'homePage',
@@ -31,6 +33,21 @@ const store = makeAutoObservable({
   },
   setStartId(id) {
     this.startId = id
+  },
+  // 开始游戏
+  async startGame(level) {
+    if (this.homeInfo?.joinGolds > this.homeInfo?.goldNum) {
+      modalStore.pushPop("NoMoney");
+    } else if(this.homeInfo?.desc) {
+      modalStore.pushPop("GameRemind",{level:level})
+    } else {
+      this.setCurrentGameLevel(level);
+      const {success,data} = await API.startGame()
+      if(success && data) {
+        this.setStartId(data)
+        this.changePage("Gamepage");
+      }
+    }
   }
 });
 export default store;

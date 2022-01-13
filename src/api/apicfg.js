@@ -71,10 +71,16 @@ const apiCfg = {
   },
   inviteRecord: `assist_1/queryInviteRecords.do`, //查询我的邀请记录
   rankingAward: `scoring/rankingAward.do`,
-  startGame: {
+  startGame: { // 开始游戏
     uri: `scoring/start.do`,
     withToken: true,
-  }
+  },
+  rockQuery: `draw_2/query.do`, // 摇奖机抽奖奖品
+  rockDraw: {// 摇奖机抽奖
+    uri: `draw_2/drawPrize.do`,
+    method: "post",
+    withToken: true,
+  },
 }
 
 export default apiCfg;

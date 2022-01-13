@@ -1,0 +1,129 @@
+@import "../../res.less";
+.fullStarDraw1 {
+  width: 1544px;
+  height: 738px;
+  position: absolute;
+  transform: rotate(90deg);
+  margin-top: -20px;
+  .snowAndIceAtmosphere {
+    width: 1544px;
+    height: 738px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    .sparkBg("满星抽奖1/冰雪氛围.png");
+  }
+  .light {
+    width: 616px;
+    height: 610px;
+    left: 500px;
+    top: 67px;
+    position: absolute;
+    animation: rotateAni 5s linear infinite;
+    .sparkBg("common/light.png");
+  }
+  .title {
+    width: 773px;
+    height: 281px;
+    left: 425px;
+    top: 33px;
+    position: absolute;
+    .sparkBg("满星抽奖1/标题.png");
+  }
+  .rockBox {
+    width: 681px;
+    height: 446px;
+    left: 463px;
+    top: 181px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .sparkBg("满星抽奖1/bg.png");
+    .rock {
+      width: 466px;
+      height: 267px;
+      margin-left: 8px;
+      background: rgba(0,0,0,0.6);
+      .item {
+        // height: 100%;
+        // top: 50px;
+        position: absolute;
+        top: -50px;
+        // left: 23px;
+        display: block;
+        width: 187px;
+        margin-right: 24px;
+        // height: 400%;
+        // min-height: 380px;
+        overflow: hidden;
+        font-size: 0;
+  
+        &:nth-child(2) {
+          left: 210px;
+        }
+        &:nth-child(3) {
+          left: 420px;
+        }
+      }
+      .roller {
+        position: relative;
+        // top: 50px;
+        li {
+          width: 187px;
+          height: 185px;
+          display: flex;
+          // align-items: center;
+          justify-content: center;
+          overflow: hidden;
+          // margin-right: 24px;
+          &:last-child {
+            // position: absolute;
+            top: 100%;
+            left: 0;
+          }
+          .img-box {
+            width: 171px;
+            height: 173px;
+            font-size: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .img-bg {
+              position: absolute;
+              width: 171px;
+              height: 173px;
+              font-size: 0;
+            }
+            .img-icon {
+              position: absolute;
+              margin-top: -8px;
+              display: block;
+              width: 142px;
+              height: 136px;
+              border-radius: 32px;
+              font-size: 0;
+              // margin-top: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .highlightPoints {
+    width: 530px;
+    height: 313px;
+    left: 542px;
+    top: 252px;
+    position: absolute;
+    .sparkBg("满星抽奖1/亮点点.png");
+  }
+  .ribbon {
+    width: 661px;
+    height: 503px;
+    left: 449px;
+    top: 135px;
+    position: absolute;
+    .sparkBg("满星抽奖1/彩带.png");
+  }
+}
