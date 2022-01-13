@@ -50,9 +50,11 @@ export default class Obstacle {
         shapeshow.position.set(item.x, -item.y+300)
         
 		//  new Circle({ radius: 20 });
+		console.log(this.rectShape.height,'rectShape')
+
 		this.rectBody = new p2.Body({
 			mass: 0,    //重量
-			position: [item.x, item.y-300],
+			position: [item.x+this.rectShape.width/2, item.y-300-this.rectShape.height/2],
 			// fixedRotation: true,
 		});
 		this.rectBody.addShape(this.rectShape);

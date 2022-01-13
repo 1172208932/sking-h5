@@ -65,7 +65,7 @@ const gameStore = makeAutoObservable(mix({
 		this.role.carBody.fixedRotation = true
 
 
-		this.role.carBody.applyForce([0, 2 * 100000], [0, 0]);
+		this.role.carBody.applyForce([0, 2 * 150000], [0, 0]);
 		this.count ++;
 	},
 

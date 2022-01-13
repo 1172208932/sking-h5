@@ -65,12 +65,13 @@ class MapBox extends React.Component {
       }
       if (
         i == gameLen &&
-        homeInfo?.gameInfo?.[gameLen - 1].level.indexOf("gift") >= 0 &&
-        homeInfo?.gameInfo?.[gameLen - 1].receive != 1
+        homeInfo?.gameInfo?.[gameLen - 1]?.level.indexOf("gift") >= 0 &&
+        homeInfo?.gameInfo?.[gameLen - 1]?.receive != 1
       ) {
         // 后面的那一个是蓝色，手指在该项，
-        list[i].class = "lockBtn";
+        list[i].class = i >= 21 ? "needwait":"lockBtn";
       }
+
 
       // left&top
       if (i <= 10) {
@@ -185,8 +186,7 @@ class MapBox extends React.Component {
                 )}
                 {/* 头像+手指：该玩这关了 */}
                 {((index == gameLen &&
-                  item.class != "lockBtn" &&
-                  item.class != "greenBtn") ||
+                  item.class != "lockBtn"&&item.class!='needwait') ||
                   (index == gameLen - 1 &&
                     item.class == "giftBtn" &&
                     homeInfo?.gameInfo?.[index]?.receive != 1)) && (
