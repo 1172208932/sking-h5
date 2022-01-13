@@ -52,7 +52,7 @@ export default class Obstacle {
 		//  new Circle({ radius: 20 });
 		this.rectBody = new p2.Body({
 			mass: 0,    //重量
-			position: [item.x, item.y-300],
+			position: [item.x+this.rectShape.width/2, item.y-300],
 			// fixedRotation: true,
 		});
 		this.rectBody.addShape(this.rectShape);
