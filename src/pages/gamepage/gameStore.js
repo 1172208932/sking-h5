@@ -404,14 +404,14 @@ const gameStore = makeAutoObservable({
     stockArea(i){
         console.log(i,"当前")
         if(i<160){
-            return
+            // return
         }
         var Shapestock = new FYGE.Shape();
-        Shapestock.beginGradientFill([0,0,0,this.lineInfo[i]+800],[[0,"#ffffff",1],[1,'#82b1e3',1]])
+        Shapestock.beginGradientFill([0,0,0,this.lineInfo[i]+600],[[0,"#ffffff",1],[((this.lineInfo[i]+400)/(this.lineInfo[i]+600)),"#ffffff",1],[1,"#82b1e3",1]])
         Shapestock.lineTo((i-1)*100, (this.lineInfo[i-1]) + 300)
         Shapestock.lineTo(i*100, this.lineInfo[i] + 300)
-        Shapestock.lineTo(i*100,  this.lineInfo[i]+500)
-        Shapestock.lineTo((i-1)*100,  this.lineInfo[i]+500)
+        Shapestock.lineTo(i*100,  this.lineInfo[i]+2000)
+        Shapestock.lineTo((i-1)*100,  this.lineInfo[i]+2000)
         Shapestock.endFill()
         return Shapestock;
     }
