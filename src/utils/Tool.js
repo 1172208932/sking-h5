@@ -59,14 +59,16 @@ export class Tool {
         Tool.animate()
     }
 
-    static tweenReaptToto2(context, startnum, endnumber, duration = 900) {
+    static tweenReaptToto2(context, startnum, endnumber, duration = 900, cb) {
         new TWEEN.Tween({
             number: startnum
         }).to({
             number: endnumber
         }, duration).onUpdate(tween => {
             context.scrollLeft = parseInt(tween.number)
-        }).start()
+        }).start().onComplete(() => {
+            cb && cb()
+        })
         Tool.animate()
     }
     /**

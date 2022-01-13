@@ -8,14 +8,28 @@ import modalStore from '@src/store/modal';
 import API from '../../api';
 import './gamepage.less';
 import gameStore from './gameStore.js';
-
+import { toJS } from "mobx";
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 @observer
 class Gamepage extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      gameStep: 0,//第？关 0  准备1  出发2
+      startpop: true, //是否需要显示开始
+      starInfo: '',//关卡信息
+    };
   }
   componentDidMount() {
     this.initCanvas();
+    this.setStarInfo()
+  }
+  setStarInfo() {
+    let { starInfo } = Object.assign({}, toJS(store.homeInfo));
+    console.info('gamepage ===>>>>>>> starInfo:', starInfo)
+    this.setState({
+      starInfo
+    })
   }
   gamestage;
   initCanvas() {
@@ -53,7 +67,7 @@ class Gamepage extends React.Component {
     this.gamestage.addChild(gameStore.bgArea1)
     gameStore.bgCon = new FYGE.Container();
     this.gamestage.addChild(gameStore.bgCon)
-    
+
 
     var test = new FYGE.TextField();
     gameStore.bgCon.addChild(test)
@@ -79,37 +93,65 @@ class Gamepage extends React.Component {
       gameStore.clickStage()
     });
 
-
+    this.setTimeStatus()
+  }
+  async setTimeStatus() {
+    await delay(1500)
+    this.setState({
+      gameStep: 1,
+    });
+    await delay(1500)
+    this.setState({
+      gameStep: 2,
+    });
+    await delay(1500)
+    this.setState({
+      gameStep: 0,
+      startpop: false
+    });
   }
   render() {
+    const { gameStep, startpop, starInfo } = this.state
     return (
       <div className="homePagebox">
         <div className="gamepage">
-        <canvas className="canvas" id="gamestage"></canvas>
-          <div className="startpop">
-            <div className="startaim">
-              <div className="startbg" />
-              <div className="oneaim">
-                <span className="oneaimstar"></span>
-                <span className="oneaimlab">成功到达终点</span>
-              </div>
-              <div className="twoaim">
-                <span className="twoaimstar"></span>
-                <span className="twoaimlab">到达终点且获得 900分</span>
-              </div>
-              <div className="threeaim">
-                <span className="thaimstar"></span>
-                <span className="thaimlab">到达终点且获得 1500分</span>
-              </div>
-              <div className="starttitle">
-                <span className="title"></span>
-              </div>
-              <span className="startsnow"></span>
+          <canvas className="canvas" id="gamestage"></canvas>
+
+          {
+            startpop && <div className="startpop">
+              {
+                gameStep == 0 && <div className="startaim">
+                  <div className="startbg" />
+                  <div className="oneaim">
+                    <span className="oneaimstar"></span>
+                    <span className="oneaimlab">成功到达终点</span>
+                  </div>
+                  <div className="twoaim">
+                    <span className="twoaimstar"></span>
+                    <span className="twoaimlab">{`到达终点且获得 ${starInfo?.[store.currentGameLevel - 1]?.star2}分`}</span>
+                  </div>
+                  <div className="threeaim">
+                    <span className="thaimstar"></span>
+                    <span className="thaimlab">{`到达终点且获得 ${starInfo?.[store.currentGameLevel - 1]?.star3}分`}</span>
+                  </div>
+                  <div className="starttitle">
+                    <span className="title"></span>
+                  </div>
+                  <span className="startsnow"></span>
+                </div>
+              }
+
+              {
+                gameStep == 1 && <span className="startready"></span>
+              }
+              {
+                gameStep == 2 && <span className="startgo"></span>
+              }
+
             </div>
-            <span className="startready"></span>
-            <span className="startgo"></span>
-          </div>
-          
+          }
+
+
           <div className="iconarea">
 
             <div className="distance">

@@ -4,6 +4,7 @@ const store = makeAutoObservable({
   ruleInfo: '',
   curPage: 'homePage',
   homeInfo: {},
+  currentGameLevel :1,
   // 首页数据
   setRule(ruleInfo) {
     this.ruleInfo = ruleInfo;

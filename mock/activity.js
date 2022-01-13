@@ -40,6 +40,32 @@ const getIndex = {
         prizeImg: "//yun.duiba.com.cn/aurora/assets/515ed09f2dd8458e1a9f0daeb24ad965ace57bf7.png",
       },
     ],
+    starInfo: [
+      {
+        "level": "1",
+        "star2": 111,
+        "star1": -21961016.039620325,
+        "star3": 2222
+      },
+      {
+        "level": "2",
+        "star2": 2222,
+        "star1": -91712480.21939173,
+        "star3": 33333
+      },
+      {
+        "level": "3",
+        "star2": 4444,
+        "star1": 43446922.92147857,
+        "star3": 5555
+      },
+      {
+        "level": "4",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      }
+    ]
   },
   code: "Duis dolor velit",
   success: true,
