@@ -48,7 +48,7 @@ class TurnTable extends React.Component {
     this.setState({
       inDraw: true
     });
-    const {success, data} = await API.turnTableDraw();
+    const {success, data} = await API.turnTableDraw({ levelNum: store.currentGameLevel});
     if(success && data?.options?.length) {
       this.setState({
         drawPrize: data

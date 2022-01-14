@@ -310,7 +310,7 @@ const turnTableDraw = {
     extra: 1,
     options: [
       {
-        prizeId: "sp_6",
+        prizeId: "sp_1",
         url: "http://www.baidu.com",
         optionName: "肯德基炸鸡圈",
         optionImg:
