@@ -18,15 +18,7 @@ class GameSuccess extends React.Component {
       <div className="gameSuccessIsLessThanStar1">
         <span className="snowAndIceAtmosphere"></span>
         <span className="light"></span>
-        <div className="leftButton">
-          <div className="button5">
-            <span className="bluebg"></span>
-            <span className="led20Coins">领20金币</span>
-          </div>
-          <span className="justify"></span>
-          <span className="inviteFriends">邀请好友</span>
-        </div>
-        <span className="button4"></span>
+       
         <div className="copy">
           <span className="scorebo"></span>
           <span className="layer4773">+4773</span>
@@ -40,6 +32,21 @@ class GameSuccess extends React.Component {
           <span className="nullsta"></span>
         </div>
         <span className="ribbon"></span>
+        {/* 底部按钮 */}
+        <div className="bottomBtnBox">
+          {/* 邀请好友 */}
+          <div className="leftButton">
+            <div className="button5">
+              <span className="bluebg"></span>
+              <span className="led20Coins">领20金币</span>
+            </div>
+            <span className="justify"></span>
+            <span className="inviteFriends">邀请好友</span>
+          </div>
+          {/* 继续闯关 */}
+          <span className="button4"></span>
+        </div>
+        
       </div>
     );
   }

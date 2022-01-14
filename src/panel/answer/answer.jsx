@@ -58,9 +58,9 @@ class Answer extends React.Component {
   // 完成答题
   completeAnswer = async (chooseIndex, rightIndex) => {
     const {
-      popData: { startId },
+      popData,
     } = this.props;
-    const { success, data } = await API.answerComplete({ startId });
+    const { success, data } = await API.answerComplete({ startId: popData?.startId });
     if (success && data) {
       // data.extra是新的startID
       if (chooseIndex != rightIndex) {
@@ -99,6 +99,7 @@ class Answer extends React.Component {
   render() {
     const { answerDetail, chooseIndex, rightIndex } = this.state;
     const isRight = chooseIndex == rightIndex;
+    // console.log(this.props,111)
     return (
       <div className="iDidntChoose1">
         {/* 头部 */}
