@@ -71,6 +71,7 @@ class Gamepage extends React.Component {
         })
       }
     } else {
+      this.removeGame();
       store.changePage("Mappage")
     }
     store.getHomeInfo();
@@ -174,6 +175,7 @@ class Gamepage extends React.Component {
     })
   }
   removeGame(){
+    console.log(this.gamestage,"this.gamestage.")
     this.gamestage.removeEventListener(FYGE.Event.ENTER_FRAME, () => {
       gameStore.enterFrame(this.gamestage)
     });
@@ -182,6 +184,7 @@ class Gamepage extends React.Component {
       gameStore.clickStage()
     });
     gameStore.bgCon.removeAllChildren()
+    this.gamestage.removeAllChildren()
     gameStore.beginGame = false;
     gameStore.phyworld.step = 0;
     gameStore.phyworld.removeBody(gameStore.role.carBody)
@@ -197,8 +200,9 @@ class Gamepage extends React.Component {
     return (
       <div className="homePagebox">
         <div className="gamepage">
+          <div className="canvasbox">
           <canvas className="canvas" id="gamestage"></canvas>
-
+      </div>
           {
             startpop && <div className="startpop">
               {

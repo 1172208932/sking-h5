@@ -31,8 +31,9 @@ const gameStore = makeAutoObservable(mix({
     timeControl:null,
     deltaPoints:30,
 	enterFrame(stage){
-        console.log(this.role.carBody.velocity[0],this.role.carBody.velocity[1])
+        // console.log(this.role.carBody.velocity[0],this.role.carBody.velocity[1])
         this.phyworld.step(1 / 60);
+        console.log(this.role.carBody.position[0])
         
         if(!this.beginGame){return}
         if( this.timeControl){
