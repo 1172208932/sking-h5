@@ -80,7 +80,7 @@ class HomePage extends React.Component {
         <SvgaPlayer src={`${RES_PATH}/svga/标题与人物.svga`} className='title-person'></SvgaPlayer>
 
         {/* 开始游戏按钮 */}
-        <SvgaPlayer className="startga" src={`${RES_PATH}/svga/开始游戏.svga`} onClick={() => store.changePage('Gamepage')}/>
+        <SvgaPlayer className="startga" src={`${RES_PATH}/svga/开始游戏.svga`} onClick={() => store.changePage('Mappage')}/>
         <SvgaPlayer className="gesturesAperture" src={`${RES_PATH}/svga/手势单击.svga`} />
         {/* 左上角icon */}
         <div className="topleft">
