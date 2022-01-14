@@ -157,14 +157,16 @@ export const RoleControl = {
 							this.bgCon.removeChild(this.additiveslist[i].rectcoin)
 							console.log("getCoin")
 						}else {
+                            this.role.carBody.sleep()
+							this.role.circleBody.sleep()
+							this.role.circleBody2.sleep()
                             this.count = 0;
+
 							console.log("die")
 							this.gameEnd = true
 							this.dieItem = this.additiveslist[i]
                             this.role.smokeSvga.visible = false
-							this.role.carBody.sleep()
-							this.role.circleBody.sleep()
-							this.role.circleBody2.sleep()
+							
                             EventBus.fire('GAME_OVER')
 						}
 					}

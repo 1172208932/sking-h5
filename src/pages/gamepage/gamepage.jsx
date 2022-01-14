@@ -143,6 +143,25 @@ class Gamepage extends React.Component {
       curScore
     })
   }
+  removeGame(){
+    this.gamestage.removeEventListener(FYGE.Event.ENTER_FRAME, () => {
+      gameStore.enterFrame(this.gamestage)
+    });
+    //点击
+    this.gamestage.removeEventListener(FYGE.MouseEvent.CLICK, () => {
+      gameStore.clickStage()
+    });
+    gameStore.bgCon.removeAllChildren()
+    gameStore.beginGame = false;
+    gameStore.phyworld.step = 0;
+    gameStore.phyworld.removeBody(gameStore.role.carBody)
+    gameStore.phyworld.removeBody(gameStore.role.circleBody)
+    gameStore.phyworld.removeBody(gameStore.role.circleBody2)
+    for(let i =0 ;i<gameStore.additiveslist.length;i++){
+      gameStore.phyworld.removeBody(gameStore.additiveslist[i].rectBody)
+    }
+    
+  }
   render() {
     const { gameStep, startpop, starInfo, curScore, soundon } = this.state
     return (
