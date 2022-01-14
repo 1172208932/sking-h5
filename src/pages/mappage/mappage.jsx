@@ -41,6 +41,8 @@ class Mappage extends React.Component {
     let queryNewGuideInfo = await API.queryNewGuide()
     console.info('queryNewGuideInfo:', queryNewGuideInfo)
     if (!queryNewGuideInfo.data.completeGuide) {
+      document.body.style.overflow = "hidden";
+ 
       let toWidth = Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - document.documentElement.clientWidth
       console.log("toWidth:", toWidth)
       document.documentElement.scrollLeft = toWidth
@@ -52,8 +54,9 @@ class Mappage extends React.Component {
         await delay(1000)
         Tool.tweenReaptToto2(document.documentElement, toWidth, 0, toWidth, () => {
           this.setState({
-            showMask: false
+            showMask: false,
           })
+          document.body.style.overflow = 'auto';
         })
       })
     }
@@ -116,7 +119,7 @@ class Mappage extends React.Component {
 
         {/* 引导时屏蔽点击。这样最简单上盖一层div */}
         {
-          showMask &&
+          /*showMask*/1 &&
           <div className="mapBgbox_mask">
           </div>
         }
