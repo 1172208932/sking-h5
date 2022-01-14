@@ -4,6 +4,7 @@ import {
 import Role from '../components/Role'
 import p2 from 'p2/build/p2';
 import Obstacle from '../components/Obstacle.js';
+import EventBus from '@duiba/event-bus';
 
 export const RoleControl = {
     role: null,
@@ -101,8 +102,9 @@ export const RoleControl = {
         this.role.circle.position.set(x, y);
         this.role.car.rotation = -this.role.carBody.angle / Math.PI * 180
 
-        this.bgCon.x = -x + stage.width / 8 //镜头跟随
+        this.bgCon.x = -x + stage.width / 8 +this.offsetX//镜头跟随
         this.bgCon.y = -y + stage.height * 0.4
+        
     },
 
     roleContact(e) {
@@ -163,6 +165,7 @@ export const RoleControl = {
 							this.role.carBody.sleep()
 							this.role.circleBody.sleep()
 							this.role.circleBody2.sleep()
+                            EventBus.fire('GAME_OVER')
 						}
 					}
 			}
@@ -171,10 +174,10 @@ export const RoleControl = {
 	},
 	//复活
 	reviveCar(){
-		this.gameEnd = false
+        this.gameEnd = false
 		if(this.dieItem){
 			this.phyworld.removeBody(this.dieItem.rectBody)
-		this.bgCon.removeChild(this.dieItem.rectcoin)
+		    this.bgCon.removeChild(this.dieItem.rectcoin)
 		}	
 		
 		this.role.carBody.wakeUp()
@@ -190,6 +193,7 @@ export const RoleControl = {
 		this.role.carBody.sleep()
 		this.role.circleBody.sleep()
 		this.role.circleBody2.sleep()
+        EventBus.fire('GAME_WIN')
 		alert("游戏结束")
 		
 	}

@@ -27,12 +27,25 @@ class Gamepage extends React.Component {
   }
   componentDidMount() {
     EventBus.on('UPDATE_SCORE', this.updateScore, this);
+    EventBus.on('GAME_OVER', this.gameOver, this);
+    EventBus.on('GAME_WIN', this.gameWin, this);
     this.initCanvas();
     this.setStarInfo()
   }
   componentWillUnmount() {
-    EventBus.off('UPDATE_SCORE', this.updateScore);
+    EventBus.off('GAME_DIE', this.updateScore);
+    EventBus.off('GAME_OVER', this.gameOver);
+    EventBus.off('GAME_WIN', this.gameWin);
   }
+
+  gameWin(e){
+
+  }
+
+  gameOver(e){
+    console.log(e)
+  }
+
   updateScore(e) {
     console.log('updateScore:=========>>>>>>', e)
     // e.detail.score
@@ -77,6 +90,7 @@ class Gamepage extends React.Component {
     gameStore.offsetX = (1624 - (document.body.clientWidth > 1624 ? 1624 : document.body.clientWidth)) / 2
     gameStore.offsetY = (750 - (document.body.clientHeight > 750 ? 750 : document.body.clientHeight)) / 2
     console.log(document.body.clientWidth > 1624 ? 1624 : document.body.clientWidth)
+    console.log("当前偏移量：",gameStore.offsetX ,gameStore.offsetY)
 
 
     gameStore.initbgUI(this.gamestage)
