@@ -97,7 +97,7 @@ export const RoleControl = {
 
 
         this.role.circle2.position.set(circleBody2X, circleBody2Y);
-        this.role.car.position.set(carBodyX - 40, carBodyY);
+        this.role.car.position.set(carBodyX - 45, carBodyY - 56);
 
         this.role.circle.position.set(x, y);
         this.role.car.rotation = -this.role.carBody.angle / Math.PI * 180
