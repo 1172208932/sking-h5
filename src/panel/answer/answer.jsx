@@ -27,7 +27,9 @@ class Answer extends React.Component {
 
   // 获取题目列表
   getAnswer = async () => {
-    const { popData: {startId} } = this.props;
+    const {
+      popData: { startId },
+    } = this.props;
     const { success, data } = await API.answerQuery({ startId });
     if (success && data) {
       this.setState({
@@ -37,46 +39,63 @@ class Answer extends React.Component {
   };
 
   clickChoose = _throttle(async (index) => {
-    const { popData: {startId} } = this.props;
+    const {
+      popData: { startId },
+    } = this.props;
     const { success, data } = await API.answerSubmit({
       startId,
       answer: index + 1,
     });
+    await this.completeAnswer(index, data?.answer?.correctAnswers?.[0] - 1);
     if (success) {
       this.setState({
         chooseIndex: index,
         rightIndex: data?.answer?.correctAnswers?.[0] - 1,
       });
     }
-    this.completeAnswer();
   });
 
   // 完成答题
-  completeAnswer = async () => {
+  completeAnswer = async (chooseIndex, rightIndex) => {
     const {
       popData: { startId },
     } = this.props;
-    const { chooseIndex, rightIndex } = this.state;
-    const { success, data } = await API.answerComplete({startId});
+    const { success, data } = await API.answerComplete({ startId });
     if (success && data) {
       // data.extra是新的startID
-      if(chooseIndex != rightIndex) {
-        setTimeout(() => {
-          // TODO清除
-          store.setStartId(null);
-          modalStore.closePop("Answer")
-          store.changePage("Mappage")
-        },2000)
+      if (chooseIndex != rightIndex) {
+        //  打错
+        this.answerFail()
       } else {
-        store.setStartId(data.extra)
+        // 答对，开始下一句
+        store.setStartId(data.extra);
+        modalStore.closePop("Answer");
+        await popData.removeGame();
+        popData.canvasUI();
       }
-    } 
+    }
   };
 
-  svgaEnd = () => {
-    console.log("end")
-    // TODO复活进入游戏页
-  }
+  answerFail = () => {
+    // 答题失败
+    const { popData } = this.props;
+    setTimeout(() => {
+      // 清除
+      popData.removeGame();
+      // 清除startId
+      store.setStartId(null);
+      modalStore.closePop("Answer");
+      store.changePage("Mappage");
+    }, 2000);
+  };
+
+  svgaEnd = async () => {
+    console.log("end");
+    // 复活进入游戏页
+    const { popData } = this.props;
+    await popData.removeGame();
+    popData.canvasUI();
+  };
   render() {
     const { answerDetail, chooseIndex, rightIndex } = this.state;
     const isRight = chooseIndex == rightIndex;
@@ -124,21 +143,23 @@ class Answer extends React.Component {
             })}
         </div>
         {/* 答题成功/失败 */}
-        {chooseIndex >= 0 && <div className="answer-result">
-          {isRight ? (
-            <SvgaPlayer
-              className="answer-ok-svga"
-              src={`${RES_PATH}svga/答题成功.svga`}
-              loop={1}
-              endFrame={100}
-              onEnd={this.svgaEnd}
-            ></SvgaPlayer>
-          ) : (
-            <div className="answer-fail-png">
-              <div className="fail"></div>
-            </div>
-          )}
-        </div>}
+        {chooseIndex >= 0 && (
+          <div className="answer-result">
+            {isRight ? (
+              <SvgaPlayer
+                className="answer-ok-svga"
+                src={`${RES_PATH}svga/答题成功.svga`}
+                loop={1}
+                endFrame={100}
+                onEnd={this.svgaEnd}
+              ></SvgaPlayer>
+            ) : (
+              <div className="answer-fail-png">
+                <div className="fail"></div>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     );
   }

@@ -46,7 +46,7 @@ const gameStore = makeAutoObservable(mix({
         }
 
         // 位置
-        if (this.role.carBody.position[0] > this.deltaPoints *100 * (this.subdivision + 1) - 1000) {
+        if (this.role.carBody.position[0] > this.deltaPoints *100 * (this.subdivision + 1) - 1500) {
             this.subdivision++;
             this.removetype = true
             this.addLine(this.subdivision,this.phyworld)

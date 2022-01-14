@@ -43,12 +43,24 @@ class GameFail extends React.Component {
 
   // 开始答题
   startAnswer = async () => {
+    const {popData} = this.props;
     const { success, data } = await API.answerStart();
     if (success && data?.startId) {
       modalStore.closePop("GameFail")
-      modalStore.pushPop("Answer",{startId: data.startId})
+      modalStore.pushPop("Answer",{
+        startId: data.startId,
+        removeGame: popData.removeGame,
+        canvasUI:popData.canvasUI
+      })
     }
   };
+
+  clickOut = () => {
+    const {popData} = this.props;
+    popData.removeGame();
+    modalStore.closePop("GameFail")
+    store.changePage("Mappage")
+  }
   
   render() {
     const {popData} = this.props;
@@ -72,7 +84,7 @@ class GameFail extends React.Component {
           </div>
         </div>
         {/* 确认退出 */}
-        <p className="out" onClick={() => store.changePage("Mappage")}></p>
+        <p className="out" onClick={this.clickOut}></p>
       </div>
     );
   }

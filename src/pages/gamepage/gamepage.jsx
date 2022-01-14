@@ -40,13 +40,12 @@ class Gamepage extends React.Component {
   }
 
   gameWin(e){
-
+    console.log("成功到达终点")
   }
 
   async gameOver(e){
     console.log(e,"游戏结束来，死啦死啊了");
-    // arrive 1-是 0-否TODO分数
-    this.submitGame(100,0)
+    this.submitGame(e?.detail?.score||0,0)
   }
 
   /**
@@ -65,7 +64,11 @@ class Gamepage extends React.Component {
     })
     if(success && data) {
       if(pass == 0) {
-        modalStore.pushPop("GameFail",{...data})
+        modalStore.pushPop("GameFail",{
+          ...data,
+          removeGame: this.removeGame,
+          canvasUI:this.canvasUI
+        })
       }
     } else {
       store.changePage("Mappage")
@@ -169,6 +172,25 @@ class Gamepage extends React.Component {
     this.setState({
       curScore
     })
+  }
+  removeGame(){
+    this.gamestage.removeEventListener(FYGE.Event.ENTER_FRAME, () => {
+      gameStore.enterFrame(this.gamestage)
+    });
+    //点击
+    this.gamestage.removeEventListener(FYGE.MouseEvent.CLICK, () => {
+      gameStore.clickStage()
+    });
+    gameStore.bgCon.removeAllChildren()
+    gameStore.beginGame = false;
+    gameStore.phyworld.step = 0;
+    gameStore.phyworld.removeBody(gameStore.role.carBody)
+    gameStore.phyworld.removeBody(gameStore.role.circleBody)
+    gameStore.phyworld.removeBody(gameStore.role.circleBody2)
+    for(let i =0 ;i<gameStore.additiveslist.length;i++){
+      gameStore.phyworld.removeBody(gameStore.additiveslist[i].rectBody)
+    }
+    
   }
   render() {
     const { gameStep, startpop, starInfo, curScore, soundon } = this.state

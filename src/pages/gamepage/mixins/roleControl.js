@@ -97,7 +97,7 @@ export const RoleControl = {
 
 
         this.role.circle2.position.set(circleBody2X, circleBody2Y);
-        this.role.car.position.set(carBodyX - 40, carBodyY);
+        this.role.car.position.set(carBodyX - 45, carBodyY - 56);
 
         this.role.circle.position.set(x, y);
         this.role.car.rotation = -this.role.carBody.angle / Math.PI * 180
@@ -157,14 +157,16 @@ export const RoleControl = {
 							this.bgCon.removeChild(this.additiveslist[i].rectcoin)
 							console.log("getCoin")
 						}else {
+                            this.role.carBody.sleep()
+							this.role.circleBody.sleep()
+							this.role.circleBody2.sleep()
                             this.count = 0;
+
 							console.log("die")
 							this.gameEnd = true
 							this.dieItem = this.additiveslist[i]
                             this.role.smokeSvga.visible = false
-							this.role.carBody.sleep()
-							this.role.circleBody.sleep()
-							this.role.circleBody2.sleep()
+							
                             EventBus.fire('GAME_OVER')
 						}
 					}
