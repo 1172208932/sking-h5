@@ -30,7 +30,7 @@ export default class Role extends Sprite {
     }
 
     jumpRole1(){
-        this.jump1.startAniRange(0, this.jump1.totalFrames, 1);
+        // this.jump1.startAniRange(0, this.jump1.totalFrames, 1);
     }
 
     jumpRole2(){
