@@ -8,6 +8,7 @@ import modalStore from "@src/store/modal";
 import API from "../../api";
 import "./turnTable.less";
 import { Toast } from "@spark/ui";
+import { SvgaPlayer } from "@spark/animation";
 
 @observer
 class TurnTable extends React.Component {
@@ -147,10 +148,13 @@ class TurnTable extends React.Component {
     const { drawList, prizeIndex, inDraw } = this.state;
     return (
       <div className="turntable">
-        <span className="light"></span>
-        <span className="drawbg"></span>
+        <SvgaPlayer className="light" src={`${RES_PATH}/svga/雪花出来.svga`}></SvgaPlayer>
+        <div className="drawbg">
+          <SvgaPlayer className="drawlight2" src={`${RES_PATH}/svga/抽奖灯2.svga`}></SvgaPlayer>
+        </div>
+        
+
         <span className="title"></span>
-        <span className="snowAndIceAtmosphere"></span>
         <div className="turnBox">
           {/* 奖品渲染 */}
           {drawList?.length
@@ -172,7 +176,7 @@ class TurnTable extends React.Component {
          <div className="go" onClick={this.clickStart}>
            <div className={`togo ${inDraw ? '' : 'move'}`}></div>
          </div>
-        <span className="ribbon"></span>
+        <SvgaPlayer className="ribbon" src={`${RES_PATH}/svga/彩带2.svga`} loop={1}></SvgaPlayer>
       </div>
     );
   }

@@ -38,7 +38,7 @@ class RockPrize extends React.Component {
       }
     );
     this.toDraw()
-    this.rockEnd();
+    // this.rockEnd();
   };
 
   rockEnd = () => {
@@ -126,8 +126,8 @@ class RockPrize extends React.Component {
     const { prizeList } = this.state;
     return (
       <div className="fullStarDraw1">
-        <span className="snowAndIceAtmosphere"></span>
-        <span className="ribbon"></span>
+        <SvgaPlayer className="snowAndIceAtmosphere" src={`${RES_PATH}/svga/雪花出来.svga`}></SvgaPlayer>
+        <SvgaPlayer className="ribbon" src={`${RES_PATH}/svga/彩带.svga`} loop={1}></SvgaPlayer>
         <span className="light"></span>
         <span className="title"></span>
       
