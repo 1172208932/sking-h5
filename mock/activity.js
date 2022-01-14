@@ -310,7 +310,7 @@ const turnTableDraw = {
     extra: 1,
     options: [
       {
-        prizeId: "sp_6",
+        prizeId: "sp_1",
         url: "http://www.baidu.com",
         optionName: "肯德基炸鸡圈",
         optionImg:
@@ -516,7 +516,7 @@ const queryNewGuide = {
   "code": "",
   "data": {
     "skipNewGuide": false,
-    "completeGuide": true,
+    "completeGuide": false,
     "alreadyGuideSteps": 3,
     "allGuideSteps": 3,
     "extra": ""

@@ -101,8 +101,9 @@ export const RoleControl = {
         this.role.circle.position.set(x, y);
         this.role.car.rotation = -this.role.carBody.angle / Math.PI * 180
 
-        this.bgCon.x = -x + stage.width / 8 //镜头跟随
+        this.bgCon.x = -x + stage.width / 8 +this.offsetX//镜头跟随
         this.bgCon.y = -y + stage.height * 0.4
+        
     },
 
     roleContact(e) {
@@ -171,10 +172,10 @@ export const RoleControl = {
 	},
 	//复活
 	reviveCar(){
-		this.gameEnd = false
+        this.gameEnd = false
 		if(this.dieItem){
 			this.phyworld.removeBody(this.dieItem.rectBody)
-		this.bgCon.removeChild(this.dieItem.rectcoin)
+		    this.bgCon.removeChild(this.dieItem.rectcoin)
 		}	
 		
 		this.role.carBody.wakeUp()
