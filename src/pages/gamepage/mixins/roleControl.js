@@ -4,6 +4,7 @@ import {
 import Role from '../components/Role'
 import p2 from 'p2/build/p2';
 import Obstacle from '../components/Obstacle.js';
+import EventBus from '@duiba/event-bus';
 
 export const RoleControl = {
     role: null,
@@ -164,6 +165,7 @@ export const RoleControl = {
 							this.role.carBody.sleep()
 							this.role.circleBody.sleep()
 							this.role.circleBody2.sleep()
+                            EventBus.fire('GAME_OVER')
 						}
 					}
 			}
@@ -191,6 +193,7 @@ export const RoleControl = {
 		this.role.carBody.sleep()
 		this.role.circleBody.sleep()
 		this.role.circleBody2.sleep()
+        EventBus.fire('GAME_WIN')
 		alert("游戏结束")
 		
 	}
