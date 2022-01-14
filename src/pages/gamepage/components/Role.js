@@ -20,9 +20,21 @@ export default class Role extends Sprite {
     circleBody2
     // 车身刚体
     carBody
+
+    jump1
+    jump2
+
     constructor() {
         super()
         this.initUI()
+    }
+
+    jumpRole1(){
+        this.jump1.startAniRange(0, this.jump1.totalFrames, 1);
+    }
+
+    jumpRole2(){
+
     }
 
     initUI() {
@@ -43,6 +55,33 @@ export default class Role extends Sprite {
             //从0到最后一帧播放一次动画，并进行回调
             svga.startAniRange(0, svga.totalFrames, 0);
         })
+
+
+        // SvgaParser.loadSvga('https://yun.duiba.com.cn/aurora/assets/da64169b4e806806999ba8bf73e95ba7539dfd99.svga', (data) => {
+        //     console.log(this,'this')
+        //     //创建SvgaAni对象
+        //     const svga = this.car.addChild(new FYGE.SvgaAni(data));
+
+        //     // svga.anchorTexture.set(1, 1);
+            
+        //     //设置svga位置~
+        //     svga.position.set(-180, -40);
+        
+        //     //从0到最后一帧播放一次动画，并进行回调
+        //     svga.startAniRange(0, svga.totalFrames, 0);
+        // })
+        // SvgaParser.loadSvga('https://yun.duiba.com.cn/aurora/assets/948a86510f6f12d4cfc3f52a23a165fb0b75b5ec.svga', (data) => {
+        //     //创建SvgaAni对象
+        //     this.jump1 =   this.car.addChild(new FYGE.SvgaAni(data));
+        //     this.jump1.position.set(-0, -0);
+
+        // })
+        // SvgaParser.loadSvga('https://yun.duiba.com.cn/aurora/assets/865da1fc8b0ea72c473cc23a61189f55277f53e0.svga', (data) => {
+        //     //创建SvgaAni对象
+        //     this.jump2 =  this.car.addChild(new FYGE.SvgaAni(data));
+        //     this.jump2.position.set(-0, -0);
+
+        // })
 
 
         // SvgaParser.loadSvga('https://yun.duiba.com.cn/aurora/assets/da64169b4e806806999ba8bf73e95ba7539dfd99.svga', (data) => {
