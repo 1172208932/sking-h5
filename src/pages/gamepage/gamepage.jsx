@@ -12,6 +12,7 @@ import EventBus from '@duiba/event-bus';
 import { SvgaPlayer } from '@spark/animation';
 
 import { toJS } from "mobx";
+import { md5 } from '@spark/utils';
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 @observer
 class Gamepage extends React.Component {
@@ -42,8 +43,34 @@ class Gamepage extends React.Component {
 
   }
 
-  gameOver(e){
-    console.log(e)
+  async gameOver(e){
+    console.log(e,"游戏结束来，死啦死啊了");
+    // arrive 1-是 0-否TODO分数
+    this.submitGame(100,0)
+  }
+
+  /**
+   * 提交分数
+   * @param {*} score 分数
+   * @param {*} pass 是否通过，1通过，0未过关
+   */
+  submitGame = async(score, pass) => {
+    console.log(store.currentGameLevel,11111,"currentGameLevel")
+    const {success, data} = await API.gameSubmit({
+      sign: md5(`9deb162d75304805b6a5a8d0b0d3d310${store.currentGameLevel}${score}${store.startId}${pass}`),
+      levelNum: store.currentGameLevel,
+      score,
+      startId: store.startId,
+      arrive:pass
+    })
+    if(success && data) {
+      if(pass == 0) {
+        modalStore.pushPop("GameFail",{...data})
+      }
+    } else {
+      store.changePage("Mappage")
+    }
+    store.getHomeInfo();
   }
 
   updateScore(e) {
@@ -216,7 +243,7 @@ class Gamepage extends React.Component {
                 <span className="bj"></span>
                 <div className="baron_mask" style={{ width: `${curScore / Math.floor(starInfo?.[store.currentGameLevel - 1]?.star3) * 4.79}rem` }}>
                   <span className="baron"></span>
-                  <SvgaPlayer className="baron_svga" src={`${RES_PATH}/svga/流光高亮.svga`} />
+                  <SvgaPlayer className="baron_svga" src={`${RES_PATH}svga/流光高亮.svga`} />
                 </div>
 
 

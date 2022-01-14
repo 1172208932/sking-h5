@@ -126,8 +126,8 @@ class RockPrize extends React.Component {
     const { prizeList } = this.state;
     return (
       <div className="fullStarDraw1">
-        <SvgaPlayer className="snowAndIceAtmosphere" src={`${RES_PATH}/svga/雪花出来.svga`}></SvgaPlayer>
-        <SvgaPlayer className="ribbon" src={`${RES_PATH}/svga/彩带.svga`} loop={1}></SvgaPlayer>
+        <SvgaPlayer className="snowAndIceAtmosphere" src={`${RES_PATH}svga/雪花出来.svga`}></SvgaPlayer>
+        <SvgaPlayer className="ribbon" src={`${RES_PATH}svga/彩带.svga`} loop={1}></SvgaPlayer>
         <span className="light"></span>
         <span className="title"></span>
       
@@ -158,7 +158,7 @@ class RockPrize extends React.Component {
             })}
           </div>
         </div>
-        <SvgaPlayer className="highlightPoints" src={`${RES_PATH}/svga/摇奖机光圈.svga`}/>
+        <SvgaPlayer className="highlightPoints" src={`${RES_PATH}svga/摇奖机光圈.svga`}/>
       </div>
     );
   }

@@ -390,7 +390,7 @@ const turnTableQuery = {
 const answerStart = {
   success: true,
   data: {
-    startId: "1212", //开始ID
+    startId: "start1212", //开始ID
   }
 }
 
@@ -557,6 +557,16 @@ const startGame = {
   data: "gameRecordUI"
 }
 
+const gameSubmit = {
+  success: true,
+  data: {
+    sendGold: 20,//发放金币数
+    answerFlag: 1,//1-可答题 0-不可答题
+    reGold: 100,//复活需要金币数
+    star: 1,
+  }
+}
+
 module.exports = {
   listExchangeLimit,
   doExchange,
@@ -577,5 +587,6 @@ module.exports = {
   stepNewGuide,
   inviteRecord,
   rankingAward,
-  startGame
+  startGame,
+  gameSubmit
 };

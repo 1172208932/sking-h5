@@ -148,9 +148,9 @@ class TurnTable extends React.Component {
     const { drawList, prizeIndex, inDraw } = this.state;
     return (
       <div className="turntable">
-        <SvgaPlayer className="light" src={`${RES_PATH}/svga/雪花出来.svga`}></SvgaPlayer>
+        <SvgaPlayer className="light" src={`${RES_PATH}svga/雪花出来.svga`}></SvgaPlayer>
         <div className="drawbg">
-          <SvgaPlayer className="drawlight2" src={`${RES_PATH}/svga/抽奖灯2.svga`}></SvgaPlayer>
+          <SvgaPlayer className="drawlight2" src={`${RES_PATH}svga/抽奖灯2.svga`}></SvgaPlayer>
         </div>
         
 
@@ -176,7 +176,7 @@ class TurnTable extends React.Component {
          <div className="go" onClick={this.clickStart}>
            <div className={`togo ${inDraw ? '' : 'move'}`}></div>
          </div>
-        <SvgaPlayer className="ribbon" src={`${RES_PATH}/svga/彩带2.svga`} loop={1}></SvgaPlayer>
+        <SvgaPlayer className="ribbon" src={`${RES_PATH}svga/彩带2.svga`} loop={1}></SvgaPlayer>
       </div>
     );
   }

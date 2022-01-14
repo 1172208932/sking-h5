@@ -151,8 +151,8 @@ class MapBox extends React.Component {
                         <img
                           src={
                             staritem <= homeInfo?.gameInfo[index].star
-                              ? `${RES_PATH}/mappage/star.png`
-                              : `${RES_PATH}/mappage/noStar.png`
+                              ? `${RES_PATH}mappage/star.png`
+                              : `${RES_PATH}mappage/noStar.png`
                           }
                           alt=""
                           key={staritem}
@@ -177,7 +177,7 @@ class MapBox extends React.Component {
                     </div>
                     <SvgaPlayer
                       className="gesturesAperture"
-                      src={`${RES_PATH}/svga/手势单击.svga`}
+                      src={`${RES_PATH}svga/手势单击.svga`}
                     />
                   </div>
                 )}
@@ -194,8 +194,8 @@ class MapBox extends React.Component {
                           key={i}
                           src={
                             item.class == "lockBtn"
-                              ? `${RES_PATH}/mappage/blue-level${val}.png`
-                              : `${RES_PATH}/mappage/level_${val}.png`
+                              ? `${RES_PATH}mappage/blue-level${val}.png`
+                              : `${RES_PATH}mappage/level_${val}.png`
                           }
                         />
                       );
