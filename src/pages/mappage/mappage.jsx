@@ -57,7 +57,8 @@ class Mappage extends React.Component {
   showMoveMap() {
     let toWidth = Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - document.documentElement.clientWidth
     this.setState({
-      showMask: true
+      showMask: true,
+      showMist: false
     }, async () => {
       Tool.tweenReaptToto2(document.documentElement, toWidth, 0, toWidth, () => {
         this.setState({
