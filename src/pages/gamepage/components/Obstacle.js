@@ -14,21 +14,21 @@ export default class Obstacle {
     rectcoin;//展示节点
     width;
     height;
-    constructor(item,lineInfo, world, box) {
+    constructor(item, lineInfo, world, box) {
         this.type = item.type
 
         this.width = propSize[this.type].width;
         this.height = propSize[this.type].height;
 
         this.rectcoin = new FYGE.Sprite()
-            box.addChild(this.rectcoin);
+        box.addChild(this.rectcoin);
         //加载图片
         FYGE.GlobalLoader.loadImage((s, image) => {
             //纹理
             var texture = FYGE.Texture.fromImage(image);
             //显示对象
             this.rectcoin.texture = texture
-            
+
         }, `${RES_PATH}GamePage/level1/${this.type}.png`)
 
         var shapeshow = new Shape()
@@ -68,9 +68,15 @@ export default class Obstacle {
         }
 
         var showY = -item.y
-        if(this.type != "snow"){
-            showY = lineInfo[Math.floor(item.x/100)]-this.rectShape.height+10
-        }else{
+        if (this.type != "snow") {
+            var time = Math.floor(item.x / 100)
+            if (time + 1 > lineInfo.length) {
+                time = time
+            }else{
+                time = time+1
+            }
+            showY = lineInfo[time] - this.rectShape.height + 10
+        } else {
             showY = -item.y
         }
         this.rectcoin.position.set(item.x, showY + 300)
@@ -83,17 +89,17 @@ export default class Obstacle {
         this.rectBody.addShape(this.rectShape);
 
         world.addBody(this.rectBody);
-        this.addMaterial(this.rectShape,world)
-        
+        this.addMaterial(this.rectShape, world)
+
 
     }
-    addMaterial(heighshape,world) {
+    addMaterial(heighshape, world) {
         var contactMaterial1 = new p2.ContactMaterial(heighshape.material, gameStore.role.circleShape.material, {
             restitution: 0, // This means no bounce!
             surfaceVelocity: -82000,
             friction: 0,
-            relaxation:0,
-            stiffness:0.5
+            relaxation: 0,
+            stiffness: 0.5
         });
         world.addContactMaterial(contactMaterial1)
 
@@ -101,8 +107,8 @@ export default class Obstacle {
             restitution: 0, // This means no bounce!
             surfaceVelocity: -82000,
             friction: 0,
-            relaxation:0,
-            stiffness:0.5
+            relaxation: 0,
+            stiffness: 0.5
         });
         world.addContactMaterial(contactMaterial2)
 
@@ -110,8 +116,8 @@ export default class Obstacle {
             restitution: 0, // This means no bounce!
             surfaceVelocity: -82000,
             friction: 0,
-            relaxation:0,
-            stiffness:0.5
+            relaxation: 0,
+            stiffness: 0.5
         });
         world.addContactMaterial(contactMaterial3)
     }

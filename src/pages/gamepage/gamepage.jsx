@@ -77,6 +77,7 @@ class Gamepage extends React.Component {
     gameStore.offsetX = (1624 - (document.body.clientWidth > 1624 ? 1624 : document.body.clientWidth)) / 2
     gameStore.offsetY = (750 - (document.body.clientHeight > 750 ? 750 : document.body.clientHeight)) / 2
     console.log(document.body.clientWidth > 1624 ? 1624 : document.body.clientWidth)
+    console.log("当前偏移量：",gameStore.offsetX ,gameStore.offsetY)
 
 
     gameStore.initbgUI(this.gamestage)
@@ -91,13 +92,19 @@ class Gamepage extends React.Component {
     this.gamestage.addEventListener(FYGE.Event.ENTER_FRAME, () => {
       gameStore.enterFrame(this.gamestage)
     });
-
     //点击
     this.gamestage.addEventListener(FYGE.MouseEvent.CLICK, () => {
       gameStore.clickStage()
     });
 
-    this.setTimeStatus()
+    this.setState({
+      gameStep: 0,
+      startpop: false
+    },()=>{
+      gameStore.addRole()
+      gameStore.beginGame = true
+    });
+    // this.setTimeStatus()
   }
   async setTimeStatus() {
     await delay(1500)
