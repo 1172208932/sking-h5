@@ -14,6 +14,7 @@ import LastPrize from "@src/components/LastPrize/LastPrize.jsx";
 import MapBox from "@src/components/MapBox/MapBox.jsx";
 import { Tool } from '@src/utils/Tool.js';
 import { toJS } from "mobx";
+import { SvgaPlayer } from '@spark/animation';
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 @observer
 class Mappage extends React.Component {
@@ -21,7 +22,8 @@ class Mappage extends React.Component {
     super(props);
     this.state = {
       queryNewGuideInfo: '', // 中奖轮播
-      showMask: false
+      showMask: false,
+      showMist: false
     };
   }
 
@@ -42,28 +44,29 @@ class Mappage extends React.Component {
     console.info('queryNewGuideInfo:', queryNewGuideInfo)
     if (!queryNewGuideInfo.data.completeGuide) {
       document.body.style.overflow = "hidden";
- 
+
       let toWidth = Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - document.documentElement.clientWidth
-      console.log("toWidth:", toWidth)
       document.documentElement.scrollLeft = toWidth
+      await delay(1500)
       this.setState({
         queryNewGuideInfo: queryNewGuideInfo.data,
-        showMask: true
-      }, async () => {
-
-        await delay(1000)
-        Tool.tweenReaptToto2(document.documentElement, toWidth, 0, toWidth, () => {
-          this.setState({
-            showMask: false,
-          })
-          document.body.style.overflow = 'auto';
-        })
+        showMist: true
       })
     }
-
-
   }
-
+  showMoveMap() {
+    let toWidth = Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - document.documentElement.clientWidth
+    this.setState({
+      showMask: true
+    }, async () => {
+      Tool.tweenReaptToto2(document.documentElement, toWidth, 0, toWidth, () => {
+        this.setState({
+          showMask: false,
+        })
+        document.body.style.overflow = 'auto';
+      })
+    })
+  }
   /**
    * 关卡移动
    * 当关卡》3时，位于从左到右的第三关
@@ -79,7 +82,7 @@ class Mappage extends React.Component {
   }
   render() {
     const { homeInfo } = store;
-    const { showMask } = this.state
+    const { showMask, showMist } = this.state
     return (
       <div className="mappage">
         {/* 背景 */}
@@ -119,9 +122,19 @@ class Mappage extends React.Component {
 
         {/* 引导时屏蔽点击。这样最简单上盖一层div */}
         {
-          /*showMask*/1 &&
+          showMask &&
           <div className="mapBgbox_mask">
           </div>
+        }
+
+        {
+          showMist &&
+          <SvgaPlayer className="mist_svga" src={`${RES_PATH}/svga/云过渡.svga`}
+            loop={1}
+            onEnd={() => {
+              this.showMoveMap()
+            }}
+          />
         }
 
       </div>
