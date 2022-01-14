@@ -56,16 +56,6 @@ export const Background = {
         this.addBgList3Item(0);
         this.addBgList3Item(1);
         this.addBgList3Item(2);
-
-        // let spr3 = FYGE.Sprite.fromUrl(`${RES_PATH}GamePage/level1/bg2-3.png`)
-        // this.bgList2.push(spr3)
-        // spr3.x = this.bgArea2X
-        // spr3.y = 198 + this.offsetY
-        // console.log(spr3._texture.width)
-
-        // this.bgArea2X = this.bgArea2X + spr3.width*0.8
-        // this.bgArea2.addChildAt(spr3,1)
-
     },
 
     addBgList2Item(index) {
