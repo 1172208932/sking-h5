@@ -152,6 +152,7 @@ class Gamepage extends React.Component {
       gameStore.clickStage()
     });
     gameStore.bgCon.removeAllChildren()
+    this.gamestage.removeAllChildren()
     gameStore.beginGame = false;
     gameStore.phyworld.step = 0;
     gameStore.phyworld.removeBody(gameStore.role.carBody)
@@ -167,8 +168,9 @@ class Gamepage extends React.Component {
     return (
       <div className="homePagebox">
         <div className="gamepage">
+          <div className="canvasbox">
           <canvas className="canvas" id="gamestage"></canvas>
-
+      </div>
           {
             startpop && <div className="startpop">
               {
