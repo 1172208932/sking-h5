@@ -65,6 +65,7 @@ export default class Role extends Sprite {
 
             //设置svga位置~
             svga.position.set(-180, -40);
+            svga.visible = false
 
             //从0到最后一帧播放一次动画，并进行回调
             svga.startAniRange(0, svga.totalFrames, 0);

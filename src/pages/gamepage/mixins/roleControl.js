@@ -107,28 +107,32 @@ export const RoleControl = {
 
     roleContact(e) {
         if (
-            (e.bodyA.id == this.role.circleBody.id && e.bodyB.id == this.line0.id) ||
-            (e.bodyB.id == this.role.circleBody.id && e.bodyA.id == this.line0.id) ||
+            (e.bodyA == this.role.circleBody && e.bodyB == this.line0) ||
+            (e.bodyB == this.role.circleBody && e.bodyA == this.line0) ||
             (e.bodyA == this.role.circleBody2 && e.bodyB == this.line0) ||
-            (e.bodyB == this.role.circleBody2 && e.bodyA == this.line0)
+            (e.bodyB == this.role.circleBody2 && e.bodyA == this.line0)||
+            (e.bodyA == this.role.carBody && e.bodyB == this.line0) ||
+            (e.bodyB == this.role.carBody && e.bodyA == this.line0)
         ) {
             // console.log(e)
             // console.log(hfShapeBody)
             this.role.carBody.fixedRotation = false
-            console.log('碰撞到地面了')
+            console.log('碰撞到地面了1')
             this.touchGround()
             this.count = 0
             // this.role.carBody.angle = 0
         }else if (
-            (e.bodyA.id == this.role.circleBody.id && e.bodyB.id == this.line1.id) ||
-            (e.bodyB.id == this.role.circleBody.id && e.bodyA.id == this.line1.id) ||
+            (e.bodyA == this.role.circleBody && e.bodyB == this.line1) ||
+            (e.bodyB == this.role.circleBody && e.bodyA == this.line1) ||
             (e.bodyA == this.role.circleBody2 && e.bodyB == this.line1) ||
-            (e.bodyB == this.role.circleBody2 && e.bodyA == this.line1)
+            (e.bodyB == this.role.circleBody2 && e.bodyA == this.line1) ||
+            (e.bodyA == this.role.carBody && e.bodyB == this.line1) ||
+            (e.bodyB == this.role.carBody && e.bodyA == this.line1)
         ) {
             // console.log(e)
             // console.log(hfShapeBody)
             this.role.carBody.fixedRotation = false
-            console.log('碰撞到地面了')
+            console.log('碰撞到地面了2')
             this.touchGround()
             this.count = 0
             // this.role.carBody.angle = 0
