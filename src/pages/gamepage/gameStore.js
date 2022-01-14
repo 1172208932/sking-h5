@@ -63,6 +63,8 @@ const gameStore = makeAutoObservable(mix({
 
 
     clickStage() {
+		// debugger
+		if(this.gameEnd){ return }
         if (this.count > 1) { return }
         // this.reviveCar()
         const x = this.role.circleBody.position[0];
@@ -73,6 +75,13 @@ const gameStore = makeAutoObservable(mix({
 
         this.role.carBody.angle = 0
         this.role.carBody.fixedRotation = true
+
+		if(this.count ===1){
+			this.role.jumpRole2()
+
+		}else{
+			this.role.jumpRole1()
+		}
 
 		this.role.carBody.applyForce([100, 2 * 130000], [0, 0]);
 		this.count ++;
