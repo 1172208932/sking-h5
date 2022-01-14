@@ -36,6 +36,7 @@ const store = makeAutoObservable({
   },
   // 开始游戏
   async startGame(level) {
+    console.log("level",level)
     if (this.homeInfo?.joinGolds > this.homeInfo?.goldNum) {
       modalStore.pushPop("NoMoney");
     } else if(this.homeInfo?.desc) {

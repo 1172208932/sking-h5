@@ -35,7 +35,7 @@ class Mappage extends React.Component {
   componentDidMount() {
     let homeInfo = Object.assign({}, toJS(store.homeInfo));
     console.info('homeInfo:', homeInfo)
-    this.queryNewGuide()
+    // this.queryNewGuide()
     this.moveMap()
   }
   async queryNewGuide() {
@@ -130,7 +130,7 @@ class Mappage extends React.Component {
 
         {
           showMist &&
-          <SvgaPlayer className="mist_svga" src={`${RES_PATH}/svga/云过渡.svga`}
+          <SvgaPlayer className="mist_svga" src={`${RES_PATH}svga/云过渡.svga`}
             loop={1}
             onEnd={() => {
               this.showMoveMap()

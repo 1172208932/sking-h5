@@ -81,6 +81,10 @@ const apiCfg = {
     method: "post",
     withToken: true,
   },
+  gameSubmit: { // 提交分数
+    uri: `scoring/submit.do`,
+    withToken: true,
+  }
 }
 
 export default apiCfg;

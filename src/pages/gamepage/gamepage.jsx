@@ -12,6 +12,7 @@ import EventBus from '@duiba/event-bus';
 import { SvgaPlayer } from '@spark/animation';
 
 import { toJS } from "mobx";
+import { md5 } from '@spark/utils';
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 @observer
 class Gamepage extends React.Component {
@@ -39,11 +40,41 @@ class Gamepage extends React.Component {
   }
 
   gameWin(e){
-
+    console.log("成功到达终点")
   }
 
-  gameOver(e){
-    console.log(e)
+  async gameOver(e){
+    console.log(e,"游戏结束来，死啦死啊了");
+    this.submitGame(e?.detail?.score||0,0)
+  }
+
+  /**
+   * 提交分数
+   * @param {*} score 分数
+   * @param {*} pass 是否通过，1通过，0未过关
+   */
+  submitGame = async(score, pass) => {
+    console.log(store.currentGameLevel,11111,"currentGameLevel")
+    const {success, data} = await API.gameSubmit({
+      sign: md5(`9deb162d75304805b6a5a8d0b0d3d310${store.currentGameLevel}${score}${store.startId}${pass}`),
+      levelNum: store.currentGameLevel,
+      score,
+      startId: store.startId,
+      arrive:pass
+    })
+    if(success && data) {
+      if(pass == 0) {
+        modalStore.pushPop("GameFail",{
+          ...data,
+          removeGame: this.removeGame,
+          canvasUI:this.canvasUI
+        })
+      }
+    } else {
+      this.removeGame();
+      store.changePage("Mappage")
+    }
+    store.getHomeInfo();
   }
 
   updateScore(e) {
@@ -143,13 +174,35 @@ class Gamepage extends React.Component {
       curScore
     })
   }
+  removeGame(){
+    console.log(this.gamestage,"this.gamestage.")
+    this.gamestage.removeEventListener(FYGE.Event.ENTER_FRAME, () => {
+      gameStore.enterFrame(this.gamestage)
+    });
+    //点击
+    this.gamestage.removeEventListener(FYGE.MouseEvent.CLICK, () => {
+      gameStore.clickStage()
+    });
+    gameStore.bgCon.removeAllChildren()
+    this.gamestage.removeAllChildren()
+    gameStore.beginGame = false;
+    gameStore.phyworld.step = 0;
+    gameStore.phyworld.removeBody(gameStore.role.carBody)
+    gameStore.phyworld.removeBody(gameStore.role.circleBody)
+    gameStore.phyworld.removeBody(gameStore.role.circleBody2)
+    for(let i =0 ;i<gameStore.additiveslist.length;i++){
+      gameStore.phyworld.removeBody(gameStore.additiveslist[i].rectBody)
+    }
+    
+  }
   render() {
     const { gameStep, startpop, starInfo, curScore, soundon } = this.state
     return (
       <div className="homePagebox">
         <div className="gamepage">
+          <div className="canvasbox">
           <canvas className="canvas" id="gamestage"></canvas>
-
+      </div>
           {
             startpop && <div className="startpop">
               {
@@ -216,7 +269,7 @@ class Gamepage extends React.Component {
                 <span className="bj"></span>
                 <div className="baron_mask" style={{ width: `${curScore / Math.floor(starInfo?.[store.currentGameLevel - 1]?.star3) * 4.79}rem` }}>
                   <span className="baron"></span>
-                  <SvgaPlayer className="baron_svga" src={`${RES_PATH}/svga/流光高亮.svga`} />
+                  <SvgaPlayer className="baron_svga" src={`${RES_PATH}svga/流光高亮.svga`} />
                 </div>
 
 

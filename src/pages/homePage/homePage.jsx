@@ -77,11 +77,11 @@ class HomePage extends React.Component {
       <div className="homePagebox">
       <div className="homepage">
         <span className="title"></span>
-        <SvgaPlayer src={`${RES_PATH}/svga/标题与人物.svga`} className='title-person'></SvgaPlayer>
+        <SvgaPlayer src={`${RES_PATH}svga/标题与人物.svga`} className='title-person'></SvgaPlayer>
 
         {/* 开始游戏按钮 */}
-        <SvgaPlayer className="startga" src={`${RES_PATH}/svga/开始游戏.svga`} onClick={() => store.changePage('Mappage')}/>
-        <SvgaPlayer className="gesturesAperture" src={`${RES_PATH}/svga/手势单击.svga`} />
+        <SvgaPlayer className="startga" src={`${RES_PATH}svga/开始游戏.svga`} onClick={() => store.changePage('Mappage')}/>
+        <SvgaPlayer className="gesturesAperture" src={`${RES_PATH}svga/手势单击.svga`} />
         {/* 左上角icon */}
         <div className="topleft">
           {/* 头像 */}
@@ -113,7 +113,7 @@ class HomePage extends React.Component {
         <div className="bottoml">
           {/* 兑换商店 */}
           <div className="duiHuanShangDian" onClick={() => modalStore.pushPop("ExchangeShop")}>
-            <SvgaPlayer src={`${RES_PATH}/svga/兑换商店.svga`} className='store-svga'></SvgaPlayer>
+            <SvgaPlayer src={`${RES_PATH}svga/兑换商店.svga`} className='store-svga'></SvgaPlayer>
           </div>
           {/* 得金币 */}
           <span className="deJinBi" onClick={() => modalStore.pushPop("Task")}></span>
