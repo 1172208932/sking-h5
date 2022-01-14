@@ -41,15 +41,16 @@ class Mappage extends React.Component {
     let queryNewGuideInfo = await API.queryNewGuide()
     console.info('queryNewGuideInfo:', queryNewGuideInfo)
     if (!queryNewGuideInfo.data.completeGuide) {
+      let toWidth = Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - document.documentElement.clientWidth
+      console.log("toWidth:", toWidth)
+      document.documentElement.scrollLeft = toWidth
       this.setState({
         queryNewGuideInfo: queryNewGuideInfo.data,
         showMask: true
       }, async () => {
-        let toWidth = Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - document.documentElement.clientWidth
-        console.log("toWidth:", toWidth)
-        var percent = { toWidth: 100 }
+
         await delay(1000)
-        Tool.tweenReaptToto2(document.documentElement, 0, toWidth, toWidth, () => {
+        Tool.tweenReaptToto2(document.documentElement, toWidth, 0, toWidth, () => {
           this.setState({
             showMask: false
           })
@@ -58,11 +59,6 @@ class Mappage extends React.Component {
     }
 
 
-  }
-  scroolToBottom() {
-    // setTimeout(() => {
-    //   document.documentElement.scrollLeft = document.body.scrollLeft = Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - document.documentElement.clientWidth
-    // }, 0);
   }
 
   /**
@@ -73,9 +69,9 @@ class Mappage extends React.Component {
   moveMap = () => {
     const { homeInfo } = store;
     let len = homeInfo?.gameInfo?.length ? homeInfo.gameInfo.length : 0;
-    if(len>=3) {
+    if (len >= 3) {
       // 3移动1，4移动2个
-      window.scrollTo(331+(14413/108)*(len-3),0);
+      window.scrollTo(331 + (14413 / 108) * (len - 3), 0);
     }
   }
   render() {
@@ -115,6 +111,10 @@ class Mappage extends React.Component {
         {/* 终极大奖 */}
         <LastPrize />
 
+
+
+
+        {/* 引导时屏蔽点击。这样最简单上盖一层div */}
         {
           showMask &&
           <div className="mapBgbox_mask">
