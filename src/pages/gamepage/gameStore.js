@@ -64,6 +64,7 @@ const gameStore = makeAutoObservable(mix({
 
     clickStage() {
 		// debugger
+		if(this.gameEnd){ return }
         if (this.count > 1) { return }
         // this.reviveCar()
         const x = this.role.circleBody.position[0];
