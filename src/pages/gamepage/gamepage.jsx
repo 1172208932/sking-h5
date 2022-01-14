@@ -27,12 +27,19 @@ class Gamepage extends React.Component {
   }
   componentDidMount() {
     EventBus.on('UPDATE_SCORE', this.updateScore, this);
+    EventBus.on('GAME_OVER', this.gameOver, this);
     this.initCanvas();
     this.setStarInfo()
   }
   componentWillUnmount() {
-    EventBus.off('UPDATE_SCORE', this.updateScore);
+    EventBus.off('GAME_DIE', this.updateScore);
+    EventBus.off('GAME_OVER', this.gameOver);
   }
+
+  gameOver(e){
+    
+  }
+
   updateScore(e) {
     console.log('updateScore:=========>>>>>>', e)
     // e.detail.score
