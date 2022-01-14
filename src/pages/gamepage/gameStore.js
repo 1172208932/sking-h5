@@ -1,5 +1,5 @@
 import { makeAutoObservable } from 'mobx';
-import { level1, poplevel1 } from '@src/lujingInfo/lujing';
+import { level1, proplevel1, level2 } from '@src/lujingInfo/lujing';
 import p2 from 'p2/build/p2';
 import { RES_PATH } from '../../../sparkrc.js';
 import { mix } from './mix';
@@ -20,7 +20,7 @@ const gameStore = makeAutoObservable(mix({
     propInfo:'',
     getData(){
         this.lineInfo = level1
-        this.propInfo = poplevel1
+        this.propInfo = proplevel1
         this.createPhysicsWorld()
     },
 
@@ -28,9 +28,14 @@ const gameStore = makeAutoObservable(mix({
     subdivision: 0,
     gameEnd: false,
 
+    timeControl:null,
 	enterFrame( stage){
-		this.phyworld.step(1 / 60);
-		if(!this.beginGame){return}
+        this.phyworld.step(1 / 60);
+        
+        if(!this.beginGame){return}
+        if( this.timeControl){
+            return
+        }
 		this.updateRole(stage)
 
         // this.bgArea.x = -x + stage.width / 4 ;
@@ -50,6 +55,9 @@ const gameStore = makeAutoObservable(mix({
             this.removetype = false
             this.removeLine((this.subdivision - 1), this.phyworld)
         }
+        this.timeControl = setTimeout(()=>{
+            this.timeControl = null
+        },1000/60)
 
     },
 
@@ -69,7 +77,7 @@ const gameStore = makeAutoObservable(mix({
 
 		this.role.jumpRole1()
 
-		this.role.carBody.applyForce([0, 2 * 130000], [0, 0]);
+		this.role.carBody.applyForce([100, 2 * 130000], [0, 0]);
 		this.count ++;
 	},
 
@@ -96,8 +104,12 @@ const gameStore = makeAutoObservable(mix({
             const y = this.lineInfo[i];
             heights.push(-y);   // 加入高度组
             this.shape0.lineTo(i * 100, y + 300);   // debug
-            if (i > 0)
-                this.shape0.addChild(this.stockArea(i))
+            if (i > 0){
+                    this.shape0.addChild(this.stockArea(i))
+                
+            }
+            
+                
         }
 
         this.shape0.endStroke();  // debug
@@ -153,21 +165,8 @@ const gameStore = makeAutoObservable(mix({
 
             this.roleContact(e)
 
-            // for (let i = 0; i < this.additives.length; i++) {
-            // 	// console.log(this.additiveslist[i].rectBody.id)
-            // 	if (pengzhuangID == this.additiveslist[i].rectBody.id) {
-            // 		if (this.additiveslist[i].type == "coin" || this.additiveslist[i].type == "bigcoin") {
-            // 			world.removeBody(this.additiveslist[i].rectBody)
-            // 			this.box.removeChild(this.additiveslist[i].rectcoin)
-            // 			console.log("getCoin")
-            // 		} else {
-            // 			console.log("die")
-            // 		}
-            // 	}
-            // }
         })
 
-        //手动判断位置，垃圾p2碰撞检测不靠谱
 
 
     },
@@ -209,7 +208,10 @@ const gameStore = makeAutoObservable(mix({
             const y = this.lineInfo[i];
             heights.push(-y);   // 加入高度组
             useShape.lineTo(i * 100, y + 300);   // debug
+            
             useShape.addChild(this.stockArea(i))
+            
+            
         }
         useShape.endStroke();  // debug
 
@@ -256,9 +258,6 @@ const gameStore = makeAutoObservable(mix({
     //填充
     stockArea(i) {
         console.log(i, "当前")
-        if (i < 160) {
-            // return
-        }
         var Shapestock = new FYGE.Shape();
         Shapestock.beginGradientFill([0, 0, 0, this.lineInfo[i] + 600], [[0, "#ffffff", 1], [((this.lineInfo[i] + 400) / (this.lineInfo[i] + 600)), "#ffffff", 1], [1, "#82b1e3", 1]])
         Shapestock.lineTo((i - 1) * 100, (this.lineInfo[i - 1]) + 300)

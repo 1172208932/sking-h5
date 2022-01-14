@@ -20,7 +20,7 @@ export const RoleControl = {
 
 		//添加各种障碍additives
         for (let addi = 0; addi < this.propInfo.length; addi++) {
-            let coin = new Obstacle(this.propInfo[addi], this.phyworld, this.bgCon)
+            let coin = new Obstacle(this.propInfo[addi],this.lineInfo, this.phyworld, this.bgCon)
             this.additiveslist.push(coin)
 
         }
@@ -161,8 +161,11 @@ export const RoleControl = {
 	//复活
 	reviveCar(){
 		this.gameEnd = false
-		this.phyworld.removeBody(this.dieItem.rectBody)
+		if(this.dieItem){
+			this.phyworld.removeBody(this.dieItem.rectBody)
 		this.bgCon.removeChild(this.dieItem.rectcoin)
+		}	
+		
 		this.role.carBody.wakeUp()
 		this.role.circleBody.wakeUp()
 		this.role.circleBody2.wakeUp()
