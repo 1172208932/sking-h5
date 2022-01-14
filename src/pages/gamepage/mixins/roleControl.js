@@ -79,6 +79,10 @@ export const RoleControl = {
 
 
     },
+    // 接触地面
+    touchGround(){
+        this.role.smokeSvga.visible = true
+    },
     updateRole(stage) {
         if(!this.role){return}
         const x = this.role.circleBody.position[0];
@@ -112,6 +116,7 @@ export const RoleControl = {
             // console.log(hfShapeBody)
             this.role.carBody.fixedRotation = false
             console.log('碰撞到地面了')
+            this.touchGround()
             this.count = 0
             // this.role.carBody.angle = 0
         }else if (
@@ -124,6 +129,7 @@ export const RoleControl = {
             // console.log(hfShapeBody)
             this.role.carBody.fixedRotation = false
             console.log('碰撞到地面了')
+            this.touchGround()
             this.count = 0
             // this.role.carBody.angle = 0
         }else if (
@@ -149,6 +155,7 @@ export const RoleControl = {
 							console.log("die")
 							this.gameEnd = true
 							this.dieItem = this.additiveslist[i]
+                            this.role.smokeSvga.visible = false
 							this.role.carBody.sleep()
 							this.role.circleBody.sleep()
 							this.role.circleBody2.sleep()

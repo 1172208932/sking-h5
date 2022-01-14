@@ -1,9 +1,11 @@
 import {
     RES_PATH
 } from '../../../../sparkrc.js';
-let urlList = [`${RES_PATH}GamePage/level1/bg2-1.png`, `${RES_PATH}GamePage/level1/bg2-2.png`, `${RES_PATH}GamePage/level1/bg2-3.png`]
-let urlList3 = [`${RES_PATH}GamePage/level1/bg3-1.png`, `${RES_PATH}GamePage/level1/bg3-2.png`, `${RES_PATH}GamePage/level1/bg3-3.png`, `${RES_PATH}GamePage/level1/bg3-4.png`]
-let urlTopList3 = [186,534,200,186]
+
+const urlList = [`${RES_PATH}GamePage/level1/bg2-1.png`, `${RES_PATH}GamePage/level1/bg2-2.png`, `${RES_PATH}GamePage/level1/bg2-3.png`]
+const urlList3 = [`${RES_PATH}GamePage/level1/bg3-1.png`, `${RES_PATH}GamePage/level1/bg3-2.png`, `${RES_PATH}GamePage/level1/bg3-3.png`, `${RES_PATH}GamePage/level1/bg3-4.png`]
+const urlTopList3 = [226, 534, 200, 186]
+
 export const Background = {
     // 背景天空
     bgArea0: '',
@@ -150,5 +152,5 @@ export const Background = {
 
         this.bgArea3X = this.bgArea3X - 5
     },
-    
+
 }
