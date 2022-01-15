@@ -37,7 +37,7 @@ export const RoleControl = {
         var contactMaterial1 = new p2.ContactMaterial(heighshape.material, this.role.circleShape.material, {
             restitution: 0, // This means no bounce!
             surfaceVelocity: -82000,
-            friction: 0.8
+            friction: 0.8,
         });
         this.phyworld.addContactMaterial(contactMaterial1)
 

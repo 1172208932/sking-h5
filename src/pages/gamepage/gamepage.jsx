@@ -192,8 +192,8 @@ class Gamepage extends React.Component {
 
 
   backMapPage(){
+    gameStore.pasueGame()
     modalStore.pushPop("GameLeave")
-    
   }
   render() {
     const { gameStep, startpop, starInfo, soundon } = this.state
