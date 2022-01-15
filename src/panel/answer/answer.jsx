@@ -46,6 +46,7 @@ class Answer extends React.Component {
       startId,
       answer: index + 1,
     });
+    console.log(this.props)
     await this.completeAnswer(index, data?.answer?.correctAnswers?.[0] - 1);
     if (success) {
       this.setState({
@@ -57,21 +58,23 @@ class Answer extends React.Component {
 
   // 完成答题
   completeAnswer = async (chooseIndex, rightIndex) => {
-    const {
-      popData: { startId },
-    } = this.props;
-    const { success, data } = await API.answerComplete({ startId });
+    // console.log(this.props.popData.startId)
+    // const {
+    //   popData: { startId },
+    // } = this.props;
+    const startId = this.props.popData.startId
+    const { success, data } = await API.answerComplete({ startId:startId });
     if (success && data) {
-      // data.extra是新的startID
+    //   // data.extra是新的startID
       if (chooseIndex != rightIndex) {
         //  打错
         this.answerFail()
       } else {
-        // 答对，开始下一句
+    //     // 答对，开始下一句
         store.setStartId(data.extra);
         modalStore.closePop("Answer");
-        await popData.removeGame();
-        popData.canvasUI();
+        await this.props.popData.removeGame();
+        this.props.popData.canvasUI();
       }
     }
   };

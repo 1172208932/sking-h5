@@ -109,7 +109,7 @@ class Gamepage extends React.Component {
   flushfunc = ()=>{
     gameStore.enterFrame(this.gamestage)
   }
-  async canvasUI() {
+   canvasUI = async()=> {
     //let img = new FYGE.Sprite("")
     console.log("初始化canvasUI")
     gameStore.offsetX = (1624 - (document.body.clientWidth > 1624 ? 1624 : document.body.clientWidth)) / 2
@@ -179,6 +179,8 @@ class Gamepage extends React.Component {
     gameStore.beginGame = false;
     gameStore.phyworld.step = 0;
     gameStore.subdivision = 0
+    gameStore.distance = 0
+    gameStore.score = 0
     gameStore.phyworld.removeBody(gameStore.role.carBody)
     gameStore.phyworld.removeBody(gameStore.role.circleBody)
     gameStore.phyworld.removeBody(gameStore.role.circleBody2)
