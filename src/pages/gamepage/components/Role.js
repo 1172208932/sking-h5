@@ -164,6 +164,7 @@ export default class Role extends Sprite {
             // position: [180, -410],
             angularDamping: 1,
             position: [140, -170],
+            collisionResponse:false
             // fixedRotation: true,
         });
         carBody.addShape(carShape);
