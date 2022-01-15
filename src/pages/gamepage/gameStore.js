@@ -31,10 +31,11 @@ const gameStore = makeAutoObservable(mix({
 
     timeControl:null,
     deltaPoints:30,
+    distance:0,
 	enterFrame(stage){
         // console.log(this.role.carBody.velocity[0],this.role.carBody.velocity[1])
         this.phyworld.step(1 / 60);
-        
+        this.distance = this.role.carBody.position[0]
         if(!this.beginGame){return}
         if( this.timeControl){
             return
@@ -268,7 +269,7 @@ const gameStore = makeAutoObservable(mix({
     },
     //填充
     stockArea(i) {
-        console.log(i, "当前")
+        // console.log(i, "当前")
         var Shapestock = new FYGE.Shape();
         Shapestock.beginGradientFill([0, 0, 0, this.lineInfo[i] + 600], [[0, "#ffffff", 1], [((this.lineInfo[i] + 400) / (this.lineInfo[i] + 600)), "#ffffff", 1], [1, "#82b1e3", 1]])
         Shapestock.lineTo((i - 1) * 100, (this.lineInfo[i - 1]) + 300)

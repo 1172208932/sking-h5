@@ -106,6 +106,9 @@ class Gamepage extends React.Component {
     })()
   }
 
+  flushfunc = ()=>{
+    gameStore.enterFrame(this.gamestage)
+  }
   async canvasUI() {
     //let img = new FYGE.Sprite("")
     console.log("初始化canvasUI")
@@ -123,10 +126,9 @@ class Gamepage extends React.Component {
     gameStore.getData()
     gameStore.initbg()
 
+
     //帧刷新
-    this.gamestage.addEventListener(FYGE.Event.ENTER_FRAME, () => {
-      gameStore.enterFrame(this.gamestage)
-    });
+    this.gamestage.addEventListener(FYGE.Event.ENTER_FRAME, this.flushfunc);
     //点击
     this.gamestage.addEventListener(FYGE.MouseEvent.CLICK, () => {
       gameStore.clickStage()
@@ -159,12 +161,15 @@ class Gamepage extends React.Component {
       gameStore.beginGame = true
     });
   }
-
-  removeGame(){
+  //设置当前分数
+  setCurScore(curScore) {
+    this.setState({
+      curScore
+    })
+  }
+  removeGame = ()=>{
     console.log(this.gamestage,"this.gamestage.")
-    this.gamestage.removeEventListener(FYGE.Event.ENTER_FRAME, () => {
-      gameStore.enterFrame(this.gamestage)
-    });
+    this.gamestage.removeEventListener(FYGE.Event.ENTER_FRAME,this.flushfunc);
     //点击
     this.gamestage.removeEventListener(FYGE.MouseEvent.CLICK, () => {
       gameStore.clickStage()
@@ -173,6 +178,7 @@ class Gamepage extends React.Component {
     this.gamestage.removeAllChildren()
     gameStore.beginGame = false;
     gameStore.phyworld.step = 0;
+    gameStore.subdivision = 0
     gameStore.phyworld.removeBody(gameStore.role.carBody)
     gameStore.phyworld.removeBody(gameStore.role.circleBody)
     gameStore.phyworld.removeBody(gameStore.role.circleBody2)
@@ -248,7 +254,7 @@ class Gamepage extends React.Component {
 
             <div className="distance">
               <span className="distancebg"></span>
-              <span className="distancenum">3234m</span>
+              <span className="distancenum">{gameStore.distance}m</span>
             </div>
             <div className="bar">
               <div className="three">
