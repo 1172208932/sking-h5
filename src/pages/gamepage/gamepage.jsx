@@ -109,6 +109,9 @@ class Gamepage extends React.Component {
   flushfunc = ()=>{
     gameStore.enterFrame(this.gamestage)
   }
+  clickfunc =()=>{
+    gameStore.clickStage()
+  }
    canvasUI = async()=> {
     //let img = new FYGE.Sprite("")
     console.log("初始化canvasUI")
@@ -130,9 +133,7 @@ class Gamepage extends React.Component {
     //帧刷新
     this.gamestage.addEventListener(FYGE.Event.ENTER_FRAME, this.flushfunc);
     //点击
-    this.gamestage.addEventListener(FYGE.MouseEvent.CLICK, () => {
-      gameStore.clickStage()
-    });
+    this.gamestage.addEventListener(FYGE.MouseEvent.CLICK,this.clickfunc);
 
     this.setState({
       gameStep: 0,
@@ -171,9 +172,7 @@ class Gamepage extends React.Component {
     console.log(this.gamestage,"this.gamestage.")
     this.gamestage.removeEventListener(FYGE.Event.ENTER_FRAME,this.flushfunc);
     //点击
-    this.gamestage.removeEventListener(FYGE.MouseEvent.CLICK, () => {
-      gameStore.clickStage()
-    });
+    this.gamestage.removeEventListener(FYGE.MouseEvent.CLICK,this.clickfunc);
     gameStore.bgCon.removeAllChildren()
     this.gamestage.removeAllChildren()
     gameStore.beginGame = false;
