@@ -68,7 +68,7 @@ const gameStore = makeAutoObservable(mix({
 
     clickStage() {
         // debugger
-        this.reviveCar()
+        // this.reviveCar()
 		if(this.gameEnd){ return }
         // if (this.count > 1) { return }
         
@@ -278,6 +278,18 @@ const gameStore = makeAutoObservable(mix({
         Shapestock.lineTo((i - 1) * 100, this.lineInfo[i] + this.deltaPoints*100)
         Shapestock.endFill()
         return Shapestock;
+    },
+    pasueGame(){
+        this.gameEnd = true
+		this.role.carBody.sleep()
+		this.role.circleBody.sleep()
+		this.role.circleBody2.sleep()
+    },
+    goonGame(){
+        this.gameEnd = false
+		this.role.carBody.wakeUp()
+		this.role.circleBody.wakeUp()
+		this.role.circleBody2.wakeUp()
     }
 }, Background, RoleControl));
 export default gameStore;

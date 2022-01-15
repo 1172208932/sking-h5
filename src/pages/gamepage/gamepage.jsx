@@ -180,6 +180,7 @@ class Gamepage extends React.Component {
     gameStore.subdivision = 0
     gameStore.distance = 0
     gameStore.score = 0
+    gameStore.gameEnd = false
     gameStore.phyworld.removeBody(gameStore.role.carBody)
     gameStore.phyworld.removeBody(gameStore.role.circleBody)
     gameStore.phyworld.removeBody(gameStore.role.circleBody2)
