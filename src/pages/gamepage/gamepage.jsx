@@ -22,19 +22,16 @@ class Gamepage extends React.Component {
       gameStep: 0,//第？关 0  准备1  出发2
       startpop: true, //是否需要显示开始
       starInfo: '',//关卡信息
-      curScore: 0,
       soundon: true,
     };
   }
   componentDidMount() {
-    EventBus.on('UPDATE_SCORE', this.updateScore, this);
     EventBus.on('GAME_OVER', this.gameOver, this);
     EventBus.on('GAME_WIN', this.gameWin, this);
     this.initCanvas();
     this.setStarInfo()
   }
   componentWillUnmount() {
-    EventBus.off('GAME_DIE', this.updateScore);
     EventBus.off('GAME_OVER', this.gameOver);
     EventBus.off('GAME_WIN', this.gameWin);
   }
@@ -75,12 +72,6 @@ class Gamepage extends React.Component {
       store.changePage("Mappage")
     }
     store.getHomeInfo();
-  }
-
-  updateScore(e) {
-    console.log('updateScore:=========>>>>>>', e)
-    // e.detail.score
-    this.setCurScore(e.detail.score)
   }
 
   setStarInfo() {
@@ -168,12 +159,7 @@ class Gamepage extends React.Component {
       gameStore.beginGame = true
     });
   }
-  //设置当前分数
-  setCurScore(curScore) {
-    this.setState({
-      curScore
-    })
-  }
+
   removeGame(){
     console.log(this.gamestage,"this.gamestage.")
     this.gamestage.removeEventListener(FYGE.Event.ENTER_FRAME, () => {
@@ -196,7 +182,7 @@ class Gamepage extends React.Component {
     
   }
   render() {
-    const { gameStep, startpop, starInfo, curScore, soundon } = this.state
+    const { gameStep, startpop, starInfo, soundon } = this.state
     return (
       <div className="homePagebox">
         <div className="gamepage">
@@ -267,7 +253,7 @@ class Gamepage extends React.Component {
             <div className="bar">
               <div className="three">
                 <span className="bj"></span>
-                <div className="baron_mask" style={{ width: `${curScore / Math.floor(starInfo?.[store.currentGameLevel - 1]?.star3) * 4.79}rem` }}>
+                <div className="baron_mask" style={{ width: `${gameStore.score / Math.floor(starInfo?.[store.currentGameLevel - 1]?.star3) * 4.79}rem` }}>
                   <span className="baron"></span>
                   <SvgaPlayer className="baron_svga" src={`${RES_PATH}svga/流光高亮.svga`} />
                 </div>
@@ -285,7 +271,7 @@ class Gamepage extends React.Component {
                 </div>
               </div>
               <span className="bartip">当前分数</span>
-              <span className="barscore">{curScore}</span>
+              <span className="barscore">{gameStore.score}</span>
             </div>
             <div className="sound">
 

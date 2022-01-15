@@ -12,7 +12,7 @@ export const RoleControl = {
     timer: null,
     count: null,
     ifFly: false,
-
+    score:0,
     addRole() {
         this.role = new Role()
         this.bgCon.addChild(this.role)
@@ -119,7 +119,7 @@ export const RoleControl = {
             // console.log(e)
             // console.log(hfShapeBody)
             this.role.carBody.fixedRotation = false
-            console.log('碰撞到地面了1')
+            // console.log('碰撞到地面了1')
             this.touchGround()
             this.count = 0
             // this.role.carBody.angle = 0
@@ -134,7 +134,7 @@ export const RoleControl = {
             // console.log(e)
             // console.log(hfShapeBody)
             this.role.carBody.fixedRotation = false
-            console.log('碰撞到地面了2')
+            // console.log('碰撞到地面了2')
             this.touchGround()
             this.count = 0
             // this.role.carBody.angle = 0
@@ -150,12 +150,14 @@ export const RoleControl = {
             // this.role.carBody.angle = 0
         }else{
 			for(let i =0; i<this.additiveslist.length;i++){
-				if( e.bodyB.id == this.additiveslist[i].rectBody.id
-					|| e.bodyA.id == this.additiveslist[i].rectBody.id){
+				if( 
+                    (e.bodyB == this.role.carBody && e.bodyA == this.additiveslist[i].rectBody) ||
+                    (e.bodyA == this.role.carBody && e.bodyB == this.additiveslist[i].rectBody)
+                ){
 						if(this.additiveslist[i].type == "snow"){
 							this.phyworld.removeBody(this.additiveslist[i].rectBody)
 							this.bgCon.removeChild(this.additiveslist[i].rectcoin)
-							console.log("getCoin")
+                            this.score =this.score+100
 						}else {
                             this.role.carBody.sleep()
 							this.role.circleBody.sleep()
