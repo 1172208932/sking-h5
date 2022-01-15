@@ -181,6 +181,12 @@ class Gamepage extends React.Component {
     }
     
   }
+
+
+  backMapPage(){
+    modalStore.pushPop("GameLeave")
+    
+  }
   render() {
     const { gameStep, startpop, starInfo, soundon } = this.state
     return (
@@ -298,7 +304,9 @@ class Gamepage extends React.Component {
               }
 
             </div>
-            <span className="back"></span>
+            <span className="back" onClick={()=>{
+              this.backMapPage()
+            }}></span>
           </div>
         </div>
       </div>
