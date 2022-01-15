@@ -258,7 +258,7 @@ class Gamepage extends React.Component {
           }
 
 
-          <div className="iconarea">
+          <div className="iconarea" style={{transform:`translateX(-50%) scale(${document.body.clientWidth>1308?1:(document.body.clientWidth-40)/1308})`}}>
 
             <div className="distance">
               <span className="distancebg"></span>
