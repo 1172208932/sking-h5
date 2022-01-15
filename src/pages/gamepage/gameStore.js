@@ -89,7 +89,7 @@ const gameStore = makeAutoObservable(mix({
 		}
 
         // console.log(this.role.carBody.velocity[0],this.role.carBody.velocity[1])
-		this.role.carBody.applyForce([800-this.role.carBody.velocity[0], 160000-this.role.carBody.velocity[1]], [0, 0]);
+		this.role.carBody.applyForce([800-this.role.carBody.velocity[0], 100000-this.role.carBody.velocity[1]], [0, 0]);
 		this.count ++;
 	},
 
@@ -100,6 +100,9 @@ const gameStore = makeAutoObservable(mix({
         this.phyworld = new p2.World({
             gravity: [0, -600]
         });
+
+        // this.phyworld.defaultContactMaterial.friction = 10000;
+
         //划线
         var heights = [];
         const shape = new FYGE.Shape(); // debug
