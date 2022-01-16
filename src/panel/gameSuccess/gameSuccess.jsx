@@ -7,6 +7,7 @@ import store from '../../store/index';
 import modalStore from '@src/store/modal';
 import API from '../../api';
 import './gameSuccess.less';
+import { _throttle } from '@src/utils/utils.js';
 
 @observer
 class GameSuccess extends React.Component {
@@ -17,6 +18,14 @@ class GameSuccess extends React.Component {
   againNext = () => {
     alert("我还没做,先刷新！！", 11212);
   }
+
+  clickInvite = _throttle(() => {
+    const {popData} = this.props;
+    popData.removeGame();
+    store.changePage("Mappage")
+    modalStore.closePop("GameSuccess")
+    store.toInvite();
+  })
   render() {
     const {popData} = this.props;
     return (
@@ -39,7 +48,7 @@ class GameSuccess extends React.Component {
         {/* 底部按钮 */}
         <div className="bottomBtnBox">
           {/* 邀请好友 */}
-          <div className="leftButton" onClick={() => store.toInvite()}>
+          <div className="leftButton" onClick={this.clickInvite}>
             <p className="button5 textover">
               领{store?.homeInfo?.inviteGolds||0}金币
             </p>
