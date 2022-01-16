@@ -14,15 +14,15 @@ class GameSuccess extends React.Component {
     super(props);
   }
   render() {
+    const {popData} = this.props;
     return (
       <div className="gameSuccessIsLessThanStar1">
         <span className="snowAndIceAtmosphere"></span>
         <span className="light"></span>
        
         <div className="copy">
-          <span className="scorebo"></span>
-          <span className="layer4773">+4773</span>
-          <span className="layer300">+300</span>
+          <p className="layer4773 textover">+{popData?.score || 0}</p>
+          <p className="layer300 textover">+{popData?.sendGold || 0}</p>
         </div>
         <span className="title"></span>
         <span className="headings"></span>
@@ -36,12 +36,13 @@ class GameSuccess extends React.Component {
         <div className="bottomBtnBox">
           {/* 邀请好友 */}
           <div className="leftButton">
-            <div className="button5">
-              <span className="bluebg"></span>
-              <span className="led20Coins">领20金币</span>
+            <p className="button5 textover">
+              领{store?.homeInfo?.inviteGolds||0}金币
+            </p>
+            <div className="participateInAnswer2">
+              <p className="participationAnswer3">邀请好友</p>
             </div>
-            <span className="justify"></span>
-            <span className="inviteFriends">邀请好友</span>
+           
           </div>
           {/* 继续闯关 */}
           <span className="button4"></span>

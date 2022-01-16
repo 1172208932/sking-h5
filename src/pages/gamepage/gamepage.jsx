@@ -41,6 +41,7 @@ class Gamepage extends React.Component {
 
   gameWin(e){
     console.log("成功到达终点")
+    this.submitGame(e?.detail?.score||0,1)
   }
 
   async gameOver(e){
@@ -64,8 +65,17 @@ class Gamepage extends React.Component {
     })
     if(success && data) {
       if(pass == 0) {
+        // 游戏失败了
         modalStore.pushPop("GameFail",{
           ...data,
+          removeGame: this.removeGame,
+          canvasUI:this.canvasUI
+        })
+      } else {
+        // 通关
+        modalStore.pushPop("GameSuccess",{
+          ...data,
+          score,
           removeGame: this.removeGame,
           canvasUI:this.canvasUI
         })
@@ -76,6 +86,7 @@ class Gamepage extends React.Component {
     }
     store.getHomeInfo();
   }
+
 
   updateScore(e) {
     console.log('updateScore:=========>>>>>>', e)

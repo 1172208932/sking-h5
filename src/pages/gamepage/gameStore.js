@@ -1,11 +1,12 @@
 import { makeAutoObservable } from 'mobx';
-import { level1, proplevel1, level2 } from '@src/lujingInfo/lujing';
 import p2 from 'p2/build/p2';
 import { RES_PATH } from '../../../sparkrc.js';
 import { mix } from './mix';
 import { Background } from './mixins/background.js';
 import { RoleControl } from './mixins/roleControl.js'
 import Obstacle from './components/Obstacle.js';
+import store from '@src/store/index.js';
+import { LujinList, PropList } from '@src/lujingInfo/Alllujing.js';
 const gameStore = makeAutoObservable(mix({
 	beginGame:false,
 	heighshape:null,
@@ -19,8 +20,8 @@ const gameStore = makeAutoObservable(mix({
     lineInfo:'',
     propInfo:'',
     getData(){
-        this.lineInfo = level1
-        this.propInfo = proplevel1
+        this.lineInfo = LujinList[store.currentGameLevel-1]
+        this.propInfo = PropList[store.currentGameLevel-1]
         this.createPhysicsWorld()
     },
 
@@ -33,7 +34,6 @@ const gameStore = makeAutoObservable(mix({
 	enterFrame(stage){
         // console.log(this.role.carBody.velocity[0],this.role.carBody.velocity[1])
         this.phyworld.step(1 / 60);
-        console.log(this.role.carBody.position[0])
         
         if(!this.beginGame){return}
         if( this.timeControl){
