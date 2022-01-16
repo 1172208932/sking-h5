@@ -10,7 +10,7 @@ const listExchangeLimit = {
           consumeSps: [
             {
               spId: "sp_1",
-              quantity: 48375,
+              quantity: 10,
               spName: "道具名称",
               spImg:
                 "http://yun.duiba.com.cn/polaris/丝倍亮小型犬幼年年期全价犬粮7.5kg.c27e9ef4b4d418e8a90faa76798e20cb4f18a490.jpg",

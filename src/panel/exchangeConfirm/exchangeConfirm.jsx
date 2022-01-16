@@ -19,8 +19,8 @@ class ExchangeConfirm extends React.Component {
   clickBuy = _throttle(async() => {
     const {popData} = this.props;
     const {success,data} = await API.doExchange({
-      ruId: popData.ruId,
-      gear: popData.gear
+      ruId: popData.detail?.ruId,
+      gear: popData.detail?.gear
     })
     store.getHomeInfo();
     if(success) {

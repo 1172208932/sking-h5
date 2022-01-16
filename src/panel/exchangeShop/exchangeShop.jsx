@@ -18,7 +18,7 @@ class ExchangeShop extends React.Component {
     this.state = {
       todayResult: [], // 当天兑换列表
       tomorrowResult: [], // 明日预告兑换列表
-      isNow: false,
+      isNow: true,
     };
   }
 
