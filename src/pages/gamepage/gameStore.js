@@ -32,7 +32,7 @@ const gameStore = makeAutoObservable(mix({
     gameEnd: false,
 
     timeControl:null,
-    deltaPoints:30,
+    deltaPoints:20,
     distance:0,
 	enterFrame(stage){
         // console.log(this.role.carBody.velocity[0],this.role.carBody.velocity[1])
@@ -50,13 +50,13 @@ const gameStore = makeAutoObservable(mix({
         }
 
         // 位置
-        if (this.role.carBody.position[0] > this.deltaPoints *100 * (this.subdivision + 1) - 1500) {
+        if (this.role.carBody.position[0] > this.deltaPoints *100 * (this.subdivision+1 ) -1300) {
             this.subdivision++;
             this.removetype = true
             this.addLine(this.subdivision,this.phyworld)
         }
 
-        if(this.role.carBody.position[0]>this.subdivision*this.deltaPoints *100+200 && this.removetype){
+        if(this.role.carBody.position[0]>this.subdivision*this.deltaPoints *100+400 && this.removetype){
             console.log("remove")
             this.removetype = false
             this.removeLine((this.subdivision - 1), this.phyworld)
