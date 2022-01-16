@@ -31,13 +31,22 @@ class GameFail extends React.Component {
 
   // 扣金币再来
   againPlay = async() => {
-    // levelNum TODO
-    const {success,data} = await API.resurgence({
-      levelNum: 1,
-    })
-    if(success&&data) {
-      // TODO 再来一句,记得关当前弹窗
-    } 
+    const {popData} = this.props;
+    if (popData.reGold > store.homeInfo?.goldNum) {
+      modalStore.pushPop("NoMoney");
+      this.clickOut();
+    } else {
+      const {success,data} = await API.resurgence({
+        levelNum: store.currentGameLevel,
+      })
+      if(success&&data) {
+        // 再来一句,记得关当前弹窗
+        store.setStartId(data);
+        modalStore.closePop("GameFail")
+        await popData.removeGame();
+        popData.canvasUI();
+      } 
+    }
   }
 
 

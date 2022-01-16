@@ -72,7 +72,7 @@ class ExchangeShop extends React.Component {
     const { isNow, todayResult, tomorrowResult } = this.state;
     console.log(isNow)
     const bg = isNow
-      ? `url(${RES_PATH}/兑换商店明日预1/nowbg.png)`
+      ? `url(${RES_PATH}兑换商店明日预1/nowbg.png)`
       : `url('//yun.duiba.com.cn/aurora/assets/f34a0933e4610fdef0c6a9be231a53bf951f3b94.png')`;
     const list = isNow ? todayResult : tomorrowResult;
     return (
