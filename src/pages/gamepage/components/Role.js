@@ -26,8 +26,12 @@ export default class Role extends Sprite {
     jump2
     smokeSvga
 
+    roleOffsetX
+
     constructor() {
         super()
+        this.roleOffsetX = 500
+
         this.initUI()
     }
 
@@ -94,7 +98,7 @@ export default class Role extends Sprite {
         this.addChild(circle);
         // circledrawRoundedRect
         circle.beginFill(0xff0000, 0.5)
-            .drawCircle(0, 0, 8)
+            .drawCircle(0 , 0, 8)
             // .drawRoundedRect(0,0,40,40)
             .endFill();
 
@@ -106,7 +110,7 @@ export default class Role extends Sprite {
         //  new Circle({ radius: 20 });
         const circleBody = this.circleBody = new p2.Body({
             mass: 1, //重量
-            position: [100, -210],
+            position: [100 + this.roleOffsetX, -210],
             // fixedRotation: true,
         });
         circleBody.addShape(circleShape);
@@ -129,7 +133,7 @@ export default class Role extends Sprite {
         //  new Circle({ radius: 20 });
         const circleBody2 = this.circleBody2 = new p2.Body({
             mass: 1, //重量
-            position: [180, -210],
+            position: [180 + this.roleOffsetX, -210],
             // fixedRotation: true,
         });
         circleBody2.addShape(circleShape2);
@@ -148,7 +152,7 @@ export default class Role extends Sprite {
         this.addChild(car);
         // circledrawRoundedRect
         car.beginFill(0xff0000, 0.5)
-            .drawRect(0, 0, 90, 113)
+            .drawRect(0 , 0, 90, 113)
             // .drawRoundedRect(0,0,40,40)
             .endFill();
 
@@ -163,7 +167,7 @@ export default class Role extends Sprite {
             // position: [100, -410],
             // position: [180, -410],
             angularDamping: 1,
-            position: [140, -170],
+            position: [140 + this.roleOffsetX, -170],
             collisionResponse:false
             // fixedRotation: true,
         });

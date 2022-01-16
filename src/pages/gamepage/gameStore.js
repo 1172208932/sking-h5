@@ -22,8 +22,8 @@ const gameStore = makeAutoObservable(mix({
     lineInfo:'',
     propInfo:'',
     getData(){
-        this.lineInfo = level6//LujinList[store.currentGameLevel-1]
-        this.propInfo = proplevel6//PropList[store.currentGameLevel-1]
+        this.lineInfo = LujinList[store.currentGameLevel-1]
+        this.propInfo = PropList[store.currentGameLevel-1]
         this.createPhysicsWorld()
     },
 

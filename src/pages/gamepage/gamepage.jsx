@@ -127,8 +127,8 @@ class Gamepage extends React.Component {
    canvasUI = async()=> {
     //let img = new FYGE.Sprite("")
     console.log("初始化canvasUI")
-    gameStore.offsetX = (1624 - (document.body.clientWidth > 1624 ? 1624 : document.body.clientWidth)) / 2
-    gameStore.offsetY = (750 - (document.body.clientHeight > 750 ? 750 : document.body.clientHeight)) / 2
+    gameStore.offsetX = (1624 - (document.body.clientHeight > 1624 ? 1624 : document.body.clientHeight)) / 2
+    gameStore.offsetY = (750 - (document.body.clientWidth > 750 ? 750 : document.body.clientHeclientWidthight)) / 2
     console.log(document.body.clientWidth > 1624 ? 1624 : document.body.clientWidth)
     console.log("当前偏移量：",gameStore.offsetX ,gameStore.offsetY)
 
@@ -270,7 +270,7 @@ class Gamepage extends React.Component {
           }
 
 
-          <div className="iconarea" style={{transform:`translateX(-50%) scale(${document.body.clientWidth>1308?1:(document.body.clientWidth-40)/1308})`}}>
+          <div className="iconarea" >
 
             <div className="distance">
               <span className="distancebg"></span>
