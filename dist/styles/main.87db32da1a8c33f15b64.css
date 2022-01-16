@@ -1938,6 +1938,8 @@ body {
   width: 15.44rem;
   height: 7.5rem;
   position: absolute;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
 .gameSuccessIsLessThanStar1 .snowAndIceAtmosphere {
@@ -3009,179 +3011,6 @@ body {
   background: url("//yun.duiba.com.cn/spark/v2/temp_base/1642319523799/mapPage/mapBg2.png") no-repeat top left / 100% 100%;
 }
 
-.mappage .btnbox {
-  width: 100vw;
-  height: 100vh;
-  left: 0;
-  top: 0;
-  position: fixed;
-}
-
-.mappage .btnbox .topleftIcon {
-  width: 4.21rem;
-  height: 0.74rem;
-  left: 1rem;
-  top: 0.24rem;
-  position: absolute;
-}
-
-.mappage .btnbox .mapPage-tiShi {
-  width: 2.92rem;
-  height: 0.36rem;
-  left: 10rem;
-  top: 0.37rem;
-  position: absolute;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 0.3rem;
-  line-height: 0.36rem;
-  font-size: 0.2rem;
-  text-align: center;
-  color: #4f95c7;
-  padding: 0 0.08rem;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.mappage .btnbox .backbtn {
-  width: 1.18rem;
-  height: 1.18rem;
-  left: 1.87rem;
-  top: 5.88rem;
-  position: absolute;
-  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1642319523799/mapPage/backBtn.png") no-repeat top left / 100% 100%;
-}
-
-.mappage .btnbox .topheadbox {
-  width: 2.18rem;
-  height: 0.74rem;
-  left: 0.95rem;
-  top: 0.25rem;
-  position: absolute;
-}
-
-.mappage .btnbox .topheadbox .topheadbg {
-  width: 2.18rem;
-  height: 0.74rem;
-  left: 0;
-  top: 0;
-  position: absolute;
-  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1642319523799/mapPage/topHeadBg.png") no-repeat top left / 100% 100%;
-}
-
-.mappage .btnbox .topheadbox .topheadimg {
-  width: 0.57rem;
-  height: 0.58rem;
-  left: 0.12rem;
-  top: 0.08rem;
-  position: absolute;
-  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1642319523799/mapPage/topHeadImg.png") no-repeat top left / 100% 100%;
-}
-
-.mappage .btnbox .topheadbox .topheadtext2 {
-  width: 0.94rem;
-  height: 0.21rem;
-  left: 0.81rem;
-  top: 0.12rem;
-  position: absolute;
-  font-size: 0.22rem;
-  line-height: 0.21rem;
-  color: #ffffff;
-}
-
-.mappage .btnbox .topheadbox .topheadtext1 {
-  width: 1.06rem;
-  height: 0.18rem;
-  left: 0.81rem;
-  top: 0.44rem;
-  position: absolute;
-  font-size: 0.22rem;
-  line-height: 0.18rem;
-  color: #ebf7ff;
-}
-
-.mappage .btnbox .topiconbox {
-  width: 1.72rem;
-  height: 0.55rem;
-  left: 3.44rem;
-  top: 0.38rem;
-  position: absolute;
-}
-
-.mappage .btnbox .topiconbox .topiconbg {
-  width: 1.61rem;
-  height: 0.33rem;
-  left: 0.11rem;
-  top: 0.12rem;
-  position: absolute;
-  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1642319523799/mapPage/topIconBg.png") no-repeat top left / 100% 100%;
-}
-
-.mappage .btnbox .topiconbox .topiconadd {
-  width: 0.2rem;
-  height: 0.2rem;
-  left: 1.43rem;
-  top: 0.19rem;
-  position: absolute;
-  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1642319523799/mapPage/topIconAdd.png") no-repeat top left / 100% 100%;
-}
-
-.mappage .btnbox .topiconbox .topiconimg {
-  width: 0.57rem;
-  height: 0.55rem;
-  left: 0;
-  top: 0;
-  position: absolute;
-  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1642319523799/mapPage/topIconImg.png") no-repeat top left / 100% 100%;
-}
-
-.mappage .btnbox .topiconbox .topicontext {
-  width: 0.58rem;
-  height: 0.18rem;
-  left: 0.73rem;
-  top: 0.2rem;
-  position: absolute;
-  font-size: 0.22rem;
-  line-height: 0.18rem;
-  color: #ebf7ff;
-}
-
-.mappage .btnbox .tipbox {
-  width: 2.9rem;
-  height: 0.36rem;
-  right: 1.45rem;
-  top: 0.39rem;
-  position: absolute;
-}
-
-.mappage .btnbox .tipbox .tipbg {
-  width: 2.9rem;
-  height: 0.36rem;
-  left: 0;
-  top: 0;
-  position: absolute;
-  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1642319523799/mapPage/tipBg.png") no-repeat top left / 100% 100%;
-}
-
-.mappage .btnbox .tipbox .tiptext {
-  width: 2.72rem;
-  height: 0.19rem;
-  left: 0.14rem;
-  top: 0.09rem;
-  position: absolute;
-  font-size: 0.2rem;
-  line-height: 0.19rem;
-  color: #3987be;
-}
-
-.mappage .btnbox .closebtn {
-  width: 1.73rem;
-  height: 0.63rem;
-  left: 13.35rem;
-  top: 0.02rem;
-  position: absolute;
-  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1642319523799/mapPage/closeBtn.png") no-repeat top left / 100% 100%;
-}
-
 .mappage .mapBgbox_mask {
   width: 154.3rem;
   height: 7.5rem;
@@ -3197,6 +3026,182 @@ body {
   top: 0;
   position: absolute;
   pointer-events: none;
+}
+
+.map-btnbox {
+  width: 100vw;
+  left: 0;
+  top: 0;
+  position: fixed;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-transform-origin: calc(100vw / 2) calc(100vw / 2);
+  transform-origin: calc(100vw / 2) calc(100vw / 2);
+}
+
+.map-btnbox .topleftIcon {
+  width: 4.21rem;
+  height: 0.74rem;
+  left: 1rem;
+  top: 0.24rem;
+  position: fixed;
+}
+
+.map-btnbox .mapPage-tiShi {
+  width: 2.92rem;
+  height: 0.36rem;
+  left: 10rem;
+  top: 0.37rem;
+  position: fixed;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 0.3rem;
+  line-height: 0.36rem;
+  font-size: 0.2rem;
+  text-align: center;
+  color: #4f95c7;
+  padding: 0 0.08rem;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.map-btnbox .backbtn {
+  width: 1.18rem;
+  height: 1.18rem;
+  left: 1.87rem;
+  top: 5.88rem;
+  position: fixed;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1642319523799/mapPage/backBtn.png") no-repeat top left / 100% 100%;
+}
+
+.map-btnbox .topheadbox {
+  width: 2.18rem;
+  height: 0.74rem;
+  left: 0.95rem;
+  top: 0.25rem;
+  position: fixed;
+}
+
+.map-btnbox .topheadbox .topheadbg {
+  width: 2.18rem;
+  height: 0.74rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1642319523799/mapPage/topHeadBg.png") no-repeat top left / 100% 100%;
+}
+
+.map-btnbox .topheadbox .topheadimg {
+  width: 0.57rem;
+  height: 0.58rem;
+  left: 0.12rem;
+  top: 0.08rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1642319523799/mapPage/topHeadImg.png") no-repeat top left / 100% 100%;
+}
+
+.map-btnbox .topheadbox .topheadtext2 {
+  width: 0.94rem;
+  height: 0.21rem;
+  left: 0.81rem;
+  top: 0.12rem;
+  position: absolute;
+  font-size: 0.22rem;
+  line-height: 0.21rem;
+  color: #ffffff;
+}
+
+.map-btnbox .topheadbox .topheadtext1 {
+  width: 1.06rem;
+  height: 0.18rem;
+  left: 0.81rem;
+  top: 0.44rem;
+  position: absolute;
+  font-size: 0.22rem;
+  line-height: 0.18rem;
+  color: #ebf7ff;
+}
+
+.map-btnbox .topiconbox {
+  width: 1.72rem;
+  height: 0.55rem;
+  left: 3.44rem;
+  top: 0.38rem;
+  position: absolute;
+}
+
+.map-btnbox .topiconbox .topiconbg {
+  width: 1.61rem;
+  height: 0.33rem;
+  left: 0.11rem;
+  top: 0.12rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1642319523799/mapPage/topIconBg.png") no-repeat top left / 100% 100%;
+}
+
+.map-btnbox .topiconbox .topiconadd {
+  width: 0.2rem;
+  height: 0.2rem;
+  left: 1.43rem;
+  top: 0.19rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1642319523799/mapPage/topIconAdd.png") no-repeat top left / 100% 100%;
+}
+
+.map-btnbox .topiconbox .topiconimg {
+  width: 0.57rem;
+  height: 0.55rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1642319523799/mapPage/topIconImg.png") no-repeat top left / 100% 100%;
+}
+
+.map-btnbox .topiconbox .topicontext {
+  width: 0.58rem;
+  height: 0.18rem;
+  left: 0.73rem;
+  top: 0.2rem;
+  position: absolute;
+  font-size: 0.22rem;
+  line-height: 0.18rem;
+  color: #ebf7ff;
+}
+
+.map-btnbox .tipbox {
+  width: 2.9rem;
+  height: 0.36rem;
+  right: 1.45rem;
+  top: 0.39rem;
+  position: absolute;
+}
+
+.map-btnbox .tipbox .tipbg {
+  width: 2.9rem;
+  height: 0.36rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1642319523799/mapPage/tipBg.png") no-repeat top left / 100% 100%;
+}
+
+.map-btnbox .tipbox .tiptext {
+  width: 2.72rem;
+  height: 0.19rem;
+  left: 0.14rem;
+  top: 0.09rem;
+  position: absolute;
+  font-size: 0.2rem;
+  line-height: 0.19rem;
+  color: #3987be;
+}
+
+.map-btnbox .closebtn {
+  width: 1.73rem;
+  height: 0.63rem;
+  left: 13.35rem;
+  top: 0.02rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1642319523799/mapPage/closeBtn.png") no-repeat top left / 100% 100%;
 }
 .delcoinbox {
   width: 1.81rem;
@@ -3540,4 +3545,4 @@ body {
   max-height: 0.22rem;
 }
 
-/*# sourceMappingURL=main.bc36c3b79869c41cfa29.css.map*/
+/*# sourceMappingURL=main.87db32da1a8c33f15b64.css.map*/
