@@ -37,15 +37,16 @@ class RockPrize extends React.Component {
         aniMinTime: 3000, //动画执行最少时间
       }
     );
-    this.toDraw()
-    // this.rockEnd();
+    setTimeout(() => {
+      this.toDraw()
+    },1000)
+    this.rockEnd();
   };
 
   rockEnd = () => {
     this.lottery.on("end", (data) => {
       console.log("jieshujieshu",data);
       store.getHomeInfo();
-      console.log(data.optionId,"data.optionId")
       if (data.prizeId == "thanks") {
         setTimeout(() => {
           Toast("没有中奖哦，再接再厉")
@@ -53,11 +54,11 @@ class RockPrize extends React.Component {
         }, 1000);
       } else {
         setTimeout(() => {
-          modalStore.closePop("RockPrize")
           modalStore.pushPop("DrawPrize",{prizeInfo:{
             optionName: data.optionName,
             optionImg: data.optionImg
-          }})
+          }},true)
+          modalStore.closePop("RockPrize")
         }, 1000);
       }
     });

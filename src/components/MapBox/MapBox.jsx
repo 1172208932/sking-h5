@@ -114,8 +114,9 @@ class MapBox extends React.Component {
       if (homeInfo?.gameInfo[index]?.receive == 0) {
         // 未完成
         modalStore.pushPop("ToInvite");
-      } else if (homeInfo?.gameInfo[index]?.receive == 2) {
+      } else if (homeInfo?.gameInfo?.[index]?.receive == 2) {
         // 待领取
+        store.setCurrentGameLevel(homeInfo.gameInfo[index].level)
         modalStore.pushPop("TurnTable");
       }
     }

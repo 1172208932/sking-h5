@@ -27,6 +27,9 @@ class HomePage extends React.Component {
     await store.getHomeInfo();
     this.indexDataChange();
     this.getCarousel();
+    // modalStore.pushPop("GameSuccess",{
+    //   ...{sendGold:10,answerFlag:0,reGold:11,star:3},
+    // })
   }
 
   // 首页接口数据处理
