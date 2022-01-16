@@ -8,6 +8,7 @@ const store = makeAutoObservable({
   homeInfo: {},
   currentGameLevel: 1, // 正在闯关的level
   startId: null, // 正在闯关的startID
+  inviteCode: null,
   // 首页数据
   setRule(ruleInfo) {
     this.ruleInfo = ruleInfo;
@@ -49,6 +50,18 @@ const store = makeAutoObservable({
         this.changePage("Gamepage");
       }
     }
+  },
+
+  // 邀请好友
+  async toInvite() {
+    const {success, data} = await API.getInviteCode();
+    if(success && data) {
+      this.setInviteCode(data.inviteCode);
+      // TODO海报
+    }
+  },
+  setInviteCode(data) {
+    this.inviteCode = data
   }
 });
 export default store;
