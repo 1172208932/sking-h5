@@ -88,7 +88,6 @@ class Gamepage extends React.Component {
 
   setStarInfo() {
     let { starInfo } = Object.assign({}, toJS(store.homeInfo));
-    console.info('gamepage ===>>>>>>> starInfo:', starInfo)
     this.setState({
       starInfo
     })

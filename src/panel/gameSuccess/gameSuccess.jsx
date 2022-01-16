@@ -55,6 +55,7 @@ class GameSuccess extends React.Component {
   }
   render() {
     const {popData} = this.props;
+    const {canClick} = this.state;
     return (
       <div className="gameSuccessIsLessThanStar1">
         <span className="snowAndIceAtmosphere"></span>
@@ -69,10 +70,10 @@ class GameSuccess extends React.Component {
         <span className={popData?.star  == 3 ?"headings2":"headings"}></span>
         {/* 星星 */}
         <div className="stars">
-          {popData?.star>=1 &&<SvgaPlayer src={`${RES_PATH}svga/结算星星${popData?.star}.svga`} className='star-svga' loop={1} onEnd={this.svgaEnd}/>}
           {<span className="nullsta1"></span>}
           {<span className="nullsta2"></span>}
           {<span className="nullsta3"></span>}
+          {popData?.star>=1 &&<SvgaPlayer src={`${RES_PATH}svga/结算星星${popData?.star}.svga`} className='star-svga' loop={1} onEnd={this.svgaEnd}/>}
         </div>
         {/* 彩带，动效说没动效 */}
         <span className="ribbon"></span>
