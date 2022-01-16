@@ -46,6 +46,7 @@ class Answer extends React.Component {
       startId,
       answer: index + 1,
     });
+    console.log(this.props)
     await this.completeAnswer(index, data?.answer?.correctAnswers?.[0] - 1);
     if (success) {
       this.setState({
@@ -62,16 +63,13 @@ class Answer extends React.Component {
     } = this.props;
     const { success, data } = await API.answerComplete({ startId: popData?.startId });
     if (success && data) {
-      // data.extra是新的startID
+    //   // data.extra是新的startID
       if (chooseIndex != rightIndex) {
         //  打错
         this.answerFail()
       } else {
-        // 答对，开始下一句
+    //     // 答对，开始下一句
         store.setStartId(data.extra);
-        modalStore.closePop("Answer");
-        await popData.removeGame();
-        popData.canvasUI();
       }
     }
   };
@@ -93,13 +91,13 @@ class Answer extends React.Component {
     console.log("end");
     // 复活进入游戏页
     const { popData } = this.props;
+    modalStore.closePop("Answer");
     await popData.removeGame();
     popData.canvasUI();
   };
   render() {
     const { answerDetail, chooseIndex, rightIndex } = this.state;
     const isRight = chooseIndex == rightIndex;
-    // console.log(this.props,111)
     return (
       <div className="iDidntChoose1">
         {/* 头部 */}

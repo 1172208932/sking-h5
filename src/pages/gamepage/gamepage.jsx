@@ -22,19 +22,16 @@ class Gamepage extends React.Component {
       gameStep: 0,//第？关 0  准备1  出发2
       startpop: true, //是否需要显示开始
       starInfo: '',//关卡信息
-      curScore: 0,
       soundon: true,
     };
   }
   componentDidMount() {
-    EventBus.on('UPDATE_SCORE', this.updateScore, this);
     EventBus.on('GAME_OVER', this.gameOver, this);
     EventBus.on('GAME_WIN', this.gameWin, this);
     this.initCanvas();
     this.setStarInfo()
   }
   componentWillUnmount() {
-    EventBus.off('GAME_DIE', this.updateScore);
     EventBus.off('GAME_OVER', this.gameOver);
     EventBus.off('GAME_WIN', this.gameWin);
   }
@@ -87,13 +84,6 @@ class Gamepage extends React.Component {
     store.getHomeInfo();
   }
 
-
-  updateScore(e) {
-    console.log('updateScore:=========>>>>>>', e)
-    // e.detail.score
-    this.setCurScore(e.detail.score)
-  }
-
   setStarInfo() {
     let { starInfo } = Object.assign({}, toJS(store.homeInfo));
     console.info('gamepage ===>>>>>>> starInfo:', starInfo)
@@ -126,7 +116,13 @@ class Gamepage extends React.Component {
     })()
   }
 
-  async canvasUI() {
+  flushfunc = ()=>{
+    gameStore.enterFrame(this.gamestage)
+  }
+  clickfunc =()=>{
+    gameStore.clickStage()
+  }
+   canvasUI = async()=> {
     //let img = new FYGE.Sprite("")
     console.log("初始化canvasUI")
     gameStore.offsetX = (1624 - (document.body.clientWidth > 1624 ? 1624 : document.body.clientWidth)) / 2
@@ -143,14 +139,11 @@ class Gamepage extends React.Component {
     gameStore.getData()
     gameStore.initbg()
 
+
     //帧刷新
-    this.gamestage.addEventListener(FYGE.Event.ENTER_FRAME, () => {
-      gameStore.enterFrame(this.gamestage)
-    });
+    this.gamestage.addEventListener(FYGE.Event.ENTER_FRAME, this.flushfunc);
     //点击
-    this.gamestage.addEventListener(FYGE.MouseEvent.CLICK, () => {
-      gameStore.clickStage()
-    });
+    this.gamestage.addEventListener(FYGE.MouseEvent.CLICK,this.clickfunc);
 
     this.setState({
       gameStep: 0,
@@ -185,19 +178,19 @@ class Gamepage extends React.Component {
       curScore
     })
   }
-  removeGame(){
+  removeGame = ()=>{
     console.log(this.gamestage,"this.gamestage.")
-    this.gamestage.removeEventListener(FYGE.Event.ENTER_FRAME, () => {
-      gameStore.enterFrame(this.gamestage)
-    });
+    this.gamestage.removeEventListener(FYGE.Event.ENTER_FRAME,this.flushfunc);
     //点击
-    this.gamestage.removeEventListener(FYGE.MouseEvent.CLICK, () => {
-      gameStore.clickStage()
-    });
+    this.gamestage.removeEventListener(FYGE.MouseEvent.CLICK,this.clickfunc);
     gameStore.bgCon.removeAllChildren()
     this.gamestage.removeAllChildren()
     gameStore.beginGame = false;
     gameStore.phyworld.step = 0;
+    gameStore.subdivision = 0
+    gameStore.distance = 0
+    gameStore.score = 0
+    gameStore.gameEnd = false
     gameStore.phyworld.removeBody(gameStore.role.carBody)
     gameStore.phyworld.removeBody(gameStore.role.circleBody)
     gameStore.phyworld.removeBody(gameStore.role.circleBody2)
@@ -206,8 +199,14 @@ class Gamepage extends React.Component {
     }
     
   }
+
+
+  backMapPage(){
+    gameStore.pasueGame()
+    modalStore.pushPop("GameLeave")
+  }
   render() {
-    const { gameStep, startpop, starInfo, curScore, soundon } = this.state
+    const { gameStep, startpop, starInfo, soundon } = this.state
     return (
       <div className="homePagebox">
         <div className="gamepage">
@@ -269,16 +268,16 @@ class Gamepage extends React.Component {
           }
 
 
-          <div className="iconarea">
+          <div className="iconarea" style={{transform:`translateX(-50%) scale(${document.body.clientWidth>1308?1:(document.body.clientWidth-40)/1308})`}}>
 
             <div className="distance">
               <span className="distancebg"></span>
-              <span className="distancenum">3234m</span>
+              <span className="distancenum">{gameStore.distance}m</span>
             </div>
             <div className="bar">
               <div className="three">
                 <span className="bj"></span>
-                <div className="baron_mask" style={{ width: `${curScore / Math.floor(starInfo?.[store.currentGameLevel - 1]?.star3) * 4.79}rem` }}>
+                <div className="baron_mask" style={{ width: `${gameStore.score / Math.floor(starInfo?.[store.currentGameLevel - 1]?.star3) * 4.79}rem` }}>
                   <span className="baron"></span>
                   <SvgaPlayer className="baron_svga" src={`${RES_PATH}svga/流光高亮.svga`} />
                 </div>
@@ -296,7 +295,7 @@ class Gamepage extends React.Component {
                 </div>
               </div>
               <span className="bartip">当前分数</span>
-              <span className="barscore">{curScore}</span>
+              <span className="barscore">{gameStore.score}</span>
             </div>
             <div className="sound">
 
@@ -323,7 +322,9 @@ class Gamepage extends React.Component {
               }
 
             </div>
-            <span className="back"></span>
+            <span className="back" onClick={()=>{
+              this.backMapPage()
+            }}></span>
           </div>
         </div>
       </div>
