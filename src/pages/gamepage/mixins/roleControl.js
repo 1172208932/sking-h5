@@ -200,6 +200,7 @@ export const RoleControl = {
 	},
 	//游戏结束
 	gameWin(){
+        this.gameEnd = true
 		this.role.carBody.sleep()
 		this.role.circleBody.sleep()
 		this.role.circleBody2.sleep()
