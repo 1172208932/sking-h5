@@ -130,7 +130,7 @@ class ExchangeShop extends React.Component {
                           {isNow &&
                             item?.consumeSps?.[0]?.quantity >
                               homeInfo?.goldNum && (
-                              <div className="button noMoney"></div>
+                              <div className="button noMoney-shop"></div>
                             )}
                         </div>
                       </div>
