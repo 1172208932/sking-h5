@@ -6,6 +6,11 @@ import p2 from 'p2/build/p2';
 import Obstacle from '../components/Obstacle.js';
 import EventBus from '@duiba/event-bus';
 
+const sorceConfig = {
+    "snow":1,
+    "gem":5
+}
+
 export const RoleControl = {
     role: null,
     // 双击
@@ -159,7 +164,7 @@ export const RoleControl = {
 						if(this.additiveslist[i].type == "snow" || this.additiveslist[i].type == "gem"){
 							this.phyworld.removeBody(this.additiveslist[i].rectBody)
 							this.bgCon.removeChild(this.additiveslist[i].rectcoin)
-                            this.score =this.score+100
+                            this.score =this.score + sorceConfig[this.additiveslist[i].type]
 						}else {
                             this.role.carBody.sleep()
 							this.role.circleBody.sleep()
@@ -199,7 +204,7 @@ export const RoleControl = {
 		this.role.circleBody.sleep()
 		this.role.circleBody2.sleep()
         EventBus.fire('GAME_WIN',{score:this.score})
-		alert("游戏结束")
+		// alert("游戏结束")
 		
 	}
 	

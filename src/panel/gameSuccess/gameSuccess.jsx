@@ -15,8 +15,12 @@ class GameSuccess extends React.Component {
   }
 
   againNext = () => {
-    alert("我还没做,先刷新！！", 11212);
+    modalStore.closePop("GameSuccess");
+    store.changePage('Mappage')
+    store.setCurrentGameLevel(store.currentGameLevel + 1)
+    store.startGame(store.currentGameLevel);
   }
+
   render() {
     const {popData} = this.props;
     return (
@@ -29,29 +33,36 @@ class GameSuccess extends React.Component {
           <p className="layer300 textover">+{popData?.sendGold || 0}</p>
         </div>
         <span className="title"></span>
-        <span className="headings"></span>
+        <span className={popData?.star  == 3 ?"headings2":"headings"}></span>
         <div className="stars">
-          <span className="star3"></span>
-          <span className="star2"></span>
-          <span className="nullsta"></span>
+          <span className={popData?.star  >= 1 ?"star1":"nullsta1"}></span>
+          <span className={popData?.star  >= 2 ?"star2":"nullsta2"}></span>
+          <span className={popData?.star  >= 3 ?"star3":"nullsta3"}></span>
         </div>
         <span className="ribbon"></span>
         {/* 底部按钮 */}
-        <div className="bottomBtnBox">
-          {/* 邀请好友 */}
-          <div className="leftButton" onClick={() => store.toInvite()}>
-            <p className="button5 textover">
-              领{store?.homeInfo?.inviteGolds||0}金币
-            </p>
-            <div className="participateInAnswer2">
-              <p className="participationAnswer3">邀请好友</p>
+        {
+          popData?.levelNum  % 10 == 0 ?(
+            <div className="bottomBtnBox2">
+              <span className="button5" onClick={() => store.toInvite()}></span>
             </div>
-           
-          </div>
-          {/* 继续闯关 */}
-          <span className="button4" onClick={this.againNext}></span>
-        </div>
-        
+          ):(
+            <div className="bottomBtnBox">
+              {/* 邀请好友 */}
+              <div className="leftButton" onClick={() => store.toInvite()}>
+                <p className="button5 textover">
+                  领{store?.homeInfo?.inviteGolds||0}金币
+                </p>
+                <div className="participateInAnswer2">
+                  <p className="participationAnswer3">邀请好友</p>
+                </div>
+              
+              </div>
+              {/* 继续闯关 */}
+              <span className="button4" onClick={this.againNext}></span>
+            </div>
+          )
+        }
       </div>
     );
   }

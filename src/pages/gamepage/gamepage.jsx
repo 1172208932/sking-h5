@@ -70,9 +70,11 @@ class Gamepage extends React.Component {
         })
       } else {
         // 通关
+        console.log(data,'data')
         modalStore.pushPop("GameSuccess",{
           ...data,
           score,
+          levelNum: store.currentGameLevel,
           removeGame: this.removeGame,
           canvasUI:this.canvasUI
         })

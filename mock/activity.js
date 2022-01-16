@@ -563,7 +563,7 @@ const gameSubmit = {
     sendGold: 20,//发放金币数
     answerFlag: 1,//1-可答题 0-不可答题
     reGold: 100,//复活需要金币数
-    star: 1,
+    star: 3,
   }
 }
 
