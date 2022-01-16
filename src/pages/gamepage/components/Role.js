@@ -46,6 +46,7 @@ export default class Role extends Sprite {
     }
 
     jumpRole2() {
+        this.jump1.visible = false
         this.roleSkin.visible = false
         this.jump2.visible = true
         this.jump2.startAniRange(0, this.jump2.totalFrames, 1, () => {
