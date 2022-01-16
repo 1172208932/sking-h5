@@ -13,6 +13,10 @@ class GameSuccess extends React.Component {
   constructor(props) {
     super(props);
   }
+
+  againNext = () => {
+    alert("我还没做,先刷新！！", 11212);
+  }
   render() {
     const {popData} = this.props;
     return (
@@ -35,7 +39,7 @@ class GameSuccess extends React.Component {
         {/* 底部按钮 */}
         <div className="bottomBtnBox">
           {/* 邀请好友 */}
-          <div className="leftButton">
+          <div className="leftButton" onClick={() => store.toInvite()}>
             <p className="button5 textover">
               领{store?.homeInfo?.inviteGolds||0}金币
             </p>
@@ -45,7 +49,7 @@ class GameSuccess extends React.Component {
            
           </div>
           {/* 继续闯关 */}
-          <span className="button4"></span>
+          <span className="button4" onClick={this.againNext}></span>
         </div>
         
       </div>

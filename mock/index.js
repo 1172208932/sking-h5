@@ -5,7 +5,7 @@ const carousel = require("./common/carousel");
 const getIndex = require("./homeInfo");
 
 
-const {doExchange,listExchangeLimit,getMyPrize, getRank, turnTableQuery, turnTableDraw, answerQuery, answerStart, answerSubmit,answerComplete, resurgence, doAssist, doSign,signOptions,signQuery, queryNewGuide, stepNewGuide,inviteRecord,rankingAward,startGame,gameSubmit} = require("./activity")
+const {doExchange,listExchangeLimit,getMyPrize, getRank, turnTableQuery, turnTableDraw, answerQuery, answerStart, answerSubmit,answerComplete, resurgence, doAssist, doSign,signOptions,signQuery, queryNewGuide, stepNewGuide,inviteRecord,rankingAward,startGame,gameSubmit,getInviteCode} = require("./activity")
 const proxy = {
   "GET /projectRule.query": rule,
   "GET /drawNum.query": drawNum,
@@ -35,6 +35,7 @@ const proxy = {
   "GET /scoring/start.do":startGame,
   "GET /draw_2/query.do": turnTableQuery,
   "POST /draw_2/drawPrize.do": turnTableDraw,
-  "GET /scoring/submit.do": gameSubmit
+  "GET /scoring/submit.do": gameSubmit,
+  "POST /assist_1/getInviteCode.do":getInviteCode,
 };
 module.exports = proxy;

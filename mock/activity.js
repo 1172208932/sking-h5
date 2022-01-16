@@ -567,6 +567,13 @@ const gameSubmit = {
   }
 }
 
+const getInviteCode = {
+  success: true,
+  data: {
+    inviteCode: 12345,
+  }
+}
+
 module.exports = {
   listExchangeLimit,
   doExchange,
@@ -588,5 +595,6 @@ module.exports = {
   inviteRecord,
   rankingAward,
   startGame,
-  gameSubmit
+  gameSubmit,
+  getInviteCode
 };

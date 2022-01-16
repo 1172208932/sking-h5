@@ -84,6 +84,11 @@ const apiCfg = {
   gameSubmit: { // 提交分数
     uri: `scoring/submit.do`,
     withToken: true,
+  },
+  getInviteCode: {
+    uri: `assist_1/getInviteCode.do`,
+    withToken: true,
+    method: "post",
   }
 }
 
