@@ -42,30 +42,30 @@ module.exports =  {
         score: "0",
         star: "1",
       },
-      // {
-      //   level: "6",
-      //   score: "0",
-      //   star: "3",
-      // }, {
-      //   level: "7",
-      //   score: "0",
-      //   star: "1",
-      // },
-      // {
-      //   level: "8",
-      //   score: "0",
-      //   star: "3",
-      // },
-      //  {
-      //   level: "9",
-      //   score: "0",
-      //   star: "1",
-      // },
-      // {
-      //   level: "10",
-      //   score: "0",
-      //   star: "3",
-      // }, 
+      {
+        level: "6",
+        score: "0",
+        star: "3",
+      }, {
+        level: "7",
+        score: "0",
+        star: "1",
+      },
+      {
+        level: "8",
+        score: "0",
+        star: "3",
+      },
+       {
+        level: "9",
+        score: "0",
+        star: "1",
+      },
+      {
+        level: "10",
+        score: "0",
+        star: "3",
+      }, 
       // {
       //   level: "10_gift", // i=10,len=11
       //   score: "0",
