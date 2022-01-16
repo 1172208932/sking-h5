@@ -58,12 +58,10 @@ class Answer extends React.Component {
 
   // 完成答题
   completeAnswer = async (chooseIndex, rightIndex) => {
-    // console.log(this.props.popData.startId)
-    // const {
-    //   popData: { startId },
-    // } = this.props;
-    const startId = this.props.popData.startId
-    const { success, data } = await API.answerComplete({ startId:startId });
+    const {
+      popData,
+    } = this.props;
+    const { success, data } = await API.answerComplete({ startId: popData?.startId });
     if (success && data) {
     //   // data.extra是新的startID
       if (chooseIndex != rightIndex) {
@@ -72,9 +70,6 @@ class Answer extends React.Component {
       } else {
     //     // 答对，开始下一句
         store.setStartId(data.extra);
-        modalStore.closePop("Answer");
-        await this.props.popData.removeGame();
-        this.props.popData.canvasUI();
       }
     }
   };
@@ -96,6 +91,7 @@ class Answer extends React.Component {
     console.log("end");
     // 复活进入游戏页
     const { popData } = this.props;
+    modalStore.closePop("Answer");
     await popData.removeGame();
     popData.canvasUI();
   };
