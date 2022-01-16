@@ -74,11 +74,12 @@ class Mappage extends React.Component {
    * @returns 
    */
   moveMap = () => {
+    const remscale = window.remScale;
     const { homeInfo } = store;
     let len = homeInfo?.gameInfo?.length ? homeInfo.gameInfo.length : 0;
     if (len >= 3) {
       // 3移动1，4移动2个
-      window.scrollTo(331 + (14413 / 108) * (len - 3), 0);
+      window.scrollTo(0,remscale*340 + ((14413*remscale) / 108) * (len - 3));
     }
   }
   render() {

@@ -2004,15 +2004,32 @@ body {
   background: url("//yun.duiba.com.cn/spark/v2/temp_base/1642311611389/游戏成功未满星1/小标题.png") no-repeat top left / 100% 100%;
 }
 
+.gameSuccessIsLessThanStar1 .headings2 {
+  width: 2.87rem;
+  height: 0.35rem;
+  left: 6.5rem;
+  top: 2.82rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1642311611389/游戏成功未满星1/小标题2.png") no-repeat top left / 100% 100%;
+}
+
 .gameSuccessIsLessThanStar1 .stars {
-  width: 2.24rem;
-  height: 0.89rem;
+  width: 4.02rem;
+  height: 2.08rem;
   left: 6.89rem;
   top: 0.74rem;
   position: absolute;
 }
 
-.gameSuccessIsLessThanStar1 .stars .star3 {
+.gameSuccessIsLessThanStar1 .stars .star-svga {
+  width: 4.02rem;
+  height: 2.08rem;
+  position: absolute;
+  left: -0.76rem;
+  top: -0.74rem;
+}
+
+.gameSuccessIsLessThanStar1 .stars .star2 {
   width: 0.8rem;
   height: 0.79rem;
   left: 0.77rem;
@@ -2021,7 +2038,7 @@ body {
   background: url("//yun.duiba.com.cn/spark/v2/temp_base/1642311611389/游戏成功未满星1/star3.png") no-repeat top left / 100% 100%;
 }
 
-.gameSuccessIsLessThanStar1 .stars .star2 {
+.gameSuccessIsLessThanStar1 .stars .star1 {
   width: 0.81rem;
   height: 0.79rem;
   left: 0;
@@ -2030,7 +2047,34 @@ body {
   background: url("//yun.duiba.com.cn/spark/v2/temp_base/1642311611389/游戏成功未满星1/star2.png") no-repeat top left / 100% 100%;
 }
 
-.gameSuccessIsLessThanStar1 .stars .nullsta {
+.gameSuccessIsLessThanStar1 .stars .star3 {
+  width: 0.81rem;
+  height: 0.79rem;
+  left: 1.52rem;
+  top: 0.1rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1642311611389/游戏成功未满星1/star2.png") no-repeat top left / 100% 100%;
+}
+
+.gameSuccessIsLessThanStar1 .stars .nullsta1 {
+  width: 0.62rem;
+  height: 0.58rem;
+  left: 0.1rem;
+  top: 0.19rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1642311611389/游戏成功未满星1/nullsta.png") no-repeat top left / 100% 100%;
+}
+
+.gameSuccessIsLessThanStar1 .stars .nullsta2 {
+  width: 0.62rem;
+  height: 0.58rem;
+  left: 0.87rem;
+  top: 0.1rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1642311611389/游戏成功未满星1/nullsta.png") no-repeat top left / 100% 100%;
+}
+
+.gameSuccessIsLessThanStar1 .stars .nullsta3 {
   width: 0.62rem;
   height: 0.58rem;
   left: 1.62rem;
@@ -2046,6 +2090,23 @@ body {
   top: 0.84rem;
   position: absolute;
   background: url("//yun.duiba.com.cn/spark/v2/temp_base/1642311611389/游戏成功未满星1/彩带.png") no-repeat top left / 100% 100%;
+}
+
+.gameSuccessIsLessThanStar1 .bottomBtnBox2 {
+  width: 8.62rem;
+  height: 0.88rem;
+  position: absolute;
+  top: 5.89rem;
+  left: 3.71rem;
+}
+
+.gameSuccessIsLessThanStar1 .bottomBtnBox2 .button5 {
+  width: 4.93rem;
+  height: 0.88rem;
+  left: 1.85rem;
+  top: 0.1rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1642311611389/游戏成功未满星1/按钮__m.png") no-repeat top left / 100% 100%;
 }
 
 .gameSuccessIsLessThanStar1 .bottomBtnBox {
@@ -2197,6 +2258,8 @@ body {
 .homePagebox {
   width: 100vh;
   height: 100vw;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
   -webkit-transform-origin: calc(100vw / 2) calc(100vw / 2);
   transform-origin: calc(100vw / 2) calc(100vw / 2);
   position: fixed;
@@ -3468,4 +3531,4 @@ body {
   max-height: 0.22rem;
 }
 
-/*# sourceMappingURL=main.afec6c649931b5573c6a.css.map*/
+/*# sourceMappingURL=main.23d38d3b1321575ce9a9.css.map*/

@@ -19,15 +19,14 @@ class GameSuccess extends React.Component {
     }
   }
 
-  // 点击继续游戏
+  // 进入下一关
   againNext = () => {
     if(!this.state.canClick) return false;
     const {popData} = this.props;
     popData.removeGame();
     modalStore.closePop("GameSuccess");
     store.changePage('Mappage')
-    store.setCurrentGameLevel(store.currentGameLevel + 1)
-    store.startGame(store.currentGameLevel);
+    store.startGame(store.currentGameLevel+1);
   }
 
   // 点击邀请
