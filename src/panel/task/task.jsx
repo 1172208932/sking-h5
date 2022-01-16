@@ -55,7 +55,8 @@ class Task extends React.Component {
       const {success, data} = await API.doSign();
       if(success) {
         Toast(`签到成功，金币+${data?.options?.[0]?.sendCount || 0}`)
-        this.getSignDetail()
+        this.getSignDetail();
+        store.getHomeInfo();
       }
     }
   })

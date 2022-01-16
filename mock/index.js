@@ -23,9 +23,9 @@ const proxy = {
   "POST /answer_1/doCompleted.do": answerComplete,
   "GET /scoring/resurgence.do": resurgence,
   "POST /assist_1/doAssist.do": doAssist,
-  "POST /sign_1/doSign.do": doSign,
-  "GET /sign_1/query.do": signQuery,
-  "GET /sign_1/queryOptions.do": signOptions,
+  "POST /checkin_1/doSign.do": doSign,
+  "GET /checkin_1/query.do": signQuery,
+  "GET /checkin_1/queryOptions.do": signOptions,
 
   "POST /guide_1/queryNewGuide.do": queryNewGuide,
   "GET /guide_1/stepNewGuide.do": stepNewGuide,
