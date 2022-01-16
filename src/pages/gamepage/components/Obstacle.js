@@ -65,10 +65,21 @@ export default class Obstacle {
                 width: 142*0.6, height: 120*0.6,
                 material: new p2.Material()
             });
+        } else if (this.type == "gem") {
+            shapeshow.beginFill(0xff0000, 0.5)
+                .drawRect(0, 0, 62*0.6, 55*0.6)
+                .endFill();
+            this.rectShape = new p2.Box({
+                width: 62*0.6, height: 55*0.6,
+                material: new p2.Material()
+            });
         }
 
         var showY = -item.y
-        if (this.type != "snow") {
+        if (this.type == "snow" || this.type == "gem") {
+            showY = -item.y
+        } else {
+            
             var time = Math.floor(item.x / 100)
             if (time + 1 > lineInfo.length) {
                 time = time
@@ -76,8 +87,6 @@ export default class Obstacle {
                 time = time+1
             }
             showY = lineInfo[time] - this.rectShape.height + 10
-        } else {
-            showY = -item.y
         }
 
         this.rectcoin.position.set(item.x, showY + 300)

@@ -52,7 +52,8 @@ export const RoleControl = {
             restitution: 0, // This means no bounce!
             surfaceVelocity: -82000,
             friction: 0.2,
-            frictionRelaxation: 0.3
+            frictionRelaxation: 0.3,
+            // relaxation:40,
         });
         this.phyworld.addContactMaterial(contactMaterial3)
 
@@ -155,7 +156,7 @@ export const RoleControl = {
                     (e.bodyB == this.role.carBody && e.bodyA == this.additiveslist[i].rectBody) ||
                     (e.bodyA == this.role.carBody && e.bodyB == this.additiveslist[i].rectBody)
                 ){
-						if(this.additiveslist[i].type == "snow"){
+						if(this.additiveslist[i].type == "snow" || this.additiveslist[i].type == "gem"){
 							this.phyworld.removeBody(this.additiveslist[i].rectBody)
 							this.bgCon.removeChild(this.additiveslist[i].rectcoin)
                             this.score =this.score+100
@@ -169,8 +170,7 @@ export const RoleControl = {
 							this.gameEnd = true
 							this.dieItem = this.additiveslist[i]
                             this.role.smokeSvga.visible = false
-							
-                            EventBus.fire('GAME_OVER')
+                            EventBus.fire('GAME_OVER',{score:this.score})
 						}
 					}
 			}

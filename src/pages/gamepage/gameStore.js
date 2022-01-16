@@ -7,6 +7,8 @@ import { RoleControl } from './mixins/roleControl.js'
 import Obstacle from './components/Obstacle.js';
 import store from '@src/store/index.js';
 import { LujinList, PropList } from '@src/lujingInfo/Alllujing.js';
+import { level6 } from '@src/lujingInfo/lujing.js';
+import { proplevel6 } from '@src/lujingInfo/propList.js';
 const gameStore = makeAutoObservable(mix({
 	beginGame:false,
 	heighshape:null,
@@ -20,8 +22,8 @@ const gameStore = makeAutoObservable(mix({
     lineInfo:'',
     propInfo:'',
     getData(){
-        this.lineInfo = LujinList[store.currentGameLevel-1]
-        this.propInfo = PropList[store.currentGameLevel-1]
+        this.lineInfo = level6//LujinList[store.currentGameLevel-1]
+        this.propInfo = proplevel6//PropList[store.currentGameLevel-1]
         this.createPhysicsWorld()
     },
 
