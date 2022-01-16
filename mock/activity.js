@@ -153,7 +153,7 @@ const getMyPrize = {
         icon: "//yun.dui88.com/images/201907/tua0um9jjp.jpg",
         refType: "coupon",
         refId: "49354",
-        type: 4,
+        type: 1,
       },
       strategyId: 11,
       gmtCreate: 1565212826000,
