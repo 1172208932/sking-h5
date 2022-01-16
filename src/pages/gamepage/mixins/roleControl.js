@@ -52,7 +52,8 @@ export const RoleControl = {
             restitution: 0, // This means no bounce!
             surfaceVelocity: -82000,
             friction: 0.2,
-            frictionRelaxation: 0.3
+            frictionRelaxation: 0.3,
+            // relaxation:40,
         });
         this.phyworld.addContactMaterial(contactMaterial3)
 
