@@ -156,7 +156,7 @@ export const RoleControl = {
                     (e.bodyB == this.role.carBody && e.bodyA == this.additiveslist[i].rectBody) ||
                     (e.bodyA == this.role.carBody && e.bodyB == this.additiveslist[i].rectBody)
                 ){
-						if(this.additiveslist[i].type == "snow"){
+						if(this.additiveslist[i].type == "snow" || this.additiveslist[i].type == "gem"){
 							this.phyworld.removeBody(this.additiveslist[i].rectBody)
 							this.bgCon.removeChild(this.additiveslist[i].rectcoin)
                             this.score =this.score+100
