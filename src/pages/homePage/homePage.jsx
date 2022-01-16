@@ -22,6 +22,8 @@ class HomePage extends React.Component {
     }
   }
   async componentDidMount() {
+    // 用户助力,要比首页接口先调用！！！
+    await this.toAssist();
     await store.getHomeInfo();
     this.indexDataChange();
     this.getCarousel();
@@ -33,8 +35,6 @@ class HomePage extends React.Component {
     if(store.homeInfo?.assistInfo?.assistNum > 0) {
       modalStore.pushPop("InviteSuccess")
     }
-    // 用户助力
-    this.toAssist();
     // 助力上限
     if(store?.homeInfo?.assistInfo?.limitNum > 0) {
       modalStore.pushPop("InviteLimit")
@@ -42,7 +42,8 @@ class HomePage extends React.Component {
   }
 
   toAssist = async() => {
-    if(CFG.inviteCode && !sessionStorage.getItem("inviteCode")) {
+    // TODO !sessionStorage.getItem("inviteCode")
+    if(CFG.inviteCode) {
       const {success} = await API.doAssist({
         inviteCode: CFG.inviteCode
       })

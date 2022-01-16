@@ -11,9 +11,9 @@ module.exports =  {
     activityEndTime: 24837630.012418807,
     pvNum: 86505640.30935124, //用户参与数量
     assistInfo: {
-      assistNum: 0, //邀请人数
+      assistNum: 10, //邀请人数
       assistGoldNum: 127283683648374, //获得金币数量
-      limitNum:0,//限制助力人数
+      limitNum:10,//限制助力人数
     },
     goldNum: 120,
     rankScore: 121121221121221, //排行榜分数
