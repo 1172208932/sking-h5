@@ -198,7 +198,7 @@ export const RoleControl = {
 		this.role.carBody.sleep()
 		this.role.circleBody.sleep()
 		this.role.circleBody2.sleep()
-        EventBus.fire('GAME_WIN')
+        EventBus.fire('GAME_WIN',{score:this.score})
 		alert("游戏结束")
 		
 	}
