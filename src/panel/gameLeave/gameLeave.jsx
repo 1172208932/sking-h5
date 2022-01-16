@@ -19,52 +19,7 @@ class GameLeave extends React.Component {
     super(props);
   }
 
-  // 再来一次
-  clickAgain = _throttle(async () => {
-    const { popData } = this.props;
-    if (popData?.answerFlag == 1) {
-      this.startAnswer();
-    } else {
-      // 扣少量金币再来一吧
-      this.againPlay()
-    }
-  })
-
-  // 扣金币再来
-  againPlay = async () => {
-    // levelNum TODO
-    const { success, data } = await API.resurgence({
-      levelNum: 1,
-    })
-    if (success && data) {
-      // TODO 再来一句,记得关当前弹窗
-    }
-  }
-
-
-  // 开始答题
-  startAnswer = async () => {
-    const { popData } = this.props;
-    const { success, data } = await API.answerStart();
-    if (success && data?.startId) {
-      modalStore.closePop("GameFail")
-      modalStore.pushPop("Answer", {
-        startId: data.startId,
-        removeGame: popData.removeGame,
-        canvasUI: popData.canvasUI
-      })
-    }
-  };
-
-  clickOut = () => {
-    const { popData } = this.props;
-    popData.removeGame();
-    modalStore.closePop("GameFail")
-    store.changePage("Mappage")
-  }
-
   render() {
-    const { popData } = this.props;
     return (
       <div className="gameLeavePanel">
 
@@ -83,8 +38,9 @@ class GameLeave extends React.Component {
         </div>
         {/* 确认退出 */}
         <p className="out" onClick={() => {
-          modalStore.closePop("GameLeave")
-          store.changePage('Mappage')
+          modalStore.closePop("GameLeave");
+          store.changePage('Mappage');
+          store.getHomeInfo();
         }}></p>
       </div>
     );

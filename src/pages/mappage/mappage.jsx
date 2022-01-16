@@ -86,33 +86,14 @@ class Mappage extends React.Component {
     const { homeInfo } = store;
     const { showMask, showMist } = this.state
     return (
+      <>
       <div className="mappage">
         {/* 背景 */}
         <div className="mapBgbox">
           <span className="mapBgimg1"></span>
           <span className="mapBgimg2"></span>
         </div>
-        {/* 按钮 */}
-        <div className="btnbox">
-          <div className="topleftIcon">
-            {/* 头像 */}
-            <AvatarBox />
-            {/* 金币数量 */}
-            <CoinBox />
-          </div>
-          {/* 扣除多少金币 */}
-          <DecCoinBox />
-          <div className="mapPage-tiShi textover">
-            有{homeInfo?.pvNum || 0}位用户与你一起闯关
-          </div>
-          {/* 返回首页按钮 */}
-          <span
-            className="backbtn"
-            onClick={() => {
-              store.changePage("homePage");
-            }}
-          ></span>
-        </div>
+       
         {/* 100关 */}
         <MapBox />
 
@@ -140,6 +121,28 @@ class Mappage extends React.Component {
         }
 
       </div>
+       {/* 按钮 */}
+       <div className="map-btnbox">
+          <div className="topleftIcon">
+            {/* 头像 */}
+            <AvatarBox />
+            {/* 金币数量 */}
+            <CoinBox />
+          </div>
+          {/* 扣除多少金币 */}
+          <DecCoinBox />
+          <div className="mapPage-tiShi textover">
+            有{homeInfo?.pvNum || 0}位用户与你一起闯关
+          </div>
+          {/* 返回首页按钮 */}
+          <span
+            className="backbtn"
+            onClick={() => {
+              store.changePage("homePage");
+            }}
+          ></span>
+        </div>
+      </>
     );
   }
 }
