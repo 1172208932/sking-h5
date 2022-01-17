@@ -80,7 +80,7 @@
         width: 110px;
         height: 99px;
         .sparkBg("mapPage/敬请期待.png");
-        &:active {
+        &.active,&:active {
           animation: left-right 0.4s forwards;
         }
       }
@@ -90,7 +90,7 @@
         padding: 0 10px 10px 0;
         box-sizing: border-box;
         .sparkBg("mapPage/lockBtn.png");
-        &:active {
+        &.active,&:active {
           animation: left-right 0.4s forwards;
         }
       }
@@ -98,7 +98,7 @@
         padding: 0 0 20px 0;
         box-sizing: border-box;
         .sparkBg("mapPage/greenLevelBg.png");
-        &:active {
+        &.active,&:active {
           animation: breathBig 1s forwards;
         }
       }
@@ -106,13 +106,19 @@
         width: 113px;
         height: 134px;
         .sparkBg("mapPage/gift.png");
-        &:active {
+        &.active,&:active {
           animation: breathBig 1s forwards;
         }
       }
       .num {
         max-width: 18px;
         max-height: 22px;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
       }
     }
   }

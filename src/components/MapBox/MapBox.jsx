@@ -10,6 +10,7 @@ import { RES_PATH } from "../../../sparkrc.js";
 import { SvgaPlayer } from "@spark/animation";
 import { _throttle } from "@src/utils/utils";
 import API from "../../api";
+import { importManager } from "less";
 @observer
 class MapBox extends React.Component {
   constructor(props) {
@@ -126,6 +127,40 @@ class MapBox extends React.Component {
     }
   };
 
+  // 动效，因为ios不支持active
+  toushStart = (i) => {
+    if(!window.isIos) return false;
+    const {mapList} = this.state;
+    let list = []
+    mapList.map((item,index)=> {
+      if(index==i) {
+        item.classAct='active';
+      }
+      list.push(JSON.parse(JSON.stringify(item)))
+    })
+    this.setState({
+      mapList: list
+    })
+  }
+
+  // 动效，因为ios不支持active
+  touchEnd = (i) => {
+    if(!window.isIos) return false;
+    const {mapList} = this.state;
+    let list = []
+    mapList.map((item,index)=> {
+      if(index==i) {
+        item.classAct=''
+      }
+      list.push(JSON.parse(JSON.stringify(item)))
+    })
+    setTimeout(() => {
+      this.setState({
+        mapList: list
+      })
+    },600)
+  }
+
   render() {
     const { homeInfo } = store;
     const { mapList } = this.state;
@@ -188,7 +223,9 @@ class MapBox extends React.Component {
                 )}
                 {/* 按钮 */}
                 <div
-                  className={`levelBox ${item.class}`}
+                  onTouchStart={()=>this.toushStart(index,item.class)}
+                  onTouchEnd={() => this.touchEnd(index)}
+                  className={`levelBox ${item.class} ${item.classAct}`}
                   onClick={() => this.clickStart(item, index)}
                 >
                   {Boolean(item.iconList?.length) &&
