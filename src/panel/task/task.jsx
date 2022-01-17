@@ -112,7 +112,7 @@ class Task extends React.Component {
           </div>
           {/* 邀请 */}
           <div className="inviteBox">
-            <img src="" alt="" className="avatar-invite" />
+            <img src={RES_PATH+"任务弹窗1/avatar.png"} alt="" className="avatar-invite" />
             <div className="centerInfo-invite">
               <p className="title textover">邀请好友（{totalInviteCount}/10)</p>
               <p className="subTitle textover">邀请好友可得{homeInfo?.inviteGolds}金币</p>
