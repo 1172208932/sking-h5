@@ -1,15 +1,15 @@
 @import "../../res.less";
 .rule {
   width: 820px;
-  height: 541px;
-  margin-left: -50px;
-  position: relative;
+  height: 561px;
+  position: absolute;
   transform: rotate(90deg);
+  overflow:hidden;
   .popoverBaseplate5 {
     width: 575px;
     height: 531px;
     left: 111px;
-    top: 0px;
+    top: 20px;
     position: absolute;
     .sparkBg("rule/弹窗底板5.png");
   }
@@ -17,12 +17,12 @@
     width: 480px;
     height: 380px;
     left: 158px;
-    top: 114px;
+    top: 134px;
     font-size: 24px;
     color: #2f77b3;
     position: absolute;
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow-x: auto;
+    // overflow-y: auto;
   }
   .snowAndIceAtmosphere4 {
     width: 820px;
@@ -37,7 +37,7 @@
     width: 50px;
     height: 50px;
     left: 640px;
-    top: -24px;
+    top: 0;
     position: absolute;
     .sparkBg("common/close.png")
   }
