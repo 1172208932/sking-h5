@@ -7,8 +7,6 @@ import { RoleControl } from './mixins/roleControl.js'
 import Obstacle from './components/Obstacle.js';
 import store from '@src/store/index.js';
 import { LujinList, PropList } from '@src/lujingInfo/Alllujing.js';
-import { level6 } from '@src/lujingInfo/lujing.js';
-import { proplevel6 } from '@src/lujingInfo/propList.js';
 const gameStore = makeAutoObservable(mix({
 	beginGame:false,
 	heighshape:null,
@@ -34,19 +32,11 @@ const gameStore = makeAutoObservable(mix({
     timeControl:null,
     deltaPoints:20,
     distance:0,
-    betweenDistanceFrame:0,
 	enterFrame(stage){
         // console.log(this.role.carBody.velocity[0],this.role.carBody.velocity[1])
         this.phyworld.step(1 / 60);
-
-        this.betweenDistanceFrame ++ ;
-        if(this.betweenDistanceFrame>=30){
-            if(this.role?.carBody){
-                this.distance = this.role.carBody.position[0]
-            }
-            this.betweenDistanceFrame = 0
-        }
-
+        if(this.role?.carBody)
+            this.distance = this.role.carBody.position[0]
         if(!this.beginGame){return}
         if( this.timeControl){
             return
@@ -81,7 +71,7 @@ const gameStore = makeAutoObservable(mix({
         // debugger
         // this.reviveCar()
 		if(this.gameEnd){ return }
-        if (this.count > 1) { return }
+        // if (this.count > 1) { return }
         
         const x = this.role.circleBody.position[0];
         const y = -this.role.circleBody.position[1];
@@ -127,12 +117,14 @@ const gameStore = makeAutoObservable(mix({
         //绘制地面线路
         
         this.shape0.beginStroke(0xff0000, 4); // debug
+        var Shapestock = new FYGE.Shape();
+        this.shape0.addChild(Shapestock)
         for (let i = 0; i < this.deltaPoints ; i++) {
             const y = this.lineInfo[i];
             heights.push(-y);   // 加入高度组
             this.shape0.lineTo(i * 100, y + 300);   // debug
             if (i > 0){
-                this.shape0.addChild(this.stockArea(i))
+                this.stockArea(i,Shapestock)
                 
             }
             
@@ -231,12 +223,14 @@ const gameStore = makeAutoObservable(mix({
         console.log((subdivision * this.deltaPoints - 1) * 100, this.lineInfo[subdivision * this.deltaPoints - 1])//为啥查一个
         //绘制地面线路
         useShape.beginStroke(0xff0000, 4); // debug
+        var Shapestock = new FYGE.Shape();
+        useShape.addChild(Shapestock)
         for (let i = subdivision * this.deltaPoints - 1; i < (subdivision * this.deltaPoints + this.deltaPoints < this.lineInfo.length ? subdivision * this.deltaPoints + this.deltaPoints : this.lineInfo.length); i++) {
             const y = this.lineInfo[i];
             heights.push(-y);   // 加入高度组
             useShape.lineTo(i * 100, y + 300);   // debug
             
-            useShape.addChild(this.stockArea(i))
+            this.stockArea(i,Shapestock)
             
             
         }
@@ -278,21 +272,21 @@ const gameStore = makeAutoObservable(mix({
         } else {
             console.log("移除了")
         }
-        // console.log(this.bgCon.children)
+        console.log(this.bgCon.children)
 
 
     },
     //填充
-    stockArea(i) {
+    stockArea(i,Shapestock) {
         // console.log(i, "当前")
-        var Shapestock = new FYGE.Shape();
+    
         Shapestock.beginGradientFill([0, 0, 0, this.lineInfo[i] + 600], [[0, "#ffffff", 1], [((this.lineInfo[i] + 400) / (this.lineInfo[i] + 600)), "#ffffff", 1], [1, "#82b1e3", 1]])
         Shapestock.lineTo((i - 1) * 100, (this.lineInfo[i - 1]) + 300)
         Shapestock.lineTo(i * 100, this.lineInfo[i] + 300)
         Shapestock.lineTo(i * 100, this.lineInfo[i] + this.deltaPoints*100)
         Shapestock.lineTo((i - 1) * 100, this.lineInfo[i] + this.deltaPoints*100)
         Shapestock.endFill()
-        return Shapestock;
+        // return Shapestock;
     },
     pasueGame(){
         this.gameEnd = true

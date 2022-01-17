@@ -47,7 +47,7 @@ class RockPrize extends React.Component {
     this.lottery.on("end", (data) => {
       console.log("jieshujieshu",data);
       store.getHomeInfo();
-      if (data.prizeId == "thanks") {
+      if (data.optionId == "thanks") {
         setTimeout(() => {
           Toast("没有中奖哦，再接再厉")
           modalStore.closePop("RockPrize")
@@ -81,6 +81,8 @@ class RockPrize extends React.Component {
       // 让他滚
       this.lottery.draw();
       this.startRock(data.options[0])
+    } else {
+      modalStore.closePop("RockPrize")
     }
   };
 
@@ -96,7 +98,7 @@ class RockPrize extends React.Component {
   getIndexById = (data) => {
     const { prizeList } = this.state;
     const index = prizeList.findIndex((item)=> {
-      return item.prizeId == data.prizeId
+      return item.optionId == data.optionId
     })
     if (index >=0 ) {
       return [index, index, index];

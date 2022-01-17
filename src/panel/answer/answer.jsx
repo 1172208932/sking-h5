@@ -18,6 +18,7 @@ class Answer extends React.Component {
       answerDetail: null,
       rightIndex: -1, // 正确项的索引-1
       chooseIndex: -1, // 选择的索引-1
+      choose: false, // 是否选择了
     };
   }
 
@@ -39,6 +40,10 @@ class Answer extends React.Component {
   };
 
   clickChoose = _throttle(async (index) => {
+    if(this.state.choose) return false;
+    this.setState({
+      choose: true
+    })
     const {
       popData: { startId },
     } = this.props;
@@ -46,13 +51,16 @@ class Answer extends React.Component {
       startId,
       answer: index + 1,
     });
-    console.log(this.props)
     await this.completeAnswer(index, data?.answer?.correctAnswers?.[0] - 1);
     if (success) {
       this.setState({
         chooseIndex: index,
         rightIndex: data?.answer?.correctAnswers?.[0] - 1,
       });
+    } else {
+      this.setState({
+        choose: false
+      })
     }
   });
 
@@ -88,7 +96,6 @@ class Answer extends React.Component {
   };
 
   svgaEnd = async () => {
-    console.log("end");
     // 复活进入游戏页
     const { popData } = this.props;
     modalStore.closePop("Answer");

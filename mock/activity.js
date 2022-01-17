@@ -21,7 +21,7 @@ const listExchangeLimit = {
               ruleId: "ru_1",
               optionId: "123",
               optionName: "狗粮",
-              optionStock: 12,
+              optionStock: 0,
               optionImg:
                 "http://yun.duiba.com.cn/polaris/丝倍亮小型犬幼年年期全价犬粮7.5kg.c27e9ef4b4d418e8a90faa76798e20cb4f18a490.jpg",
               prizeId: "123",
@@ -73,6 +73,30 @@ const listExchangeLimit = {
               optionId: "123",
               optionName: "狗粮",
               optionStock: 1,
+              optionImg:
+                "http://yun.duiba.com.cn/polaris/丝倍亮小型犬幼年年期全价犬粮7.5kg.c27e9ef4b4d418e8a90faa76798e20cb4f18a490.jpg",
+              prizeId: "123",
+              prizeType: 1,
+              userLimitCount: 1,
+            },
+          ],
+        }, {
+          gear: 1,
+          consumeSps: [
+            {
+              spId: "sp_1",
+              quantity: 10,
+              spName: "道具名称",
+              spImg:
+                "http://yun.duiba.com.cn/polaris/丝倍亮小型犬幼年年期全价犬粮7.5kg.c27e9ef4b4d418e8a90faa76798e20cb4f18a490.jpg",
+            },
+          ],
+          options: [
+            {
+              ruleId: "ru_1",
+              optionId: "123",
+              optionName: "狗粮",
+              optionStock: 0,
               optionImg:
                 "http://yun.duiba.com.cn/polaris/丝倍亮小型犬幼年年期全价犬粮7.5kg.c27e9ef4b4d418e8a90faa76798e20cb4f18a490.jpg",
               prizeId: "123",
@@ -310,7 +334,7 @@ const turnTableDraw = {
     extra: 1,
     options: [
       {
-        prizeId: "sp_1",
+        optionId: "sp_1",
         url: "http://www.baidu.com",
         optionName: "肯德基炸鸡圈",
         optionImg:
@@ -325,56 +349,64 @@ const turnTableQuery = {
   data: {
     options: [
       {
-        optionId: 12112,
+        optionId: 'sp_1',
+        optionImg: "//yun.duiba.com.cn/aurora/assets/aaabdca89f8b88c3648d9f3a33fde3a86bad459b.png",
+        optionName: "抽奖奖品1111",
+        prizeId: "11",
+        prizeType: 1,
+        url: "http://www.baidu.com",
+      },
+      {
+        optionId: 'sp_2',
         optionImg: "//yun.duiba.com.cn/aurora/assets/a51a8f870e3031792ae2b27e435fca4abb79181d.png",
         optionName: "抽奖奖品1",
         prizeId: "sp_1",
         prizeType: 1,
         url: "http://www.baidu.com",
       }, {
-        optionId: 12112,
+        optionId: 'sp_3',
         optionImg: "//yun.duiba.com.cn/aurora/assets/2f7fb2d7a5397ca10bed4574c2c8f37b3c362bf8.png",
         optionName: "抽奖奖品2",
         prizeId: "sp_2",
         prizeType: 1,
         url: "http://www.baidu.com",
       }, {
-        optionId: 12112,
+        optionId: 'sp_4',
         optionImg: "//yun.duiba.com.cn/aurora/assets/9b89c69bf6115206c661d887938d0ceee5cc927f.png",
         optionName: "抽奖奖品3",
         prizeId: "sp_3",
         prizeType: 1,
         url: "http://www.baidu.com",
       }, {
-        optionId: 12112,
+        optionId: 'sp_5',
         optionImg: "//yun.duiba.com.cn/aurora/assets/2368d666b9c3caccc46c99b5f331a7432503b2a9.png",
         optionName: "抽奖奖品4",
         prizeId: "sp_4",
         prizeType: 1,
         url: "http://www.baidu.com",
       }, {
-        optionId: 12112,
+        optionId: 'sp_6',
         optionImg: "//yun.duiba.com.cn/aurora/assets/798e474e87d316de19974e9cbdce6e2d72876901.png",
         optionName: "抽奖奖品5",
         prizeId: "sp_5",
         prizeType: 1,
         url: "http://www.baidu.com",
       }, {
-        optionId: 12112,
+        optionId: 'sp_7',
         optionImg: "//yun.duiba.com.cn/aurora/assets/aaabdca89f8b88c3648d9f3a33fde3a86bad459b.png",
         optionName: "抽奖奖品6",
         prizeId: "sp_6",
         prizeType: 1,
         url: "http://www.baidu.com",
       }, {
-        optionId: 12112,
+        optionId: 'sp_8',
         optionImg: "//yun.duiba.com.cn/aurora/assets/1a2df0ff03d86b978e894bdf034f48d62817b0b0.png",
         optionName: "抽奖奖品7",
         prizeId: "sp_7",
         prizeType: 1,
         url: "http://www.baidu.com",
       }, {
-        optionId: 12112,
+        optionId: 'thanks',
         optionImg: "//yun.duiba.com.cn/aurora/assets/e8159bf64974c3b5b509b1c9f33a396d72cdfa8b.png",
         optionName: "抽奖奖品8",
         prizeId: "sp_8",
@@ -561,7 +593,7 @@ const gameSubmit = {
   success: true,
   data: {
     sendGold: 20,//发放金币数
-    answerFlag: 0,//1-可答题 0-不可答题
+    answerFlag: 1,//1-可答题 0-不可答题
     reGold: 180,//复活需要金币数
     star: 1,
   }

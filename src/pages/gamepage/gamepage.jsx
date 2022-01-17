@@ -36,14 +36,14 @@ class Gamepage extends React.Component {
     EventBus.off('GAME_WIN', this.gameWin);
   }
 
-  gameWin(e){
+  gameWin(e) {
     console.log("成功到达终点")
-    this.submitGame(e?.detail?.score||0,1)
+    this.submitGame(e?.detail?.score || 0, 1)
   }
 
-  async gameOver(e){
-    console.log(e,"游戏结束来，死啦死啊了");
-    this.submitGame(e?.detail?.score||0,0)
+  async gameOver(e) {
+    console.log(e, "游戏结束来，死啦死啊了");
+    this.submitGame(e?.detail?.score || 0, 0)
   }
 
   /**
@@ -51,39 +51,39 @@ class Gamepage extends React.Component {
    * @param {*} score 分数
    * @param {*} pass 是否通过，1通过，0未过关
    */
-  submitGame = async(score, pass) => {
-    console.log(store.currentGameLevel,11111,"currentGameLevel")
-    const {success, data} = await API.gameSubmit({
+  submitGame = async (score, pass) => {
+    console.log(store.currentGameLevel, 11111, "currentGameLevel")
+    const { success, data } = await API.gameSubmit({
       sign: md5(`9deb162d75304805b6a5a8d0b0d3d310${store.currentGameLevel}${score}${store.startId}${pass}`),
       levelNum: store.currentGameLevel,
       score,
       startId: store.startId,
-      arrive:pass
+      arrive: pass
     })
-    if(success && data) {
-      if(pass == 0) {
+    await store.getHomeInfo();
+    if (success && data) {
+      if (pass == 0) {
         // 游戏失败了
-        modalStore.pushPop("GameFail",{
+        modalStore.pushPop("GameFail", {
           ...data,
           removeGame: this.removeGame,
-          canvasUI:this.canvasUI
+          canvasUI: this.canvasUI
         })
       } else {
         // 通关
-        console.log(data,'data')
-        modalStore.pushPop("GameSuccess",{
+        console.log(data, 'data')
+        modalStore.pushPop("GameSuccess", {
           ...data,
           score,
           levelNum: store.currentGameLevel,
           removeGame: this.removeGame,
-          canvasUI:this.canvasUI
+          canvasUI: this.canvasUI
         })
       }
     } else {
       this.removeGame();
       store.changePage("Mappage")
     }
-    store.getHomeInfo();
   }
 
   setStarInfo() {
@@ -117,19 +117,19 @@ class Gamepage extends React.Component {
     })()
   }
 
-  flushfunc = ()=>{
+  flushfunc = () => {
     gameStore.enterFrame(this.gamestage)
   }
-  clickfunc =()=>{
+  clickfunc = () => {
     gameStore.clickStage()
   }
-   canvasUI = async()=> {
+  canvasUI = async () => {
     //let img = new FYGE.Sprite("")
     console.log("初始化canvasUI")
     gameStore.offsetX = (1624 - (document.body.clientHeight > 1624 ? 1624 : document.body.clientHeight)) / 2
     gameStore.offsetY = (750 - (document.body.clientWidth > 750 ? 750 : document.body.clientHeclientWidthight)) / 2
     console.log(document.body.clientWidth > 1624 ? 1624 : document.body.clientWidth)
-    console.log("当前偏移量：",gameStore.offsetX ,gameStore.offsetY)
+    console.log("当前偏移量：", gameStore.offsetX, gameStore.offsetY)
 
 
     gameStore.initbgUI(this.gamestage)
@@ -144,7 +144,7 @@ class Gamepage extends React.Component {
     //帧刷新
     this.gamestage.addEventListener(FYGE.Event.ENTER_FRAME, this.flushfunc);
     //点击
-    this.gamestage.addEventListener(FYGE.MouseEvent.CLICK,this.clickfunc);
+    this.gamestage.addEventListener(FYGE.MouseEvent.CLICK, this.clickfunc);
 
     // this.setState({
     //   gameStep: 0,
@@ -156,6 +156,9 @@ class Gamepage extends React.Component {
     this.setTimeStatus()
   }
   async setTimeStatus() {
+    this.setState({
+      startpop: true,
+    });
     await delay(1500)
     this.setState({
       gameStep: 1,
@@ -168,22 +171,16 @@ class Gamepage extends React.Component {
     this.setState({
       gameStep: 0,
       startpop: false
-    },()=>{
+    }, () => {
       gameStore.addRole()
       gameStore.beginGame = true
     });
   }
-  //设置当前分数
-  setCurScore(curScore) {
-    this.setState({
-      curScore
-    })
-  }
-  removeGame = ()=>{
-    console.log(this.gamestage,"this.gamestage.")
-    this.gamestage.removeEventListener(FYGE.Event.ENTER_FRAME,this.flushfunc);
+  removeGame = () => {
+    console.log(this.gamestage, "this.gamestage.")
+    this.gamestage.removeEventListener(FYGE.Event.ENTER_FRAME, this.flushfunc);
     //点击
-    this.gamestage.removeEventListener(FYGE.MouseEvent.CLICK,this.clickfunc);
+    this.gamestage.removeEventListener(FYGE.MouseEvent.CLICK, this.clickfunc);
     gameStore.bgCon.removeAllChildren()
     this.gamestage.removeAllChildren()
     gameStore.beginGame = false;
@@ -195,14 +192,14 @@ class Gamepage extends React.Component {
     gameStore.phyworld.removeBody(gameStore.role.carBody)
     gameStore.phyworld.removeBody(gameStore.role.circleBody)
     gameStore.phyworld.removeBody(gameStore.role.circleBody2)
-    for(let i =0 ;i<gameStore.additiveslist.length;i++){
+    for (let i = 0; i < gameStore.additiveslist.length; i++) {
       gameStore.phyworld.removeBody(gameStore.additiveslist[i].rectBody)
     }
-    
+
   }
 
 
-  backMapPage(){
+  backMapPage() {
     gameStore.pasueGame()
     modalStore.pushPop("GameLeave")
   }
@@ -212,8 +209,8 @@ class Gamepage extends React.Component {
       <div className="homePagebox">
         <div className="gamepage">
           <div className="canvasbox">
-          <canvas className="canvas" id="gamestage"></canvas>
-      </div>
+            <canvas className="canvas" id="gamestage"></canvas>
+          </div>
           {
             startpop && <div className="startpop">
               {
@@ -278,7 +275,7 @@ class Gamepage extends React.Component {
             <div className="bar">
               <div className="three">
                 <span className="bj"></span>
-                <div className="baron_mask" style={{ width: `${gameStore.score / Math.floor(starInfo?.[store.currentGameLevel - 1]?.star3) * 4.79}rem` }}>
+                <div className="baron_mask" style={{ width: `${(gameStore.score * 1) / Math.floor(starInfo?.[store.currentGameLevel - 1]?.star3) * 4.79}rem` }}>
                   <span className="baron"></span>
                   <SvgaPlayer className="baron_svga" src={`${RES_PATH}svga/流光高亮.svga`} />
                 </div>
@@ -323,7 +320,7 @@ class Gamepage extends React.Component {
               }
 
             </div>
-            <span className="back" onClick={()=>{
+            <span className="back" onClick={() => {
               this.backMapPage()
             }}></span>
           </div>

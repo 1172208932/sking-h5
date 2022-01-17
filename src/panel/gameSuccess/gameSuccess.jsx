@@ -55,7 +55,6 @@ class GameSuccess extends React.Component {
   }
   render() {
     const {popData} = this.props;
-    const {canClick} = this.state;
     return (
       <div className="gameSuccessIsLessThanStar1">
         <span className="snowAndIceAtmosphere"></span>

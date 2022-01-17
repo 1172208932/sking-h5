@@ -48,12 +48,12 @@ class ExchangeShop extends React.Component {
 
   clickBtn = _throttle((item) => {
     const { isNow } = this.state;
-    console.log(item,1,isNow,store?.homeInfo?.goldNum,item?.consumeSps?.[0]?.quantity <= store?.homeInfo?.goldNum)
+    const { homeInfo } = store;
     if (!isNow) {
       Toast("即将开启，明日0点开抢!");
       return false;
     }
-    if (item?.consumeSps?.[0]?.quantity <= store?.homeInfo?.goldNum) {
+    if (item?.consumeSps?.[0]?.quantity <= store?.homeInfo?.goldNum && item?.options?.[0]?.optionStock>0) {
       // 去兑换
       modalStore.pushPop("ExchangeConfirm", {
         detail: {
@@ -63,9 +63,11 @@ class ExchangeShop extends React.Component {
           ruleId: item?.options?.[0]?.ruleId,
         },
       },true);
-    } else {
+    } else if(item?.consumeSps?.[0]?.quantity > homeInfo?.goldNum){
       // 金币不足
       Toast("金币不足，快去赚金币吧!");
+    } else {
+      Toast("库存不足")
     }
   });
   render() {
@@ -78,6 +80,7 @@ class ExchangeShop extends React.Component {
     const list = isNow ? todayResult : tomorrowResult;
     return (
       <div className="exchangeShopWillAdvance1Tomorrow">
+        <SvgaPlayer className="snowAndIceAtmosphere" src={`${RES_PATH}svga/雪花.svga`}/>
         <div className="popupWindowBottom">
           <span className="exchangeShop"></span>
           <div className="goldCoins">
@@ -109,7 +112,7 @@ class ExchangeShop extends React.Component {
                         {item?.options?.[0]?.optionName}
                       </p>
                       <div className="bottom">
-                        <span className="number">
+                        <span className="number textover">
                           数量 {item?.options?.[0]?.optionStock}
                         </span>
                         {/* 按钮区域 */}
@@ -118,7 +121,7 @@ class ExchangeShop extends React.Component {
                           className="button canBuy"
                           onClick={() => this.clickBtn(item)}
                         >
-                          {isNow &&
+                          {isNow && item?.options?.[0]?.optionStock>0 &&
                             item?.consumeSps?.[0]?.quantity <=
                               homeInfo?.goldNum && (
                               <div className="button canBuy">
@@ -135,6 +138,12 @@ class ExchangeShop extends React.Component {
                               homeInfo?.goldNum && (
                               <div className="button noMoney-shop"></div>
                             )}
+                          {/* 暂无库存 */}
+                          {isNow &&
+                            item?.options?.[0]?.optionStock<=0 && item?.consumeSps?.[0]?.quantity <=
+                            homeInfo?.goldNum &&(
+                              <div className="button nokucun"><strong>库存不足</strong></div>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -147,12 +156,11 @@ class ExchangeShop extends React.Component {
           </div>
         </div>
 
-        <div className="shu"></div>
+        <div className="shuya"></div>
         <span
           className="shutDown"
           onClick={() => modalStore.closePop("ExchangeShop")}
         ></span>
-        <SvgaPlayer className="snowAndIceAtmosphere" src={`${RES_PATH}svga/雪花.svga`}/>
       </div>
     );
   }

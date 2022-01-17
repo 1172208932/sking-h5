@@ -10,8 +10,20 @@ body {
   -webkit-text-size-adjust: 100% !important;
   text-size-adjust: 100% !important;
   -moz-text-size-adjust: 100% !important;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); // 手指按压阴影
+  // 禁止默认事件
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 #overlay_layer {
+  transform: rotate(90deg);
+}
+#loading_layer {
+  background: rgba(0,0,0,0.5);
   transform: rotate(90deg);
 }
 // 文本溢出省略号
@@ -54,5 +66,27 @@ body {
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes left-right {
+  0% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+
+@keyframes breathBig {
+  0% {
+    transform: scale(1)
+  }
+  50% {
+    transform: scale(0.7);
   }
 }
