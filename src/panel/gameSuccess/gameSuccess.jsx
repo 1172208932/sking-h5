@@ -41,11 +41,12 @@ class GameSuccess extends React.Component {
 
   // 星星动效结束，需要看是否出摇奖机
   svgaEnd = () => {
+    const {popData} = this.props;
     this.setState({
       canClick: true
     })
     // 看看需不需要满星抽奖
-    if(!store?.homeInfo?.gameInfo) return false;
+    if(!store?.homeInfo?.gameInfo || popData.star <3) return false;
     const index = store.homeInfo.gameInfo.findIndex((item) => {
       return item.level ==  store.currentGameLevel
     })
