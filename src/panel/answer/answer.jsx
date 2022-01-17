@@ -18,6 +18,7 @@ class Answer extends React.Component {
       answerDetail: null,
       rightIndex: -1, // 正确项的索引-1
       chooseIndex: -1, // 选择的索引-1
+      choose: false, // 是否选择了
     };
   }
 
@@ -39,9 +40,9 @@ class Answer extends React.Component {
   };
 
   clickChoose = _throttle(async (index) => {
-    if(this.state.chooseIndex >=0) return false;
+    if(this.state.choose) return false;
     this.setState({
-      chooseIndex: index,
+      choose: true
     })
     const {
       popData: { startId },
@@ -53,8 +54,13 @@ class Answer extends React.Component {
     await this.completeAnswer(index, data?.answer?.correctAnswers?.[0] - 1);
     if (success) {
       this.setState({
+        chooseIndex: index,
         rightIndex: data?.answer?.correctAnswers?.[0] - 1,
       });
+    } else {
+      this.setState({
+        choose: false
+      })
     }
   });
 
