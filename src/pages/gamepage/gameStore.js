@@ -71,7 +71,7 @@ const gameStore = makeAutoObservable(mix({
         // debugger
         // this.reviveCar()
 		if(this.gameEnd){ return }
-        // if (this.count > 1) { return }
+        if (this.count > 1) { return }
         
         const x = this.role.circleBody.position[0];
         const y = -this.role.circleBody.position[1];
@@ -164,10 +164,6 @@ const gameStore = makeAutoObservable(mix({
         panelBody.angle = Math.PI / 2
         this.phyworld.addBody(panelBody);
         this.endId = panelBody.id
-
-
-
-        
 
         this.listenContact()
     },
@@ -272,7 +268,7 @@ const gameStore = makeAutoObservable(mix({
         } else {
             console.log("移除了")
         }
-        console.log(this.bgCon.children)
+        // console.log(this.bgCon.children)
 
 
     },

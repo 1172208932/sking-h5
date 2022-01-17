@@ -19,6 +19,7 @@ export const RoleControl = {
     count: null,
     ifFly: false,
     score:0,
+    isCallWin:false,
     addRole() {
         this.role = new Role()
         this.bgCon.addChild(this.role)
@@ -148,6 +149,8 @@ export const RoleControl = {
         }else if (
             e.bodyA.id == this.endId || e.bodyB.id == this.endId
         ) {
+            if(this.isCallWin){return}
+            this.isCallWin = true
             // console.log(e)
             // console.log(hfShapeBody)
             this.role.carBody.fixedRotation = false
@@ -206,7 +209,6 @@ export const RoleControl = {
 		this.role.circleBody2.sleep()
         EventBus.fire('GAME_WIN',{score:this.score})
 		// alert("游戏结束")
-		
 	}
 	
 
