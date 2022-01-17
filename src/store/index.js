@@ -1,6 +1,7 @@
 import { makeAutoObservable } from 'mobx';
 import API from '../api/index';
 import modalStore from "@src/store/modal";
+import { hideLoading, showLoading, Toast } from '@spark/ui';
 
 const store = makeAutoObservable({
   ruleInfo: '',
@@ -44,8 +45,11 @@ const store = makeAutoObservable({
       modalStore.pushPop("GameRemind",{level:level})
     } else {
       this.setCurrentGameLevel(level);
+      showLoading()
       const {success,data} = await API.startGame()
+      hideLoading()
       if(success && data) {
+        Toast("金币-"+this.homeInfo?.joinGolds||0);
         this.setStartId(data)
         this.changePage("Gamepage");
       }

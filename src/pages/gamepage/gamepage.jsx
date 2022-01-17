@@ -60,8 +60,9 @@ class Gamepage extends React.Component {
       startId: store.startId,
       arrive: pass
     })
-    if (success && data) {
-      if (pass == 0) {
+    await store.getHomeInfo();
+    if(success && data) {
+      if(pass == 0) {
         // 游戏失败了
         modalStore.pushPop("GameFail", {
           ...data,
@@ -83,7 +84,6 @@ class Gamepage extends React.Component {
       this.removeGame();
       store.changePage("Mappage")
     }
-    store.getHomeInfo();
   }
 
   setStarInfo() {

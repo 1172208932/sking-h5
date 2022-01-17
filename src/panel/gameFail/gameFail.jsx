@@ -45,7 +45,9 @@ class GameFail extends React.Component {
         modalStore.closePop("GameFail")
         await popData.removeGame();
         popData.canvasUI();
-      } 
+      } else {
+        this.clickOut();
+      }
     }
   }
 
@@ -78,7 +80,7 @@ class GameFail extends React.Component {
         <div className="content-gamefail">
           {popData?.answerFlag ? (
             <p>
-              参与古爱凌知识答题
+              参与谷爱凌知识答题
               <br />
               答对即可免费再来一次
             </p>

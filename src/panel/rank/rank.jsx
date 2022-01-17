@@ -6,7 +6,7 @@ import { observer } from 'mobx-react';
 import store from '../../store/index';
 import modalStore from '@src/store/modal';
 import API from '../../api';
-import { USER_AVATAR } from '@src/utils/constants.js';
+import { USER_AVATAR, USER_NAME } from '@src/utils/constants.js';
 import './rank.less';
 
 @observer
@@ -64,7 +64,7 @@ class Rank extends React.Component {
             <p className="myrank-rank">{rankDetail?.myRank?.rankNum <= 500 ? rankDetail.myRank.rankNum : '未入榜'}</p>
             <div className="rank-nickName">
               <img src={homeInfo?.avatar || USER_AVATAR} alt="" className="rank-avatar" />
-              <p className="rank-name textover">{homeInfo?.nickName}</p>
+              <p className="rank-name textover">{homeInfo?.nickName || USER_NAME}</p>
             </div>
             <p className="rank-score textover">{rankDetail?.myRank?.score || 0}</p>
           </div>
@@ -77,7 +77,7 @@ class Rank extends React.Component {
                   <p className="myrank-rank">{item?.rankNum <= 500 ? item.rankNum : '未入榜'}</p>
                   <div className="rank-nickName">
                     <img src={item?.avatar || USER_AVATAR} alt="" className="rank-avatar" />
-                    <p className="rank-name textover">{item?.nickName}</p>
+                    <p className="rank-name textover">{item?.nickName || USER_NAME}</p>
                   </div>
                   <p className="rank-score textover">{item?.score || 0}</p>
                 </div>

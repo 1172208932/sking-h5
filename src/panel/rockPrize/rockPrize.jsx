@@ -81,6 +81,8 @@ class RockPrize extends React.Component {
       // 让他滚
       this.lottery.draw();
       this.startRock(data.options[0])
+    } else {
+      modalStore.closePop("RockPrize")
     }
   };
 

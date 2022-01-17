@@ -39,6 +39,10 @@ class Answer extends React.Component {
   };
 
   clickChoose = _throttle(async (index) => {
+    if(this.state.chooseIndex >=0) return false;
+    this.setState({
+      chooseIndex: index,
+    })
     const {
       popData: { startId },
     } = this.props;
@@ -46,11 +50,9 @@ class Answer extends React.Component {
       startId,
       answer: index + 1,
     });
-    console.log(this.props)
     await this.completeAnswer(index, data?.answer?.correctAnswers?.[0] - 1);
     if (success) {
       this.setState({
-        chooseIndex: index,
         rightIndex: data?.answer?.correctAnswers?.[0] - 1,
       });
     }
@@ -88,7 +90,6 @@ class Answer extends React.Component {
   };
 
   svgaEnd = async () => {
-    console.log("end");
     // 复活进入游戏页
     const { popData } = this.props;
     modalStore.closePop("Answer");

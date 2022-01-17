@@ -26,11 +26,6 @@ class ExchangeConfirm extends React.Component {
     if(success) {
       Toast("购买成功");
       modalStore.closePop("all");
-      if(data?.url) {
-        setTimeout(() => {
-          window.location.href = data.url
-        },1500)
-      }
     }
   })
   render() {

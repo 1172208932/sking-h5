@@ -102,6 +102,7 @@
             justify-content: space-between;
             align-items: flex-end;
             .number {
+              width: 184px;
               opacity: 0.8;
               font-size: 20px;
               color: rgba(56, 112, 160, 1);
@@ -109,6 +110,8 @@
             .button {
               width: 204px;
               height: 48px;
+              line-height: 48px;
+              text-align: center;
               &.canBuy {
                 display: flex;
                 align-items: center;
@@ -126,6 +129,11 @@
               }
               &.tomorrowbuy {
                 .sparkBg("兑换商店明日预1/即将开启.png");
+              }
+              &.nokucun {
+                color: #393939;
+                font-weight: bold;
+                .sparkBg("兑换商店明日预1/灰色背景.png");
               }
               &.noMoney-shop {
                 .sparkBg("兑换商店明日预1/金币不足.png");
