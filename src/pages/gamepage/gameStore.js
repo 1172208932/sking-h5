@@ -94,13 +94,14 @@ const gameStore = makeAutoObservable(mix({
 
 		if(this.count ===1){
 			this.role.jumpRole2()
-
+            this.role.carBody.applyForce([800-this.role.carBody.velocity[0], 90000-this.role.carBody.velocity[1]], [0, 0]);
 		}else{
 			this.role.jumpRole1()
+            this.role.carBody.applyForce([800-this.role.carBody.velocity[0], 90000-this.role.carBody.velocity[1]], [0, 0]);
 		}
 
         // console.log(this.role.carBody.velocity[0],this.role.carBody.velocity[1])
-		this.role.carBody.applyForce([800-this.role.carBody.velocity[0], 100000-this.role.carBody.velocity[1]], [0, 0]);
+		
 		this.count ++;
 	},
 
@@ -109,7 +110,7 @@ const gameStore = makeAutoObservable(mix({
     endId: '',
     createPhysicsWorld() {
         this.phyworld = new p2.World({
-            gravity: [0, -600]
+            gravity: [0, -700]
         });
 
         // this.phyworld.defaultContactMaterial.friction = 10000;
