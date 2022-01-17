@@ -43,6 +43,11 @@
         if (!getUrlParam("appID")) {
             // alert("【警告】检测到活动url中没有appID参数\n缺少该参数会导致埋点、分享、app信息获取错误。")
         }
+        function judgeIsIOS(){
+            var u = window.navigator.userAgent;
+            window.isIos = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        }
+        judgeIsIOS()
     </script>
 </head>
 

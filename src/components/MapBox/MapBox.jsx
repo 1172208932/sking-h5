@@ -10,6 +10,7 @@ import { RES_PATH } from "../../../sparkrc.js";
 import { SvgaPlayer } from "@spark/animation";
 import { _throttle } from "@src/utils/utils";
 import API from "../../api";
+import { importManager } from "less";
 @observer
 class MapBox extends React.Component {
   constructor(props) {
@@ -18,6 +19,9 @@ class MapBox extends React.Component {
       mapList: null,
     };
   }
+  mapTimer1= null;
+  mapTimer1= null;
+
 
   componentDidMount() {
     this.setMapList();
@@ -98,13 +102,13 @@ class MapBox extends React.Component {
   clickStart = _throttle((item, index) => {
     if (item.class == "greenBtn") {
       // 绿色按钮，可以玩
-      setTimeout(() => {
+      this.mapTimer2 = setTimeout(() => {
         store.startGame(item.level);
       },400)
       
     } else if (item.class == "giftBtn") {
       // 礼盒按钮
-      setTimeout(() => {
+      this.mapTimer2 = setTimeout(() => {
         this.clickGift(index);
       },400)
     }
@@ -125,6 +129,45 @@ class MapBox extends React.Component {
       }
     }
   };
+
+  // 动效，因为ios不支持active
+  toushStart = (i) => {
+    if(!window.isIos) return false;
+    const {mapList} = this.state;
+    let list = []
+    mapList.map((item,index)=> {
+      if(index==i) {
+        item.classAct='active';
+      }
+      list.push(JSON.parse(JSON.stringify(item)))
+    })
+    this.setState({
+      mapList: list
+    })
+  }
+
+  // 动效，因为ios不支持active
+  touchEnd = (i) => {
+    if(!window.isIos) return false;
+    const {mapList} = this.state;
+    let list = []
+    mapList.map((item,index)=> {
+      if(index==i) {
+        item.classAct=''
+      }
+      list.push(JSON.parse(JSON.stringify(item)))
+    })
+    this.mapTimer1 = setTimeout(() => {
+      this.setState({
+        mapList: list
+      })
+    },600)
+  }
+
+  componentWillUnmount() {
+    this.mapTimer1&&clearTimeout(this.mapTimer1)
+    this.mapTimer2&&clearTimeout(this.mapTimer2)
+  }
 
   render() {
     const { homeInfo } = store;
@@ -188,7 +231,9 @@ class MapBox extends React.Component {
                 )}
                 {/* 按钮 */}
                 <div
-                  className={`levelBox ${item.class}`}
+                  onTouchStart={()=>this.toushStart(index,item.class)}
+                  onTouchEnd={() => this.touchEnd(index)}
+                  className={`levelBox ${item.class} ${item.classAct}`}
                   onClick={() => this.clickStart(item, index)}
                 >
                   {Boolean(item.iconList?.length) &&
