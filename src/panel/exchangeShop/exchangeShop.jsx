@@ -10,6 +10,7 @@ import "./exchangeShop.less";
 import { _throttle } from "@src/utils/utils.js";
 import { Toast } from "@spark/ui";
 import {loadOneImg} from "@src/utils/preload1.3"
+import { SvgaPlayer } from "@spark/animation";
 
 @observer
 class ExchangeShop extends React.Component {
@@ -146,11 +147,12 @@ class ExchangeShop extends React.Component {
           </div>
         </div>
 
+        <div className="shu"></div>
         <span
           className="shutDown"
           onClick={() => modalStore.closePop("ExchangeShop")}
         ></span>
-        <span className="snowAndIceAtmosphere"></span>
+        <SvgaPlayer className="snowAndIceAtmosphere" src={`${RES_PATH}svga/雪花.svga`}/>
       </div>
     );
   }

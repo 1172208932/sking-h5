@@ -12,7 +12,7 @@ import { Marquee, Toast } from "@spark/ui";
 import { SvgaPlayer } from '@spark/animation';
 import AvatarBox from "@src/components/AvatarBox/AvatarBox"
 import CoinBox from "@src/components/CoinBox/CoinBox"
-
+import {loadLocalAssets} from "@src/utils/preload1.3"
 @observer
 class HomePage extends React.Component {
   constructor(props) {
@@ -24,6 +24,7 @@ class HomePage extends React.Component {
   async componentDidMount() {
     // 用户助力,要比首页接口先调用！！！
     await this.toAssist();
+    loadLocalAssets();
     await store.getHomeInfo();
     this.indexDataChange();
     this.getCarousel();
