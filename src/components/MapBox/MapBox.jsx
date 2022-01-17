@@ -19,6 +19,9 @@ class MapBox extends React.Component {
       mapList: null,
     };
   }
+  mapTimer1= null;
+  mapTimer1= null;
+
 
   componentDidMount() {
     this.setMapList();
@@ -99,13 +102,13 @@ class MapBox extends React.Component {
   clickStart = _throttle((item, index) => {
     if (item.class == "greenBtn") {
       // 绿色按钮，可以玩
-      setTimeout(() => {
+      this.mapTimer2 = setTimeout(() => {
         store.startGame(item.level);
       },400)
       
     } else if (item.class == "giftBtn") {
       // 礼盒按钮
-      setTimeout(() => {
+      this.mapTimer2 = setTimeout(() => {
         this.clickGift(index);
       },400)
     }
@@ -154,11 +157,16 @@ class MapBox extends React.Component {
       }
       list.push(JSON.parse(JSON.stringify(item)))
     })
-    setTimeout(() => {
+    this.mapTimer1 = setTimeout(() => {
       this.setState({
         mapList: list
       })
     },600)
+  }
+
+  componentWillUnmount() {
+    this.mapTimer1&&clearTimeout(this.mapTimer1)
+    this.mapTimer2&&clearTimeout(this.mapTimer2)
   }
 
   render() {
