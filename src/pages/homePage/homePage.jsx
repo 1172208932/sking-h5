@@ -75,6 +75,15 @@ class HomePage extends React.Component {
     !ruleInfo && await store.initRule();
     modalStore.pushPop("Rule")
   })
+
+  judgeEndTime = () => {
+    const {homeInfo} = store;
+    if(homeInfo?.activityEndTime<=homeInfo.currentTime){
+      Toast("活动已结束");
+      return false;
+    }
+    return true;
+  }
   render() {
     const {homeInfo} = store;
     const {carouselList} = this.state;
@@ -85,7 +94,7 @@ class HomePage extends React.Component {
         <SvgaPlayer src={`${RES_PATH}svga/标题与人物.svga`} className='title-person'></SvgaPlayer>
 
         {/* 开始游戏按钮 */}
-        <SvgaPlayer className="startga" src={`${RES_PATH}svga/开始游戏.svga`} onClick={() => store.changePage('Mappage')}/>
+        <SvgaPlayer className="startga" src={`${RES_PATH}svga/开始游戏.svga`} onClick={_throttle(() => {if(this.judgeEndTime()){store.changePage('Mappage')}})}/>
         <SvgaPlayer className="gesturesAperture" src={`${RES_PATH}svga/手势单击.svga`} />
         {/* 左上角icon */}
         <div className="topleft">
@@ -117,11 +126,11 @@ class HomePage extends React.Component {
         {/* 左下角 */}
         <div className="bottoml">
           {/* 兑换商店 */}
-          <div className="duiHuanShangDian" onClick={() => modalStore.pushPop("ExchangeShop")}>
+          <div className="duiHuanShangDian" onClick={_throttle(() => {if(this.judgeEndTime()){modalStore.pushPop("ExchangeShop")}})}>
             <SvgaPlayer src={`${RES_PATH}svga/兑换商店.svga`} className='store-svga'></SvgaPlayer>
           </div>
           {/* 得金币 */}
-          <span className="deJinBi" onClick={() => modalStore.pushPop("Task")}></span>
+          <span className="deJinBi" onClick={_throttle(() => {if(this.judgeEndTime()){modalStore.pushPop("Task")}})}></span>
         </div>
 
         {/* 右下角 */}

@@ -180,6 +180,12 @@ class TurnTable extends React.Component {
            <div className={`togo ${inDraw ? '' : 'move'}`}></div>
          </div>
         <SvgaPlayer className="ribbon" src={`${RES_PATH}svga/彩带2.svga`} loop={1}></SvgaPlayer>
+
+        <div className="shutDown"
+          onClick={() => {
+            if(inDraw) return false;
+            modalStore.closePop("TurnTable");
+          }}></div>
       </div>
     );
   }

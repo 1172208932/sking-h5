@@ -104,7 +104,9 @@ class MapBox extends React.Component {
       
     } else if (item.class == "giftBtn") {
       // 礼盒按钮
-      this.clickGift(index);
+      setTimeout(() => {
+        this.clickGift(index);
+      },400)
     }
   });
 
