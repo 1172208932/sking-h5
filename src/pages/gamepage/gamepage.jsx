@@ -173,12 +173,6 @@ class Gamepage extends React.Component {
       gameStore.beginGame = true
     });
   }
-  //设置当前分数
-  setCurScore(curScore) {
-    this.setState({
-      curScore
-    })
-  }
   removeGame = () => {
     console.log(this.gamestage, "this.gamestage.")
     this.gamestage.removeEventListener(FYGE.Event.ENTER_FRAME, this.flushfunc);
