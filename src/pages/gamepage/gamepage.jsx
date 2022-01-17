@@ -61,8 +61,8 @@ class Gamepage extends React.Component {
       arrive: pass
     })
     await store.getHomeInfo();
-    if(success && data) {
-      if(pass == 0) {
+    if (success && data) {
+      if (pass == 0) {
         // 游戏失败了
         modalStore.pushPop("GameFail", {
           ...data,
@@ -156,6 +156,9 @@ class Gamepage extends React.Component {
     this.setTimeStatus()
   }
   async setTimeStatus() {
+    this.setState({
+      startpop: true,
+    });
     await delay(1500)
     this.setState({
       gameStep: 1,
