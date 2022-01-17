@@ -15,6 +15,7 @@ export const RoleControl = {
     role: null,
     // 双击
     timer: null,
+    // 跳跃次数
     count: null,
     ifFly: false,
     score:0,
@@ -28,7 +29,6 @@ export const RoleControl = {
         for (let addi = 0; addi < this.propInfo.length; addi++) {
             let coin = new Obstacle(this.propInfo[addi],this.lineInfo, this.phyworld, this.bgCon)
             this.additiveslist.push(coin)
-
         }
         this.phyworld.addBody(this.role.circleBody);
         this.phyworld.addBody(this.role.circleBody2);
@@ -109,8 +109,8 @@ export const RoleControl = {
         this.role.circle.position.set(x, y);
         this.role.car.rotation = -this.role.carBody.angle / Math.PI * 180
 
-        this.bgCon.x = -x + stage.width / 8 +this.offsetX//镜头跟随
-        this.bgCon.y = -y + stage.height * 0.4
+        this.bgCon.x = -x + stage.width / 8 +this.offsetX - 300//镜头跟随
+        this.bgCon.y = -y + stage.height * 0.6
         
     },
 
