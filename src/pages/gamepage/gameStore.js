@@ -37,7 +37,9 @@ const gameStore = makeAutoObservable(mix({
 	enterFrame(stage){
         // console.log(this.role.carBody.velocity[0],this.role.carBody.velocity[1])
         this.phyworld.step(1 / 60);
-        this.distance = this.role.carBody.position[0]
+        if(this.role?.carBody){
+            this.distance = this.role.carBody.position[0]
+        }
         if(!this.beginGame){return}
         if( this.timeControl){
             return
