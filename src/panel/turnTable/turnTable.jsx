@@ -34,7 +34,7 @@ class TurnTable extends React.Component {
     const { success, data } = await API.turnTableQuery();
     if (success && data?.options?.length) {
       const list = data.options.filter((item) => {
-        return item.prizeId != "thanks"
+        return item.optionId != "thanks"
       })
       this.setState({
         drawList: list,
@@ -57,7 +57,7 @@ class TurnTable extends React.Component {
       this.setState({
         drawPrize: data
       })
-      this.startTurn(data.options[0].prizeId)
+      this.startTurn(data.options[0].optionId)
     } else {
       this.setState({
         inDraw: false
@@ -65,18 +65,18 @@ class TurnTable extends React.Component {
     }
   };
 
-  startTurn = (prizeId) => {
+  startTurn = (optionId) => {
     const {drawList} = this.state;
     let endIndex = -1;
     for (let i = 0; i < drawList.length; i++) {
-      if (drawList[i].prizeId === prizeId) {
+      if (drawList[i].optionId === optionId) {
         endIndex = i;
         break;
       }
     }
 
     if (endIndex === -1) {
-      Toast("prizeId配置存在问题")
+      Toast("optionId配置存在问题")
       modalStore.closePop("TurnTable")
       return false;
     }
@@ -135,7 +135,7 @@ class TurnTable extends React.Component {
     this.setState({
       inDraw: false
     })
-    if (drawList[index].prizeId == "thanks") {
+    if (drawList[index].optionId == "thanks") {
       // 谢谢参与
       Toast("很遗憾，您未中奖");
       modalStore.closePop("TurnTable");
@@ -167,7 +167,7 @@ class TurnTable extends React.Component {
                     className={`turn-prize turn-prize${i} ${
                       prizeIndex === i ? "turn-prize-choose" : ""
                     }`}
-                    key={v.prizeId}
+                    key={v.optionId}
                   >
                     <img className="turn-prize-icon" src={v.optionImg} />
                   </div>

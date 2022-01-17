@@ -80,6 +80,7 @@ class ExchangeShop extends React.Component {
     const list = isNow ? todayResult : tomorrowResult;
     return (
       <div className="exchangeShopWillAdvance1Tomorrow">
+        <SvgaPlayer className="snowAndIceAtmosphere" src={`${RES_PATH}svga/雪花.svga`}/>
         <div className="popupWindowBottom">
           <span className="exchangeShop"></span>
           <div className="goldCoins">
@@ -155,12 +156,11 @@ class ExchangeShop extends React.Component {
           </div>
         </div>
 
-        <div className="shu"></div>
+        <div className="shuya"></div>
         <span
           className="shutDown"
           onClick={() => modalStore.closePop("ExchangeShop")}
         ></span>
-        <SvgaPlayer className="snowAndIceAtmosphere" src={`${RES_PATH}svga/雪花.svga`}/>
       </div>
     );
   }
