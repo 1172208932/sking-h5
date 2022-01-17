@@ -146,14 +146,14 @@ class Gamepage extends React.Component {
     //点击
     this.gamestage.addEventListener(FYGE.MouseEvent.CLICK,this.clickfunc);
 
-    this.setState({
-      gameStep: 0,
-      startpop: false
-    },()=>{
-      gameStore.addRole()
-      gameStore.beginGame = true
-    });
-    // this.setTimeStatus()
+    // this.setState({
+    //   gameStep: 0,
+    //   startpop: false
+    // },()=>{
+    //   gameStore.addRole()
+    //   gameStore.beginGame = true
+    // });
+    this.setTimeStatus()
   }
   async setTimeStatus() {
     await delay(1500)

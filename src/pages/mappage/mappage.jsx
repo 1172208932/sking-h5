@@ -43,10 +43,10 @@ class Mappage extends React.Component {
     let queryNewGuideInfo = await API.queryNewGuide()
     console.info('queryNewGuideInfo:', queryNewGuideInfo)
     if (!queryNewGuideInfo.data.completeGuide) {
-      document.body.style.overflow = "hidden";
+      // document.body.style.overflow = "hidden";
 
-      let toWidth = Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - document.documentElement.clientWidth
-      document.documentElement.scrollLeft = toWidth
+      let toHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight) - document.documentElement.clientHeight
+      document.documentElement.scrollTop = toHeight
       await delay(1500)
       this.setState({
         queryNewGuideInfo: queryNewGuideInfo.data,
@@ -55,12 +55,12 @@ class Mappage extends React.Component {
     }
   }
   showMoveMap() {
-    let toWidth = Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - document.documentElement.clientWidth
+    let toHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight) - document.documentElement.clientHeight
     this.setState({
       showMask: true,
       showMist: false
     }, async () => {
-      Tool.tweenReaptToto2(document.documentElement, toWidth, 0, toWidth, () => {
+      Tool.tweenReaptToto2(document.documentElement, toHeight, 0, toHeight, () => {
         this.setState({
           showMask: false,
         })

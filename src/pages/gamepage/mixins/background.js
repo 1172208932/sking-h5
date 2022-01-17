@@ -49,6 +49,8 @@ export const Background = {
         //     this.bgArea1.addChild(spr2)
         // }, `${RES_PATH}GamePage/level1/bg1-1.png`)
 
+
+
         this.addBgList2Item(0);
         this.addBgList2Item(1);
         this.addBgList2Item(2);
@@ -67,8 +69,7 @@ export const Background = {
 
             this.bgList2.push(spr3)
             spr3.x = this.bgArea2X
-            spr3.y = 220 + this.offsetY
-
+            spr3.y = 220 + (this.offsetY || 0) 
 
             this.bgArea2X = this.bgArea2X + spr3.width * 0.8
             this.bgArea2.addChildAt(spr3, 1)
@@ -84,7 +85,7 @@ export const Background = {
 
             this.bgList3.push(spr3)
             spr3.x = this.bgArea3X
-            spr3.y = urlTopList3[index] + this.offsetY
+            spr3.y = urlTopList3[index] +  (this.offsetY || 0) 
 
 
             this.bgArea3X = this.bgArea3X + spr3.width * 0.8
