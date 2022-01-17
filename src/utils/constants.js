@@ -39,6 +39,8 @@ export function ERROR_MESSSAGE(errorCode) {
 }
 
 export const USER_AVATAR = "https://yun.duiba.com.cn/aurora/assets/65892f1a1fb9bde97f06acf79c64f8d966dc2ae2.png"
+export const USER_NAME = "牛蒙蒙";
+
 
 /**
  * 地图坐标

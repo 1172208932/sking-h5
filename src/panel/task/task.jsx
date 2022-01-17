@@ -6,7 +6,7 @@ import { observer } from "mobx-react";
 import store from "../../store/index";
 import modalStore from "@src/store/modal";
 import API from "../../api";
-import { Toast } from "@spark/ui";
+import { showLoading,hideLoading, Toast } from "@spark/ui";
 import "./task.less";
 import { _throttle } from "@src/utils/utils.js";
 
@@ -52,7 +52,9 @@ class Task extends React.Component {
     const { signDetail } = this.state;
     if(signDetail?.todaySign) return false;
     if(index == signDetail?.signDay) {
+      showLoading()
       const {success, data} = await API.doSign();
+      hideLoading()
       if(success) {
         Toast(`签到成功，金币+${data?.options?.[0]?.sendCount || 0}`)
         this.getSignDetail();

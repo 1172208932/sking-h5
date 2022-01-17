@@ -96,10 +96,12 @@ class MapBox extends React.Component {
   };
 
   clickStart = _throttle((item, index) => {
-    console.log(item, index);
     if (item.class == "greenBtn") {
       // 绿色按钮，可以玩
-      store.startGame(item.level);
+      setTimeout(() => {
+        store.startGame(item.level);
+      },400)
+      
     } else if (item.class == "giftBtn") {
       // 礼盒按钮
       this.clickGift(index);

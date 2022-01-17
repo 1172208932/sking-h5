@@ -21,7 +21,7 @@ const listExchangeLimit = {
               ruleId: "ru_1",
               optionId: "123",
               optionName: "狗粮",
-              optionStock: 12,
+              optionStock: 0,
               optionImg:
                 "http://yun.duiba.com.cn/polaris/丝倍亮小型犬幼年年期全价犬粮7.5kg.c27e9ef4b4d418e8a90faa76798e20cb4f18a490.jpg",
               prizeId: "123",
@@ -325,6 +325,14 @@ const turnTableQuery = {
   data: {
     options: [
       {
+        optionId: 1,
+        optionImg: "//yun.duiba.com.cn/aurora/assets/aaabdca89f8b88c3648d9f3a33fde3a86bad459b.png",
+        optionName: "抽奖奖品1111",
+        prizeId: "thanks",
+        prizeType: 1,
+        url: "http://www.baidu.com",
+      },
+      {
         optionId: 12112,
         optionImg: "//yun.duiba.com.cn/aurora/assets/a51a8f870e3031792ae2b27e435fca4abb79181d.png",
         optionName: "抽奖奖品1",
@@ -561,7 +569,7 @@ const gameSubmit = {
   success: true,
   data: {
     sendGold: 20,//发放金币数
-    answerFlag: 0,//1-可答题 0-不可答题
+    answerFlag: 1,//1-可答题 0-不可答题
     reGold: 180,//复活需要金币数
     star: 1,
   }

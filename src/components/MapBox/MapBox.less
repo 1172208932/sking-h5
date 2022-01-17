@@ -80,6 +80,9 @@
         width: 110px;
         height: 99px;
         .sparkBg("mapPage/敬请期待.png");
+        &:active {
+          animation: left-right 0.4s forwards;
+        }
       }
       &.lockBtn {
         width: 110px;
@@ -87,13 +90,17 @@
         padding: 0 10px 10px 0;
         box-sizing: border-box;
         .sparkBg("mapPage/lockBtn.png");
-        
+        &:active {
+          animation: left-right 0.4s forwards;
+        }
       }
       &.greenBtn {
         padding: 0 0 20px 0;
         box-sizing: border-box;
-
         .sparkBg("mapPage/greenLevelBg.png");
+        &:active {
+          animation: breathBig 1s forwards;
+        }
       }
       &.giftBtn {
         width: 113px;

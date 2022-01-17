@@ -12,7 +12,7 @@ module.exports =  {
           avatar: "//yun.duiba.com.cn/hignAlliance/headPic298.jpg",
           extra: '{"num":1,"showDate":"2021.05.12"}',
           name: "15036896777",
-          prizeName: "吉祥如意大礼包一份还是两份呢",
+          prizeName: "吉祥如意大礼包一份还是两份呢吉祥如意大礼包一份还是两份呢",
           phone: "150****5555",
         },
         {

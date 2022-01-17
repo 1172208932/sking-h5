@@ -33,8 +33,11 @@ class TurnTable extends React.Component {
   getDrawList = async () => {
     const { success, data } = await API.turnTableQuery();
     if (success && data?.options?.length) {
+      const list = data.options.filter((item) => {
+        return item.prizeId != "thanks"
+      })
       this.setState({
-        drawList: data.options,
+        drawList: list,
       });
     }
   };

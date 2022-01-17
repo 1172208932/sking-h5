@@ -66,12 +66,12 @@ module.exports =  {
         score: "0",
         star: "3",
       }, 
-      // {
-      //   level: "10_gift", // i=10,len=11
-      //   score: "0",
-      //   star: "0",
-      //   receive: "2",//"0-未完成 1-已领取 2-待领取
-      // },
+      {
+        level: "10_gift", // i=10,len=11
+        score: "0",
+        star: "0",
+        receive: "2",//"0-未完成 1-已领取 2-待领取
+      },
       // {
       //   level: "11",
       //   score: "0",
