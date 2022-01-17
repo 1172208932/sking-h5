@@ -268,7 +268,6 @@ const gameStore = makeAutoObservable(mix({
         } else {
             console.log("移除了")
         }
-        // console.log(this.bgCon.children)
 
 
     },
@@ -276,11 +275,11 @@ const gameStore = makeAutoObservable(mix({
     stockArea(i,Shapestock) {
         // console.log(i, "当前")
     
-        Shapestock.beginGradientFill([0, 0, 0, this.lineInfo[i] + 600], [[0, "#ffffff", 1], [((this.lineInfo[i] + 400) / (this.lineInfo[i] + 600)), "#ffffff", 1], [1, "#82b1e3", 1]])
+        Shapestock.beginGradientFill([(i - 1) * 100, this.lineInfo[i] +900, i * 100,this.lineInfo[i-1] +300], [[0, "#82b1e3", 1], [1, "#ffffff", 1]])
         Shapestock.lineTo((i - 1) * 100, (this.lineInfo[i - 1]) + 300)
         Shapestock.lineTo(i * 100, this.lineInfo[i] + 300)
-        Shapestock.lineTo(i * 100, this.lineInfo[i] + this.deltaPoints*100)
-        Shapestock.lineTo((i - 1) * 100, this.lineInfo[i] + this.deltaPoints*100)
+        Shapestock.lineTo(i * 100, this.lineInfo[i] + 900)
+        Shapestock.lineTo((i - 1) * 100, this.lineInfo[i] + 900)
         Shapestock.endFill()
         // return Shapestock;
     },
