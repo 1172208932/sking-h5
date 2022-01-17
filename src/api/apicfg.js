@@ -51,10 +51,10 @@ const apiCfg = {
     withToken: true,
     hideError: true, // 隐藏该接口报错的toast
   },
-  signQuery: `sign_1/query.do`,
-  signOptions: `sign_1/queryOptions.do`,//查询签到奖品配置
+  signQuery: `checkin_1/query.do`,
+  signOptions: `checkin_1/queryOptions.do`,//查询签到奖品配置
   doSign: {
-    uri: `sign_1/doSign.do`,
+    uri: `checkin_1/doSign.do`,
     withToken: true,
     method: "post",
   },
@@ -81,6 +81,15 @@ const apiCfg = {
     method: "post",
     withToken: true,
   },
+  gameSubmit: { // 提交分数
+    uri: `scoring/submit.do`,
+    withToken: true,
+  },
+  getInviteCode: {
+    uri: `assist_1/getInviteCode.do`,
+    withToken: true,
+    method: "post",
+  }
 }
 
 export default apiCfg;

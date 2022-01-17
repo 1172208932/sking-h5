@@ -6,13 +6,18 @@ import p2 from 'p2/build/p2';
 import Obstacle from '../components/Obstacle.js';
 import EventBus from '@duiba/event-bus';
 
+const sorceConfig = {
+    "snow":1,
+    "gem":5
+}
+
 export const RoleControl = {
     role: null,
     // 双击
     timer: null,
     count: null,
     ifFly: false,
-
+    score:0,
     addRole() {
         this.role = new Role()
         this.bgCon.addChild(this.role)
@@ -37,21 +42,23 @@ export const RoleControl = {
         var contactMaterial1 = new p2.ContactMaterial(heighshape.material, this.role.circleShape.material, {
             restitution: 0, // This means no bounce!
             surfaceVelocity: -82000,
-            friction: 0.8
+            friction: 0.2,
         });
         this.phyworld.addContactMaterial(contactMaterial1)
 
         var contactMaterial2 = new p2.ContactMaterial(heighshape.material, this.role.circleShape2.material, {
             restitution: 0, // This means no bounce!
             surfaceVelocity: -82000,
-            friction: 0.8
+            friction: 0.2
         });
         this.phyworld.addContactMaterial(contactMaterial2)
 
         var contactMaterial3 = new p2.ContactMaterial(heighshape.material, this.role.carShape.material, {
             restitution: 0, // This means no bounce!
             surfaceVelocity: -82000,
-            friction: 0
+            friction: 0.2,
+            frictionRelaxation: 0.3,
+            // relaxation:40,
         });
         this.phyworld.addContactMaterial(contactMaterial3)
 
@@ -97,7 +104,7 @@ export const RoleControl = {
 
 
         this.role.circle2.position.set(circleBody2X, circleBody2Y);
-        this.role.car.position.set(carBodyX - 40, carBodyY);
+        this.role.car.position.set(carBodyX - 45, carBodyY - 56);
 
         this.role.circle.position.set(x, y);
         this.role.car.rotation = -this.role.carBody.angle / Math.PI * 180
@@ -119,7 +126,7 @@ export const RoleControl = {
             // console.log(e)
             // console.log(hfShapeBody)
             this.role.carBody.fixedRotation = false
-            console.log('碰撞到地面了1')
+            // console.log('碰撞到地面了1')
             this.touchGround()
             this.count = 0
             // this.role.carBody.angle = 0
@@ -134,7 +141,7 @@ export const RoleControl = {
             // console.log(e)
             // console.log(hfShapeBody)
             this.role.carBody.fixedRotation = false
-            console.log('碰撞到地面了2')
+            // console.log('碰撞到地面了2')
             this.touchGround()
             this.count = 0
             // this.role.carBody.angle = 0
@@ -150,22 +157,25 @@ export const RoleControl = {
             // this.role.carBody.angle = 0
         }else{
 			for(let i =0; i<this.additiveslist.length;i++){
-				if( e.bodyB.id == this.additiveslist[i].rectBody.id
-					|| e.bodyA.id == this.additiveslist[i].rectBody.id){
-						if(this.additiveslist[i].type == "snow"){
+				if( 
+                    (e.bodyB == this.role.carBody && e.bodyA == this.additiveslist[i].rectBody) ||
+                    (e.bodyA == this.role.carBody && e.bodyB == this.additiveslist[i].rectBody)
+                ){
+						if(this.additiveslist[i].type == "snow" || this.additiveslist[i].type == "gem"){
 							this.phyworld.removeBody(this.additiveslist[i].rectBody)
 							this.bgCon.removeChild(this.additiveslist[i].rectcoin)
-							console.log("getCoin")
+                            this.score =this.score + sorceConfig[this.additiveslist[i].type]
 						}else {
+                            this.role.carBody.sleep()
+							this.role.circleBody.sleep()
+							this.role.circleBody2.sleep()
                             this.count = 0;
+
 							console.log("die")
 							this.gameEnd = true
 							this.dieItem = this.additiveslist[i]
                             this.role.smokeSvga.visible = false
-							this.role.carBody.sleep()
-							this.role.circleBody.sleep()
-							this.role.circleBody2.sleep()
-                            EventBus.fire('GAME_OVER')
+                            EventBus.fire('GAME_OVER',{score:this.score})
 						}
 					}
 			}
@@ -190,11 +200,12 @@ export const RoleControl = {
 	},
 	//游戏结束
 	gameWin(){
+        this.gameEnd = true
 		this.role.carBody.sleep()
 		this.role.circleBody.sleep()
 		this.role.circleBody2.sleep()
-        EventBus.fire('GAME_WIN')
-		alert("游戏结束")
+        EventBus.fire('GAME_WIN',{score:this.score})
+		// alert("游戏结束")
 		
 	}
 	

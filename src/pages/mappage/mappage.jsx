@@ -35,7 +35,7 @@ class Mappage extends React.Component {
   componentDidMount() {
     let homeInfo = Object.assign({}, toJS(store.homeInfo));
     console.info('homeInfo:', homeInfo)
-    this.queryNewGuide()
+    // this.queryNewGuide()
     this.moveMap()
   }
   async queryNewGuide() {
@@ -74,25 +74,55 @@ class Mappage extends React.Component {
    * @returns 
    */
   moveMap = () => {
+    const remscale = window.remScale;
     const { homeInfo } = store;
     let len = homeInfo?.gameInfo?.length ? homeInfo.gameInfo.length : 0;
     if (len >= 3) {
       // 3移动1，4移动2个
-      window.scrollTo(331 + (14413 / 108) * (len - 3), 0);
+      window.scrollTo(0,remscale*340 + ((14413*remscale) / 108) * (len - 3));
     }
   }
   render() {
     const { homeInfo } = store;
     const { showMask, showMist } = this.state
     return (
+      <>
       <div className="mappage">
         {/* 背景 */}
         <div className="mapBgbox">
           <span className="mapBgimg1"></span>
           <span className="mapBgimg2"></span>
         </div>
-        {/* 按钮 */}
-        <div className="btnbox">
+       
+        {/* 100关 */}
+        <MapBox />
+
+        {/* 终极大奖 */}
+        <LastPrize />
+
+
+
+
+        {/* 引导时屏蔽点击。这样最简单上盖一层div */}
+        {
+          showMask &&
+          <div className="mapBgbox_mask">
+          </div>
+        }
+
+        {
+          showMist &&
+          <SvgaPlayer className="mist_svga" src={`${RES_PATH}svga/云过渡.svga`}
+            loop={1}
+            onEnd={() => {
+              this.showMoveMap()
+            }}
+          />
+        }
+
+      </div>
+       {/* 按钮 */}
+       <div className="map-btnbox">
           <div className="topleftIcon">
             {/* 头像 */}
             <AvatarBox />
@@ -112,33 +142,7 @@ class Mappage extends React.Component {
             }}
           ></span>
         </div>
-        {/* 100关 */}
-        <MapBox />
-
-        {/* 终极大奖 */}
-        <LastPrize />
-
-
-
-
-        {/* 引导时屏蔽点击。这样最简单上盖一层div */}
-        {
-          showMask &&
-          <div className="mapBgbox_mask">
-          </div>
-        }
-
-        {
-          showMist &&
-          <SvgaPlayer className="mist_svga" src={`${RES_PATH}/svga/云过渡.svga`}
-            loop={1}
-            onEnd={() => {
-              this.showMoveMap()
-            }}
-          />
-        }
-
-      </div>
+      </>
     );
   }
 }

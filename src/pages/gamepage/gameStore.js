@@ -1,11 +1,14 @@
 import { makeAutoObservable } from 'mobx';
-import { level1, proplevel1, level2 } from '@src/lujingInfo/lujing';
 import p2 from 'p2/build/p2';
 import { RES_PATH } from '../../../sparkrc.js';
 import { mix } from './mix';
 import { Background } from './mixins/background.js';
 import { RoleControl } from './mixins/roleControl.js'
 import Obstacle from './components/Obstacle.js';
+import store from '@src/store/index.js';
+import { LujinList, PropList } from '@src/lujingInfo/Alllujing.js';
+import { level6 } from '@src/lujingInfo/lujing.js';
+import { proplevel6 } from '@src/lujingInfo/propList.js';
 const gameStore = makeAutoObservable(mix({
 	beginGame:false,
 	heighshape:null,
@@ -19,8 +22,8 @@ const gameStore = makeAutoObservable(mix({
     lineInfo:'',
     propInfo:'',
     getData(){
-        this.lineInfo = level1
-        this.propInfo = proplevel1
+        this.lineInfo = LujinList[store.currentGameLevel-1]
+        this.propInfo = PropList[store.currentGameLevel-1]
         this.createPhysicsWorld()
     },
 
@@ -29,11 +32,12 @@ const gameStore = makeAutoObservable(mix({
     gameEnd: false,
 
     timeControl:null,
-    deltaPoints:30,
+    deltaPoints:20,
+    distance:0,
 	enterFrame(stage){
-        console.log(this.role.carBody.velocity[0],this.role.carBody.velocity[1])
+        // console.log(this.role.carBody.velocity[0],this.role.carBody.velocity[1])
         this.phyworld.step(1 / 60);
-        
+        this.distance = this.role.carBody.position[0]
         if(!this.beginGame){return}
         if( this.timeControl){
             return
@@ -46,13 +50,13 @@ const gameStore = makeAutoObservable(mix({
         }
 
         // 位置
-        if (this.role.carBody.position[0] > this.deltaPoints *100 * (this.subdivision + 1) - 1000) {
+        if (this.role.carBody.position[0] > this.deltaPoints *100 * (this.subdivision+1 ) -1300) {
             this.subdivision++;
             this.removetype = true
             this.addLine(this.subdivision,this.phyworld)
         }
 
-        if(this.role.carBody.position[0]>this.subdivision*this.deltaPoints *100+200 && this.removetype){
+        if(this.role.carBody.position[0]>this.subdivision*this.deltaPoints *100+400 && this.removetype){
             console.log("remove")
             this.removetype = false
             this.removeLine((this.subdivision - 1), this.phyworld)
@@ -66,7 +70,7 @@ const gameStore = makeAutoObservable(mix({
 
     clickStage() {
         // debugger
-        this.reviveCar()
+        // this.reviveCar()
 		if(this.gameEnd){ return }
         // if (this.count > 1) { return }
         
@@ -87,7 +91,7 @@ const gameStore = makeAutoObservable(mix({
 		}
 
         // console.log(this.role.carBody.velocity[0],this.role.carBody.velocity[1])
-		this.role.carBody.applyForce([800-this.role.carBody.velocity[0], 160000-this.role.carBody.velocity[1]], [0, 0]);
+		this.role.carBody.applyForce([800-this.role.carBody.velocity[0], 100000-this.role.carBody.velocity[1]], [0, 0]);
 		this.count ++;
 	},
 
@@ -98,6 +102,9 @@ const gameStore = makeAutoObservable(mix({
         this.phyworld = new p2.World({
             gravity: [0, -600]
         });
+
+        // this.phyworld.defaultContactMaterial.friction = 10000;
+
         //划线
         var heights = [];
         const shape = new FYGE.Shape(); // debug
@@ -267,7 +274,7 @@ const gameStore = makeAutoObservable(mix({
     },
     //填充
     stockArea(i) {
-        console.log(i, "当前")
+        // console.log(i, "当前")
         var Shapestock = new FYGE.Shape();
         Shapestock.beginGradientFill([0, 0, 0, this.lineInfo[i] + 600], [[0, "#ffffff", 1], [((this.lineInfo[i] + 400) / (this.lineInfo[i] + 600)), "#ffffff", 1], [1, "#82b1e3", 1]])
         Shapestock.lineTo((i - 1) * 100, (this.lineInfo[i - 1]) + 300)
@@ -276,6 +283,18 @@ const gameStore = makeAutoObservable(mix({
         Shapestock.lineTo((i - 1) * 100, this.lineInfo[i] + this.deltaPoints*100)
         Shapestock.endFill()
         return Shapestock;
+    },
+    pasueGame(){
+        this.gameEnd = true
+		this.role.carBody.sleep()
+		this.role.circleBody.sleep()
+		this.role.circleBody2.sleep()
+    },
+    goonGame(){
+        this.gameEnd = false
+		this.role.carBody.wakeUp()
+		this.role.circleBody.wakeUp()
+		this.role.circleBody2.wakeUp()
     }
 }, Background, RoleControl));
 export default gameStore;

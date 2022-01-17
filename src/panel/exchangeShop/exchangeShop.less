@@ -1,13 +1,13 @@
 @import "../../res.less";
 .exchangeShopWillAdvance1Tomorrow {
-  width: 820px;
+  width: 860px;
   height: 605px;
   position: absolute;
   transform: rotate(90deg);
   .popupWindowBottom {
     width: 615px;
     height: 596px;
-    left: 85px;
+    left: 125px;
     top: 0px;
     position: absolute;
     .exchangeShop {
@@ -41,7 +41,7 @@
   .shopBox {
     width: 615px;
     height: 519px;
-    left: 85px;
+    left: 125px;
     top: 77px;
     position: absolute;
     display: flex;
@@ -127,7 +127,7 @@
               &.tomorrowbuy {
                 .sparkBg("兑换商店明日预1/即将开启.png");
               }
-              &.noMoney {
+              &.noMoney-shop {
                 .sparkBg("兑换商店明日预1/金币不足.png");
               }
             }
@@ -141,21 +141,29 @@
       }
     }
   }
+  .shu {
+    width: 60px;
+    height: 65px;
+    position: absolute;
+    right: 110px;
+    bottom: 0;
+    .sparkBg("common/小树.png");
+
+  }
   .shutDown {
     width: 50px;
     height: 50px;
-    left: 730px;
+    left: 770px;
     top: 80px;
     position: absolute;
     .sparkBg("common/close.png");
   }
   .snowAndIceAtmosphere {
-    width: 820px;
-    height: 417px;
+    width: 860px;
+    height: 219px;
     left: 0px;
     top: 188px;
     position: absolute;
     pointer-events: none;
-    .sparkBg("common/冰雪氛围.png");
   }
 }

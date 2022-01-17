@@ -10,7 +10,7 @@ const listExchangeLimit = {
           consumeSps: [
             {
               spId: "sp_1",
-              quantity: 48375,
+              quantity: 10,
               spName: "道具名称",
               spImg:
                 "http://yun.duiba.com.cn/polaris/丝倍亮小型犬幼年年期全价犬粮7.5kg.c27e9ef4b4d418e8a90faa76798e20cb4f18a490.jpg",
@@ -153,7 +153,7 @@ const getMyPrize = {
         icon: "//yun.dui88.com/images/201907/tua0um9jjp.jpg",
         refType: "coupon",
         refId: "49354",
-        type: 4,
+        type: 1,
       },
       strategyId: 11,
       gmtCreate: 1565212826000,
@@ -390,7 +390,7 @@ const turnTableQuery = {
 const answerStart = {
   success: true,
   data: {
-    startId: "1212", //开始ID
+    startId: "start1212", //开始ID
   }
 }
 
@@ -557,6 +557,23 @@ const startGame = {
   data: "gameRecordUI"
 }
 
+const gameSubmit = {
+  success: true,
+  data: {
+    sendGold: 20,//发放金币数
+    answerFlag: 0,//1-可答题 0-不可答题
+    reGold: 180,//复活需要金币数
+    star: 1,
+  }
+}
+
+const getInviteCode = {
+  success: true,
+  data: {
+    inviteCode: 12345,
+  }
+}
+
 module.exports = {
   listExchangeLimit,
   doExchange,
@@ -577,5 +594,7 @@ module.exports = {
   stepNewGuide,
   inviteRecord,
   rankingAward,
-  startGame
+  startGame,
+  gameSubmit,
+  getInviteCode
 };

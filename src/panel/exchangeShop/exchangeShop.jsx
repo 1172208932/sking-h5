@@ -10,6 +10,7 @@ import "./exchangeShop.less";
 import { _throttle } from "@src/utils/utils.js";
 import { Toast } from "@spark/ui";
 import {loadOneImg} from "@src/utils/preload1.3"
+import { SvgaPlayer } from "@spark/animation";
 
 @observer
 class ExchangeShop extends React.Component {
@@ -24,7 +25,7 @@ class ExchangeShop extends React.Component {
 
   async componentDidMount() {
     this.getList();
-   await loadOneImg("//yun.duiba.com.cn/aurora/assets/f34a0933e4610fdef0c6a9be231a53bf951f3b94.png")
+   await loadOneImg("https://yun.duiba.com.cn/aurora/assets/f34a0933e4610fdef0c6a9be231a53bf951f3b94.png")
   }
 
   getList = async () => {
@@ -38,6 +39,7 @@ class ExchangeShop extends React.Component {
   };
 
   clickDateBtn = (flag) => {
+    console.log(flag,this.state.isNow)
     if (flag == this.state.isNow) return;
     this.setState({
       isNow: flag,
@@ -69,9 +71,10 @@ class ExchangeShop extends React.Component {
   render() {
     const { homeInfo } = store;
     const { isNow, todayResult, tomorrowResult } = this.state;
+    console.log(isNow)
     const bg = isNow
-      ? `url(${RES_PATH}/兑换商店明日预1/nowbg.png)`
-      : `//yun.duiba.com.cn/aurora/assets/f34a0933e4610fdef0c6a9be231a53bf951f3b94.png`;
+      ? `url(${RES_PATH}兑换商店明日预1/nowbg.png)`
+      : `url('//yun.duiba.com.cn/aurora/assets/f34a0933e4610fdef0c6a9be231a53bf951f3b94.png')`;
     const list = isNow ? todayResult : tomorrowResult;
     return (
       <div className="exchangeShopWillAdvance1Tomorrow">
@@ -82,7 +85,7 @@ class ExchangeShop extends React.Component {
           </div>
         </div>
         {/* 内容区域 */}
-        <div className="shopBox" style={{ backgroundImage: bg }}>
+        <div className="shopBox" style={{ backgroundImage: bg}}>
           {/* 今日明日按钮 */}
           <div className="shopbtnBox">
             <div className="now" onClick={() => this.clickDateBtn(true)}></div>
@@ -130,7 +133,7 @@ class ExchangeShop extends React.Component {
                           {isNow &&
                             item?.consumeSps?.[0]?.quantity >
                               homeInfo?.goldNum && (
-                              <div className="button noMoney"></div>
+                              <div className="button noMoney-shop"></div>
                             )}
                         </div>
                       </div>
@@ -144,11 +147,12 @@ class ExchangeShop extends React.Component {
           </div>
         </div>
 
+        <div className="shu"></div>
         <span
           className="shutDown"
           onClick={() => modalStore.closePop("ExchangeShop")}
         ></span>
-        <span className="snowAndIceAtmosphere"></span>
+        <SvgaPlayer className="snowAndIceAtmosphere" src={`${RES_PATH}svga/雪花.svga`}/>
       </div>
     );
   }

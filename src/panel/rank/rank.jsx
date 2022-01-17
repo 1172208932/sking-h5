@@ -87,7 +87,8 @@ class Rank extends React.Component {
           }
           </div>
         </div>
-        <span className="button3"></span>
+        {/* 邀请 */}
+        <span className="button3" onClick={() => store.toInvite()}></span>
         <span className="snowAndIceAtmosphere"></span>
       </div>
     );

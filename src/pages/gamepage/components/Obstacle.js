@@ -35,40 +35,51 @@ export default class Obstacle {
         box.addChild(shapeshow)
         if (this.type == "snow") {
             shapeshow.beginFill(0xff0000, 0.5)
-                .drawRect(0, 0, 40, 40)
+                .drawRect(0, 0, 40*0.6, 40*0.6)
                 .endFill();
             this.rectShape = new p2.Box({
-                width: 40, height: 40,
+                width: 40*0.6, height: 40*0.6,
                 material: new p2.Material()
             });
         } else if (this.type == "grass") {
             shapeshow.beginFill(0xff0000, 0.5)
-                .drawRect(0, 0, 244, 146)
+                .drawRect(0, 0, 244*0.6, 146*0.6)
                 .endFill();
             this.rectShape = new p2.Box({
-                width: 244, height: 146,
+                width: 244*0.6, height: 146*0.6,
                 material: new p2.Material()
             });
         } else if (this.type == "stone") {
             shapeshow.beginFill(0xff0000, 0.5)
-                .drawRect(0, 0, 79, 68)
+                .drawRect(0, 0, 79*0.6, 68*0.6)
                 .endFill();
             this.rectShape = new p2.Box({
-                width: 79, height: 68,
+                width: 79*0.6, height: 68*0.6,
                 material: new p2.Material()
             });
         } else if (this.type == "bigstone") {
             shapeshow.beginFill(0xff0000, 0.5)
-                .drawRect(0, 0, 142, 120)
+                .drawRect(0, 0, 142*0.6, 120*0.6)
                 .endFill();
             this.rectShape = new p2.Box({
-                width: 142, height: 120,
+                width: 142*0.6, height: 120*0.6,
+                material: new p2.Material()
+            });
+        } else if (this.type == "gem") {
+            shapeshow.beginFill(0xff0000, 0.5)
+                .drawRect(0, 0, 62*0.6, 55*0.6)
+                .endFill();
+            this.rectShape = new p2.Box({
+                width: 62*0.6, height: 55*0.6,
                 material: new p2.Material()
             });
         }
 
         var showY = -item.y
-        if (this.type != "snow") {
+        if (this.type == "snow" || this.type == "gem") {
+            showY = -item.y
+        } else {
+            
             var time = Math.floor(item.x / 100)
             if (time + 1 > lineInfo.length) {
                 time = time
@@ -76,14 +87,13 @@ export default class Obstacle {
                 time = time+1
             }
             showY = lineInfo[time] - this.rectShape.height + 10
-        } else {
-            showY = -item.y
         }
+
         this.rectcoin.position.set(item.x, showY + 300)
-        shapeshow.position.set(item.x, showY + 300)
+        shapeshow.position.set(item.x+this.rectShape.width*0.2, showY + 300+this.rectShape.height*0.2)
         this.rectBody = new p2.Body({
             mass: 0,    //重量
-            position: [item.x + this.rectShape.width / 2, (-showY) - 300 - this.rectShape.height / 2]
+            position: [item.x + this.rectShape.width / 2+this.rectShape.width*0.2, (-showY) - 300 - this.rectShape.height / 2 - this.rectShape.height*0.2]
         });
 
         this.rectBody.addShape(this.rectShape);

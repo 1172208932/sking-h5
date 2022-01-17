@@ -43,7 +43,7 @@ class CoinBox extends React.Component {
         {
           Boolean(iconList?.length) && iconList.map((item,index)=> {
             return(
-              <img src={`${RES_PATH}/mapPage/${item}.png`} alt="" key={index} className={`iconImg iconImg${item}`}/>
+              <img src={`${RES_PATH}mapPage/${item}.png`} alt="" key={index} className={`iconImg iconImg${item}`}/>
             )
           })
         }

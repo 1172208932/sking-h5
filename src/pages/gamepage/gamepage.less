@@ -1,8 +1,8 @@
 @import "../../res.less";
 
 .gamepage {
-  width: 1673px;
-  height: 738px;
+  width: 100%;
+  height: 100%;
   top: 0px;
   // position: absolute;
   position: fixed;
@@ -12,7 +12,8 @@
   .startpop {
     width: 1673px;
     height: 738px;
-    left: 0px;
+    left: 50%;
+  transform: translateX(-50%);
     top: 0px;
     position: absolute;
 
@@ -201,19 +202,29 @@
     }
   }
 
-  .canvas {
-    width: 100%;
-    height: 750px;
-    left: 21px;
-    top: 0px;
-    position: absolute;
+  .canvasbox {
+      width: 100%;
+      height: 100%;
+      left: 0px;
+      top: 0px;
+      position: absolute;
+    .canvas {
+      width: 1624px;
+      height: 750px;
+      left: 50%;
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      position: absolute;
+    }
   }
+  
 
   .iconarea {
     width: 1308px;
     height: 92px;
-    left: 189px;
-    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 5%;
     position: absolute;
 
     .distance {

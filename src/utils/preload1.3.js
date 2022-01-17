@@ -159,3 +159,22 @@ function loadOneJson(url) {
 
 
 
+/**
+ * 预加载本项目的一些资源
+ */
+export function loadLocalAssets() {
+    let urlList = [
+        'svga/标题与人物.svga',
+        'svga/开始游戏.svga',
+        'svga/手势单击.svga',
+        'svga/流光高亮.svga',
+        'svga/兑换商店.svga',
+        'mapPage/mapBg1.png',
+        'mapPage/mapBg2.png',
+        'svga/结算星星1.svga',
+        'svga/结算星星2.svga',
+        'svga/结算星星3.svga',
+        'svga/女生和牛.svga',
+    ]
+    preloadAsset(urlList,3)
+}

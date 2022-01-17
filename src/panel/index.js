@@ -14,4 +14,6 @@ import NoMoney from "./noMoney/noMoney"
 import GameRemind from "./gameRemind/gameRemind"
 import InviteLimit from "./inviteLimit/inviteLimit"
 import RockPrize from "./rockPrize/rockPrize"
-export {ExchangeShop, ExchangeConfirm,Rule,Myprize,Rank,InviteSuccess,TurnTable,DrawPrize,Answer,GameFail, Task,ToInvite,NoMoney,GameRemind,InviteLimit,RockPrize}
+import GameSuccess from "./gameSuccess/gameSuccess"
+import GameLeave from "./gameLeave/gameLeave"
+export {ExchangeShop, ExchangeConfirm,Rule,Myprize,Rank,InviteSuccess,TurnTable,DrawPrize,Answer,GameFail, Task,ToInvite,NoMoney,GameRemind,InviteLimit,RockPrize,GameSuccess,GameLeave}

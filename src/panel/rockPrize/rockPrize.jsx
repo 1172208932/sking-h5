@@ -37,7 +37,9 @@ class RockPrize extends React.Component {
         aniMinTime: 3000, //动画执行最少时间
       }
     );
-    this.toDraw()
+    setTimeout(() => {
+      this.toDraw()
+    },1000)
     this.rockEnd();
   };
 
@@ -45,7 +47,6 @@ class RockPrize extends React.Component {
     this.lottery.on("end", (data) => {
       console.log("jieshujieshu",data);
       store.getHomeInfo();
-      console.log(data.optionId,"data.optionId")
       if (data.prizeId == "thanks") {
         setTimeout(() => {
           Toast("没有中奖哦，再接再厉")
@@ -53,11 +54,11 @@ class RockPrize extends React.Component {
         }, 1000);
       } else {
         setTimeout(() => {
-          modalStore.closePop("RockPrize")
           modalStore.pushPop("DrawPrize",{prizeInfo:{
             optionName: data.optionName,
             optionImg: data.optionImg
-          }})
+          }},true)
+          modalStore.closePop("RockPrize")
         }, 1000);
       }
     });
@@ -126,8 +127,8 @@ class RockPrize extends React.Component {
     const { prizeList } = this.state;
     return (
       <div className="fullStarDraw1">
-        <span className="snowAndIceAtmosphere"></span>
-        <span className="ribbon"></span>
+        <SvgaPlayer className="snowAndIceAtmosphere" src={`${RES_PATH}svga/雪花出来.svga`}></SvgaPlayer>
+        <SvgaPlayer className="ribbon" src={`${RES_PATH}svga/彩带.svga`} loop={1}></SvgaPlayer>
         <span className="light"></span>
         <span className="title"></span>
       
@@ -158,7 +159,7 @@ class RockPrize extends React.Component {
             })}
           </div>
         </div>
-        <SvgaPlayer className="highlightPoints" src={`${RES_PATH}/svga/摇奖机光圈.svga`}/>
+        <SvgaPlayer className="highlightPoints" src={`${RES_PATH}svga/摇奖机光圈.svga`}/>
       </div>
     );
   }

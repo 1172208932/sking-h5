@@ -12,7 +12,7 @@ import { Marquee, Toast } from "@spark/ui";
 import { SvgaPlayer } from '@spark/animation';
 import AvatarBox from "@src/components/AvatarBox/AvatarBox"
 import CoinBox from "@src/components/CoinBox/CoinBox"
-
+import {loadLocalAssets} from "@src/utils/preload1.3"
 @observer
 class HomePage extends React.Component {
   constructor(props) {
@@ -22,9 +22,15 @@ class HomePage extends React.Component {
     }
   }
   async componentDidMount() {
+    // 用户助力,要比首页接口先调用！！！
+    await this.toAssist();
+    loadLocalAssets();
     await store.getHomeInfo();
     this.indexDataChange();
     this.getCarousel();
+    // modalStore.pushPop("GameSuccess",{
+    //   ...{sendGold:10,answerFlag:0,reGold:11,star:3},
+    // })
   }
 
   // 首页接口数据处理
@@ -33,8 +39,6 @@ class HomePage extends React.Component {
     if(store.homeInfo?.assistInfo?.assistNum > 0) {
       modalStore.pushPop("InviteSuccess")
     }
-    // 用户助力
-    this.toAssist();
     // 助力上限
     if(store?.homeInfo?.assistInfo?.limitNum > 0) {
       modalStore.pushPop("InviteLimit")
@@ -42,7 +46,8 @@ class HomePage extends React.Component {
   }
 
   toAssist = async() => {
-    if(CFG.inviteCode && !sessionStorage.getItem("inviteCode")) {
+    // TODO !sessionStorage.getItem("inviteCode")
+    if(CFG.inviteCode) {
       const {success} = await API.doAssist({
         inviteCode: CFG.inviteCode
       })
@@ -77,11 +82,11 @@ class HomePage extends React.Component {
       <div className="homePagebox">
       <div className="homepage">
         <span className="title"></span>
-        <SvgaPlayer src={`${RES_PATH}/svga/标题与人物.svga`} className='title-person'></SvgaPlayer>
+        <SvgaPlayer src={`${RES_PATH}svga/标题与人物.svga`} className='title-person'></SvgaPlayer>
 
         {/* 开始游戏按钮 */}
-        <SvgaPlayer className="startga" src={`${RES_PATH}/svga/开始游戏.svga`} onClick={() => store.changePage('Mappage')}/>
-        <SvgaPlayer className="gesturesAperture" src={`${RES_PATH}/svga/手势单击.svga`} />
+        <SvgaPlayer className="startga" src={`${RES_PATH}svga/开始游戏.svga`} onClick={() => store.changePage('Mappage')}/>
+        <SvgaPlayer className="gesturesAperture" src={`${RES_PATH}svga/手势单击.svga`} />
         {/* 左上角icon */}
         <div className="topleft">
           {/* 头像 */}
@@ -113,7 +118,7 @@ class HomePage extends React.Component {
         <div className="bottoml">
           {/* 兑换商店 */}
           <div className="duiHuanShangDian" onClick={() => modalStore.pushPop("ExchangeShop")}>
-            <SvgaPlayer src={`${RES_PATH}/svga/兑换商店.svga`} className='store-svga'></SvgaPlayer>
+            <SvgaPlayer src={`${RES_PATH}svga/兑换商店.svga`} className='store-svga'></SvgaPlayer>
           </div>
           {/* 得金币 */}
           <span className="deJinBi" onClick={() => modalStore.pushPop("Task")}></span>

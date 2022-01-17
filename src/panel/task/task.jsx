@@ -55,7 +55,8 @@ class Task extends React.Component {
       const {success, data} = await API.doSign();
       if(success) {
         Toast(`签到成功，金币+${data?.options?.[0]?.sendCount || 0}`)
-        this.getSignDetail()
+        this.getSignDetail();
+        store.getHomeInfo();
       }
     }
   })
@@ -115,7 +116,7 @@ class Task extends React.Component {
               <p className="subTitle textover">邀请好友可得{homeInfo?.inviteGolds}金币</p>
             </div>
             {/* 去邀请TODO */}
-            <div className="inviteBtn"></div>
+            <div className="inviteBtn" onClick={() => store.toInvite()}></div>
           </div>
         </div>
         <span className="shutDown" onClick={() => modalStore.closePop("Task")}></span>

@@ -71,7 +71,7 @@ class LastPrize extends React.Component {
           {homeInfo?.rankReceiveFlag == 2 && (
             <SvgaPlayer
               className="gesturesAperture"
-              src={`${RES_PATH}/svga/手势单击.svga`}
+              src={`${RES_PATH}svga/手势单击.svga`}
             />
           )}
         </div>

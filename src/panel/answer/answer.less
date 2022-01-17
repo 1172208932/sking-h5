@@ -1,22 +1,40 @@
 @import "../../res.less";
 .iDidntChoose1 {
   width: 704px;
-  height: 432px;
+  height: 669px;
   position: absolute;
   transform: rotate(90deg);
   padding: 0 63px;
   box-sizing: border-box;
+  .topAvatar {
+    width: 502px;
+    height: 257px;
+    left: 106px;
+    position: absolute;
+    top:0;
+    display: flex;
+    justify-content: center;
+    .avatar-svga {
+      width: 502px;
+      height: 257px;
+    }
+    .avatar-fail {
+      width: 182px;
+      height: 235px;
+      .sparkBg("答题未选1/晕.png");
+    }
+  }
   .popupWindowBottom {
     width: 704px;
     height: 432px;
     left: 0px;
-    top: 0px;
+    top: 170px;
     position: absolute;
     .sparkBg("答题未选1/弹窗底板.png");
   }
   .title {
     width: 595px;
-    top: 48px;
+    top: 210px;
     position: absolute;
     font-size: 36px;
     color: rgba(30, 74, 121, 1);
@@ -25,7 +43,7 @@
     width: 574px;
     height: 210px;
     position: absolute;
-    top: 159px;
+    top: 339px;
     left: 71px;
     .answeritem {
       width: 100%;
@@ -66,6 +84,35 @@
           height: 26px;
           .sparkBg("答题未选1/错.png");
         }
+      }
+    }
+  }
+  .answer-result {
+    width: 780px;
+    height: 503px;
+    position: absolute;
+    top: 120px;
+    left: -40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .answer-ok-svga {
+      width: 780px;
+      height: 503px;
+    }
+    .answer-fail-png {
+      width: 686px;
+      height: 132px;
+      .sparkBg("答题未选1/失败背景.png");
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 1s forwards;
+      .fail {
+        width: 198px;
+        height: 54px;
+        .sparkBg("答题未选1/答题失败.png");
       }
     }
   }

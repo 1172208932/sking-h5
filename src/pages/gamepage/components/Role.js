@@ -26,8 +26,12 @@ export default class Role extends Sprite {
     jump2
     smokeSvga
 
+    roleOffsetX
+
     constructor() {
         super()
+        this.roleOffsetX = 500
+
         this.initUI()
     }
 
@@ -42,6 +46,7 @@ export default class Role extends Sprite {
     }
 
     jumpRole2() {
+        this.jump1.visible = false
         this.roleSkin.visible = false
         this.jump2.visible = true
         this.jump2.startAniRange(0, this.jump2.totalFrames, 1, () => {
@@ -57,14 +62,14 @@ export default class Role extends Sprite {
         // this.addChild(speedUpBtnAni)
         // 烟雾
         SvgaParser.loadSvga('https://yun.duiba.com.cn/aurora/assets/da64169b4e806806999ba8bf73e95ba7539dfd99.svga', (data) => {
-            console.log(this,'this')
+            console.log(this, 'this')
             //创建SvgaAni对象
-            const svga = this.smokeSvga= this.car.addChild(new FYGE.SvgaAni(data));
+            const svga = this.smokeSvga = this.car.addChild(new FYGE.SvgaAni(data));
 
             // svga.anchorTexture.set(1, 1);
 
             //设置svga位置~
-            svga.position.set(-180, -40);
+            svga.position.set(-180, -40 + 56);
             svga.visible = false
 
             //从0到最后一帧播放一次动画，并进行回调
@@ -75,7 +80,7 @@ export default class Role extends Sprite {
         SvgaParser.loadSvga('https://yun.duiba.com.cn/aurora/assets/948a86510f6f12d4cfc3f52a23a165fb0b75b5ec.svga', (data) => {
             //创建SvgaAni对象
             this.jump1 = this.car.addChild(new FYGE.SvgaAni(data));
-            this.jump1.position.set(-13, -85);
+            this.jump1.position.set(-13, -85 + 56);
             this.jump1.stop(0)
             this.jump1.visible = false
 
@@ -84,8 +89,8 @@ export default class Role extends Sprite {
         // 二段跳
         SvgaParser.loadSvga('https://yun.duiba.com.cn/aurora/assets/865da1fc8b0ea72c473cc23a61189f55277f53e0.svga', (data) => {
             //创建SvgaAni对象
-            this.jump2 =  this.car.addChild(new FYGE.SvgaAni(data));
-            this.jump2.position.set(-12, -85);
+            this.jump2 = this.car.addChild(new FYGE.SvgaAni(data));
+            this.jump2.position.set(-12, -85 + 56);
             this.jump2.stop(0)
             this.jump2.visible = false
         })
@@ -94,7 +99,7 @@ export default class Role extends Sprite {
         this.addChild(circle);
         // circledrawRoundedRect
         circle.beginFill(0xff0000, 0.5)
-            .drawCircle(0, 0, 8)
+            .drawCircle(0 , 0, 8)
             // .drawRoundedRect(0,0,40,40)
             .endFill();
 
@@ -106,7 +111,7 @@ export default class Role extends Sprite {
         //  new Circle({ radius: 20 });
         const circleBody = this.circleBody = new p2.Body({
             mass: 1, //重量
-            position: [100, -210],
+            position: [100 + this.roleOffsetX, -210],
             // fixedRotation: true,
         });
         circleBody.addShape(circleShape);
@@ -129,7 +134,7 @@ export default class Role extends Sprite {
         //  new Circle({ radius: 20 });
         const circleBody2 = this.circleBody2 = new p2.Body({
             mass: 1, //重量
-            position: [180, -210],
+            position: [180 + this.roleOffsetX, -210],
             // fixedRotation: true,
         });
         circleBody2.addShape(circleShape2);
@@ -140,7 +145,7 @@ export default class Role extends Sprite {
         const car = this.car = new FYGE.Shape();
         const role = this.roleSkin = car.addChild(FYGE.Sprite.fromUrl("//yun.duiba.com.cn/aurora/assets/b9a82aa3e1f0ab0dc2c2b7604ead33f215c9da4f.png"))
         role.anchorTexture.set(0, 1);
-        role.position.set(0, 36)
+        role.position.set(0, 36 + 56)
         role.scale.set(0.5, 0.5)
         // role.width = 150;
         // role.height = 15;
@@ -148,7 +153,7 @@ export default class Role extends Sprite {
         this.addChild(car);
         // circledrawRoundedRect
         car.beginFill(0xff0000, 0.5)
-            .drawRect(0, 0, 90, 113)
+            .drawRect(0 , 0, 90, 113)
             // .drawRoundedRect(0,0,40,40)
             .endFill();
 
@@ -159,11 +164,12 @@ export default class Role extends Sprite {
         });
         //  new Circle({ radius: 20 });
         const carBody = this.carBody = new p2.Body({
-            mass: 3, //重量
+            mass: 2, //重量
             // position: [100, -410],
             // position: [180, -410],
             angularDamping: 1,
-            position: [140, -170],
+            position: [140 + this.roleOffsetX, -170],
+            collisionResponse:false
             // fixedRotation: true,
         });
         carBody.addShape(carShape);

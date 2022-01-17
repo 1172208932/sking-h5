@@ -36,18 +36,18 @@ export const Background = {
     initbg() {
         this.bgArea0.addChild(FYGE.Sprite.fromUrl(`${RES_PATH}GamePage/level1/sky.png`))
 
-        FYGE.GlobalLoader.loadImage((s, image) => {
-            //纹理
-            var texture = FYGE.Texture.fromImage(image);
-            //显示对象
-            var spr = new FYGE.Sprite(texture)
-            spr.y = 184 + this.offsetY
-            this.bgArea1.addChild(spr)
-            var spr2 = new FYGE.Sprite(texture)
-            spr2.y = 184 + this.offsetY
-            spr2.x = spr.width
-            this.bgArea1.addChild(spr2)
-        }, `${RES_PATH}GamePage/level1/bg1-1.png`)
+        // FYGE.GlobalLoader.loadImage((s, image) => {
+        //     //纹理
+        //     var texture = FYGE.Texture.fromImage(image);
+        //     //显示对象
+        //     var spr = new FYGE.Sprite(texture)
+        //     spr.y = 184 + this.offsetY
+        //     this.bgArea1.addChild(spr)
+        //     var spr2 = new FYGE.Sprite(texture)
+        //     spr2.y = 184 + this.offsetY
+        //     spr2.x = spr.width
+        //     this.bgArea1.addChild(spr2)
+        // }, `${RES_PATH}GamePage/level1/bg1-1.png`)
 
         this.addBgList2Item(0);
         this.addBgList2Item(1);
@@ -93,17 +93,15 @@ export const Background = {
     },
 
     MoveBg() {
-        if (!this.bgArea1?.children?.length) {
-            return
-        }
-        // debugger
-        // console.log(this.bgArea1,'this.bgArea1')
+        // if (!this.bgArea1?.children?.length) {
+        //     return
+        // }
 
-        // 滚动背景
-        if (this.bgArea1.x <= -this.bgArea1.children[0].width * 1.5) {
-            this.bgArea1.x = -this.bgArea1.children[0].width * 0.5
-        }
-        this.bgArea1.x = this.bgArea1.x - 1
+        // // 滚动背景
+        // if (this.bgArea1.x <= -this.bgArea1.children[0].width * 1.5) {
+        //     this.bgArea1.x = -this.bgArea1.children[0].width * 0.5
+        // }
+        // this.bgArea1.x = this.bgArea1.x - 1
         // if (this.bgArea1.x <= -4872) {
         //     this.bgArea1.x = -1624
         // }

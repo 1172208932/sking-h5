@@ -1,0 +1,66 @@
+@import "../../res.less";
+.gameLeavePanel {
+  width: 861px;
+  height: 676px;
+  position: absolute;
+  transform: rotate(90deg);
+  .content-gamefail {
+    width: 704px;
+    height: 562px;
+    left: 71px;
+    top: 0px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    .sparkBg("复活弹窗1/background.png");
+    p {
+      text-align: center;
+      margin-top: 340px;
+      font-size: 30px;
+      color: rgba(32, 94, 139, 1);
+    }
+  }
+
+  .gameLeaveTitle{
+    width: 704px;
+    height: 100px;
+    left: 71px;
+    top: 230px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    p {
+      font-weight: bold;
+      text-align: center;
+      margin-top: 0px;
+      font-size: 43px;
+      color: #205e8b;
+    }
+  }
+  .again-fail {
+    width: 395px;
+    height: 88px;
+    left: 441px;
+    top: 588px;
+    position: absolute;
+
+
+    .sparkBg("复活弹窗1/continueBtnBg.png");
+
+    text-align: center;
+    line-height: 88px;
+    font-weight: bold;
+    font-size: 36px;
+    color: #204979;
+
+  }
+
+  .out {
+    width: 395px;
+    height: 88px;
+    left: 0px;
+    top: 588px;
+    position: absolute;
+    .sparkBg("复活弹窗1/out.png");
+  }
+}
