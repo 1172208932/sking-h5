@@ -34,12 +34,19 @@ const gameStore = makeAutoObservable(mix({
     timeControl:null,
     deltaPoints:20,
     distance:0,
+    betweenDistanceFrame:0,
 	enterFrame(stage){
         // console.log(this.role.carBody.velocity[0],this.role.carBody.velocity[1])
         this.phyworld.step(1 / 60);
-        if(this.role?.carBody){
-            this.distance = this.role.carBody.position[0]
+
+        this.betweenDistanceFrame ++ ;
+        if(this.betweenDistanceFrame>=30){
+            if(this.role?.carBody){
+                this.distance = this.role.carBody.position[0]
+            }
+            this.betweenDistanceFrame = 0
         }
+
         if(!this.beginGame){return}
         if( this.timeControl){
             return
@@ -270,7 +277,7 @@ const gameStore = makeAutoObservable(mix({
         } else {
             console.log("移除了")
         }
-        console.log(this.bgCon.children)
+        // console.log(this.bgCon.children)
 
 
     },

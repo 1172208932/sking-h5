@@ -64,8 +64,8 @@ export const RoleControl = {
 
 
         
-    console.log(this.line0)
-    console.log(this.role.carBody,'this.role.carBody')
+    // console.log(this.line0)
+    // console.log(this.role.carBody,'this.role.carBody')
 
         // var prismatic = new p2.PrismaticConstraint(this.line1,  this.role.carBody, {
         //     localAnchorA :  [ 1, 0],    // Anchor point in bodyA, where the axis starts

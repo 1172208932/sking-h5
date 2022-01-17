@@ -62,7 +62,7 @@ export default class Role extends Sprite {
         // this.addChild(speedUpBtnAni)
         // 烟雾
         SvgaParser.loadSvga('https://yun.duiba.com.cn/aurora/assets/da64169b4e806806999ba8bf73e95ba7539dfd99.svga', (data) => {
-            console.log(this, 'this')
+            // console.log(this, 'this')
             //创建SvgaAni对象
             const svga = this.smokeSvga = this.car.addChild(new FYGE.SvgaAni(data));
 
