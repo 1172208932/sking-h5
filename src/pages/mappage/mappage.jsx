@@ -43,7 +43,7 @@ class Mappage extends React.Component {
     let queryNewGuideInfo = await API.queryNewGuide()
     console.info('queryNewGuideInfo:', queryNewGuideInfo)
     if (!queryNewGuideInfo.data.completeGuide) {
-      // document.body.style.overflow = "hidden";
+      document.body.style.overflow = "hidden";
 
       let toHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight) - document.documentElement.clientHeight
       document.documentElement.scrollTop = toHeight
