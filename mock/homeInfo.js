@@ -103,42 +103,42 @@ module.exports =  {
         star: "1",
         receive: "1",
       },
-      // {
-      //   level: "16",
-      //   score: "0",
-      //   star: "3",
-      //   receive: "1",
-      // },
-      // {
-      //   level: "17",
-      //   score: "0",
-      //   star: "3",
-      //   receive: "1",
-      // },
-      // {
-      //   level: "18",
-      //   score: "0",
-      //   star: "3",
-      //   receive: "1",
-      // },
-      //  {
-      //   level: "19",
-      //   score: "0",
-      //   star: "1",
-      //   receive: "1",
-      // },
-      // {
-      //   level: "20",
-      //   score: "0",
-      //   star: "3",
-      //   receive: "1",
-      // },
-      // {
-      //   level: "20_gift",
-      //   score: "0",
-      //   star: "0",
-      //   receive: "0",//receive":"0-未领取 1-已领取 2-待领取
-      // },
+      {
+        level: "16",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "17",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "18",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+       {
+        level: "19",
+        score: "0",
+        star: "1",
+        receive: "1",
+      },
+      {
+        level: "20",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "20_gift",
+        score: "0",
+        star: "0",
+        receive: "0",//receive":"0-未领取 1-已领取 2-待领取
+      },
       // {
       //   level: "21",
       //   score: "0",
@@ -267,6 +267,42 @@ module.exports =  {
       },
       {
         "level": "15",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "16",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "17",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "18",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "19",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "20",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "21",
         "star2": 666,
         "star1": -14169123.906866238,
         "star3": 7777

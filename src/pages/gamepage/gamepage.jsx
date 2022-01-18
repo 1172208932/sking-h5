@@ -278,7 +278,7 @@ class Gamepage extends React.Component {
 
             <div className="distance">
               <span className="distancebg"></span>
-              <span className="distancenum">{gameStore.distance}m</span>
+              <span className="distancenum">{Math.floor(gameStore.distance)}m</span>
             </div>
             <div className="bar">
               <div className="three">
