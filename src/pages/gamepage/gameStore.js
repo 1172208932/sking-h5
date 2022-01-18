@@ -49,13 +49,13 @@ const gameStore = makeAutoObservable(mix({
         }
 
         // 位置
-        if (this.role.carBody.position[0] > this.deltaPoints *100 * (this.subdivision+1 ) -1300) {
+        if (this.role.carBody.position[0] > this.deltaPoints *100 * (this.subdivision) +600) {
             this.subdivision++;
             this.removetype = true
             this.addLine(this.subdivision,this.phyworld)
         }
 
-        if(this.role.carBody.position[0]>this.subdivision*this.deltaPoints *100+400 && this.removetype){
+        if(this.role.carBody.position[0]>this.subdivision*this.deltaPoints *100+150 && this.removetype){
             console.log("remove")
             this.removetype = false
             this.removeLine((this.subdivision - 1), this.phyworld)
@@ -98,33 +98,41 @@ const gameStore = makeAutoObservable(mix({
     phyworld: '',
     additiveslist: [],
     endId: '',
+    Shapestock0: '',
+    Shapestock1: '',
     createPhysicsWorld() {
-        this.phyworld = new p2.World({
-            gravity: [0, -700]
-        });
+        if(!this.phyworld){
+            this.phyworld = new p2.World({
+                gravity: [0, -600]
+            });
+        }
+        
 
         // this.phyworld.defaultContactMaterial.friction = 10000;
 
         //划线
         var heights = [];
-        const shape = new FYGE.Shape(); // debug
-        this.bgCon.addChild(shape);   // debug
+        // const shape = new FYGE.Shape(); // debug
+        // this.bgCon.addChild(shape);   // debug
 
         //绘制地面线路
 
         this.shape0 = new FYGE.Shape(); // debug
+        this.shape1 = new FYGE.Shape();
+        this.Shapestock0 = new FYGE.Shape(); // debug
+        this.Shapestock1 = new FYGE.Shape();
         this.bgCon.addChild(this.shape0);   // debug
         //绘制地面线路
         
         this.shape0.beginStroke(0xff0000, 4); // debug
-        var Shapestock = new FYGE.Shape();
-        this.shape0.addChild(Shapestock)
+        // var Shapestock = new FYGE.Shape();
+        this.shape0.addChild(this.Shapestock0)
         for (let i = 0; i < this.deltaPoints ; i++) {
             const y = this.lineInfo[i];
             heights.push(-y);   // 加入高度组
             this.shape0.lineTo(i * 100, y + 300);   // debug
             if (i > 0){
-                this.stockArea(i,Shapestock)
+                this.stockArea(i,this.Shapestock0)
                 
             }
             
@@ -195,19 +203,25 @@ const gameStore = makeAutoObservable(mix({
         var heights = []
         var useShape;
         var useLine;
+        var Shapestock;
         if (subdivision % 2 == 0) {
-            this.shape0 = new FYGE.Shape();
+            this.shape0.clear()
+            this.Shapestock0.clear()
             this.bgCon.addChild(this.shape0);
             useShape = this.shape0
+            this.shape0.addChild(this.Shapestock0)
             this.line0 = new p2.Body({
                 mass: 0,
                 position: [(subdivision * this.deltaPoints - 1) * 100, -300],
             });
             world.addBody(this.line0);
             useLine = this.line0
+            Shapestock = this.Shapestock0
         } else {
-            this.shape1 = new FYGE.Shape();
+            this.shape1.clear()
+            this.Shapestock1.clear()
             this.bgCon.addChild(this.shape1);
+            this.shape1.addChild(this.Shapestock1)
             useShape = this.shape1
             this.line1 = new p2.Body({
                 mass: 0,
@@ -215,12 +229,14 @@ const gameStore = makeAutoObservable(mix({
             });
             world.addBody(this.line1);
             useLine = this.line1
+            Shapestock = this.Shapestock1
+
         }
         console.log((subdivision * this.deltaPoints - 1) * 100, this.lineInfo[subdivision * this.deltaPoints - 1])//为啥查一个
         //绘制地面线路
         useShape.beginStroke(0xff0000, 4); // debug
-        var Shapestock = new FYGE.Shape();
-        useShape.addChild(Shapestock)
+        // var Shapestock = new FYGE.Shape();
+        // useShape.addChild(Shapestock)
         for (let i = subdivision * this.deltaPoints - 1; i < (subdivision * this.deltaPoints + this.deltaPoints < this.lineInfo.length ? subdivision * this.deltaPoints + this.deltaPoints : this.lineInfo.length); i++) {
             const y = this.lineInfo[i];
             heights.push(-y);   // 加入高度组
