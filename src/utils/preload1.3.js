@@ -175,6 +175,9 @@ export function loadLocalAssets() {
         'svga/结算星星2.svga',
         'svga/结算星星3.svga',
         'svga/女生和牛.svga',
+        'mapPage/gift.png',
+        'mapPage/敬请期待.png',
+        'mapPage/greenLevelBg.png',
     ]
     preloadAsset(urlList,3)
 }

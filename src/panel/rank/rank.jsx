@@ -8,6 +8,7 @@ import modalStore from '@src/store/modal';
 import API from '../../api';
 import { USER_AVATAR, USER_NAME } from '@src/utils/constants.js';
 import './rank.less';
+import { SvgaPlayer } from "@spark/animation";
 
 @observer
 class Rank extends React.Component {
@@ -37,6 +38,7 @@ class Rank extends React.Component {
     return (
       <div className="rank">
         <span className="popupWindowBottom"></span>
+        <SvgaPlayer className="snowAndIceAtmosphere" src={`${RES_PATH}svga/雪花.svga`}></SvgaPlayer>
         <span className="shutDown" onClick={() => modalStore.closePop("Rank")}></span>
         {/* 奖品区域 */}
         <div className="rank-prizeList">
@@ -88,8 +90,7 @@ class Rank extends React.Component {
           </div>
         </div>
         {/* 邀请 */}
-        <span className="button3" onClick={() => store.toInvite()}></span>
-        <span className="snowAndIceAtmosphere"></span>
+        <div className="button3" onClick={() => store.toInvite()}></div>
       </div>
     );
   }
