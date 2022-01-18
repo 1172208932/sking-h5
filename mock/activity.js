@@ -330,6 +330,7 @@ const getRank = {
 
 const turnTableDraw = {
   success: true,
+  message: "11",
   data: {
     extra: 1,
     options: [
@@ -548,7 +549,7 @@ const queryNewGuide = {
   "code": "",
   "data": {
     "skipNewGuide": false,
-    "completeGuide": false,
+    "completeGuide": true,
     "alreadyGuideSteps": 3,
     "allGuideSteps": 3,
     "extra": ""
