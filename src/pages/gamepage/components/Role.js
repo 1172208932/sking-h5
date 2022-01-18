@@ -38,6 +38,7 @@ export default class Role extends Sprite {
     jumpRole1() {
         this.smokeSvga.visible = false
         this.roleSkin.visible = false
+        if(this.jump1.visible = true){return}
         this.jump1.visible = true
         this.jump1.startAniRange(0, this.jump1.totalFrames, 1, () => {
             this.roleSkin.visible = true
@@ -164,7 +165,7 @@ export default class Role extends Sprite {
         });
         //  new Circle({ radius: 20 });
         const carBody = this.carBody = new p2.Body({
-            mass: 2, //重量
+            mass: 1, //重量
             // position: [100, -410],
             // position: [180, -410],
             angularDamping: 1,

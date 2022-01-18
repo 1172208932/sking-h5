@@ -34,10 +34,32 @@ export const RoleControl = {
         this.phyworld.addBody(this.role.circleBody);
         this.phyworld.addBody(this.role.circleBody2);
         this.phyworld.addBody(this.role.carBody);
-        let revoluteBack = new p2.LockConstraint(this.role.carBody, this.role.circleBody);
-        let revoluteFront = new p2.LockConstraint(this.role.carBody, this.role.circleBody2);
-        this.phyworld.addConstraint(revoluteBack);
-        this.phyworld.addConstraint(revoluteFront);
+
+
+        // let revoluteBack = new p2.LockConstraint(this.role.carBody, this.role.circleBody);
+        // let revoluteFront = new p2.LockConstraint(this.role.carBody, this.role.circleBody2);
+        // this.phyworld.addConstraint(revoluteBack);
+        // this.phyworld.addConstraint(revoluteFront);
+
+
+
+        var c1 = new p2.PrismaticConstraint(this.role.carBody,this.role.circleBody,{
+            localAnchorA : [-45,-46],
+            localAnchorB : [0,0],
+            localAxisA : [0,1],
+            disableRotationalLock : true,
+        });
+        var c2 = new p2.PrismaticConstraint(this.role.carBody,this.role.circleBody2,{
+            localAnchorA : [ 45,-46],
+            localAnchorB : [0,0],
+            localAxisA : [0,1],
+            disableRotationalLock : true,
+        });
+        c1.setLimits(-8, 8);
+        c2.setLimits(-8, 8);
+        this.phyworld.addConstraint(c1);
+        this.phyworld.addConstraint(c2);
+
     },
     addMaterial(heighshape) {
         var contactMaterial1 = new p2.ContactMaterial(heighshape.material, this.role.circleShape.material, {
