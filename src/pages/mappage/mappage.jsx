@@ -35,7 +35,7 @@ class Mappage extends React.Component {
   componentDidMount() {
     let homeInfo = Object.assign({}, toJS(store.homeInfo));
     console.info('homeInfo:', homeInfo)
-    // this.queryNewGuide()
+    this.queryNewGuide()
     this.moveMap()
   }
   async queryNewGuide() {
