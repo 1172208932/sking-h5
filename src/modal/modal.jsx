@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ExchangeShop, ExchangeConfirm, Rule, Myprize, Rank, InviteSuccess, TurnTable, DrawPrize, Answer, GameFail, Task, ToInvite, NoMoney, GameRemind, InviteLimit, RockPrize, GameSuccess, GameLeave } from "../panel/index.js";
+import { ExchangeShop, ExchangeConfirm, Rule, Myprize, Rank, InviteSuccess, TurnTable, DrawPrize, Answer, GameFail, Task, ToInvite, NoMoney, GameRemind, InviteLimit, RockPrize, GameSuccess, GameLeave,GameGuide } from "../panel/index.js";
 import './modal.less';
 import { observer } from 'mobx-react';
 import modalStore from '../store/modal';
@@ -23,6 +23,7 @@ export const cfg = {
   RockPrize,
   GameSuccess,
   GameLeave,
+  GameGuide,
 };
 
 @observer
