@@ -148,6 +148,7 @@ export const RoleControl = {
         this.role.circle.position.set(x, y);
         this.role.car.rotation = -this.role.carBody.angle / Math.PI * 180
 
+        if( this.gameEnd ){ return }
         this.bgCon.x = -x + stage.width / 8 +this.offsetX - 300//镜头跟随
         this.bgCon.y = -y + stage.height * 0.6
         
@@ -191,10 +192,10 @@ export const RoleControl = {
             this.isCallWin = true
             // console.log(e)
             // console.log(hfShapeBody)
-            this.role.carBody.fixedRotation = false
-            console.log('游戏结束')
-			this.count = 0
-			this.gameWin();
+            // this.role.carBody.fixedRotation = false
+            // console.log('游戏结束')
+			// this.count = 0
+			// this.gameWin();
             // this.role.carBody.angle = 0
         }else{
 			for(let i =0; i<this.additiveslist.length;i++){

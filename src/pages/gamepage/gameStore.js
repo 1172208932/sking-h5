@@ -48,6 +48,8 @@ const gameStore = makeAutoObservable(mix({
             this.MoveBg()
         }
 
+        if(this.gameEnd){return}
+
         // 位置
         if (this.role.carBody.position[0] > this.deltaPoints *100 * (this.subdivision) +600) {
             this.subdivision++;
@@ -55,11 +57,23 @@ const gameStore = makeAutoObservable(mix({
             this.addLine(this.subdivision,this.phyworld)
         }
 
+
         if(this.role.carBody.position[0]>this.subdivision*this.deltaPoints *100+150 && this.removetype){
             console.log("remove")
             this.removetype = false
             this.removeLine((this.subdivision - 1), this.phyworld)
         }
+
+        if(this.role.carBody.position[0] >= (this.lineInfo.length - 1) * 100  -1600 ){
+            this.gameEnd = true;
+            setTimeout(()=>{
+                this.role.carBody.fixedRotation = false
+                console.log('游戏结束')
+                this.count = 0
+                this.gameWin();
+            },1500)
+        }
+
         this.timeControl = setTimeout(()=>{
             this.timeControl = null
         },1000/60)
