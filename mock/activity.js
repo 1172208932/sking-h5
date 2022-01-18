@@ -330,6 +330,7 @@ const getRank = {
 
 const turnTableDraw = {
   success: true,
+  message: "11",
   data: {
     extra: 1,
     options: [
