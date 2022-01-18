@@ -49,13 +49,13 @@ const gameStore = makeAutoObservable(mix({
         }
 
         // 位置
-        if (this.role.carBody.position[0] > this.deltaPoints *100 * (this.subdivision) +700) {
+        if (this.role.carBody.position[0] > this.deltaPoints *100 * (this.subdivision) +600) {
             this.subdivision++;
             this.removetype = true
             this.addLine(this.subdivision,this.phyworld)
         }
 
-        if(this.role.carBody.position[0]>this.subdivision*this.deltaPoints *100+100 && this.removetype){
+        if(this.role.carBody.position[0]>this.subdivision*this.deltaPoints *100+150 && this.removetype){
             console.log("remove")
             this.removetype = false
             this.removeLine((this.subdivision - 1), this.phyworld)
@@ -101,16 +101,19 @@ const gameStore = makeAutoObservable(mix({
     Shapestock0: '',
     Shapestock1: '',
     createPhysicsWorld() {
-        this.phyworld = new p2.World({
-            gravity: [0, -600]
-        });
+        if(!this.phyworld){
+            this.phyworld = new p2.World({
+                gravity: [0, -600]
+            });
+        }
+        
 
         // this.phyworld.defaultContactMaterial.friction = 10000;
 
         //划线
         var heights = [];
-        const shape = new FYGE.Shape(); // debug
-        this.bgCon.addChild(shape);   // debug
+        // const shape = new FYGE.Shape(); // debug
+        // this.bgCon.addChild(shape);   // debug
 
         //绘制地面线路
 
