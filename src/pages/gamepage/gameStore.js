@@ -100,7 +100,7 @@ const gameStore = makeAutoObservable(mix({
     endId: '',
     createPhysicsWorld() {
         this.phyworld = new p2.World({
-            gravity: [0, -700]
+            gravity: [0, -600]
         });
 
         // this.phyworld.defaultContactMaterial.friction = 10000;
