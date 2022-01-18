@@ -35,14 +35,14 @@ export const RoleControl = {
         this.phyworld.addBody(this.role.circleBody2);
         this.phyworld.addBody(this.role.carBody);
 
-
+        // 锁性约束
         // let revoluteBack = new p2.LockConstraint(this.role.carBody, this.role.circleBody);
         // let revoluteFront = new p2.LockConstraint(this.role.carBody, this.role.circleBody2);
         // this.phyworld.addConstraint(revoluteBack);
         // this.phyworld.addConstraint(revoluteFront);
 
 
-
+        // 弹性约束
         var c1 = new p2.PrismaticConstraint(this.role.carBody,this.role.circleBody,{
             localAnchorA : [-45,-46],
             localAnchorB : [0,0],
@@ -60,6 +60,22 @@ export const RoleControl = {
         this.phyworld.addConstraint(c1);
         this.phyworld.addConstraint(c2);
 
+
+        // 车轮约束
+        // var vehicle = new p2.TopDownVehicle(this.role.carBody);
+        // var frontWheel = vehicle.addWheel({
+        //     localPosition: [0, 0.5] // front
+        // });
+        // frontWheel.setSideFriction(4);
+
+        // var backWheel = vehicle.addWheel({
+        //     localPosition: [0, -0.5] // back
+        // });
+        // backWheel.setSideFriction(3); // Less side friction on back wheel makes it easier to drift
+        // vehicle.addToWorld( this.phyworld);
+        // frontWheel.steerValue = Math.PI / 16;
+        // backWheel.engineForce = 10;
+        // backWheel.setBrakeForce(0);
     },
     addMaterial(heighshape) {
         var contactMaterial1 = new p2.ContactMaterial(heighshape.material, this.role.circleShape.material, {
