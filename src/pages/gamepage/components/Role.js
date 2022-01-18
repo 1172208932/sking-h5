@@ -165,7 +165,7 @@ export default class Role extends Sprite {
         });
         //  new Circle({ radius: 20 });
         const carBody = this.carBody = new p2.Body({
-            mass: 1, //重量
+            mass: 1.5, //重量
             // position: [100, -410],
             // position: [180, -410],
             angularDamping: 1,
