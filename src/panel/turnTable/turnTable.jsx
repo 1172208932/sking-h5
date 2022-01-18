@@ -9,7 +9,7 @@ import API from "../../api";
 import "./turnTable.less";
 import { Toast } from "@spark/ui";
 import { SvgaPlayer } from "@spark/animation";
-
+import {_throttle} from '@src/utils/utils'
 @observer
 class TurnTable extends React.Component {
   constructor(props) {
@@ -46,7 +46,7 @@ class TurnTable extends React.Component {
    * 点击抽奖
    * @returns {Promise<void>}
    */
-  clickStart = async () => {
+  clickStart = _throttle(async () => {
     const {inDraw} = this.state;
     if(inDraw) return false;
     this.setState({
@@ -63,7 +63,7 @@ class TurnTable extends React.Component {
         inDraw: false
       });
     }
-  };
+  });
 
   startTurn = (optionId) => {
     const {drawList} = this.state;
