@@ -53,7 +53,7 @@ class MapBox extends React.Component {
         // 这是礼盒
         list[i].class = "giftBtn";
         list[i].iconList = [];
-      } else if (i >= 21) {
+      } else if (i >= 41) {
         //21
         // 暂时未开放
         list[i].class = "needwait";

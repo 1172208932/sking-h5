@@ -13,6 +13,9 @@ export const propSize = {
     },
     "gem": {
         width: 62, height: 55
+    },
+    "house": {
+        width: 339, height: 276
     }
 }
 
