@@ -132,6 +132,7 @@ class Gamepage extends React.Component {
     console.log("当前偏移量：", gameStore.offsetX, gameStore.offsetY)
 
 
+    gameStore.gameEnd = false
     gameStore.initbgUI(this.gamestage)
 
     gameStore.bgCon = new FYGE.Container();
@@ -144,7 +145,7 @@ class Gamepage extends React.Component {
     //帧刷新
     this.gamestage.addEventListener(FYGE.Event.ENTER_FRAME, this.flushfunc);
     //点击
-    this.gamestage.addEventListener(FYGE.MouseEvent.CLICK, this.clickfunc);
+    this.gamestage.addEventListener(FYGE.MouseEvent.MOUSE_DOWN, this.clickfunc);
 
     // this.setState({
     //   gameStep: 0,
@@ -185,7 +186,7 @@ class Gamepage extends React.Component {
 
     this.gamestage.removeEventListener(FYGE.Event.ENTER_FRAME, this.flushfunc);
     //点击
-    this.gamestage.removeEventListener(FYGE.MouseEvent.CLICK, this.clickfunc);
+    this.gamestage.removeEventListener(FYGE.MouseEvent.MOUSE_DOWN, this.clickfunc);
     gameStore.bgCon.removeAllChildren()
     this.gamestage.removeAllChildren()
     gameStore.beginGame = false;
@@ -209,7 +210,7 @@ class Gamepage extends React.Component {
 
   backMapPage() {
     gameStore.pasueGame()
-    modalStore.pushPop("GameLeave")
+    modalStore.pushPop("GameLeave",{removeGame: this.removeGame})
   }
   render() {
     const { gameStep, startpop, starInfo, soundon } = this.state

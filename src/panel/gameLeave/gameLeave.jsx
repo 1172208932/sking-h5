@@ -39,6 +39,7 @@ class GameLeave extends React.Component {
         {/* 确认退出 */}
         <p className="out" onClick={() => {
           modalStore.closePop("GameLeave");
+          this.props.popData.removeGame()
           store.changePage('Mappage');
           store.getHomeInfo();
         }}></p>

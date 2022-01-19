@@ -90,10 +90,10 @@ export default class Obstacle {
         }
 
         this.rectcoin.position.set(item.x, showY + 300)
-        shapeshow.position.set(item.x+this.rectShape.width*0.2, showY + 300+this.rectShape.height*0.2)
+        shapeshow.position.set(item.x+this.rectShape.width*0.4, showY + 300+this.rectShape.height*0.2)
         this.rectBody = new p2.Body({
             mass: 0,    //重量
-            position: [item.x + this.rectShape.width / 2+this.rectShape.width*0.2, (-showY) - 300 - this.rectShape.height / 2 - this.rectShape.height*0.2]
+            position: [item.x + this.rectShape.width / 2+this.rectShape.width*0.4, (-showY) - 300 - this.rectShape.height / 2 - this.rectShape.height*0.2]
         });
 
         this.rectBody.addShape(this.rectShape);
