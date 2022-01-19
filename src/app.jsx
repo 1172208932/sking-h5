@@ -5,6 +5,9 @@ import "./app.less";
 import store from "./store/index";
 import Modal from "./modal/modal";
 import MD from "../MD";
+import {shareWXmini} from "@src/utils/share"
+import API from "./api";
+
 MD();
 
 //此处为spark-cli动态生成
@@ -21,6 +24,14 @@ const pageMap = {
 };
 @observer
 class App extends Component {
+
+  async componentDidMount() {
+    const {success, data} = await API.getInviteCode();
+    if(success && data) {
+      store.setInviteCode(data.inviteCode);
+      shareWXmini(data.inviteCode)
+    }
+  }
   render() {
     let { curPage } = store;
     return (

@@ -38,7 +38,9 @@ export default class Role extends Sprite {
     jumpRole1() {
         this.smokeSvga.visible = false
         this.roleSkin.visible = false
-        if(this.jump1.visible = true){return}
+        if (this.jump1.visible = true) {
+            return
+        }
         this.jump1.visible = true
         this.jump1.startAniRange(0, this.jump1.totalFrames, 1, () => {
             this.roleSkin.visible = true
@@ -61,21 +63,7 @@ export default class Role extends Sprite {
         // speedUpBtnAni.position.set(0,-10)
         // // this._speedUpBtnIcon.visible = false
         // this.addChild(speedUpBtnAni)
-        // 烟雾
-        SvgaParser.loadSvga('https://yun.duiba.com.cn/aurora/assets/da64169b4e806806999ba8bf73e95ba7539dfd99.svga', (data) => {
-            // console.log(this, 'this')
-            //创建SvgaAni对象
-            const svga = this.smokeSvga = this.car.addChild(new FYGE.SvgaAni(data));
 
-            // svga.anchorTexture.set(1, 1);
-
-            //设置svga位置~
-            svga.position.set(-180, -40 + 56);
-            svga.visible = false
-
-            //从0到最后一帧播放一次动画，并进行回调
-            svga.startAniRange(0, svga.totalFrames, 0);
-        })
 
         // 一段跳
         SvgaParser.loadSvga('https://yun.duiba.com.cn/aurora/assets/948a86510f6f12d4cfc3f52a23a165fb0b75b5ec.svga', (data) => {
@@ -100,7 +88,7 @@ export default class Role extends Sprite {
         this.addChild(circle);
         // circledrawRoundedRect
         circle.beginFill(0xff0000, 0.5)
-            .drawCircle(0 , 0, 8)
+            .drawCircle(0, 0, 8)
             // .drawRoundedRect(0,0,40,40)
             .endFill();
 
@@ -154,9 +142,27 @@ export default class Role extends Sprite {
         this.addChild(car);
         // circledrawRoundedRect
         car.beginFill(0xff0000, 0.5)
-            .drawRect(0 , 0, 90, 113)
+            .drawRect(0, 0, 90, 113)
             // .drawRoundedRect(0,0,40,40)
             .endFill();
+
+
+
+        // 烟雾
+        SvgaParser.loadSvga('https://yun.duiba.com.cn/aurora/assets/da64169b4e806806999ba8bf73e95ba7539dfd99.svga', (data) => {
+            // console.log(this, 'this')
+            //创建SvgaAni对象
+            const svga = this.smokeSvga = this.car.addChild(new FYGE.SvgaAni(data));
+
+            // svga.anchorTexture.set(1, 1);
+
+            //设置svga位置~
+            svga.position.set(-180, -40 + 56);
+            svga.visible = false
+
+            //从0到最后一帧播放一次动画，并进行回调
+            svga.startAniRange(0, svga.totalFrames, 0);
+        })
 
         const carShape = this.carShape = new p2.Box({
             width: 90,
@@ -170,7 +176,7 @@ export default class Role extends Sprite {
             // position: [180, -410],
             angularDamping: 1,
             position: [140 + this.roleOffsetX, -170],
-            collisionResponse:false
+            collisionResponse: false
             // fixedRotation: true,
         });
         carBody.addShape(carShape);
