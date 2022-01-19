@@ -147,10 +147,11 @@ export const RoleControl = {
 
         this.role.circle.position.set(x, y);
         this.role.car.rotation = -this.role.carBody.angle / Math.PI * 180
-
+        
         if( this.gameEnd ){ return }
         this.bgCon.x = -x + stage.width / 8 +this.offsetX - 300//镜头跟随
         this.bgCon.y = -y + stage.height * 0.6
+        
         
     },
 

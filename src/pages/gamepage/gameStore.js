@@ -117,7 +117,7 @@ const gameStore = makeAutoObservable(mix({
     createPhysicsWorld() {
         if(!this.phyworld){
             this.phyworld = new p2.World({
-                gravity: [0, -600]
+                gravity: [0, -608]
             });
         }
         
