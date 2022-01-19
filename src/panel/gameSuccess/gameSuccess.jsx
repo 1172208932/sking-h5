@@ -20,20 +20,20 @@ class GameSuccess extends React.Component {
   }
 
   // 进入下一关
-  againNext = () => {
+  againNext = async() => {
     if(!this.state.canClick) return false;
     const {popData} = this.props;
-    popData.removeGame();
+    await popData.removeGame();
     modalStore.closePop("GameSuccess");
     store.changePage('Mappage')
     store.startGame(store.currentGameLevel+1);
   }
 
   // 点击邀请
-  clickInvite = _throttle(() => {
+  clickInvite = _throttle(async () => {
     if(!this.state.canClick) return false;
     const {popData} = this.props;
-    popData.removeGame();
+    await popData.removeGame();
     store.changePage("Mappage")
     modalStore.closePop("GameSuccess")
     store.toInvite();

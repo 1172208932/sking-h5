@@ -19,9 +19,14 @@ const gameStore = makeAutoObservable(mix({
     bgList:'',
     lineInfo:'',
     propInfo:'',
-    getData(){
+    getData(stage){
         this.lineInfo = LujinList[store.currentGameLevel-1]
         this.propInfo = PropList[store.currentGameLevel-1]
+        // let x = 600
+        let y = 210
+        // this.bgCon.x = x + stage.width / 8 +this.offsetX - 300//镜头跟随
+        this.bgCon.y = y + stage.height * 0.6
+        console.log(this.bgCon.x,this.bgCon.y,'this.bgCo')
         this.createPhysicsWorld()
     },
 
@@ -48,6 +53,8 @@ const gameStore = makeAutoObservable(mix({
         if( this.timeControl){
             return
         }
+
+        // 更新角色
 		this.updateRole(stage)
 
         // this.bgArea.x = -x + stage.width / 4 ;
@@ -196,6 +203,8 @@ const gameStore = makeAutoObservable(mix({
 
         this.listenContact()
         this.addFlag()
+        // this.addRole()
+        // this.updateRole(this.phyworld)
     },
 
 	listenContact() {

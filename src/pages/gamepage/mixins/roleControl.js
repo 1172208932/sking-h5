@@ -149,6 +149,13 @@ export const RoleControl = {
         this.role.car.rotation = -this.role.carBody.angle / Math.PI * 180
         
         if( this.gameEnd ){ return }
+
+        console.log(-x + stage.width / 8 +this.offsetX - 300 ,-y + stage.height * 0.6)
+        // if( -x + stage.width / 8 +this.offsetX - 300 > 700 ){return}
+        // if( -y + stage.height * 0.6 < this.bgCon.y){return}
+
+        console.log(this.bgCon,'this.bgCon')
+        
         this.bgCon.x = -x + stage.width / 8 +this.offsetX - 300//镜头跟随
         this.bgCon.y = -y + stage.height * 0.6
         

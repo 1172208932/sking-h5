@@ -37,9 +37,9 @@ class GameLeave extends React.Component {
           继续游戏
         </div>
         {/* 确认退出 */}
-        <p className="out" onClick={() => {
+        <p className="out" onClick={async() => {
           modalStore.closePop("GameLeave");
-          this.props.popData.removeGame()
+          await this.props.popData.removeGame()
           store.changePage('Mappage');
           store.getHomeInfo();
         }}></p>

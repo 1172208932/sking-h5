@@ -81,7 +81,7 @@ class Gamepage extends React.Component {
         })
       }
     } else {
-      this.removeGame();
+      await this.removeGame();
       store.changePage("Mappage")
     }
   }
@@ -138,7 +138,7 @@ class Gamepage extends React.Component {
     gameStore.bgCon = new FYGE.Container();
     this.gamestage.addChild(gameStore.bgCon)
 
-    gameStore.getData()
+    gameStore.getData(this.gamestage)
     gameStore.initbg()
 
 
@@ -178,33 +178,37 @@ class Gamepage extends React.Component {
     });
   }
   removeGame = () => {
-    console.log(this.gamestage, "this.gamestage.")
-    gameStore.shape0.clear(); // debug
-    gameStore.shape1.clear();
-    gameStore.Shapestock0.clear(); // debug
-    gameStore.Shapestock1.clear();
+    return new Promise((res,rej)=>{
+      console.log(this.gamestage, "this.gamestage.")
+      gameStore.shape0.clear(); // debug
+      gameStore.shape1.clear();
+      gameStore.Shapestock0.clear(); // debug
+      gameStore.Shapestock1.clear();
 
-    this.gamestage.removeEventListener(FYGE.Event.ENTER_FRAME, this.flushfunc);
-    //点击
-    this.gamestage.removeEventListener(FYGE.MouseEvent.MOUSE_DOWN, this.clickfunc);
-    gameStore.bgCon.removeAllChildren()
-    this.gamestage.removeAllChildren()
-    gameStore.beginGame = false;
-    gameStore.phyworld.step = 0;
-    gameStore.subdivision = 0
+      this.gamestage.removeEventListener(FYGE.Event.ENTER_FRAME, this.flushfunc);
+      //点击
+      this.gamestage.removeEventListener(FYGE.MouseEvent.MOUSE_DOWN, this.clickfunc);
+      gameStore.bgCon.removeAllChildren()
+      this.gamestage.removeAllChildren()
+      gameStore.beginGame = false;
+      gameStore.phyworld.step = 0;
+      gameStore.subdivision = 0
+      
+      gameStore.score = 0
+      gameStore.gameEnd = false
+      gameStore.phyworld.removeBody(gameStore.role.carBody)
+      gameStore.phyworld.removeBody(gameStore.role.circleBody)
+      gameStore.phyworld.removeBody(gameStore.role.circleBody2)
+      for (let i = 0; i < gameStore.additiveslist.length; i++) {
+        gameStore.phyworld.removeBody(gameStore.additiveslist[i].rectBody)
+      }
+      gameStore.distance = 0
+      gameStore.phyworld.clear()
+      gameStore.role = null
+      gameStore.phyworld = null
+      res()
+    })
     
-    gameStore.score = 0
-    gameStore.gameEnd = false
-    gameStore.phyworld.removeBody(gameStore.role.carBody)
-    gameStore.phyworld.removeBody(gameStore.role.circleBody)
-    gameStore.phyworld.removeBody(gameStore.role.circleBody2)
-    for (let i = 0; i < gameStore.additiveslist.length; i++) {
-      gameStore.phyworld.removeBody(gameStore.additiveslist[i].rectBody)
-    }
-    gameStore.distance = 0
-    gameStore.phyworld.clear()
-    gameStore.role = null
-    gameStore.phyworld = null
   }
 
 
