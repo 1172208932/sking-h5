@@ -42,19 +42,19 @@ class Mappage extends React.Component {
 
     let queryNewGuideInfo = await API.queryNewGuide()
     console.info('queryNewGuideInfo:', queryNewGuideInfo)
-    if (!queryNewGuideInfo.data.completeGuide) {
-      document.body.style.overflow = "hidden";
-      let clientHeight = document.documentElement.clientHeight || document.body.clientHeight
-      let toHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight) - clientHeight
-      let scrTop = document.documentElement || document.body;
-      scrTop.scrollTop = toHeight
-      // document.documentElement.scrollTop = toHeight
-      await delay(1500)
-      this.setState({
-        queryNewGuideInfo: queryNewGuideInfo.data,
-        showMist: true
-      })
-    }
+    // if (!queryNewGuideInfo.data.completeGuide) {
+    document.body.style.overflow = "hidden";
+    let clientHeight = document.documentElement.clientHeight || document.body.clientHeight
+    let toHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight) - clientHeight
+    let scrTop = document.documentElement || document.body;
+    scrTop.scrollTop = toHeight
+    // document.documentElement.scrollTop = toHeight
+    await delay(1500)
+    this.setState({
+      queryNewGuideInfo: queryNewGuideInfo.data,
+      showMist: true
+    })
+    // }
   }
   showMoveMap() {
     let clientHeight = document.documentElement.clientHeight || document.body.clientHeight
@@ -64,8 +64,8 @@ class Mappage extends React.Component {
       showMask: true,
       showMist: false
     }, async () => {
-      let scrTop = document.documentElement || document.body;
-      Tool.tweenReaptToto2(scrTop, toHeight, 0, toHeight, () => {
+      let doc = document.documentElement || document.body;
+      Tool.tweenReaptToto2(doc, toHeight, 0, toHeight, () => {
         this.setState({
           showMask: false,
         })

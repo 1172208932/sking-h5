@@ -65,7 +65,7 @@ const apiCfg = {
   },
 
   stepNewGuide: {
-    uri: `guide_1/doSstepNewGuidegn.do`,
+    uri: `guide_1/stepNewGuidegn.do`,
     withToken: true,
     method: "get",
   },
