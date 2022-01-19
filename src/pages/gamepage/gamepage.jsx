@@ -226,6 +226,7 @@ class Gamepage extends React.Component {
 
 
   backMapPage() {
+    if(gameStore.beginGame == false){return}
     gameStore.pasueGame()
     modalStore.pushPop("GameLeave",{removeGame: this.removeGame})
   }
