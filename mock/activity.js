@@ -10,7 +10,7 @@ const listExchangeLimit = {
           consumeSps: [
             {
               spId: "sp_1",
-              quantity: 10,
+              quantity: 1,
               spName: "道具名称",
               spImg:
                 "http://yun.duiba.com.cn/polaris/丝倍亮小型犬幼年年期全价犬粮7.5kg.c27e9ef4b4d418e8a90faa76798e20cb4f18a490.jpg",
@@ -20,8 +20,8 @@ const listExchangeLimit = {
             {
               ruleId: "ru_1",
               optionId: "123",
-              optionName: "狗粮",
-              optionStock: 0,
+              optionName: "狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮狗粮",
+              optionStock: 10,
               optionImg:
                 "http://yun.duiba.com.cn/polaris/丝倍亮小型犬幼年年期全价犬粮7.5kg.c27e9ef4b4d418e8a90faa76798e20cb4f18a490.jpg",
               prizeId: "123",
@@ -594,8 +594,8 @@ const gameSubmit = {
   success: true,
   data: {
     sendGold: 20,//发放金币数
-    answerFlag: 1,//1-可答题 0-不可答题
-    reGold: 180,//复活需要金币数
+    answerFlag: 0,//1-可答题 0-不可答题
+    reGold: 100,//复活需要金币数
     star: 1,
   }
 }

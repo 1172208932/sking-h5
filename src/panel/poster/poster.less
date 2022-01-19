@@ -1,0 +1,64 @@
+@import "../../res.less";
+
+.posterpage {
+  width: 750px;
+  height: 1624px;
+  .sparkBg("homePage/poster.jpg");
+  position: relative;
+  .posterpage-img {
+    width: 750px;
+    height: 1624px;
+  }
+  .codeBox {
+    position: absolute;
+    top: 1144px;
+    left: 258px;
+    overflow:hidden;
+    width: 240px;
+    height: 240px;
+    // border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    z-index: -1;
+    img,canvas {
+      // border-radius: 50%;
+      overflow:hidden;
+    }
+  }
+  .ren {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    top: 1220px;
+    left: 335px;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    box-sizing: border-box;
+    pointer-events: none;
+    z-index: -1;
+  }
+  .back-poster {
+    position: absolute;
+    left: -20px;
+    padding-left: 15px;
+    box-sizing: border-box;
+    top:200px;
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    background: rgba(0,0,0,0.5);
+    font-size: 24px;
+    border-radius: 20px;
+    color: #fff;
+    text-align: center;
+    // 禁止默认事件
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  }
+}

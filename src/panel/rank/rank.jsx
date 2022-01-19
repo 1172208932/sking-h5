@@ -9,6 +9,7 @@ import API from '../../api';
 import { USER_AVATAR, USER_NAME } from '@src/utils/constants.js';
 import './rank.less';
 import { SvgaPlayer } from "@spark/animation";
+import { _throttle } from '@src/utils/utils.js';
 
 @observer
 class Rank extends React.Component {
@@ -31,6 +32,11 @@ class Rank extends React.Component {
       })
     }
   }
+
+  clickInvite = _throttle(() => {
+    modalStore.closePop("Rank")
+    store.toInvite()
+  })
   render() {
     const {rankDetail} = this.state;
     const {homeInfo} = store;
@@ -63,7 +69,7 @@ class Rank extends React.Component {
         <div className="rank-rankList">
           {/* 我的排名 */}
           <div className="myrank">
-            <p className="myrank-rank">{rankDetail?.myRank?.rankNum <= 500 ? rankDetail.myRank.rankNum : '未入榜'}</p>
+            <p className="myrank-rank">{rankDetail?.myRank?.rankNum <= 500 ? rankDetail.myRank.rankNum : '1000+'}</p>
             <div className="rank-nickName">
               <img src={homeInfo?.avatar || USER_AVATAR} alt="" className="rank-avatar" />
               <p className="rank-name textover">{homeInfo?.nickName || USER_NAME}</p>
@@ -76,7 +82,7 @@ class Rank extends React.Component {
             rankDetail?.rankList ? rankDetail.rankList.map((item,index)=> {
               return(
                 <div className="myrank" key={index}>
-                  <p className="myrank-rank">{item?.rankNum <= 500 ? item.rankNum : '未入榜'}</p>
+                  <p className="myrank-rank">{item?.rankNum <= 500 ? item.rankNum : '1000+'}</p>
                   <div className="rank-nickName">
                     <img src={item?.avatar || USER_AVATAR} alt="" className="rank-avatar" />
                     <p className="rank-name textover">{item?.nickName || USER_NAME}</p>
@@ -90,7 +96,7 @@ class Rank extends React.Component {
           </div>
         </div>
         {/* 邀请 */}
-        <div className="button3" onClick={() => store.toInvite()}></div>
+        <div className="button3" onClick={this.clickInvite}>邀好友赢黄金</div>
       </div>
     );
   }

@@ -1,3 +1,4 @@
+@import "../res.less";
 .modal-hoc-bg {
     position: fixed;
     top: 0;
@@ -9,4 +10,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    .leftlogo {
+        width: 149px;
+        height: 42px;
+        position: absolute;
+        right:-1%;
+        top: 8%;
+        transform: rotate(90deg);
+        .sparkBg("common/leftLogo.png");
+    }
+    .rightlogo {
+        width: 284px;
+        height: 113px;
+        position: absolute;
+        left:-7%;
+        top: 85%;
+        transform: rotate(90deg);
+        .sparkBg("common/rightLogo.png");
+    }
 }

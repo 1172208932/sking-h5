@@ -33,9 +33,9 @@ class ExchangeConfirm extends React.Component {
     return (
       <div className="exchangeShopConfirmed1Twice">
         <span className="popupWindowBottom"></span>
-        <span className="sureCost300 textover2">确定花费{popData?.detail?.needCoin || 0}金币购买{popData?.detail?.name}吗？</span>
-        <span className="forgetIt" onClick={() => modalStore.closePop("ExchangeConfirm")}></span>
-        <span className="buy" onClick={this.clickBuy}></span>
+        <div className="sureCost300 textover2">确定花费{popData?.detail?.needCoin || 0}<img className='coin-exchangeConfirm' src={`${RES_PATH}兑换商店明日预1/小金币.png`}></img>购买{popData?.detail?.name}吗？</div>
+        <span className="forgetIt" onClick={() => modalStore.closePop("ExchangeConfirm")}>再想想</span>
+        <span className="buy" onClick={this.clickBuy}>确认</span>
       </div>
     );
   }

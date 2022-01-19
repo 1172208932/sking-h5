@@ -88,10 +88,10 @@ class GameSuccess extends React.Component {
               {/* 邀请好友 */}
               <div className="leftButton" onClick={this.clickInvite}>
                 <p className="button5 textover">
-                  领{store?.homeInfo?.inviteGolds||0}金币
+                  再额外获得{store?.homeInfo?.inviteGolds||0}金币
                 </p>
                 <div className="participateInAnswer2">
-                  <p className="participationAnswer3">邀请好友</p>
+                  <p className="participationAnswer3">再邀一位好友</p>
                 </div>
               
               </div>

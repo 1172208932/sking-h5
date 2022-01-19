@@ -76,6 +76,11 @@ class Task extends React.Component {
       })
     }
   }
+
+  clickInvite = _throttle(() => {
+    modalStore.closePop("Task")
+    store.toInvite()
+  })
   render() {
     const {homeInfo} = store;
     const { signPrizeConfig, signDetail, totalInviteCount } = this.state;
@@ -118,7 +123,7 @@ class Task extends React.Component {
               <p className="subTitle textover">邀请好友可得{homeInfo?.inviteGolds}金币</p>
             </div>
             {/* 去邀请TODO */}
-            <div className="inviteBtn" onClick={() => store.toInvite()}></div>
+            <div className="inviteBtn" onClick={this.clickInvite}></div>
           </div>
         </div>
         <span className="shutDown" onClick={() => modalStore.closePop("Task")}></span>

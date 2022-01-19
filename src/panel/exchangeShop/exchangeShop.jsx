@@ -25,7 +25,7 @@ class ExchangeShop extends React.Component {
 
   async componentDidMount() {
     this.getList();
-   await loadOneImg("https://yun.duiba.com.cn/aurora/assets/f34a0933e4610fdef0c6a9be231a53bf951f3b94.png")
+   await loadOneImg("https://yun.duiba.com.cn/aurora/assets/b415744ec711daa4c93365b157c356ce38b6f726.png")
   }
 
   getList = async () => {
@@ -76,7 +76,7 @@ class ExchangeShop extends React.Component {
     console.log(isNow)
     const bg = isNow
       ? `url(${RES_PATH}兑换商店明日预1/nowbg.png)`
-      : `url('//yun.duiba.com.cn/aurora/assets/f34a0933e4610fdef0c6a9be231a53bf951f3b94.png')`;
+      : `url('https://yun.duiba.com.cn/aurora/assets/b415744ec711daa4c93365b157c356ce38b6f726.png')`;
     const list = isNow ? todayResult : tomorrowResult;
     return (
       <div className="exchangeShopWillAdvance1Tomorrow">
@@ -127,7 +127,6 @@ class ExchangeShop extends React.Component {
                               <div className="button canBuy">
                                 <p>{item?.consumeSps?.[0]?.quantity}</p>
                                 <div className="coin"></div>
-                                <p>抢购</p>
                               </div>
                             )}
                           {/* 即将开启 */}

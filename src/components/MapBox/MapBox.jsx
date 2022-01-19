@@ -10,7 +10,6 @@ import { RES_PATH } from "../../../sparkrc.js";
 import { SvgaPlayer } from "@spark/animation";
 import { _throttle } from "@src/utils/utils";
 import API from "../../api";
-import { importManager } from "less";
 @observer
 class MapBox extends React.Component {
   constructor(props) {
@@ -20,7 +19,7 @@ class MapBox extends React.Component {
     };
   }
   mapTimer1= null;
-  mapTimer1= null;
+  mapTimer2= null;
 
 
   componentDidMount() {

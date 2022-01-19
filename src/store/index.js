@@ -39,21 +39,26 @@ const store = makeAutoObservable({
   },
   // 开始游戏
   async startGame(level) {
-    console.log("level",level)
     if (this.homeInfo?.joinGolds > this.homeInfo?.goldNum) {
       modalStore.pushPop("NoMoney");
     } else if(this.homeInfo?.desc) {
       modalStore.pushPop("GameRemind",{level:level})
     } else {
-      this.setCurrentGameLevel(level);
-      showLoading()
-      const {success,data} = await API.startGame()
-      hideLoading()
-      if(success && data) {
-        Toast("金币-"+this.homeInfo?.joinGolds||0);
-        this.setStartId(data)
-        this.changePage("Gamepage");
-      }
+      modalStore.pushPop("PayConfirm",{
+        needCoin:this.homeInfo.joinGolds,
+        start:async() => {
+          this.setCurrentGameLevel(level);
+          modalStore.closePop("PayConfirm")
+          showLoading()
+          const {success,data} = await API.startGame()
+          hideLoading()
+          if(success && data) {
+            Toast("金币-"+this.homeInfo?.joinGolds||0);
+            this.setStartId(data)
+            this.changePage("Gamepage");
+          }
+        }
+      })
     }
   },
 
@@ -62,7 +67,8 @@ const store = makeAutoObservable({
     const {success, data} = await API.getInviteCode();
     if(success && data) {
       this.setInviteCode(data.inviteCode);
-      // TODO海报
+      // 海报
+      modalStore.pushPop("Poster")
     }
   },
   setInviteCode(data) {

@@ -108,7 +108,7 @@ class Answer extends React.Component {
     return (
       <div className="iDidntChoose1">
         {/* 头部 */}
-        {chooseIndex >= 0 && (
+        {chooseIndex >= 0 ? (
           <div className="topAvatar">
             {isRight ? (
               <SvgaPlayer
@@ -119,7 +119,7 @@ class Answer extends React.Component {
               <div className="avatar-fail"></div>
             )}
           </div>
-        )}
+        ): <div className="datidejihui"></div>}
         <span className="popupWindowBottom"></span>
         <p className="title textover2">{answerDetail?.content}</p>
         <div className="answerlist">

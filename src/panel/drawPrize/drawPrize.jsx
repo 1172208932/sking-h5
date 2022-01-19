@@ -34,6 +34,7 @@ class DrawPrize extends React.Component {
           </div>
         </div>
         <span className="button" onClick={this.clickClose}></span>
+        <p className='drawFeedback1-in'>在「我的奖品」中查看</p>
         <span className="snowAndIceAtmosphere"></span>
       </div>
     );

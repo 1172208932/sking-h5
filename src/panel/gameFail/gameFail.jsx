@@ -16,6 +16,30 @@ import "./gameFail.less";
 class GameFail extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      outTimer: 10,
+    }
+    this.timer = null
+  }
+
+  componentDidMount() {
+    const {popData} = this.props;
+    if(popData?.answerFlag) return false;
+    const {outTimer} = this.state;
+    let outTime = outTimer-1;
+    this.timer = setInterval(() => {
+      if(outTime>0) {
+        this.setState({
+          outTimer: outTime--
+        })
+      } else {
+        this.clickOut();
+      }
+    },1000)
+  }
+
+  componentWillUnmount() {
+    this.timer && clearTimeout(this.timer)
   }
 
   // 再来一次
@@ -36,18 +60,29 @@ class GameFail extends React.Component {
       modalStore.pushPop("NoMoney");
       this.clickOut();
     } else {
-      const {success,data} = await API.resurgence({
-        levelNum: store.currentGameLevel,
+      modalStore.closePop("GameFail");
+      modalStore.pushPop("PayConfirm",{
+        needCoin: popData?.reGold,
+        start: this.confirmPay,
       })
-      if(success&&data) {
-        // 再来一句,记得关当前弹窗
-        store.setStartId(data);
-        modalStore.closePop("GameFail")
-        await popData.removeGame();
-        popData.canvasUI();
-      } else {
-        this.clickOut();
-      }
+    }
+  }
+
+  // 确定支付
+  confirmPay = async() => {
+    const {popData} = this.props;
+    const {success,data} = await API.resurgence({
+      levelNum: store.currentGameLevel,
+    })
+    if(success&&data) {
+      // 再来一句,记得关当前弹窗
+      store.setStartId(data);
+      modalStore.closePop("PayConfirm")
+      await popData.removeGame();
+      popData.canvasUI();
+    } else {
+      modalStore.closePop("PayConfirm")
+      this.clickOut();
     }
   }
 
@@ -75,27 +110,31 @@ class GameFail extends React.Component {
   
   render() {
     const {popData} = this.props;
+    const {outTimer} = this.state;
+
     return (
       <div className="gameFailPanel">
         <div className="content-gamefail">
+          <p className="title">{popData?.answerFlag ?'游戏失败参与知识答题':`闯关失败`}</p>
           {popData?.answerFlag ? (
-            <p>
+            <p className="subT">
               参与谷爱凌知识答题
               <br />
               答对即可免费再来一次
             </p>
           ) : (
-            <p>支付{popData?.reGold || 0}金币即可再来一次</p>
+            <p className="subT">支付{popData?.reGold || 0}金币即可再来一次</p>
           )}
         </div>
         {/* 再来一次 */}
         <div className="again-fail" onClick={this.clickAgain}>
+          <p className="goanswer">{popData?.answerFlag ?'去答题得机会':'再来一次'}</p>
           <div className="participateInAnswer2">
-            <p className="participationAnswer3">{popData?.answerFlag ? '参与答题' : '支付金币'}</p>
+            <p className="participationAnswer3">{popData?.answerFlag ? '参与答题' : `支付${popData?.reGold || 0}金币`}</p>
           </div>
         </div>
         {/* 确认退出 */}
-        <p className="out" onClick={this.clickOut}></p>
+        <p className="out" onClick={this.clickOut}>{popData?.answerFlag ? '先不了休息一下':`${outTimer}s后自动退出`}</p>
       </div>
     );
   }
