@@ -1,10 +1,9 @@
 import {
     RES_PATH
 } from '../../../../sparkrc.js';
+import store from '@src/store/index.js';
 
-const urlList = [`${RES_PATH}GamePage/level1/bg2-1.png`, `${RES_PATH}GamePage/level1/bg2-2.png`, `${RES_PATH}GamePage/level1/bg2-3.png`]
-const urlList3 = [`${RES_PATH}GamePage/level1/bg3-1.png`, `${RES_PATH}GamePage/level1/bg3-2.png`, `${RES_PATH}GamePage/level1/bg3-3.png`, `${RES_PATH}GamePage/level1/bg3-4.png`]
-const urlTopList3 = [226, 534, 200, 186]
+
 
 export const Background = {
     // 背景天空
@@ -18,6 +17,9 @@ export const Background = {
     bgArea3: '',
     bgList3: [],
     bgArea3X: 0,
+    urlList :[],
+    urlList3 : [],
+    urlTopList3 : [],
 
     initbgUI(gamestage) {
         this.bgArea0 = new FYGE.Container();
@@ -31,10 +33,13 @@ export const Background = {
 
         this.bgArea3 = new FYGE.Container();
         gamestage.addChild(this.bgArea3)
+        this.urlList  =  [`${RES_PATH}GamePage/level${Math.floor((store.currentGameLevel-1)/20)+1}/bg2-1.png`, `${RES_PATH}GamePage/level${Math.floor((store.currentGameLevel-1)/20)+1}/bg2-2.png`, `${RES_PATH}GamePage/level${Math.floor((store.currentGameLevel-1)/20)+1}/bg2-3.png`]
+        this.urlList3  =  [`${RES_PATH}GamePage/level${Math.floor((store.currentGameLevel-1)/20)+1}/bg3-1.png`, `${RES_PATH}GamePage/level${Math.floor((store.currentGameLevel-1)/20)+1}/bg3-2.png`, `${RES_PATH}GamePage/level${Math.floor((store.currentGameLevel-1)/20)+1}/bg3-3.png`, `${RES_PATH}GamePage/level${Math.floor((store.currentGameLevel-1)/20)+1}/bg3-4.png`]
+        this.urlTopList3 =  [226, 534, 200, 186]
     },
 
     initbg() {
-        this.bgArea0.addChild(FYGE.Sprite.fromUrl(`${RES_PATH}GamePage/level1/sky.png`))
+        this.bgArea0.addChild(FYGE.Sprite.fromUrl(`${RES_PATH}GamePage/level${Math.floor((store.currentGameLevel-1)/20)+1}/sky.png`))
 
         // FYGE.GlobalLoader.loadImage((s, image) => {
         //     //纹理
@@ -47,7 +52,7 @@ export const Background = {
         //     spr2.y = 184 + this.offsetY
         //     spr2.x = spr.width
         //     this.bgArea1.addChild(spr2)
-        // }, `${RES_PATH}GamePage/level1/bg1-1.png`)
+        // }, `${RES_PATH}GamePage/level${Math.floor((store.currentGameLevel-1)/20)+1}/bg1-1.png`)
 
 
 
@@ -69,11 +74,11 @@ export const Background = {
 
             this.bgList2.push(spr3)
             spr3.x = this.bgArea2X
-            spr3.y = 220 + (this.offsetY || 0) 
-
+            // spr3.y = 220 + (this.offsetY || 0) 
+            spr3.y = 750-(this.offsetY || 0)-spr3.height+20
             this.bgArea2X = this.bgArea2X + spr3.width * 0.8
             this.bgArea2.addChildAt(spr3, 1)
-        }, urlList[index])
+        }, this.urlList[index])
     },
 
     addBgList3Item(index) {
@@ -85,12 +90,12 @@ export const Background = {
 
             this.bgList3.push(spr3)
             spr3.x = this.bgArea3X
-            spr3.y = urlTopList3[index] +  (this.offsetY || 0) 
+            spr3.y = this.urlTopList3[index] +  (this.offsetY || 0) 
 
 
             this.bgArea3X = this.bgArea3X + spr3.width * 0.8
             this.bgArea3.addChildAt(spr3, 1)
-        }, urlList3[index])
+        }, this.urlList3[index])
     },
 
     MoveBg() {

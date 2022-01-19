@@ -219,6 +219,10 @@ class Gamepage extends React.Component {
       gameStore.phyworld.clear()
       gameStore.role = null
       gameStore.phyworld = null
+      gameStore.bgList2 = []
+      gameStore.bgArea2X = 0
+      gameStore.bgList3 = []
+      gameStore.bgArea3X = 0
       res()
     })
     
