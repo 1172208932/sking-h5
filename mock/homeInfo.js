@@ -9,7 +9,7 @@ module.exports =  {
     avatar:
       "//yun.duiba.com.cn/aurora/assets/a51a8f870e3031792ae2b27e435fca4abb79181d.png",
     activityEndTime: 12,
-    currentTime: 4,
+    currentTime: 10,
     pvNum: 86505640.30935124, //用户参与数量
     assistInfo: {
       assistNum: 0, //邀请人数
@@ -73,36 +73,36 @@ module.exports =  {
         star: "0",
         receive: "2",//"0-未完成 1-已领取 2-待领取
       },
-      {
-        level: "11",
-        score: "0",
-        star: "3",
-        receive: "1",
-      },
-       {
-        level: "12",
-        score: "0",
-        star: "1",
-        receive: "1",
-      },
-      {
-        level: "13",
-        score: "0",
-        star: "3",
-        receive: "1",
-      },
-      {
-        level: "14",
-        score: "0",
-        star: "3",
-        receive: "1",
-      },
-       {
-        level: "15",
-        score: "0",
-        star: "1",
-        receive: "1",
-      },
+      // {
+      //   level: "11",
+      //   score: "0",
+      //   star: "3",
+      //   receive: "1",
+      // },
+      //  {
+      //   level: "12",
+      //   score: "0",
+      //   star: "1",
+      //   receive: "1",
+      // },
+      // {
+      //   level: "13",
+      //   score: "0",
+      //   star: "3",
+      //   receive: "1",
+      // },
+      // {
+      //   level: "14",
+      //   score: "0",
+      //   star: "3",
+      //   receive: "1",
+      // },
+      //  {
+      //   level: "15",
+      //   score: "0",
+      //   star: "1",
+      //   receive: "1",
+      // },
       // {
       //   level: "16",
       //   score: "0",
@@ -240,37 +240,7 @@ module.exports =  {
         "star2": 666,
         "star1": -14169123.906866238,
         "star3": 7777
-      },
-      {
-        "level": "11",
-        "star2": 111,
-        "star1": -21961016.039620325,
-        "star3": 2222
-      },
-      {
-        "level": "12",
-        "star2": 2222,
-        "star1": -91712480.21939173,
-        "star3": 33333
-      },
-      {
-        "level": "13",
-        "star2": 4444,
-        "star1": 43446922.92147857,
-        "star3": 5555
-      },
-      {
-        "level": "14",
-        "star2": 666,
-        "star1": -14169123.906866238,
-        "star3": 7777
-      },
-      {
-        "level": "15",
-        "star2": 666,
-        "star1": -14169123.906866238,
-        "star3": 7777
-      },
+      }
     ],
     // desc: "这是激活弹窗信息这是激活弹窗信息这是激活弹窗信息这是激活弹窗信息这是激活弹窗信息这是激活弹窗信息这是激活弹窗信息这是激活弹窗信息这是激活弹窗信息这是激活弹窗信息这是激活弹窗信息这是激活弹窗信息这是激活弹窗信息这是激活弹窗信息这是激活弹窗信息这是激活弹窗信息这是激活弹窗信息这是激活弹窗信息这是激活弹窗信息这是激活弹窗信息这是激活弹窗信息这是激活弹窗信息这是激活弹窗信息这是激活弹窗信息"
   },

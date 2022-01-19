@@ -10,6 +10,7 @@ const store = makeAutoObservable({
   currentGameLevel: 1, // 正在闯关的level
   startId: null, // 正在闯关的startID
   inviteCode: null,
+  newGuideStep: {}, // 新手引导详情
   // 首页数据
   setRule(ruleInfo) {
     this.ruleInfo = ruleInfo;
@@ -66,6 +67,14 @@ const store = makeAutoObservable({
   },
   setInviteCode(data) {
     this.inviteCode = data
+  },
+
+  // 新手引导查询
+  async queryNewGuide() {
+    const {success, data} = await API.queryNewGuide();
+    if(success && data) {
+      this.newGuideStep = data
+    }
   }
 });
 export default store;
