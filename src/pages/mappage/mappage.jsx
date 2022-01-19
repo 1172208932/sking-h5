@@ -99,13 +99,16 @@ class Mappage extends React.Component {
             <span className="mapBgimg2"></span>
           </div>
 
+          {/* 牛蒙蒙形象 */}
+          <div className="mengmeng"></div>
           {/* 100关 */}
           <MapBox />
 
           {/* 终极大奖 */}
           <LastPrize />
 
-
+          {/* 谷爱凌形象 */}
+          <div className="guailing"></div>
 
 
           {/* 引导时屏蔽点击。这样最简单上盖一层div */}
