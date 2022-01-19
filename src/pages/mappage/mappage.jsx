@@ -64,11 +64,12 @@ class Mappage extends React.Component {
       showMist: false
     }, async () => {
       let doc = document.documentElement || document.body;
-      Tool.tweenReaptToto2(doc, toHeight, 0, toHeight, () => {
+      Tool.tweenReaptToto2(doc, toHeight, 0, toHeight, async () => {
         this.setState({
           showMask: false,
         })
         document.body.style.overflow = 'auto';
+        await API.stepNewGuide()
       })
     })
   }
