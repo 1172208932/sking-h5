@@ -132,6 +132,7 @@ class Gamepage extends React.Component {
     console.log("当前偏移量：", gameStore.offsetX, gameStore.offsetY)
 
 
+    gameStore.gameEnd = false
     gameStore.initbgUI(this.gamestage)
 
     gameStore.bgCon = new FYGE.Container();
@@ -209,7 +210,7 @@ class Gamepage extends React.Component {
 
   backMapPage() {
     gameStore.pasueGame()
-    modalStore.pushPop("GameLeave")
+    modalStore.pushPop("GameLeave",{removeGame: this.removeGame})
   }
   render() {
     const { gameStep, startpop, starInfo, soundon } = this.state

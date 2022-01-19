@@ -219,7 +219,7 @@ export const RoleControl = {
 							this.gameEnd = true
 							this.dieItem = this.additiveslist[i]
                             this.role.smokeSvga.visible = false
-                            // EventBus.fire('GAME_OVER',{score:this.score})
+                            EventBus.fire('GAME_OVER',{score:this.score})
 						}
 					}
 			}
