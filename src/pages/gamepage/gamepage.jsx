@@ -144,7 +144,7 @@ class Gamepage extends React.Component {
     //帧刷新
     this.gamestage.addEventListener(FYGE.Event.ENTER_FRAME, this.flushfunc);
     //点击
-    this.gamestage.addEventListener(FYGE.MouseEvent.CLICK, this.clickfunc);
+    this.gamestage.addEventListener(FYGE.MouseEvent.MOUSE_DOWN, this.clickfunc);
 
     // this.setState({
     //   gameStep: 0,
@@ -185,7 +185,7 @@ class Gamepage extends React.Component {
 
     this.gamestage.removeEventListener(FYGE.Event.ENTER_FRAME, this.flushfunc);
     //点击
-    this.gamestage.removeEventListener(FYGE.MouseEvent.CLICK, this.clickfunc);
+    this.gamestage.removeEventListener(FYGE.MouseEvent.MOUSE_DOWN, this.clickfunc);
     gameStore.bgCon.removeAllChildren()
     this.gamestage.removeAllChildren()
     gameStore.beginGame = false;
