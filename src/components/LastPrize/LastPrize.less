@@ -1,7 +1,7 @@
 @import "../../res.less";
 
 .giftbox {
-  width: 515px;
+  width: 715px;
   height: 666px;
   left: 14692px;
   top: 72px;
@@ -20,7 +20,7 @@
     width: 487px;
     height: 207px;
     left: 0px;
-    top: 459px;
+    top: 439px;
     position: absolute;
     .sparkBg("mapPage/giftListBg.png");
     .lastPrizeBox {
@@ -73,33 +73,18 @@
     width: 304px;
     height: 93px;
     left: 104px;
-    top: 367px;
+    top: 357px;
     position: absolute;
     .btn {
       width: 304px;
       height: 93px;
-      .sparkBg("mapPage/openGiftBtn.png");
-      &.need100 {
-        -webkit-filter: grayscale(100%);
-        -moz-filter: grayscale(100%);
-        -ms-filter: grayscale(100%);
-        -o-filter: grayscale(100%);
-        filter: grayscale(100%);
-        filter: gray;
-        .sparkBg("mapPage/openGiftBtn.png");
-      }
-      &.waitReceive {
-        .sparkBg("mapPage/getGiftBtn.png");
-      }
-      &.received {
-        -webkit-filter: grayscale(100%);
-        -moz-filter: grayscale(100%);
-        -ms-filter: grayscale(100%);
-        -o-filter: grayscale(100%);
-        filter: grayscale(100%);
-        filter: gray;
-        .sparkBg("mapPage/已领取.png");
-      }
+      .sparkBg("mapPage/黄色按钮.png");
+      font-size: 37px;
+      color: #854800;
+      font-weight: bold;
+      line-height: 83px;
+      text-align: center;
+
     }
     .gesturesAperture {
       width: 144px;
@@ -137,5 +122,13 @@
     top: 379px;
     position: absolute;
     .sparkBg("mapPage/giftBoxPoint.png");
+  }
+  .prizedetailtext {
+    font-size: 24px;
+    position: absolute;
+    top: 640px;
+    left: -35px;
+    color: #32a9e4;
+    text-shadow: 1px 1px 1px #fff;
   }
 }

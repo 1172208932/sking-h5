@@ -42,7 +42,7 @@ class Rank extends React.Component {
         <span className="shutDown" onClick={() => modalStore.closePop("Rank")}></span>
         {/* 奖品区域 */}
         <div className="rank-prizeList">
-          <p className="beforeInvitingFriends">邀请好友人数前十名可获得奖励 2月18日零点开奖</p>
+          <p className="beforeInvitingFriends">将在2月18日零点开奖后发放至「我的奖品」</p>
           <div className="prizeListBox">
             {
               Boolean(rankDetail?.rankPrize?.length) && rankDetail.rankPrize.map((item,index)=> {
