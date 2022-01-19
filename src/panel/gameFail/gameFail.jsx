@@ -66,9 +66,9 @@ class GameFail extends React.Component {
     }
   };
 
-  clickOut = () => {
+  clickOut = async() => {
     const {popData} = this.props;
-    popData.removeGame();
+    await popData.removeGame();
     modalStore.closePop("GameFail")
     store.changePage("Mappage")
   }
