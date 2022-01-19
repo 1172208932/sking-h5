@@ -150,11 +150,11 @@ export const RoleControl = {
         
         if( this.gameEnd ){ return }
 
-        console.log(-x + stage.width / 8 +this.offsetX - 300 ,-y + stage.height * 0.6)
+        // console.log(-x + stage.width / 8 +this.offsetX - 300 ,-y + stage.height * 0.6)
         // if( -x + stage.width / 8 +this.offsetX - 300 > 700 ){return}
         // if( -y + stage.height * 0.6 < this.bgCon.y){return}
 
-        console.log(this.bgCon,'this.bgCon')
+        // console.log(this.bgCon,'this.bgCon')
         
         this.bgCon.x = -x + stage.width / 8 +this.offsetX - 300//镜头跟随
         this.bgCon.y = -y + stage.height * 0.6
@@ -217,16 +217,16 @@ export const RoleControl = {
 							this.bgCon.removeChild(this.additiveslist[i].rectcoin)
                             this.score =this.score + sorceConfig[this.additiveslist[i].type]
 						}else {
-                            this.role.carBody.sleep()
-							this.role.circleBody.sleep()
-							this.role.circleBody2.sleep()
-                            this.count = 0;
+                            // this.role.carBody.sleep()
+							// this.role.circleBody.sleep()
+							// this.role.circleBody2.sleep()
+                            // this.count = 0;
 
-							console.log("die")
-							this.gameEnd = true
-							this.dieItem = this.additiveslist[i]
-                            this.role.smokeSvga.visible = false
-                            EventBus.fire('GAME_OVER',{score:this.score})
+							// console.log("die")
+							// this.gameEnd = true
+							// this.dieItem = this.additiveslist[i]
+                            // this.role.smokeSvga.visible = false
+                            // EventBus.fire('GAME_OVER',{score:this.score})
 						}
 					}
 			}
