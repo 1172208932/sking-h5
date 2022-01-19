@@ -12,6 +12,7 @@ import API from "../../api";
 import { _throttle } from "@src/utils/utils"
 import "./gameGuide.less";
 import gameStore from '@src/pages/gamepage/gameStore';
+import EventBus from '@duiba/event-bus';
 
 @observer
 class GameGuide extends React.Component {
@@ -37,8 +38,13 @@ class GameGuide extends React.Component {
       step: step - 1
     })
   }
-  beginGame() {
 
+  async beginGame() {
+    const {success} = await API.stepNewGuide()
+    if(success){
+      modalStore.closePop("GameGuide");
+      EventBus.fire('BEGIN_DOWNTIME')
+    }
   }
 
   renderStepCenter(step) {

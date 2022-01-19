@@ -28,12 +28,14 @@ class Gamepage extends React.Component {
   componentDidMount() {
     EventBus.on('GAME_OVER', this.gameOver, this);
     EventBus.on('GAME_WIN', this.gameWin, this);
+    EventBus.on('BEGIN_DOWNTIME', this.beginDownTime, this);
     this.initCanvas();
     this.setStarInfo()
   }
   componentWillUnmount() {
     EventBus.off('GAME_OVER', this.gameOver);
     EventBus.off('GAME_WIN', this.gameWin);
+    EventBus.off('BEGIN_DOWNTIME', this.beginDownTime);
   }
 
   gameWin(e) {
@@ -154,8 +156,19 @@ class Gamepage extends React.Component {
     //   gameStore.addRole()
     //   gameStore.beginGame = true
     // });
+    await store.queryNewGuide();
+    if(store?.newGuideStep?.alreadyGuideSteps == 2 && store.currentGameLevel == 1){
+     modalStore.pushPop("GameGuide")
+    } else {
+      this.setTimeStatus()
+    }
+   
+  }
+
+  beginDownTime(){
     this.setTimeStatus()
   }
+
   async setTimeStatus() {
     this.setState({
       startpop: true,
@@ -206,6 +219,10 @@ class Gamepage extends React.Component {
       gameStore.phyworld.clear()
       gameStore.role = null
       gameStore.phyworld = null
+      gameStore.bgList2 = []
+      gameStore.bgArea2X = 0
+      gameStore.bgList3 = []
+      gameStore.bgArea3X = 0
       res()
     })
     
@@ -213,6 +230,7 @@ class Gamepage extends React.Component {
 
 
   backMapPage() {
+    if(gameStore.beginGame == false){return}
     gameStore.pasueGame()
     modalStore.pushPop("GameLeave",{removeGame: this.removeGame})
   }
