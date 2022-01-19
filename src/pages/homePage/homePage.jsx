@@ -28,7 +28,7 @@ class HomePage extends React.Component {
     loadLocalAssets();
     await store.getHomeInfo();
     // 新手引导，写完了记得注释删掉TODO
-    // await store.queryNewGuide();
+    await store.queryNewGuide();
     this.indexDataChange();
     this.getCarousel();
     // modalStore.pushPop("GameSuccess",{
