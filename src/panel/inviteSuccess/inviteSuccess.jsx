@@ -20,7 +20,7 @@ class InviteSuccess extends React.Component {
         <div className="invitationSuccessful1-bg">
           <div className="me">
             <p className="xNumberFriendsWereInvited textover">
-              邀请了{homeInfo?.assistInfo?.assistNum}位好友
+              已经有{homeInfo?.assistInfo?.assistNum}位好友为你助力了
             </p>
             <p className="receivedXxxGold textover">
               获得了{homeInfo?.assistInfo?.assistGoldNum}金币

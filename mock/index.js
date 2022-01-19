@@ -28,7 +28,7 @@ const proxy = {
   "GET /checkin_1/queryOptions.do": signOptions,
 
   "POST /guide_1/queryNewGuide.do": queryNewGuide,
-  "GET /guide_1/stepNewGuide.do": stepNewGuide,
+  "POST /guide_1/stepNewGuide.do": stepNewGuide,
 
   "GET /assist_1/queryInviteRecords.do": inviteRecord,
   "GET /scoring/rankingAward.do": rankingAward,

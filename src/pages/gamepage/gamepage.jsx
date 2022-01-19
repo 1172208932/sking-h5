@@ -279,7 +279,7 @@ class Gamepage extends React.Component {
 
             <div className="distance">
               <span className="distancebg"></span>
-              <span className="distancenum">{Math.floor(gameStore.distance)}m</span>
+              <span className="distancenum">{((gameStore.lineInfo.length-13) * 100-Math.floor(gameStore.distance))>0?((gameStore.lineInfo.length-13) * 100-Math.floor(gameStore.distance)):0}m</span>
             </div>
             <div className="bar">
               <div className="three">

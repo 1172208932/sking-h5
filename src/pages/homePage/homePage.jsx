@@ -13,6 +13,7 @@ import { SvgaPlayer } from '@spark/animation';
 import AvatarBox from "@src/components/AvatarBox/AvatarBox"
 import CoinBox from "@src/components/CoinBox/CoinBox"
 import {loadLocalAssets} from "@src/utils/preload1.3"
+import NewGuide1 from "@src/components/newGuide1/newGuide1"
 @observer
 class HomePage extends React.Component {
   constructor(props) {
@@ -26,6 +27,8 @@ class HomePage extends React.Component {
     await this.toAssist();
     loadLocalAssets();
     await store.getHomeInfo();
+    // 新手引导，写完了记得注释删掉TODO
+    // await store.queryNewGuide();
     this.indexDataChange();
     this.getCarousel();
     // modalStore.pushPop("GameSuccess",{
@@ -85,7 +88,7 @@ class HomePage extends React.Component {
     return true;
   }
   render() {
-    const {homeInfo} = store;
+    const {homeInfo,newGuideStep} = store;
     const {carouselList} = this.state;
     return (
       <div className="homePagebox">
@@ -95,7 +98,11 @@ class HomePage extends React.Component {
 
         {/* 开始游戏按钮 */}
         <SvgaPlayer className="startga" src={`${RES_PATH}svga/开始游戏.svga`} onClick={_throttle(() => {if(this.judgeEndTime()){store.changePage('Mappage')}})}/>
-        <SvgaPlayer className="gesturesAperture" src={`${RES_PATH}svga/手势单击.svga`} />
+        {/* 新手引导第一步todo */}
+        {/* <div className="shoushi-gesturesAperture">
+          <SvgaPlayer className="gesturesAperture" src={`${RES_PATH}svga/手势单击.svga`} />
+          <p>点击开启“冰雪大冒险”</p>
+        </div> */}
         {/* 左上角icon */}
         <div className="topleft">
           {/* 头像 */}
@@ -127,6 +134,7 @@ class HomePage extends React.Component {
         <div className="bottoml">
           {/* 兑换商店 */}
           <div className="duiHuanShangDian" onClick={_throttle(() => {if(this.judgeEndTime()){modalStore.pushPop("ExchangeShop")}})}>
+            <div className="duihaoli"></div>
             <SvgaPlayer src={`${RES_PATH}svga/兑换商店.svga`} className='store-svga'></SvgaPlayer>
           </div>
           {/* 得金币 */}
@@ -136,10 +144,13 @@ class HomePage extends React.Component {
         {/* 右下角 */}
         <div className="bottomr">
           {/* 排行榜 */}
+          <div className="yinghuangjin"></div>
           <span className="ultimateLeaderboard" onClick={() => modalStore.pushPop("Rank")}></span>
           <span className="moreGifts" onClick={() => window.location.href = homeInfo.url}></span>
         </div>
       </div>
+      {/* 首页的新手引导 */}
+      {newGuideStep?.alreadyGuideSteps==0 &&<NewGuide1 judgeEndTime={this.judgeEndTime}></NewGuide1>}
       </div>
     );
   }

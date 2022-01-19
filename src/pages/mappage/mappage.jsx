@@ -42,25 +42,30 @@ class Mappage extends React.Component {
 
     let queryNewGuideInfo = await API.queryNewGuide()
     console.info('queryNewGuideInfo:', queryNewGuideInfo)
-    if (!queryNewGuideInfo.data.completeGuide) {
-      document.body.style.overflow = "hidden";
-
-      let toHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight) - document.documentElement.clientHeight
-      document.documentElement.scrollTop = toHeight
-      await delay(1500)
-      this.setState({
-        queryNewGuideInfo: queryNewGuideInfo.data,
-        showMist: true
-      })
-    }
+    // if (!queryNewGuideInfo.data.completeGuide) {
+    document.body.style.overflow = "hidden";
+    let clientHeight = document.documentElement.clientHeight || document.body.clientHeight
+    let toHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight) - clientHeight
+    let scrTop = document.documentElement || document.body;
+    scrTop.scrollTop = toHeight
+    // document.documentElement.scrollTop = toHeight
+    await delay(1500)
+    this.setState({
+      queryNewGuideInfo: queryNewGuideInfo.data,
+      showMist: true
+    })
+    // }
   }
   showMoveMap() {
-    let toHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight) - document.documentElement.clientHeight
+    let clientHeight = document.documentElement.clientHeight || document.body.clientHeight
+    let toHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight) - clientHeight
+    console.info('showMoveMap')
     this.setState({
       showMask: true,
       showMist: false
     }, async () => {
-      Tool.tweenReaptToto2(document.documentElement, toHeight, 0, toHeight, () => {
+      let doc = document.documentElement || document.body;
+      Tool.tweenReaptToto2(doc, toHeight, 0, toHeight, () => {
         this.setState({
           showMask: false,
         })
@@ -79,7 +84,7 @@ class Mappage extends React.Component {
     let len = homeInfo?.gameInfo?.length ? homeInfo.gameInfo.length : 0;
     if (len >= 3) {
       // 3移动1，4移动2个
-      window.scrollTo(0,remscale*340 + ((14413*remscale) / 108) * (len - 3));
+      window.scrollTo(0, remscale * 340 + ((14413 * remscale) / 108) * (len - 3));
     }
   }
   render() {
@@ -87,42 +92,42 @@ class Mappage extends React.Component {
     const { showMask, showMist } = this.state
     return (
       <>
-      <div className="mappage">
-        {/* 背景 */}
-        <div className="mapBgbox">
-          <span className="mapBgimg1"></span>
-          <span className="mapBgimg2"></span>
-        </div>
-       
-        {/* 100关 */}
-        <MapBox />
-
-        {/* 终极大奖 */}
-        <LastPrize />
-
-
-
-
-        {/* 引导时屏蔽点击。这样最简单上盖一层div */}
-        {
-          showMask &&
-          <div className="mapBgbox_mask">
+        <div className="mappage">
+          {/* 背景 */}
+          <div className="mapBgbox">
+            <span className="mapBgimg1"></span>
+            <span className="mapBgimg2"></span>
           </div>
-        }
 
-        {
-          showMist &&
-          <SvgaPlayer className="mist_svga" src={`${RES_PATH}svga/云过渡.svga`}
-            loop={1}
-            onEnd={() => {
-              this.showMoveMap()
-            }}
-          />
-        }
+          {/* 100关 */}
+          <MapBox />
 
-      </div>
-       {/* 按钮 */}
-       <div className="map-btnbox">
+          {/* 终极大奖 */}
+          <LastPrize />
+
+
+
+
+          {/* 引导时屏蔽点击。这样最简单上盖一层div */}
+          {
+            showMask &&
+            <div className="mapBgbox_mask">
+            </div>
+          }
+
+          {
+            showMist &&
+            <SvgaPlayer className="mist_svga" src={`${RES_PATH}svga/云过渡.svga`}
+              loop={1}
+              onEnd={() => {
+                this.showMoveMap()
+              }}
+            />
+          }
+
+        </div>
+        {/* 按钮 */}
+        <div className="map-btnbox">
           <div className="topleftIcon">
             {/* 头像 */}
             <AvatarBox />
