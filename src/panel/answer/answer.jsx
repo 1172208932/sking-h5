@@ -85,9 +85,9 @@ class Answer extends React.Component {
   answerFail = () => {
     // 答题失败
     const { popData } = this.props;
-    setTimeout(() => {
+    setTimeout(async () => {
       // 清除
-      popData.removeGame();
+       await popData.removeGame();
       // 清除startId
       store.setStartId(null);
       modalStore.closePop("Answer");

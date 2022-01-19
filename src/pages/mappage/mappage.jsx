@@ -39,22 +39,21 @@ class Mappage extends React.Component {
     this.moveMap()
   }
   async queryNewGuide() {
-
     let queryNewGuideInfo = await API.queryNewGuide()
     console.info('queryNewGuideInfo:', queryNewGuideInfo)
-    // if (!queryNewGuideInfo.data.completeGuide) {
-    document.body.style.overflow = "hidden";
-    let clientHeight = document.documentElement.clientHeight || document.body.clientHeight
-    let toHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight) - clientHeight
-    let scrTop = document.documentElement || document.body;
-    scrTop.scrollTop = toHeight
-    // document.documentElement.scrollTop = toHeight
-    await delay(1500)
-    this.setState({
-      queryNewGuideInfo: queryNewGuideInfo.data,
-      showMist: true
-    })
-    // }
+    if (store?.newGuideStep?.alreadyGuideSteps == 1) {
+      document.body.style.overflow = "hidden";
+      let clientHeight = document.documentElement.clientHeight || document.body.clientHeight
+      let toHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight) - clientHeight
+      let scrTop = document.documentElement || document.body;
+      scrTop.scrollTop = toHeight
+      // document.documentElement.scrollTop = toHeight
+      await delay(1500)
+      this.setState({
+        queryNewGuideInfo: queryNewGuideInfo.data,
+        showMist: true
+      })
+    }
   }
   showMoveMap() {
     let clientHeight = document.documentElement.clientHeight || document.body.clientHeight
@@ -65,11 +64,12 @@ class Mappage extends React.Component {
       showMist: false
     }, async () => {
       let doc = document.documentElement || document.body;
-      Tool.tweenReaptToto2(doc, toHeight, 0, toHeight, () => {
+      Tool.tweenReaptToto2(doc, toHeight, 0, toHeight, async () => {
         this.setState({
           showMask: false,
         })
         document.body.style.overflow = 'auto';
+        await API.stepNewGuide()
       })
     })
   }
