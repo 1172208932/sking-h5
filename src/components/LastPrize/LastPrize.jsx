@@ -6,10 +6,11 @@ import store from "../../store/index";
 import { SvgaPlayer } from "@spark/animation";
 import { RES_PATH } from "../../../sparkrc.js";
 import "./LastPrize.less";
-import API from '../../api';
+import API from "../../api";
 
 import { _throttle } from "@src/utils/utils";
-import modalStore from '@src/store/modal';
+import modalStore from "@src/store/modal";
+import { Toast } from "@spark/ui";
 
 @observer
 class LastPrize extends React.Component {
@@ -17,22 +18,27 @@ class LastPrize extends React.Component {
     super(props);
   }
 
-  clickReceive = _throttle(async() => {
+  clickReceive = _throttle(async () => {
     const { homeInfo } = store;
-    if(homeInfo?.rankReceiveFlag == 2) {
-      const {success, data} = await API.rankingAward()
-      if(success && data) {
-        modalStore.pushPop("DrawPrize",{
+    if(!store?.newGuideStep?.completeGuide) return false;
+    if(homeInfo?.openPrizeTime > homeInfo?.currentTime) {
+      Toast("别急，快去闯关吧！2月18日开奖哦")
+    } else if(homeInfo?.rankReceiveFlag == 2) {
+      const { success, data } = await API.rankingAward();
+      if (success && data) {
+        modalStore.pushPop("DrawPrize", {
           prizeInfo: {
             optionImg: data.prizeImg,
             optionName: data.prizeName,
             url: data.url,
             needToPrize: true,
-          }
-        })
+          },
+        });
       }
+    } else if(homeInfo?.rankReceiveFlag == 1){
+      Toast("你的分数没有达到前百名，牛蒙蒙有更多惊喜等你解锁哦")
     }
-  })
+  });
 
   render() {
     const { homeInfo } = store;
@@ -58,15 +64,19 @@ class LastPrize extends React.Component {
         {/* 按钮 */}
         <div className="lastprizeBtn">
           <div
-            className={`btn ${
-              homeInfo?.rankReceiveFlag == 1
-                ? "need100"
-                : homeInfo?.rankReceiveFlag == 2
-                ? "waitReceive"
-                : "received"
-            }`}
+            className={`btn`}
             onClick={this.clickReceive}
-          ></div>
+          >
+            {!store?.newGuideStep?.completeGuide
+              ? "通关开启"
+              : homeInfo?.openPrizeTime > homeInfo?.currentTime
+              ? "2月18日开奖"
+              : homeInfo?.rankReceiveFlag == 2
+              ? "领取奖励"
+              : homeInfo?.rankReceiveFlag == 3
+              ? "已领取"
+              : "排名未入前百"}
+          </div>
           {/* 手势 */}
           {homeInfo?.rankReceiveFlag == 2 && (
             <SvgaPlayer
@@ -75,7 +85,10 @@ class LastPrize extends React.Component {
             />
           )}
         </div>
-
+        {/* 文字 */}
+        <div className="prizedetailtext">
+          奖品依据排行榜名次发放，将在活动结束后发放至「我的奖品」
+        </div>
         {/* <span className="giftboxpoint"></span> */}
       </div>
     );
