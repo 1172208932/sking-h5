@@ -28,12 +28,14 @@ class Gamepage extends React.Component {
   componentDidMount() {
     EventBus.on('GAME_OVER', this.gameOver, this);
     EventBus.on('GAME_WIN', this.gameWin, this);
+    EventBus.on('BEGIN_DOWNTIME', this.beginDownTime, this);
     this.initCanvas();
     this.setStarInfo()
   }
   componentWillUnmount() {
     EventBus.off('GAME_OVER', this.gameOver);
     EventBus.off('GAME_WIN', this.gameWin);
+    EventBus.off('BEGIN_DOWNTIME', this.beginDownTime);
   }
 
   gameWin(e) {
@@ -154,8 +156,18 @@ class Gamepage extends React.Component {
     //   gameStore.addRole()
     //   gameStore.beginGame = true
     // });
+    if(store?.newGuideStep?.alreadyGuideSteps == 3 && store.currentGameLevel == 1){
+     modalStore.pushPop("GameGuide")
+    } else {
+      this.setTimeStatus()
+    }
+   
+  }
+
+  beginDownTime(){
     this.setTimeStatus()
   }
+
   async setTimeStatus() {
     this.setState({
       startpop: true,
