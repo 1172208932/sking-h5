@@ -138,7 +138,7 @@ class Gamepage extends React.Component {
     gameStore.bgCon = new FYGE.Container();
     this.gamestage.addChild(gameStore.bgCon)
 
-    gameStore.getData()
+    gameStore.getData(this.gamestage)
     gameStore.initbg()
 
 
