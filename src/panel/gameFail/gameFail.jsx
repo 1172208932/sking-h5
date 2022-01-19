@@ -64,6 +64,10 @@ class GameFail extends React.Component {
       modalStore.pushPop("PayConfirm",{
         needCoin: popData?.reGold,
         start: this.confirmPay,
+        miss: () => {
+          modalStore.closePop("PayConfirm")
+          this.clickOut();
+        }
       })
     }
   }

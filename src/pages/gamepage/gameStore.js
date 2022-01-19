@@ -7,6 +7,8 @@ import { RoleControl } from './mixins/roleControl.js'
 import Obstacle from './components/Obstacle.js';
 import store from '@src/store/index.js';
 import { LujinList, PropList } from '@src/lujingInfo/Alllujing.js';
+
+const lineColor = ["#82b1e3","#013b8b","#98d6e5","#7ab4e7","#728de6"]
 const gameStore = makeAutoObservable(mix({
 	beginGame:false,
 	heighshape:null,
@@ -343,8 +345,8 @@ const gameStore = makeAutoObservable(mix({
     //填充
     stockArea(i,Shapestock) {
         // console.log(i, "当前")
-    
-        Shapestock.beginGradientFill([(i - 1) * 100, this.lineInfo[i] +900, i * 100,this.lineInfo[i-1] +300], [[0, "#82b1e3", 1], [1, "#ffffff", 1]])
+        
+        Shapestock.beginGradientFill([(i - 1) * 100, this.lineInfo[i] +900, i * 100,this.lineInfo[i-1] +300], [[0, lineColor[Math.floor((store.currentGameLevel-1)/20)], 1], [1, "#ffffff", 1]])
         Shapestock.lineTo((i - 1) * 100, (this.lineInfo[i - 1]) + 300)
         Shapestock.lineTo(i * 100, this.lineInfo[i] + 300)
         Shapestock.lineTo(i * 100, this.lineInfo[i] + 900)
