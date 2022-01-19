@@ -5,6 +5,7 @@ import Role from '../components/Role'
 import p2 from 'p2/build/p2';
 import Obstacle from '../components/Obstacle.js';
 import EventBus from '@duiba/event-bus';
+import store from '@src/store/index.js';
 
 const sorceConfig = {
     "snow":1,
@@ -134,6 +135,11 @@ export const RoleControl = {
         if(!this.role){return}
         const x = this.role.circleBody.position[0];
         const y = -this.role.circleBody.position[1];
+        if(x >= 8941 && x <= 9045 && this.slowState == false && store.currentGameLevel == 1){
+            this.slowState = true
+        }
+
+
 
         const carBodyX = this.role.carBody.position[0];
         const carBodyY = -this.role.carBody.position[1];

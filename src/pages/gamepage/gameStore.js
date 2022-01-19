@@ -16,6 +16,8 @@ const gameStore = makeAutoObservable(mix({
     offsetX:'',
     offsetY:'',
 
+    slowState:false,
+
     bgList:'',
     lineInfo:'',
     propInfo:'',
@@ -38,6 +40,14 @@ const gameStore = makeAutoObservable(mix({
     },
 
 
+    addPropGuide1(){
+        const propGuide = FYGE.Sprite.fromUrl("//yun.duiba.com.cn/aurora/assets/421a46bf9980bc655c608079fd831351bf0ab554.png")
+        propGuide.x =  9841
+        propGuide.y =  2206
+        this.bgCon.addChildAt(propGuide,1)
+    },
+
+
     subdivision: 0,
     gameEnd: false,
 
@@ -46,7 +56,11 @@ const gameStore = makeAutoObservable(mix({
     distance:0,
 	enterFrame(stage){
         // console.log(this.role.carBody.velocity[0],this.role.carBody.velocity[1])
-        this.phyworld.step(1 / 60);
+        if(this.slowState){
+            this.phyworld.step(1 / 360);
+        }else{
+            this.phyworld.step(1 / 60);
+        }
         if(this.role?.carBody)
             this.distance = this.role.carBody.position[0]
         if(!this.beginGame){return}
@@ -99,6 +113,11 @@ const gameStore = makeAutoObservable(mix({
         // debugger
         // this.reviveCar()
 		if(this.gameEnd){ return }
+
+        if(   this.slowState == true){
+            this.slowState = false
+        }
+
         if (this.count > 1) { return }
         
         const x = this.role.circleBody.position[0];
@@ -202,6 +221,9 @@ const gameStore = makeAutoObservable(mix({
         this.endId = panelBody.id
 
         this.listenContact()
+        if(store.currentGameLevel == 1){
+            this.addPropGuide1()
+        }
         this.addFlag()
         // this.addRole()
         // this.updateRole(this.phyworld)
