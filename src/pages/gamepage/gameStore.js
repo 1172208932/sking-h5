@@ -25,6 +25,13 @@ const gameStore = makeAutoObservable(mix({
         this.createPhysicsWorld()
     },
 
+    addFlag(){
+        const flag = FYGE.Sprite.fromUrl("//yun.duiba.com.cn/aurora/assets/79a339ce59ad6388fde8570d53c11911efedf44d.png")
+        flag.x =  (this.lineInfo.length - 13) * 100
+        flag.y =  (this.lineInfo[this.lineInfo.length - 13]) + 121
+        this.bgCon.addChildAt(flag,1)
+    },
+
 
     subdivision: 0,
     gameEnd: false,
@@ -117,7 +124,7 @@ const gameStore = makeAutoObservable(mix({
     createPhysicsWorld() {
         if(!this.phyworld){
             this.phyworld = new p2.World({
-                gravity: [0, -600]
+                gravity: [0, -608]
             });
         }
         
@@ -188,6 +195,7 @@ const gameStore = makeAutoObservable(mix({
         this.endId = panelBody.id
 
         this.listenContact()
+        this.addFlag()
     },
 
 	listenContact() {
