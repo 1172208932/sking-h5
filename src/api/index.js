@@ -53,7 +53,7 @@ function generateAPI(apiList) {
 				try {
 					token = await getPxToken();
 				} catch (e) {
-					Toast('星速台token获取失败');
+					Toast('网络异常');
 					return;
 				}
 			}
