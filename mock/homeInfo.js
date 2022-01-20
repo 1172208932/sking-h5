@@ -164,6 +164,73 @@ module.exports =  {
         star: "3",
         receive: "1",
       },
+      {
+        level: "25",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "26",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "27",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "28",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+
+         {
+        level: "29",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },   {
+        level: "30",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "31",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+
+      {
+        level: "32",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "33",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "34",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "35",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
     ],
     url: "http://www.baidu.com",
     rankPrize: [

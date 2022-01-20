@@ -226,16 +226,16 @@ export const RoleControl = {
 							this.bgCon.removeChild(this.additiveslist[i].rectcoin)
                             this.score =this.score + sorceConfig[this.additiveslist[i].type]
 						}else {
-                            this.role.carBody.sleep()
-							this.role.circleBody.sleep()
-							this.role.circleBody2.sleep()
-                            this.count = 0;
+                            // this.role.carBody.sleep()
+							// this.role.circleBody.sleep()
+							// this.role.circleBody2.sleep()
+                            // this.count = 0;
 
-							console.log("die")
-							this.gameEnd = true
-							this.dieItem = this.additiveslist[i]
-                            this.role.smokeSvga.visible = false
-                            EventBus.fire('GAME_OVER',{score:this.score})
+							// console.log("die")
+							// this.gameEnd = true
+							// this.dieItem = this.additiveslist[i]
+                            // this.role.smokeSvga.visible = false
+                            // EventBus.fire('GAME_OVER',{score:this.score})
 						}
 					}
 			}
