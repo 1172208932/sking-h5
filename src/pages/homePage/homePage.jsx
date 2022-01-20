@@ -52,8 +52,7 @@ class HomePage extends React.Component {
   }
 
   toAssist = async () => {
-    // TODO !sessionStorage.getItem("inviteCode")
-    if (CFG.inviteCode) {
+    if (CFG.inviteCode&&!sessionStorage.getItem("inviteCode")) {
       const { success } = await API.doAssist({
         inviteCode: CFG.inviteCode
       })
@@ -101,11 +100,6 @@ class HomePage extends React.Component {
 
           {/* 开始游戏按钮 */}
           <SvgaPlayer className="startga" src={`${RES_PATH}svga/开始游戏.svga`} onClick={_throttle(() => { if (this.judgeEndTime()) { store.changePage('Mappage') } })} />
-          {/* 新手引导第一步todo */}
-          {/* <div className="shoushi-gesturesAperture">
-          <SvgaPlayer className="gesturesAperture" src={`${RES_PATH}svga/手势单击.svga`} />
-          <p>点击开启“冰雪大冒险”</p>
-        </div> */}
           {/* 左上角icon */}
           <div className="topleft">
             {/* 头像 */}
