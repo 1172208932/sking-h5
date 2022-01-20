@@ -7,10 +7,14 @@
 > 需要滚动的元素设置`overflow-x: auto`,不要写`overflow-y:hidden`
 ```js
 componentDidMount() {
-  document.getElementById("overlay_layer").style.zIndex = -1;
+  if(document.getElementById("overlay_layer")) {
+    document.getElementById("overlay_layer").style.zIndex = -1;
+  }
 }
 
 componentWillUnmount() {
-  document.getElementById("overlay_layer").style.zIndex = 2001;
+  if(document.getElementById("overlay_layer")) {
+    document.getElementById("overlay_layer").style.zIndex = 2001;
+  }
 }
 ```
