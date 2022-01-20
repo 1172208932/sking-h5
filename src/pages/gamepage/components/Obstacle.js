@@ -31,11 +31,11 @@ export default class Obstacle {
 
         }, `${RES_PATH}GamePage/level1/${this.type}.png`)
 
-        var shapeshow = new Shape()
-        box.addChild(shapeshow)
-        shapeshow.beginFill(0xff0000, 0.5)
-            .drawRect(0, 0, propSize[this.type].width * 0.6, propSize[this.type].height * 0.6)
-            .endFill();
+        // var shapeshow = new Shape()
+        // box.addChild(shapeshow)
+        // shapeshow.beginFill(0xff0000, 0.5)
+        //     .drawRect(0, 0, propSize[this.type].width * 0.6, propSize[this.type].height * 0.6)
+        //     .endFill();
         this.rectShape = new p2.Box({
             width: propSize[this.type].width * 0.6, height: propSize[this.type].height * 0.6,
             material: new p2.Material()
@@ -97,7 +97,7 @@ export default class Obstacle {
         }
 
         this.rectcoin.position.set(item.x, showY + 300)
-        shapeshow.position.set(item.x + this.rectShape.width * 0.4, showY + 300 + this.rectShape.height * 0.2)
+        // shapeshow.position.set(item.x + this.rectShape.width * 0.4, showY + 300 + this.rectShape.height * 0.2)
         this.rectBody = new p2.Body({
             mass: 0,    //重量
             position: [item.x + this.rectShape.width / 2 + this.rectShape.width * 0.4, (-showY) - 300 - this.rectShape.height / 2 - this.rectShape.height * 0.2]

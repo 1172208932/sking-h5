@@ -65,7 +65,9 @@ export class Tool {
         }).to({
             number: endnumber
         }, duration).onUpdate(tween => {
-            context.scrollTop = parseInt(tween.number)
+            // context.scrollTop = parseInt(tween.number)
+            document.body.scrollTop = parseInt(tween.number)
+            document.documentElement.scrollTop = parseInt(tween.number)
         }).start().onComplete(() => {
             cb && cb()
         })
