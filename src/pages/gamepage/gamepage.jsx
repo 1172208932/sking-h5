@@ -34,12 +34,24 @@ class Gamepage extends React.Component {
     registerSounds({ 'game_snow': RES_PATH + 'sound/吃雪花音效.mp3' })
     registerSounds({ 'game_gem': RES_PATH + 'sound/吃宝石音效.mp3' })
 
-
     this.initCanvas();
     this.setStarInfo()
     if(store.isPlayMusic){
       this.playSound()
     }
+
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        this.stopSound(true)
+        console.log("H5已切换到后台或手机息屏");
+      } else {
+        if(store.isPlayMusic){
+          this.playSound()
+        }
+      }
+
+    })
   }
   componentWillUnmount() {
     EventBus.off('GAME_OVER', this.gameOver);
