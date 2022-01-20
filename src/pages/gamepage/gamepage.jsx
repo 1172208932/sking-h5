@@ -45,7 +45,7 @@ class Gamepage extends React.Component {
     EventBus.off('GAME_OVER', this.gameOver);
     EventBus.off('GAME_WIN', this.gameWin);
     EventBus.off('BEGIN_DOWNTIME', this.beginDownTime);
-    this.stopSound()
+    this.stopSound(true)
   }
 
   gameWin(e) {
@@ -62,11 +62,14 @@ class Gamepage extends React.Component {
    *关闭声音
    * @param {*} musci 音乐
   */
-  stopSound() {
+  stopSound(isEnd = false) {
+    if(isEnd){
+      stopSound('game_bgmusic')
+      stopSound('game_snow')
+      stopSound('game_gem')
+      return
+    }
     store.setMusic(false)
-    stopSound('game_bgmusic')
-    stopSound('game_snow')
-    stopSound('game_gem')
   }
 
   playSound() {
