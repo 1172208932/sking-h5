@@ -30,7 +30,7 @@ const gameStore = makeAutoObservable(mix({
         let y = 210
         // this.bgCon.x = x + stage.width / 8 +this.offsetX - 300//镜头跟随
         this.bgCon.y = y + stage.height * 0.6
-        console.log(this.bgCon.x,this.bgCon.y,'this.bgCo')
+        this.slowState = false
         this.createPhysicsWorld()
     },
 
