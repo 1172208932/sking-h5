@@ -13,6 +13,7 @@ import { SvgaPlayer } from '@spark/animation';
 
 import { toJS } from "mobx";
 import { md5 } from '@spark/utils';
+import { playSound, stopSound, preloadSounds, registerSounds } from '@spark/utils';
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 @observer
 class Gamepage extends React.Component {
@@ -31,11 +32,13 @@ class Gamepage extends React.Component {
     EventBus.on('BEGIN_DOWNTIME', this.beginDownTime, this);
     this.initCanvas();
     this.setStarInfo()
+    this.playSound()
   }
   componentWillUnmount() {
     EventBus.off('GAME_OVER', this.gameOver);
     EventBus.off('GAME_WIN', this.gameWin);
     EventBus.off('BEGIN_DOWNTIME', this.beginDownTime);
+    this.stopSound()
   }
 
   gameWin(e) {
@@ -47,7 +50,21 @@ class Gamepage extends React.Component {
     console.log(e, "游戏结束来，死啦死啊了");
     this.submitGame(e?.detail?.score || 0, 0)
   }
+  
+  /*
+   *关闭声音
+   * @param {*} musci 音乐
+  */
+  stopSound() {
+    stopSound('game_bgmusic')
+  }
 
+  playSound() {
+    registerSounds({ 'game_bgmusic': RES_PATH + 'sound/游戏中背景音乐.mp3' })
+    preloadSounds(null, () => {
+      playSound('game_bgmusic', { 'loop': true })
+    })
+  }
   /**
    * 提交分数
    * @param {*} score 分数
@@ -157,15 +174,15 @@ class Gamepage extends React.Component {
     //   gameStore.beginGame = true
     // });
     await store.queryNewGuide();
-    if(store?.newGuideStep?.alreadyGuideSteps == 2 && store.currentGameLevel == 1){
-     modalStore.pushPop("GameGuide")
+    if (store?.newGuideStep?.alreadyGuideSteps == 2 && store.currentGameLevel == 1) {
+      modalStore.pushPop("GameGuide")
     } else {
       this.setTimeStatus()
     }
-   
+
   }
 
-  beginDownTime(){
+  beginDownTime() {
     this.setTimeStatus()
   }
 
@@ -191,7 +208,7 @@ class Gamepage extends React.Component {
     });
   }
   removeGame = () => {
-    return new Promise((res,rej)=>{
+    return new Promise((res, rej) => {
       console.log(this.gamestage, "this.gamestage.")
       gameStore.shape0.clear(); // debug
       gameStore.shape1.clear();
@@ -206,7 +223,7 @@ class Gamepage extends React.Component {
       gameStore.beginGame = false;
       gameStore.phyworld.step = 0;
       gameStore.subdivision = 0
-      
+
       gameStore.score = 0
       gameStore.gameEnd = false
       gameStore.phyworld.removeBody(gameStore.role.carBody)
@@ -225,14 +242,14 @@ class Gamepage extends React.Component {
       gameStore.bgArea3X = 0
       res()
     })
-    
+
   }
 
 
   backMapPage() {
-    if(gameStore.beginGame == false){return}
+    if (gameStore.beginGame == false) { return }
     gameStore.pasueGame()
-    modalStore.pushPop("GameLeave",{removeGame: this.removeGame})
+    modalStore.pushPop("GameLeave", { removeGame: this.removeGame })
   }
   render() {
     const { gameStep, startpop, starInfo, soundon } = this.state
@@ -301,7 +318,7 @@ class Gamepage extends React.Component {
 
             <div className="distance">
               <span className="distancebg"></span>
-              <span className="distancenum">{((gameStore.lineInfo.length-13) * 100-Math.floor(gameStore.distance))>0?((gameStore.lineInfo.length-13) * 100-Math.floor(gameStore.distance)):0}m</span>
+              <span className="distancenum">{((gameStore.lineInfo.length - 13) * 100 - Math.floor(gameStore.distance)) > 0 ? ((gameStore.lineInfo.length - 13) * 100 - Math.floor(gameStore.distance)) : 0}m</span>
             </div>
             <div className="bar">
               <div className="three">
