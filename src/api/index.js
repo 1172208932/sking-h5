@@ -81,10 +81,10 @@ function generateAPI(apiList) {
 				});
 			if (result) {
 				//判断接口错误
-				if(document.getElementById("overlay_layer")) {
-					document.getElementById("overlay_layer").style.zIndex = 2001;
-				}
 				if (!result.success && !hideError) {
+					if(document.getElementById("overlay_layer")) {
+						document.getElementById("overlay_layer").style.zIndex = 2001;
+					}
 					Toast(result.message || '接口错误',2000,{didClose: ()=> {
 						document.getElementById("overlay_layer").style.zIndex = -1;
 					}});
