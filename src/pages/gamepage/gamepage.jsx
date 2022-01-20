@@ -30,15 +30,22 @@ class Gamepage extends React.Component {
     EventBus.on('GAME_OVER', this.gameOver, this);
     EventBus.on('GAME_WIN', this.gameWin, this);
     EventBus.on('BEGIN_DOWNTIME', this.beginDownTime, this);
+    registerSounds({ 'game_bgmusic': RES_PATH + 'sound/游戏中背景音乐.mp3' })
+    registerSounds({ 'game_snow': RES_PATH + 'sound/吃雪花音效.mp3' })
+    registerSounds({ 'game_gem': RES_PATH + 'sound/吃宝石音效.mp3' })
+
+
     this.initCanvas();
     this.setStarInfo()
-    this.playSound()
+    if(store.isPlayMusic){
+      this.playSound()
+    }
   }
   componentWillUnmount() {
     EventBus.off('GAME_OVER', this.gameOver);
     EventBus.off('GAME_WIN', this.gameWin);
     EventBus.off('BEGIN_DOWNTIME', this.beginDownTime);
-    this.stopSound()
+    this.stopSound(true)
   }
 
   gameWin(e) {
@@ -55,12 +62,18 @@ class Gamepage extends React.Component {
    *关闭声音
    * @param {*} musci 音乐
   */
-  stopSound() {
+  stopSound(isEnd = false) {
     stopSound('game_bgmusic')
+    stopSound('game_snow')
+    stopSound('game_gem')
+    if(isEnd){
+      return
+    }
+    store.setMusic(false)
   }
 
   playSound() {
-    registerSounds({ 'game_bgmusic': RES_PATH + 'sound/游戏中背景音乐.mp3' })
+    store.setMusic(true)
     preloadSounds(null, () => {
       playSound('game_bgmusic', { 'loop': true })
     })
@@ -318,7 +331,7 @@ class Gamepage extends React.Component {
 
             <div className="distance">
               <span className="distancebg"></span>
-              <span className="distancenum">{((gameStore.lineInfo.length - 13) * 100 - Math.floor(gameStore.distance)) > 0 ? ((gameStore.lineInfo.length - 13) * 100 - Math.floor(gameStore.distance)) : 0}m</span>
+              <span className="distancenum">{((gameStore.lineInfo.length - 13) * 100 - Math.floor(gameStore.distance)) > 0 ? Math.floor(((gameStore.lineInfo.length - 13) * 100 - Math.floor(gameStore.distance))/100 ): 0}m</span>
             </div>
             <div className="bar">
               <div className="three">
@@ -346,23 +359,27 @@ class Gamepage extends React.Component {
             <div className="sound">
 
               {
-                !soundon && <span className="soundf"
+                !store.isPlayMusic && <span className="soundf"
                   onClick={() => {
                     console.log('打开声音')
-                    this.setState({
-                      soundon: true
-                    })
+                    this.playSound()
+                    store.setMusic(true)
+                    // this.setState({
+                    //   soundon: true
+                    // })
                   }}
                 ></span>
               }
 
               {
-                soundon && <span className="soundon"
+                store.isPlayMusic && <span className="soundon"
                   onClick={() => {
                     console.log('关闭声音')
-                    this.setState({
-                      soundon: false
-                    })
+                    this.stopSound()
+                    store.setMusic(false)
+                    // this.setState({
+                    //   soundon: false
+                    // })
                   }}
                 ></span>
               }

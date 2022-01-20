@@ -11,6 +11,10 @@ const store = makeAutoObservable({
   startId: null, // 正在闯关的startID
   inviteCode: null,
   newGuideStep: {}, // 新手引导详情
+  isPlayMusic: true,
+  setMusic(value){
+    this.isPlayMusic = value
+  },
   // 首页数据
   setRule(ruleInfo) {
     this.ruleInfo = ruleInfo;

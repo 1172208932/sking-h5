@@ -192,7 +192,13 @@ module.exports =  {
       score: "0",
       star: "3",
       receive: "1",
-    }
+    },
+    {
+      level: "30",
+      score: "0",
+      star: "3",
+      receive: "1",
+    },
     ],
     url: "http://www.baidu.com",
     rankPrize: [
