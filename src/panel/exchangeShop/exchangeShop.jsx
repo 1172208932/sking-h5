@@ -25,7 +25,12 @@ class ExchangeShop extends React.Component {
 
   async componentDidMount() {
     this.getList();
-   await loadOneImg("https://yun.duiba.com.cn/aurora/assets/b415744ec711daa4c93365b157c356ce38b6f726.png")
+    document.getElementById("overlay_layer").style.zIndex = -1;
+    await loadOneImg("https://yun.duiba.com.cn/aurora/assets/b415744ec711daa4c93365b157c356ce38b6f726.png")
+  }
+
+  componentWillUnmount() {
+    document.getElementById("overlay_layer").style.zIndex = 2001;
   }
 
   getList = async () => {

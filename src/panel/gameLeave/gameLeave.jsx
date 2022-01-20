@@ -42,7 +42,7 @@ class GameLeave extends React.Component {
           await this.props.popData.removeGame()
           store.changePage('Mappage');
           store.getHomeInfo();
-        }}></p>
+        }}>确认退出</p>
       </div>
     );
   }

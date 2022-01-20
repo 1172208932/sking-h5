@@ -35,7 +35,8 @@ class App extends Component {
   render() {
     let { curPage } = store;
     return (
-      <div>
+      <div style={{width: '100vw',
+        height: '100vh'}}>
         {{ ...pageMap[curPage], props: { changePage: "homePage" }}}
         <Modal />
       </div>

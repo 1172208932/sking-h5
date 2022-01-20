@@ -163,7 +163,36 @@ module.exports =  {
         score: "0",
         star: "3",
         receive: "1",
+      },{
+        level: "25",
+        score: "0",
+        star: "3",
+        receive: "1",
       },
+      {
+        level: "26",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+       {
+        level: "27",
+        score: "0",
+        star: "1",
+        receive: "1",
+      },
+      {
+        level: "28",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "29",
+      score: "0",
+      star: "3",
+      receive: "1",
+    }
     ],
     url: "http://www.baidu.com",
     rankPrize: [
@@ -328,6 +357,36 @@ module.exports =  {
       },
       {
         "level": "25",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "26",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "27",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "28",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "29",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "30",
         "star2": 666,
         "star1": -14169123.906866238,
         "star3": 7777
