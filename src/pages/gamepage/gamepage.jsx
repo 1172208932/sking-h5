@@ -13,7 +13,7 @@ import { SvgaPlayer } from '@spark/animation';
 
 import { toJS } from "mobx";
 import { md5 } from '@spark/utils';
-
+import { playSound, stopSound, preloadSounds, registerSounds } from '@spark/utils';
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 @observer
 class Gamepage extends React.Component {
@@ -32,7 +32,7 @@ class Gamepage extends React.Component {
     EventBus.on('BEGIN_DOWNTIME', this.beginDownTime, this);
     this.initCanvas();
     this.setStarInfo()
-   
+    this.playSound()
   }
   componentWillUnmount() {
     EventBus.off('GAME_OVER', this.gameOver);
@@ -49,7 +49,12 @@ class Gamepage extends React.Component {
     console.log(e, "游戏结束来，死啦死啊了");
     this.submitGame(e?.detail?.score || 0, 0)
   }
-
+  playSound() {
+    registerSounds({ 'game_bgmusic': RES_PATH + 'sound/游戏中背景音乐.mp3' })
+    preloadSounds(null, () => {
+      playSound('game_bgmusic', { 'loop': true })
+    })
+  }
   /**
    * 提交分数
    * @param {*} score 分数

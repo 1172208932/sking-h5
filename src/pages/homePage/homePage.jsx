@@ -35,14 +35,9 @@ class HomePage extends React.Component {
     // modalStore.pushPop("GameSuccess",{
     //   ...{sendGold:10,answerFlag:0,reGold:11,star:3},
     // })
-    this.playSound()
+    
   }
-  playSound() {
-    registerSounds({ 'game_bgmusic': RES_PATH + 'sound/游戏中背景音乐.mp3' })
-    preloadSounds(null, () => {
-      playSound('game_bgmusic', { 'loop': true })
-    })
-  }
+
 
   // 首页接口数据处理
   indexDataChange = () => {
