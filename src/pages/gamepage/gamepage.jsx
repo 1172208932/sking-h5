@@ -13,6 +13,7 @@ import { SvgaPlayer } from '@spark/animation';
 
 import { toJS } from "mobx";
 import { md5 } from '@spark/utils';
+
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 @observer
 class Gamepage extends React.Component {
@@ -31,6 +32,7 @@ class Gamepage extends React.Component {
     EventBus.on('BEGIN_DOWNTIME', this.beginDownTime, this);
     this.initCanvas();
     this.setStarInfo()
+   
   }
   componentWillUnmount() {
     EventBus.off('GAME_OVER', this.gameOver);
