@@ -6,6 +6,7 @@ import p2 from 'p2/build/p2';
 import Obstacle from '../components/Obstacle.js';
 import EventBus from '@duiba/event-bus';
 import store from '@src/store/index.js';
+import { playSound, stopSound, preloadSounds, registerSounds } from '@spark/utils';
 
 const sorceConfig = {
     "snow":1,
@@ -221,6 +222,20 @@ export const RoleControl = {
                     (e.bodyA == this.role.carBody && e.bodyB == this.additiveslist[i].rectBody)
                 ){
 						if(this.additiveslist[i].type == "snow" || this.additiveslist[i].type == "gem"){
+
+                            if(this.additiveslist[i].type == "snow"){
+                                if( !store.isPlayMusic ){ return}
+                                preloadSounds(null, () => {
+                                    playSound('game_snow', { 'loop': false })
+                                  })
+                            }
+
+                            if(this.additiveslist[i].type == "gem"){
+                                if( !store.isPlayMusic ){ return}
+                                preloadSounds(null, () => {
+                                    playSound('game_gem', { 'loop': false })
+                                  })
+                            }
                             console.log(this.additiveslist[i].rectcoin.x,this.additiveslist[i].rectcoin.y)
 							this.phyworld.removeBody(this.additiveslist[i].rectBody)
 							this.bgCon.removeChild(this.additiveslist[i].rectcoin)
