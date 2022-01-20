@@ -47,6 +47,22 @@ const gameStore = makeAutoObservable(mix({
         propGuide.x =  9841
         propGuide.y =  2206
         this.bgCon.addChildAt(propGuide,1)
+
+        const propGuideNice = FYGE.Sprite.fromUrl("//yun.duiba.com.cn/aurora/assets/940f611ebd4024cdb1698f8919873660293adb0f.png")
+        propGuideNice.x =  10741
+        propGuideNice.y =  2306
+        this.bgCon.addChildAt(propGuideNice,1)
+
+
+        const propGuide2 = FYGE.Sprite.fromUrl("//yun.duiba.com.cn/aurora/assets/421a46bf9980bc655c608079fd831351bf0ab554.png")
+        propGuide2.x =  29170 // 29212 6655
+        propGuide2.y =  6535
+        this.bgCon.addChildAt(propGuide2,1)
+
+        const propGuideNice2 = FYGE.Sprite.fromUrl("//yun.duiba.com.cn/aurora/assets/940f611ebd4024cdb1698f8919873660293adb0f.png")
+        propGuideNice2.x =  30512
+        propGuideNice2.y =  6555
+        this.bgCon.addChildAt(propGuideNice2,1)
     },
 
 
