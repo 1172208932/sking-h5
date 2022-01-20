@@ -22,6 +22,15 @@ class Rank extends React.Component {
 
   componentDidMount() {
     this.getRankList()
+    if(document.getElementById("overlay_layer")) {
+      document.getElementById("overlay_layer").style.zIndex = -1;
+    }
+  }
+
+  componentWillUnmount() {
+    if(document.getElementById("overlay_layer")) {
+      document.getElementById("overlay_layer").style.zIndex = 2001;
+    }
   }
 
   getRankList = async() => {

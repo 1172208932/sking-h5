@@ -18,13 +18,17 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  -webkit-overflow-scrolling: touch;
 }
-#overlay_layer {
+#toast_layer {
   transform: rotate(90deg);
+  overflow: hidden;
+  overflow-x: auto;
 }
 #loading_layer {
   background: rgba(0,0,0,0.5);
-  transform: rotate(90deg);
+  overflow: hidden;
+  overflow-x: auto;
 }
 // 文本溢出省略号
 .textover {

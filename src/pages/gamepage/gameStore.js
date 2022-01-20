@@ -30,7 +30,7 @@ const gameStore = makeAutoObservable(mix({
         let y = 210
         // this.bgCon.x = x + stage.width / 8 +this.offsetX - 300//镜头跟随
         this.bgCon.y = y + stage.height * 0.6
-        console.log(this.bgCon.x,this.bgCon.y,'this.bgCo')
+        this.slowState = false
         this.createPhysicsWorld()
     },
 
@@ -47,6 +47,22 @@ const gameStore = makeAutoObservable(mix({
         propGuide.x =  9841
         propGuide.y =  2206
         this.bgCon.addChildAt(propGuide,1)
+
+        const propGuideNice = FYGE.Sprite.fromUrl("//yun.duiba.com.cn/aurora/assets/940f611ebd4024cdb1698f8919873660293adb0f.png")
+        propGuideNice.x =  10741
+        propGuideNice.y =  2306
+        this.bgCon.addChildAt(propGuideNice,1)
+
+
+        const propGuide2 = FYGE.Sprite.fromUrl("//yun.duiba.com.cn/aurora/assets/421a46bf9980bc655c608079fd831351bf0ab554.png")
+        propGuide2.x =  29170 // 29212 6655
+        propGuide2.y =  6535
+        this.bgCon.addChildAt(propGuide2,1)
+
+        const propGuideNice2 = FYGE.Sprite.fromUrl("//yun.duiba.com.cn/aurora/assets/940f611ebd4024cdb1698f8919873660293adb0f.png")
+        propGuideNice2.x =  30512
+        propGuideNice2.y =  6555
+        this.bgCon.addChildAt(propGuideNice2,1)
     },
 
 
@@ -346,7 +362,7 @@ const gameStore = makeAutoObservable(mix({
     stockArea(i,Shapestock) {
         // console.log(i, "当前")
         
-        Shapestock.beginGradientFill([(i - 1) * 100, this.lineInfo[i] +900, i * 100,this.lineInfo[i-1] +300], [[0, lineColor[Math.floor((store.currentGameLevel-1)/20)], 1], [1, "#ffffff", 1]])
+        Shapestock.beginGradientFill([(i-1) * 100, this.lineInfo[i] +1300, i * 100,this.lineInfo[i-1] +300], [[0, lineColor[Math.floor((store.currentGameLevel-1)/20)], 1], [1, "#ffffff", 1]])
         Shapestock.lineTo((i - 1) * 100, (this.lineInfo[i - 1]) + 300)
         Shapestock.lineTo(i * 100, this.lineInfo[i] + 300)
         Shapestock.lineTo(i * 100, this.lineInfo[i] + 900)
