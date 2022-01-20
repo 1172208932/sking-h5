@@ -37,7 +37,9 @@ class Gamepage extends React.Component {
 
     this.initCanvas();
     this.setStarInfo()
-    this.playSound()
+    if(store.isPlayMusic){
+      this.playSound()
+    }
   }
   componentWillUnmount() {
     EventBus.off('GAME_OVER', this.gameOver);
@@ -354,25 +356,27 @@ class Gamepage extends React.Component {
             <div className="sound">
 
               {
-                !soundon && <span className="soundf"
+                !store.isPlayMusic && <span className="soundf"
                   onClick={() => {
                     console.log('打开声音')
                     this.playSound()
-                    this.setState({
-                      soundon: true
-                    })
+                    store.setMusic(true)
+                    // this.setState({
+                    //   soundon: true
+                    // })
                   }}
                 ></span>
               }
 
               {
-                soundon && <span className="soundon"
+                store.isPlayMusic && <span className="soundon"
                   onClick={() => {
                     console.log('关闭声音')
                     this.stopSound()
-                    this.setState({
-                      soundon: false
-                    })
+                    store.setMusic(false)
+                    // this.setState({
+                    //   soundon: false
+                    // })
                   }}
                 ></span>
               }
