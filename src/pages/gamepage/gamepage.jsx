@@ -349,6 +349,7 @@ class Gamepage extends React.Component {
                 !soundon && <span className="soundf"
                   onClick={() => {
                     console.log('打开声音')
+                    this.playSound()
                     this.setState({
                       soundon: true
                     })
@@ -360,6 +361,7 @@ class Gamepage extends React.Component {
                 soundon && <span className="soundon"
                   onClick={() => {
                     console.log('关闭声音')
+                    this.stopSound()
                     this.setState({
                       soundon: false
                     })
