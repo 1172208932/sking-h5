@@ -234,6 +234,10 @@ export const RoleControl = {
                     (e.bodyA == this.role.carBody && e.bodyB == this.additiveslist[i].rectBody)
                 ){
 						if(this.additiveslist[i].type == "snow" || this.additiveslist[i].type == "gem"){
+                            console.log(this.additiveslist[i].rectcoin.x,this.additiveslist[i].rectcoin.y)
+							this.phyworld.removeBody(this.additiveslist[i].rectBody)
+							this.bgCon.removeChild(this.additiveslist[i].rectcoin)
+                            this.score =this.score + sorceConfig[this.additiveslist[i].type]
 
                             if(this.additiveslist[i].type == "snow"){
                                 if( !store.isPlayMusic ){ return}
@@ -248,10 +252,6 @@ export const RoleControl = {
                                     playSound('game_gem', { 'loop': false })
                                   })
                             }
-                            console.log(this.additiveslist[i].rectcoin.x,this.additiveslist[i].rectcoin.y)
-							this.phyworld.removeBody(this.additiveslist[i].rectBody)
-							this.bgCon.removeChild(this.additiveslist[i].rectcoin)
-                            this.score =this.score + sorceConfig[this.additiveslist[i].type]
 						}else {
                             this.role.carBody.sleep()
 							this.role.circleBody.sleep()
