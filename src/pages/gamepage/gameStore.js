@@ -189,7 +189,7 @@ const gameStore = makeAutoObservable(mix({
         this.bgCon.addChild(this.shape0);   // debug
         //绘制地面线路
         
-        this.shape0.beginStroke(0xff0000, 4); // debug
+        this.shape0.beginStroke(lineColor[Math.floor((store.currentGameLevel-1)/20)], 4); // debug
         // var Shapestock = new FYGE.Shape();
         this.shape0.addChild(this.Shapestock0)
         for (let i = 0; i < this.deltaPoints ; i++) {
@@ -305,7 +305,7 @@ const gameStore = makeAutoObservable(mix({
         }
         console.log((subdivision * this.deltaPoints - 1) * 100, this.lineInfo[subdivision * this.deltaPoints - 1])//为啥查一个
         //绘制地面线路
-        useShape.beginStroke(0xff0000, 4); // debug
+        useShape.beginStroke(lineColor[Math.floor((store.currentGameLevel-1)/20)], 4); // debug
         // var Shapestock = new FYGE.Shape();
         // useShape.addChild(Shapestock)
         for (let i = subdivision * this.deltaPoints - 1; i < (subdivision * this.deltaPoints + this.deltaPoints < this.lineInfo.length ? subdivision * this.deltaPoints + this.deltaPoints : this.lineInfo.length); i++) {

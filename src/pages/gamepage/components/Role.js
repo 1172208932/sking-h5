@@ -84,13 +84,13 @@ export default class Role extends Sprite {
             this.jump2.visible = false
         })
 
-        const circle = this.circle = new FYGE.Shape();
-        this.addChild(circle);
-        // circledrawRoundedRect
-        circle.beginFill(0xff0000, 0.5)
-            .drawCircle(0, 0, 8)
-            // .drawRoundedRect(0,0,40,40)
-            .endFill();
+        // const circle = this.circle = new FYGE.Shape();
+        // this.addChild(circle);
+        // // circledrawRoundedRect
+        // circle.beginFill(0xff0000, 0.5)
+        //     .drawCircle(0, 0, 8)
+        //     // .drawRoundedRect(0,0,40,40)
+        //     .endFill();
 
         // new Box({width:40,height:40})
         const circleShape = this.circleShape = new p2.Circle({
@@ -107,13 +107,13 @@ export default class Role extends Sprite {
 
         // world.addBody(circleBody);
 
-        const circle2 = this.circle2 = new FYGE.Shape();
-        this.addChild(circle2);
-        // circledrawRoundedRect
-        circle2.beginFill(0xff0000, 0.5)
-            .drawCircle(0, 0, 8)
-            // .drawRoundedRect(0,0,40,40)
-            .endFill();
+        // const circle2 = this.circle2 = new FYGE.Shape();
+        // this.addChild(circle2);
+        // // circledrawRoundedRect
+        // circle2.beginFill(0xff0000, 0.5)
+        //     .drawCircle(0, 0, 8)
+        //     // .drawRoundedRect(0,0,40,40)
+        //     .endFill();
 
 
         const circleShape2 = this.circleShape2 = new p2.Circle({
@@ -140,11 +140,11 @@ export default class Role extends Sprite {
         // role.height = 15;
 
         this.addChild(car);
-        // circledrawRoundedRect
-        car.beginFill(0xff0000, 0.5)
-            .drawRect(0, 0, 90, 113)
-            // .drawRoundedRect(0,0,40,40)
-            .endFill();
+        // // circledrawRoundedRect
+        // car.beginFill(0xff0000, 0.5)
+        //     .drawRect(0, 0, 90, 113)
+        //     // .drawRoundedRect(0,0,40,40)
+        //     .endFill();
 
 
 
