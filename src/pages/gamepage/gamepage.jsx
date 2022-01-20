@@ -30,9 +30,16 @@ class Gamepage extends React.Component {
     EventBus.on('GAME_OVER', this.gameOver, this);
     EventBus.on('GAME_WIN', this.gameWin, this);
     EventBus.on('BEGIN_DOWNTIME', this.beginDownTime, this);
+    registerSounds({ 'game_bgmusic': RES_PATH + 'sound/游戏中背景音乐.mp3' })
+    registerSounds({ 'game_snow': RES_PATH + 'sound/吃雪花音效.mp3' })
+    registerSounds({ 'game_gem': RES_PATH + 'sound/吃宝石音效.mp3' })
+
+
     this.initCanvas();
     this.setStarInfo()
-    this.playSound()
+    if(store.isPlayMusic){
+      this.playSound()
+    }
   }
   componentWillUnmount() {
     EventBus.off('GAME_OVER', this.gameOver);
@@ -56,11 +63,14 @@ class Gamepage extends React.Component {
    * @param {*} musci 音乐
   */
   stopSound() {
+    store.setMusic(false)
     stopSound('game_bgmusic')
+    stopSound('game_snow')
+    stopSound('game_gem')
   }
 
   playSound() {
-    registerSounds({ 'game_bgmusic': RES_PATH + 'sound/游戏中背景音乐.mp3' })
+    store.setMusic(true)
     preloadSounds(null, () => {
       playSound('game_bgmusic', { 'loop': true })
     })
@@ -346,25 +356,27 @@ class Gamepage extends React.Component {
             <div className="sound">
 
               {
-                !soundon && <span className="soundf"
+                !store.isPlayMusic && <span className="soundf"
                   onClick={() => {
                     console.log('打开声音')
                     this.playSound()
-                    this.setState({
-                      soundon: true
-                    })
+                    store.setMusic(true)
+                    // this.setState({
+                    //   soundon: true
+                    // })
                   }}
                 ></span>
               }
 
               {
-                soundon && <span className="soundon"
+                store.isPlayMusic && <span className="soundon"
                   onClick={() => {
                     console.log('关闭声音')
                     this.stopSound()
-                    this.setState({
-                      soundon: false
-                    })
+                    store.setMusic(false)
+                    // this.setState({
+                    //   soundon: false
+                    // })
                   }}
                 ></span>
               }

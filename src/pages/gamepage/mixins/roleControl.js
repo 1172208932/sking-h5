@@ -6,6 +6,7 @@ import p2 from 'p2/build/p2';
 import Obstacle from '../components/Obstacle.js';
 import EventBus from '@duiba/event-bus';
 import store from '@src/store/index.js';
+import { playSound, stopSound, preloadSounds, registerSounds } from '@spark/utils';
 
 const sorceConfig = {
     "snow":1,
@@ -172,37 +173,49 @@ export const RoleControl = {
     },
 
     roleContact(e) {
-        if (
-            (e.bodyA == this.role.circleBody && e.bodyB == this.line0) ||
-            (e.bodyB == this.role.circleBody && e.bodyA == this.line0) ||
-            (e.bodyA == this.role.circleBody2 && e.bodyB == this.line0) ||
-            (e.bodyB == this.role.circleBody2 && e.bodyA == this.line0)||
+
+        // if (
+        //     (e.bodyA == this.role.circleBody && e.bodyB == this.line0) ||
+        //     (e.bodyB == this.role.circleBody && e.bodyA == this.line0) ||
+        //     (e.bodyA == this.role.circleBody2 && e.bodyB == this.line0) ||
+        //     (e.bodyB == this.role.circleBody2 && e.bodyA == this.line0)||
+        //     (e.bodyA == this.role.carBody && e.bodyB == this.line0) ||
+        //     (e.bodyB == this.role.carBody && e.bodyA == this.line0)
+        // ) {
+        //     // console.log(e)
+        //     // console.log(hfShapeBody)
+        //     this.role.carBody.fixedRotation = false
+        //     console.log('碰撞到地面了1')
+        //     this.touchGround()
+        //     this.count = 0
+        //     // this.role.carBody.angle = 0
+        // }else if (
+        //     (e.bodyA == this.role.circleBody && e.bodyB == this.line1) ||
+        //     (e.bodyB == this.role.circleBody && e.bodyA == this.line1) ||
+        //     (e.bodyA == this.role.circleBody2 && e.bodyB == this.line1) ||
+        //     (e.bodyB == this.role.circleBody2 && e.bodyA == this.line1) ||
+        //     (e.bodyA == this.role.carBody && e.bodyB == this.line1) ||
+        //     (e.bodyB == this.role.carBody && e.bodyA == this.line1)
+        // ) {
+        //     // console.log(e)
+        //     // console.log(hfShapeBody)
+        //     this.role.carBody.fixedRotation = false
+        //     console.log('碰撞到地面了2')
+        //     this.touchGround()
+        //     this.count = 0
+        //     // this.role.carBody.angle = 0
+        // }else 
+        if(
             (e.bodyA == this.role.carBody && e.bodyB == this.line0) ||
-            (e.bodyB == this.role.carBody && e.bodyA == this.line0)
-        ) {
-            // console.log(e)
-            // console.log(hfShapeBody)
-            this.role.carBody.fixedRotation = false
-            // console.log('碰撞到地面了1')
-            this.touchGround()
-            this.count = 0
-            // this.role.carBody.angle = 0
-        }else if (
-            (e.bodyA == this.role.circleBody && e.bodyB == this.line1) ||
-            (e.bodyB == this.role.circleBody && e.bodyA == this.line1) ||
-            (e.bodyA == this.role.circleBody2 && e.bodyB == this.line1) ||
-            (e.bodyB == this.role.circleBody2 && e.bodyA == this.line1) ||
+            (e.bodyB == this.role.carBody && e.bodyA == this.line0) ||
             (e.bodyA == this.role.carBody && e.bodyB == this.line1) ||
             (e.bodyB == this.role.carBody && e.bodyA == this.line1)
-        ) {
-            // console.log(e)
-            // console.log(hfShapeBody)
+        ){
             this.role.carBody.fixedRotation = false
-            // console.log('碰撞到地面了2')
+            console.log('碰撞到地面了1')
             this.touchGround()
             this.count = 0
-            // this.role.carBody.angle = 0
-        }else if (
+        } else if (
             e.bodyA.id == this.endId || e.bodyB.id == this.endId
         ) {
             if(this.isCallWin){return}
@@ -221,21 +234,35 @@ export const RoleControl = {
                     (e.bodyA == this.role.carBody && e.bodyB == this.additiveslist[i].rectBody)
                 ){
 						if(this.additiveslist[i].type == "snow" || this.additiveslist[i].type == "gem"){
+
+                            if(this.additiveslist[i].type == "snow"){
+                                if( !store.isPlayMusic ){ return}
+                                preloadSounds(null, () => {
+                                    playSound('game_snow', { 'loop': false })
+                                  })
+                            }
+
+                            if(this.additiveslist[i].type == "gem"){
+                                if( !store.isPlayMusic ){ return}
+                                preloadSounds(null, () => {
+                                    playSound('game_gem', { 'loop': false })
+                                  })
+                            }
                             console.log(this.additiveslist[i].rectcoin.x,this.additiveslist[i].rectcoin.y)
 							this.phyworld.removeBody(this.additiveslist[i].rectBody)
 							this.bgCon.removeChild(this.additiveslist[i].rectcoin)
                             this.score =this.score + sorceConfig[this.additiveslist[i].type]
 						}else {
-                            // this.role.carBody.sleep()
-							// this.role.circleBody.sleep()
-							// this.role.circleBody2.sleep()
-                            // this.count = 0;
+                            this.role.carBody.sleep()
+							this.role.circleBody.sleep()
+							this.role.circleBody2.sleep()
+                            this.count = 0;
 
-							// console.log("die")
-							// this.gameEnd = true
-							// this.dieItem = this.additiveslist[i]
-                            // this.role.smokeSvga.visible = false
-                            // EventBus.fire('GAME_OVER',{score:this.score})
+							console.log("die")
+							this.gameEnd = true
+							this.dieItem = this.additiveslist[i]
+                            this.role.smokeSvga.visible = false
+                            EventBus.fire('GAME_OVER',{score:this.score})
 						}
 					}
 			}
