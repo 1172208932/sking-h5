@@ -17,7 +17,7 @@
         "@spark/dbdomain": "^1.0.25",
         "@spark/projectx": "^2.0.5",
         "@spark/share": "^2.0.211",
-        "@spark/ui": "^2.0.8",
+        "@spark/ui": "^2.0.108",
         "@spark/utils": "^2.0.17",
         "@tweenjs/tween.js": "^18.6.4",
         "@types/p2": "^0.7.39",

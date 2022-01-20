@@ -19,7 +19,13 @@ class Myprize extends React.Component {
 
   componentDidMount() {
     this.getPrizeList();
+    document.getElementById("overlay_layer").style.zIndex = -1;
   }
+
+  componentWillUnmount() {
+    document.getElementById("overlay_layer").style.zIndex = 2001;
+  }
+
 
   getPrizeList = async () => {
     const { success, data } = await API.getMyPrize();

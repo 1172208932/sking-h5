@@ -13,6 +13,15 @@ class Rule extends React.Component {
   constructor(props) {
     super(props);
   }
+
+  componentDidMount() {
+    document.getElementById("overlay_layer").style.zIndex = -1;
+  }
+
+  componentWillUnmount() {
+    document.getElementById("overlay_layer").style.zIndex = 2001;
+  }
+
   render() {
     return (
       <div className="rule">
