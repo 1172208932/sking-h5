@@ -15,11 +15,15 @@ class Rule extends React.Component {
   }
 
   componentDidMount() {
-    document.getElementById("overlay_layer").style.zIndex = -1;
+    if(document.getElementById("overlay_layer")) {
+      document.getElementById("overlay_layer").style.zIndex = -1;
+    }
   }
 
   componentWillUnmount() {
-    document.getElementById("overlay_layer").style.zIndex = 2001;
+    if(document.getElementById("overlay_layer")) {
+      document.getElementById("overlay_layer").style.zIndex = 2001;
+    }
   }
 
   render() {
