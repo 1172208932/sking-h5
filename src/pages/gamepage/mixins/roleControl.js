@@ -129,7 +129,10 @@ export const RoleControl = {
     },
     // 接触地面
     touchGround(){
-        this.role.smokeSvga.visible = true
+        if(this.role?.smokeSvga){
+            this.role.smokeSvga.visible = true
+        }
+        
     },
     updateRole(stage) {
         if(!this.role){return}
