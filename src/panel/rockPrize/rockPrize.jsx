@@ -128,7 +128,7 @@ class RockPrize extends React.Component {
   render() {
     const { prizeList } = this.state;
     return (
-      <div className="fullStarDraw1">
+      <div className="fullStarDraw1 md2">
         <SvgaPlayer className="snowAndIceAtmosphere" src={`${RES_PATH}svga/雪花出来.svga`}></SvgaPlayer>
         <SvgaPlayer className="ribbon" src={`${RES_PATH}svga/彩带.svga`} loop={1}></SvgaPlayer>
         <span className="light"></span>

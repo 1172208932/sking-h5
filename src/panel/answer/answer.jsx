@@ -106,7 +106,7 @@ class Answer extends React.Component {
     const { answerDetail, chooseIndex, rightIndex } = this.state;
     const isRight = chooseIndex == rightIndex;
     return (
-      <div className="iDidntChoose1">
+      <div className="iDidntChoose1 md4">
         {/* 头部 */}
         {chooseIndex >= 0 ? (
           <div className="topAvatar">
