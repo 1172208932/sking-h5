@@ -34,17 +34,18 @@ class Myprize extends React.Component {
   getPrizeList = async () => {
     const { success, data } = await API.getMyPrize();
     if (success && data?.length) {
-      const list = data.filter((item)=> {
-        return item.extra.type !=1
-      })
+      // const list = data.filter((item)=> {
+      //   return item.extra.type !=1
+      // })
       this.setState({
-        list,
+        list:data,
       });
     }
   };
 
   goToLink = _throttle((item) => {
     const {id, url} = item
+    if(item.extra.type ==1) return false;
 		if (url) {
 			location.href = url
 		} else {

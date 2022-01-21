@@ -143,7 +143,7 @@ export const RoleControl = {
             this.slowState = true
         }
 
-        // console.log(this.role.circleBody.position[0],this.role.circleBody.position[1])
+        console.log(this.role.circleBody.position[0],this.role.circleBody.position[1])
 
         const carBodyX = this.role.carBody.position[0];
         const carBodyY = -this.role.carBody.position[1];
@@ -253,16 +253,16 @@ export const RoleControl = {
                                   })
                             }
 						}else {
-                            // this.role.carBody.sleep()
-							// this.role.circleBody.sleep()
-							// this.role.circleBody2.sleep()
-                            // this.count = 0;
+                            this.role.carBody.sleep()
+							this.role.circleBody.sleep()
+							this.role.circleBody2.sleep()
+                            this.count = 0;
 
-							// console.log("die")
-							// this.gameEnd = true
-							// this.dieItem = this.additiveslist[i]
-                            // this.role.smokeSvga.visible = false
-                            // EventBus.fire('GAME_OVER',{score:this.score})
+							console.log("die")
+							this.gameEnd = true
+							this.dieItem = this.additiveslist[i]
+                            this.role.smokeSvga.visible = false
+                            EventBus.fire('GAME_OVER',{score:this.score})
 						}
 					}
 			}

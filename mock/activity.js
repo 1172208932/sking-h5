@@ -607,6 +607,17 @@ const getInviteCode = {
   }
 }
 
+const getCode = {
+  "code": null,
+  "data": {
+      "avatar": null,
+      "imageUrl": "https://devnmmimage.myrtb.net/storage/qrcode/16427293746711.png",
+      "nickName": "Wvj7U3_LX0X21S8"
+  },
+  "message": null,
+  "success": true
+}
+
 module.exports = {
   listExchangeLimit,
   doExchange,
@@ -629,5 +640,6 @@ module.exports = {
   rankingAward,
   startGame,
   gameSubmit,
-  getInviteCode
+  getInviteCode,
+  getCode
 };
