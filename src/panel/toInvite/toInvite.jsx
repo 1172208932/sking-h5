@@ -7,6 +7,7 @@ import store from '../../store/index';
 import modalStore from '@src/store/modal';
 import API from '../../api';
 import './toInvite.less';
+import { _throttle } from "@src/utils/utils.js";
 
 @observer
 class ToInvite extends React.Component {
