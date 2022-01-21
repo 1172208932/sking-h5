@@ -59,7 +59,12 @@ class ExchangeShop extends React.Component {
     const { isNow } = this.state;
     const { homeInfo } = store;
     if (!isNow) {
-      Toast("即将开启，明日0点开抢!");
+      if(document.getElementById("overlay_layer")) {
+        document.getElementById("overlay_layer").style.zIndex = 2001;
+      }
+      Toast("即将开启，明日0点开抢!",2000,{didClose: ()=> {
+        document.getElementById("overlay_layer").style.zIndex = -1;
+      }});
       return false;
     }
     if (item?.consumeSps?.[0]?.quantity <= store?.homeInfo?.goldNum && item?.options?.[0]?.optionStock>0) {
@@ -73,10 +78,20 @@ class ExchangeShop extends React.Component {
         },
       },true);
     } else if(item?.consumeSps?.[0]?.quantity > homeInfo?.goldNum){
+      if(document.getElementById("overlay_layer")) {
+        document.getElementById("overlay_layer").style.zIndex = 2001;
+      }
       // 金币不足
-      Toast("金币不足，快去赚金币吧!");
+      Toast("金币不足，快去赚金币吧!",2000,{didClose: ()=> {
+        document.getElementById("overlay_layer").style.zIndex = -1;
+      }});
     } else {
-      Toast("库存不足")
+      if(document.getElementById("overlay_layer")) {
+        document.getElementById("overlay_layer").style.zIndex = 2001;
+      }
+      Toast("库存不足",2000,{didClose: ()=> {
+        document.getElementById("overlay_layer").style.zIndex = -1;
+      }})
     }
   });
   render() {

@@ -63,10 +63,10 @@ class Gamepage extends React.Component {
    * @param {*} musci 音乐
   */
   stopSound(isEnd = false) {
+    stopSound('game_bgmusic')
+    stopSound('game_snow')
+    stopSound('game_gem')
     if(isEnd){
-      stopSound('game_bgmusic')
-      stopSound('game_snow')
-      stopSound('game_gem')
       return
     }
     store.setMusic(false)

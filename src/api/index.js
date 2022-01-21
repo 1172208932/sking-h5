@@ -53,7 +53,12 @@ function generateAPI(apiList) {
 				try {
 					token = await getPxToken();
 				} catch (e) {
-					Toast('网络异常');
+					if(document.getElementById("overlay_layer")) {
+						document.getElementById("overlay_layer").style.zIndex = 2001;
+					}
+					Toast('网络异常',2000,{didClose: ()=> {
+						document.getElementById("overlay_layer").style.zIndex = -1;
+					}});
 					return;
 				}
 			}
@@ -67,12 +72,22 @@ function generateAPI(apiList) {
 			const result = await callApi(uri, params, method, mergedHeaders, false, secret, secretKey, contentType)
 				.catch(e => {
 					//捕获网络异常
-					Toast(e.message || '网络异常');
+					if(document.getElementById("overlay_layer")) {
+						document.getElementById("overlay_layer").style.zIndex = 2001;
+					}
+					Toast(e.message || '网络异常',2000,{didClose: ()=> {
+						document.getElementById("overlay_layer").style.zIndex = -1;
+					}});
 				});
 			if (result) {
 				//判断接口错误
 				if (!result.success && !hideError) {
-					Toast(result.message || '接口错误');
+					if(document.getElementById("overlay_layer")) {
+						document.getElementById("overlay_layer").style.zIndex = 2001;
+					}
+					Toast(result.message || '接口错误',2000,{didClose: ()=> {
+						document.getElementById("overlay_layer").style.zIndex = -1;
+					}});
 				}
 				//返回整个结果
 				return result;

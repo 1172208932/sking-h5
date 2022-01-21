@@ -10,6 +10,7 @@ import store from "../../store/index";
 import modalStore from "@src/store/modal";
 import API from "../../api";
 import {_throttle} from "@src/utils/utils"
+import { Toast } from "@spark/ui";
 import "./gameFail.less";
 
 @observer
@@ -79,6 +80,7 @@ class GameFail extends React.Component {
       levelNum: store.currentGameLevel,
     })
     if(success&&data) {
+      Toast(`金币-${popData?.reGold}`)
       // 再来一句,记得关当前弹窗
       store.setStartId(data);
       modalStore.closePop("PayConfirm")
