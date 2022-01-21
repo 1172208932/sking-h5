@@ -89,7 +89,8 @@ const apiCfg = {
     uri: `assist_1/getInviteCode.do`,
     withToken: true,
     method: "post",
-  }
+  },
+  getCode: `scoring/genQrCode.do`, // 获取分享海报二维码
 }
 
 export default apiCfg;
