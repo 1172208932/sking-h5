@@ -139,21 +139,21 @@ const gameStore = makeAutoObservable(mix({
 
         if (this.count > 1) { return }
         
-        const x = this.role.circleBody.position[0];
-        const y = -this.role.circleBody.position[1];
+        // const x = this.role.circleBody.position[0];
+        // const y = -this.role.circleBody.position[1];
 
-        const x2 = this.role.circleBody2.position[0];
-        const y2 = -this.role.circleBody2.position[1];
+        // const x2 = this.role.circleBody2.position[0];
+        // const y2 = -this.role.circleBody2.position[1];
 
         this.role.carBody.angle = 0
         this.role.carBody.fixedRotation = true
 
 		if(this.count ===1){
 			this.role.jumpRole2()
-            this.role.carBody.applyForce([300-this.role.carBody.velocity[0], 90000-this.role.carBody.velocity[1]], [0, 0]);
+            this.role.carBody.applyForce([300-this.role.carBody.velocity[0], 80000-this.role.carBody.velocity[1]], [0, 0]);
 		}else{
 			this.role.jumpRole1()
-            this.role.carBody.applyForce([300-this.role.carBody.velocity[0], 90000-this.role.carBody.velocity[1]], [0, 0]);
+            this.role.carBody.applyForce([300-this.role.carBody.velocity[0], 80000-this.role.carBody.velocity[1]], [0, 0]);
 		}
 
         // console.log(this.role.carBody.velocity[0],this.role.carBody.velocity[1])

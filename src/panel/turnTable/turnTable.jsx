@@ -150,7 +150,7 @@ class TurnTable extends React.Component {
   render() {
     const { drawList, prizeIndex, inDraw } = this.state;
     return (
-      <div className="turntable">
+      <div className="turntable md1">
         <SvgaPlayer className="light" src={`${RES_PATH}svga/雪花出来.svga`}></SvgaPlayer>
         <div className="drawbg">
           <SvgaPlayer className="drawlight2" src={`${RES_PATH}svga/抽奖灯2.svga`}></SvgaPlayer>
