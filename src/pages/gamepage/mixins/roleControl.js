@@ -143,7 +143,7 @@ export const RoleControl = {
             this.slowState = true
         }
 
-        // console.log(this.role.circleBody.position[0],this.role.circleBody.position[1])
+        console.log(this.role.circleBody.position[0],this.role.circleBody.position[1])
 
         const carBodyX = this.role.carBody.position[0];
         const carBodyY = -this.role.carBody.position[1];
