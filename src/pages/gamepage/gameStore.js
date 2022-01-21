@@ -150,10 +150,10 @@ const gameStore = makeAutoObservable(mix({
 
 		if(this.count ===1){
 			this.role.jumpRole2()
-            this.role.carBody.applyForce([300-this.role.carBody.velocity[0], 90000-this.role.carBody.velocity[1]], [0, 0]);
+            this.role.carBody.applyForce([300-this.role.carBody.velocity[0], 80000-this.role.carBody.velocity[1]], [0, 0]);
 		}else{
 			this.role.jumpRole1()
-            this.role.carBody.applyForce([300-this.role.carBody.velocity[0], 90000-this.role.carBody.velocity[1]], [0, 0]);
+            this.role.carBody.applyForce([300-this.role.carBody.velocity[0], 80000-this.role.carBody.velocity[1]], [0, 0]);
 		}
 
         // console.log(this.role.carBody.velocity[0],this.role.carBody.velocity[1])
