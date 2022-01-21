@@ -52,7 +52,7 @@ class MapBox extends React.Component {
         // 这是礼盒
         list[i].class = "giftBtn";
         list[i].iconList = [];
-      } else if (i >= 41) {
+      } else if (i >= CFG.open) {
         //21
         // 暂时未开放
         list[i].class = "needwait";
@@ -72,7 +72,7 @@ class MapBox extends React.Component {
         homeInfo?.gameInfo?.[gameLen - 1]?.receive != 1
       ) {
         // 后面的那一个是蓝色，手指在该项，
-        list[i].class = i >= 21 ? "needwait":"lockBtn";
+        list[i].class = i >= CFG.open ? "needwait":"lockBtn";
       }
 
 

@@ -5,23 +5,31 @@
   height: 1624px;
   .sparkBg("homePage/poster.jpg");
   position: relative;
+  .posterTitle {
+    position: absolute;
+    width: 750px;
+    height: 242px;
+    top:230px;
+    .sparkBg("homePage/posterTitle.png");
+
+  }
   .posterpage-img {
     width: 750px;
     height: 1624px;
   }
   .codeBox {
     position: absolute;
-    top: 1144px;
+    top: 1160px;
     left: 258px;
     overflow:hidden;
-    width: 240px;
-    height: 240px;
+    width: 220px;
+    height: 220px;
     // border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    z-index: -1;
+    // z-index: -1;
     img,canvas {
       // border-radius: 50%;
       overflow:hidden;
@@ -44,7 +52,7 @@
     left: -20px;
     padding-left: 15px;
     box-sizing: border-box;
-    top:200px;
+    top:230px;
     width: 120px;
     height: 40px;
     line-height: 40px;

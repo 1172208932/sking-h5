@@ -23,9 +23,7 @@ class Poster extends React.Component {
 
   async componentDidMount() {
     await this.getErCodeImg();
-    console.log(3222)
     const dataUrl = await htmlShot(this.poster); //整个页面截图
-    console.log(111111,dataUrl)
     this.setState({
       posterImg: dataUrl
     })
@@ -47,12 +45,13 @@ class Poster extends React.Component {
     const {posterImg, codeImg} = this.state;
     return (
       <div className="posterpage" ref={(el) => (this.poster = el)}>
+        <div src="" alt="" className="posterTitle"></div>
         {/* <div className="codeBox" ref={(el) => (this.erCode = el)}>
 
         </div> */}
         <img src={codeImg} alt="" className="codeBox"/>
         {/* <img src={USER_AVATAR} alt="" className="ren"/> */}
-        <img src={posterImg} className="posterpage-img"/>
+        {/* <img src={posterImg} className="posterpage-img"/> */}
         <div className="back-poster" onClick={() => modalStore.closePop("Poster")}>返回</div>
       </div>
     );
