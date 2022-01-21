@@ -34,11 +34,11 @@ class Myprize extends React.Component {
   getPrizeList = async () => {
     const { success, data } = await API.getMyPrize();
     if (success && data?.length) {
-      const list = data.filter((item)=> {
-        return item.extra.type !=1
-      })
+      // const list = data.filter((item)=> {
+      //   return item.extra.type !=1
+      // })
       this.setState({
-        list,
+        list:data,
       });
     }
   };

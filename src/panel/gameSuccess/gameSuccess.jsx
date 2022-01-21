@@ -19,6 +19,7 @@ class GameSuccess extends React.Component {
     }
   }
 
+  // 继续闯关按钮，只会在下一个不是礼盒关卡有这个按钮
   // 进入下一关
   againNext = async() => {
     if(!this.state.canClick) return false;

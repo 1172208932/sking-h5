@@ -28,7 +28,7 @@ class HomePage extends React.Component {
     await this.toAssist();
     loadLocalAssets();
     await store.getHomeInfo();
-    // 新手引导，写完了记得注释删掉TODO
+    // 新手引导
     await store.queryNewGuide();
     this.indexDataChange();
     this.getCarousel();
