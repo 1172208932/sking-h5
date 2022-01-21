@@ -81,7 +81,7 @@ const gameStore = makeAutoObservable(mix({
         }
         if(this.role?.carBody)
             this.distance = this.role.carBody.position[0]
-            console.log(this.role.carBody?.velocity)
+            // console.log(this.role.carBody?.velocity)
         if(!this.beginGame){return}
         if( this.timeControl){
             return
