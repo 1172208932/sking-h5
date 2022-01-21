@@ -37,7 +37,7 @@ export default class Obstacle {
         //     .drawRect(0, 0, propSize[this.type].width * 0.6, propSize[this.type].height * 0.6)
         //     .endFill();
         this.rectShape = new p2.Box({
-            width: propSize[this.type].width * 0.6, height: propSize[this.type].height * 0.6,
+            width: propSize[this.type].width * 0.7, height: propSize[this.type].height * 0.7,
             material: new p2.Material()
         });
         // if (this.type == "snow") {

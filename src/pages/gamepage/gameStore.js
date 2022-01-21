@@ -73,7 +73,7 @@ const gameStore = makeAutoObservable(mix({
     deltaPoints:20,
     distance:0,
 	enterFrame(stage){
-        // console.log(this.role.carBody.velocity[0],this.role.carBody.velocity[1])
+        
         if(this.slowState){
             this.phyworld.step(1 / 360);
         }else{
@@ -81,6 +81,7 @@ const gameStore = makeAutoObservable(mix({
         }
         if(this.role?.carBody)
             this.distance = this.role.carBody.position[0]
+            // console.log(this.role.carBody?.velocity)
         if(!this.beginGame){return}
         if( this.timeControl){
             return
@@ -149,10 +150,10 @@ const gameStore = makeAutoObservable(mix({
 
 		if(this.count ===1){
 			this.role.jumpRole2()
-            this.role.carBody.applyForce([800-this.role.carBody.velocity[0], 90000-this.role.carBody.velocity[1]], [0, 0]);
+            this.role.carBody.applyForce([300-this.role.carBody.velocity[0], 90000-this.role.carBody.velocity[1]], [0, 0]);
 		}else{
 			this.role.jumpRole1()
-            this.role.carBody.applyForce([800-this.role.carBody.velocity[0], 90000-this.role.carBody.velocity[1]], [0, 0]);
+            this.role.carBody.applyForce([300-this.role.carBody.velocity[0], 90000-this.role.carBody.velocity[1]], [0, 0]);
 		}
 
         // console.log(this.role.carBody.velocity[0],this.role.carBody.velocity[1])
