@@ -139,11 +139,11 @@ const gameStore = makeAutoObservable(mix({
 
         if (this.count > 1) { return }
         
-        const x = this.role.circleBody.position[0];
-        const y = -this.role.circleBody.position[1];
+        // const x = this.role.circleBody.position[0];
+        // const y = -this.role.circleBody.position[1];
 
-        const x2 = this.role.circleBody2.position[0];
-        const y2 = -this.role.circleBody2.position[1];
+        // const x2 = this.role.circleBody2.position[0];
+        // const y2 = -this.role.circleBody2.position[1];
 
         this.role.carBody.angle = 0
         this.role.carBody.fixedRotation = true
