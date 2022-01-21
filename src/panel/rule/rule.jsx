@@ -29,10 +29,10 @@ class Rule extends React.Component {
   render() {
     return (
       <div className="rule">
+        <div className="rule-fenwei"></div>
         <span className="popoverBaseplate5"></span>
         <p className="close" onClick={()=>modalStore.closePop("Rule")}></p>
         <article className="ruleInfo" dangerouslySetInnerHTML={{ __html: store.ruleInfo }}></article>
-        <span className="snowAndIceAtmosphere4"></span>
       </div>
     );
   }
