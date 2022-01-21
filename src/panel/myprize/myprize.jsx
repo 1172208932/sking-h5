@@ -45,6 +45,7 @@ class Myprize extends React.Component {
 
   goToLink = _throttle((item) => {
     const {id, url} = item
+    if(item.extra.type ==1) return false;
 		if (url) {
 			location.href = url
 		} else {
