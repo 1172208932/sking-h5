@@ -1,4 +1,4 @@
-module.exports =  {
+module.exports = {
   message: "Ut Excepteur ad proident sint",
   data: {
     joinGolds: 88,//参与消耗金币数
@@ -15,7 +15,7 @@ module.exports =  {
     assistInfo: {
       assistNum: 0, //邀请人数
       assistGoldNum: 127283683648374, //获得金币数量
-      limitNum:0,//限制助力人数
+      limitNum: 0,//限制助力人数
     },
     goldNum: 120,
     rankScore: 121121221121221, //排行榜分数
@@ -39,7 +39,7 @@ module.exports =  {
         score: "0",
         star: "3",
       },
-       {
+      {
         level: "5",
         score: "0",
         star: "1",
@@ -58,7 +58,7 @@ module.exports =  {
         score: "0",
         star: "3",
       },
-       {
+      {
         level: "9",
         score: "0",
         star: "1",
@@ -67,7 +67,7 @@ module.exports =  {
         level: "10",
         score: "0",
         star: "3",
-      }, 
+      },
       {
         level: "10_gift", // i=10,len=11
         score: "0",
@@ -80,7 +80,7 @@ module.exports =  {
         star: "3",
         receive: "1",
       },
-       {
+      {
         level: "12",
         score: "0",
         star: "1",
@@ -98,7 +98,7 @@ module.exports =  {
         star: "3",
         receive: "1",
       },
-       {
+      {
         level: "15",
         score: "0",
         star: "1",
@@ -122,7 +122,7 @@ module.exports =  {
         star: "3",
         receive: "1",
       },
-       {
+      {
         level: "19",
         score: "0",
         star: "1",
@@ -152,7 +152,7 @@ module.exports =  {
         star: "3",
         receive: "1",
       },
-       {
+      {
         level: "23",
         score: "0",
         star: "1",
@@ -163,7 +163,7 @@ module.exports =  {
         score: "0",
         star: "3",
         receive: "1",
-      },{
+      }, {
         level: "25",
         score: "0",
         star: "3",
@@ -175,7 +175,7 @@ module.exports =  {
         star: "3",
         receive: "1",
       },
-       {
+      {
         level: "27",
         score: "0",
         star: "1",
@@ -189,74 +189,74 @@ module.exports =  {
       },
       {
         level: "29",
-      score: "0",
-      star: "3",
-      receive: "1",
-    },
-    {
-      level: "30",
-      score: "0",
-      star: "3",
-      receive: "1",
-    },{
-      level: "31",
-      score: "0",
-      star: "3",
-      receive: "1",
-    },
-    {
-      level: "32",
-      score: "0",
-      star: "3",
-      receive: "1",
-    },
-     {
-      level: "33",
-      score: "0",
-      star: "1",
-      receive: "1",
-    },
-    {
-      level: "34",
-      score: "0",
-      star: "3",
-      receive: "1",
-    },{
-      level: "35",
-      score: "0",
-      star: "3",
-      receive: "1",
-    },
-    {
-      level: "36",
-      score: "0",
-      star: "3",
-      receive: "1",
-    },
-     {
-      level: "37",
-      score: "0",
-      star: "1",
-      receive: "1",
-    },
-    {
-      level: "38",
-      score: "0",
-      star: "3",
-      receive: "1",
-    },
-    {
-      level: "39",
-    score: "0",
-    star: "3",
-    receive: "1",
-  },
-  {
-    level: "40",
-    score: "0",
-    star: "3",
-    receive: "1",
-  },
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "30",
+        score: "0",
+        star: "3",
+        receive: "1",
+      }, {
+        level: "31",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "32",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "33",
+        score: "0",
+        star: "1",
+        receive: "1",
+      },
+      {
+        level: "34",
+        score: "0",
+        star: "3",
+        receive: "1",
+      }, {
+        level: "35",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "36",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "37",
+        score: "0",
+        star: "1",
+        receive: "1",
+      },
+      {
+        level: "38",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "39",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "40",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
     ],
     url: "http://www.baidu.com",
     rankPrize: [
@@ -264,11 +264,11 @@ module.exports =  {
         rank: "1-10",
         prizeName: "大声疾呼公司经过伤筋动骨",
         prizeImg: "//yun.duiba.com.cn/aurora/assets/515ed09f2dd8458e1a9f0daeb24ad965ace57bf7.png",
-      },{
+      }, {
         rank: "31-10",
         prizeName: "大声疾呼公司经过伤筋211212动骨",
         prizeImg: "//yun.duiba.com.cn/aurora/assets/515ed09f2dd8458e1a9f0daeb24ad965ace57bf7.png",
-      },{
+      }, {
         rank: "1121212-2112212110",
         prizeName: "大声疾呼公司经过伤筋动骨",
         prizeImg: "//yun.duiba.com.cn/aurora/assets/515ed09f2dd8458e1a9f0daeb24ad965ace57bf7.png",
