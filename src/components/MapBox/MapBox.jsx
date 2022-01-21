@@ -72,7 +72,7 @@ class MapBox extends React.Component {
         homeInfo?.gameInfo?.[gameLen - 1]?.receive != 1
       ) {
         // 后面的那一个是蓝色，手指在该项，
-        list[i].class = i >= 21 ? "needwait":"lockBtn";
+        list[i].class = i >= CFG.open ? "needwait":"lockBtn";
       }
 
 

@@ -15,6 +15,7 @@ import CoinBox from "@src/components/CoinBox/CoinBox"
 import { loadLocalAssets } from "@src/utils/preload1.3"
 import NewGuide1 from "@src/components/newGuide1/newGuide1"
 import { playSound, stopSound, preloadSounds, registerSounds } from '@spark/utils';
+import {shareWXmini} from "@src/utils/share"
 @observer
 class HomePage extends React.Component {
   constructor(props) {
@@ -26,6 +27,7 @@ class HomePage extends React.Component {
   async componentDidMount() {
     // 用户助力,要比首页接口先调用！！！
     await this.toAssist();
+    this.toGetInviteCode();
     loadLocalAssets();
     await store.getHomeInfo();
     // 新手引导
@@ -62,6 +64,14 @@ class HomePage extends React.Component {
       } else {
         Toast("助力失败")
       }
+    }
+  }
+
+  toGetInviteCode = async() => {
+    const {success, data} = await API.getInviteCode();
+    if(success && data) {
+      store.setInviteCode(data.inviteCode);
+      shareWXmini(data.inviteCode)
     }
   }
 
