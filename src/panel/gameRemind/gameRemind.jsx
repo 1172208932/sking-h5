@@ -14,9 +14,10 @@ class GameRemind extends React.Component {
   constructor(props) {
     super(props);
   }
-  clickStart = _throttle(() => {
+  clickStart = _throttle(async() => {
     const {popData} = this.props;
     modalStore.closePop("GameRemind");
+    await store.getHomeInfo();
     store.startGame(popData.level);
   })
   render() {
