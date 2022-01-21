@@ -10,7 +10,7 @@ import store from "../../store/index";
 import modalStore from "@src/store/modal";
 import API from "../../api";
 import {_throttle} from "@src/utils/utils"
-import { Toast } from "@spark/ui";
+import { hideLoading, showLoading, Toast } from '@spark/ui';
 import "./gameFail.less";
 
 @observer
@@ -76,9 +76,11 @@ class GameFail extends React.Component {
   // 确定支付
   confirmPay = async() => {
     const {popData} = this.props;
+    showLoading()
     const {success,data} = await API.resurgence({
       levelNum: store.currentGameLevel,
     })
+    hideLoading()
     if(success&&data) {
       Toast(`金币-${popData?.reGold}`)
       // 再来一句,记得关当前弹窗
