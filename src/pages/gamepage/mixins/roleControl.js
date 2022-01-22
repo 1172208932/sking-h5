@@ -243,7 +243,7 @@ export const RoleControl = {
                             }
                             this[showtype].startAniRange(0, undefined, 1,()=>{
                                 this[showtype].visible = false
-                                // EventBus.fire('GAME_OVER',{score:this.score})
+                                EventBus.fire('GAME_OVER',{score:this.score})
                             });
                             this[showtype].visible = true
                             
