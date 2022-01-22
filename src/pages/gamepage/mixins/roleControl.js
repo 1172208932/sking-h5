@@ -210,6 +210,13 @@ export const RoleControl = {
 							this.bgCon.removeChild(this.additiveslist[i].rectcoin)
                             this.score =this.score + sorceConfig[this.additiveslist[i].type]
 
+                            this.snowSvga.startAniRange(0, undefined, 1,()=>{
+                                this.snowSvga.visible = false
+                            });
+                            this.snowSvga.visible = true
+                            
+                            this.snowSvga.position.set(this.additiveslist[i].x,this.additiveslist[i].y-this.additiveslist[i].height*0.6)
+
                             if(this.additiveslist[i].type == "snow"){
                                 if( !store.isPlayMusic ){ return}
                                 preloadSounds(null, () => {
