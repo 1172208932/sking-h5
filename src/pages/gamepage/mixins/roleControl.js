@@ -210,6 +210,10 @@ export const RoleControl = {
             (e.bodyB == this.role.carBody && e.bodyA == this.line1)
         ){
             this.role.carBody.fixedRotation = false
+            if( this.isSecondJump ){
+			    this.role.playDownSvga()
+                this.isSecondJump = false
+            }
             console.log('碰撞到地面了1')
             this.touchGround()
             this.count = 0

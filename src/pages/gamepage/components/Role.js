@@ -25,6 +25,7 @@ export default class Role extends Sprite {
     jump1
     jump2
     smokeSvga
+    snowDownSvga
 
     roleOffsetX
 
@@ -33,6 +34,13 @@ export default class Role extends Sprite {
         this.roleOffsetX = 500
 
         this.initUI()
+    }
+
+    playDownSvga(){
+        this.snowDownSvga.visible = true
+        this.snowDownSvga.startAniRange(0, this.snowDownSvga.totalFrames, 1, () => {
+            this.snowDownSvga.visible = false
+        });
     }
 
     jumpRole1() {
@@ -183,6 +191,16 @@ export default class Role extends Sprite {
             // fixedRotation: true,
         });
         carBody.addShape(carShape);
+
+
+        SvgaParser.loadSvga('https://yun.duiba.com.cn/aurora/assets/ce3847ab9db646a6bd6fc9aad88834179d5ee302.svga', (data) => {
+            //创建SvgaAni对象
+            this.snowDownSvga = this.car.addChild(new FYGE.SvgaAni(data));
+            this.snowDownSvga.position.set(-12, -185);
+            this.snowDownSvga.stop(0)
+            this.snowDownSvga.visible = false
+        })
+        
 
         // world.addBody(carBody);
     }

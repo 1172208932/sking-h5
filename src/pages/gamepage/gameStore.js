@@ -13,6 +13,7 @@ const gameStore = makeAutoObservable(mix({
 	beginGame:false,
 	heighshape:null,
 	hfShapeshape:null,
+    isSecondJump:false,
     bgCon:'',
     phyCon:'',
     offsetX:'',
@@ -138,6 +139,10 @@ const gameStore = makeAutoObservable(mix({
         }
 
         if (this.count > 1) { return }
+
+        if(this.count == 1){
+            this.isSecondJump = true
+        }
         
         // const x = this.role.circleBody.position[0];
         // const y = -this.role.circleBody.position[1];
