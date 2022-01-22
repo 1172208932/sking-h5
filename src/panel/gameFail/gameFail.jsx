@@ -18,7 +18,7 @@ class GameFail extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      outTimer: 10,
+      outTimer: 5,
     }
     this.timer = null
   }
@@ -82,7 +82,7 @@ class GameFail extends React.Component {
     })
     hideLoading()
     if(success&&data) {
-      Toast(`金币-${popData?.reGold}`)
+      // Toast(`金币-${popData?.reGold}`)
       // 再来一句,记得关当前弹窗
       store.setStartId(data);
       modalStore.closePop("PayConfirm")
@@ -138,11 +138,11 @@ class GameFail extends React.Component {
         <div className="again-fail" onClick={this.clickAgain}>
           <p className="goanswer">{popData?.answerFlag ?'去答题得机会':'再来一次'}</p>
           <div className="participateInAnswer2">
-            <p className="participationAnswer3">{popData?.answerFlag ? '参与答题' : `支付${popData?.reGold || 0}金币`}</p>
+            <p className="participationAnswer3">{popData?.answerFlag ? '参与答题' : `剩余${store?.homeInfo?.goldNum || 0}金币`}</p>
           </div>
         </div>
         {/* 确认退出 */}
-        <p className="out" onClick={this.clickOut}>{popData?.answerFlag ? '先不了休息一下':`${outTimer}s后自动退出`}</p>
+        <p className="out" onClick={this.clickOut}>{popData?.answerFlag ? '先不了休息一下':`休息一下（${outTimer}s后自动退出）`}</p>
       </div>
     );
   }

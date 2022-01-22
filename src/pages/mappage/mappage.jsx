@@ -142,7 +142,7 @@ class Mappage extends React.Component {
             <CoinBox />
           </div>
           {/* 扣除多少金币 */}
-          <DecCoinBox />
+          {/* <DecCoinBox /> */}
           <div className="mapPage-tiShi textover">
             有{homeInfo?.pvNum || 0}位用户与你一起闯关
           </div>
