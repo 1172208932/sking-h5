@@ -185,7 +185,7 @@ class Gamepage extends React.Component {
     gameStore.getData(this.gamestage)
     gameStore.initbg()
 
-    const svgalist = ["stoneSvga","houseSvga","grassSvga"]
+    const svgalist = ["stoneSvga","houseSvga","grassSvga","snowSvga"]
     for(let i =0;i<svgalist.length;i++){
       SvgaParser.loadSvga(RES_PATH+'svga/'+svgalist[i]+".svga", (data) => {
           // console.log(this, 'this')

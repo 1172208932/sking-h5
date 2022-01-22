@@ -24,6 +24,7 @@ const gameStore = makeAutoObservable(mix({
     bgList:'',
     lineInfo:'',
     propInfo:'',
+    snowSvga:'',
     stoneSvga:'',
     grassSvga:"",
     houseSvga:"",
