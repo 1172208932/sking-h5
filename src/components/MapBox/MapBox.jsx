@@ -216,6 +216,9 @@ class MapBox extends React.Component {
                     homeInfo?.gameInfo?.[index]?.receive != 1)) && (
                   <div className="head-hand">
                     <div className="headiconbox">
+                      <p className="headiconboxtitle">
+                        消耗{homeInfo?.joinGolds}金币开始
+                      </p>
                       <p className="headboxbottombg"></p>
                       <img
                         className="headboxbottomimg"

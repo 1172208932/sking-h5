@@ -122,11 +122,16 @@ class GameFail extends React.Component {
 
     return (
       <div className="gameFailPanel">
-        <div className="content-gamefail">
-          <p className="title">{popData?.answerFlag ?'游戏失败参与知识答题':`闯关失败`}</p>
+        {
+          popData?.answerFlag &&(
+            <div className="inviteLimitbg"></div>
+          )
+        }
+        <div className={popData?.answerFlag ?'content-gamefail2':'content-gamefail'}>
+          <p className="title">{popData?.answerFlag ?'答题赢复活机会':`闯关失败`}</p>
           {popData?.answerFlag ? (
             <p className="subT">
-              参与谷爱凌知识答题
+              参与知识答题
               <br />
               答对即可免费再来一次
             </p>
@@ -142,7 +147,16 @@ class GameFail extends React.Component {
           </div>
         </div>
         {/* 确认退出 */}
-        <p className="out" onClick={this.clickOut}>{popData?.answerFlag ? '先不了休息一下':`休息一下（${outTimer}s后自动退出）`}</p>
+        {
+          popData?.answerFlag?(
+            <p className="out" onClick={this.clickOut}>先不了休息一下</p>
+          ):(
+            <div className="out2" onClick={this.clickOut}>
+              <div className="outt1">休息一下</div>
+              <div className="outt2">{`（${outTimer}s后自动退出）`}</div>
+            </div>
+          )
+        }
       </div>
     );
   }
