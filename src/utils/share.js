@@ -92,8 +92,8 @@ export const shareWXmini = (code) => {
   // let ori = domain || location.origin;
   wx.miniProgram.postMessage({
     data: {
-      title: "冰雪跑酷冲关赢黄金！", // 标题
-      desc: "与谷爱凌一起燃动冰雪", // 描述
+      title: "这个滑雪游戏好好玩，还可以冲关夺黄金", // 标题
+      desc: "这个滑雪游戏好好玩，还可以冲关夺黄金", // 描述
       imgUrl: "https://yun.duiba.com.cn/aurora/assets/c8fcffbdb1eb3576452060d18af6ff9f9760e382.jpg", // 图片
       link: CFG.shareUrl + '&inviteCode='+ code, // 链接
     }
