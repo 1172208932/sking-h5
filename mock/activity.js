@@ -550,23 +550,26 @@ const queryNewGuide = {
   "data": {
     "skipNewGuide": false,
     "completeGuide": true,
-    "alreadyGuideSteps": 4,
-    "allGuideSteps": 4,
-    "extra": ""
-  }
-}
-
-//递进新手引导完成的步数
-const stepNewGuide = {
-  "success": true,
-  "code": "",
-  "data": {
-    "completeGuide": true,
     "alreadyGuideSteps": 3,
     "allGuideSteps": 3,
     "extra": ""
   }
 }
+
+//递进新手引导完成的步数
+const stepNewGuide = 
+{"code":"200900","data":null,"message":"新手引导已完成","success":false}
+
+// {
+//   "success": true,
+//   "code": "",
+//   "data": {
+//     "completeGuide": true,
+//     "alreadyGuideSteps": 3,
+//     "allGuideSteps": 3,
+//     "extra": ""
+//   }
+// }
 
 
 const inviteRecord ={
