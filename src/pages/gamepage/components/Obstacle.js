@@ -14,6 +14,8 @@ export default class Obstacle {
     rectcoin;//展示节点
     width;
     height;
+    x = 0;
+    y = 0;
     constructor(item, lineInfo, world, box) {
         this.type = item.type
 
@@ -34,53 +36,12 @@ export default class Obstacle {
         // var shapeshow = new Shape()
         // box.addChild(shapeshow)
         // shapeshow.beginFill(0xff0000, 0.5)
-        //     .drawRect(0, 0, propSize[this.type].width * 0.6, propSize[this.type].height * 0.6)
+        //     .drawRect(0, 0, propSize[this.type].width * 0.7, propSize[this.type].height * 0.7)
         //     .endFill();
         this.rectShape = new p2.Box({
-            width: propSize[this.type].width * 0.7, height: propSize[this.type].height * 0.7,
+            width: propSize[this.type].width * 0.6, height: propSize[this.type].height * 0.6,
             material: new p2.Material()
         });
-        // if (this.type == "snow") {
-        //     shapeshow.beginFill(0xff0000, 0.5)
-        //         .drawRect(0, 0, 40*0.6, 40*0.6)
-        //         .endFill();
-        //     this.rectShape = new p2.Box({
-        //         width: 40*0.6, height: 40*0.6,
-        //         material: new p2.Material()
-        //     });
-        // } else if (this.type == "grass") {
-        //     shapeshow.beginFill(0xff0000, 0.5)
-        //         .drawRect(0, 0, 244*0.6, 146*0.6)
-        //         .endFill();
-        //     this.rectShape = new p2.Box({
-        //         width: 244*0.6, height: 146*0.6,
-        //         material: new p2.Material()
-        //     });
-        // } else if (this.type == "stone") {
-        //     shapeshow.beginFill(0xff0000, 0.5)
-        //         .drawRect(0, 0, 79*0.6, 68*0.6)
-        //         .endFill();
-        //     this.rectShape = new p2.Box({
-        //         width: 79*0.6, height: 68*0.6,
-        //         material: new p2.Material()
-        //     });
-        // } else if (this.type == "bigstone") {
-        //     shapeshow.beginFill(0xff0000, 0.5)
-        //         .drawRect(0, 0, 142*0.6, 120*0.6)
-        //         .endFill();
-        //     this.rectShape = new p2.Box({
-        //         width: 142*0.6, height: 120*0.6,
-        //         material: new p2.Material()
-        //     });
-        // } else if (this.type == "gem") {
-        //     shapeshow.beginFill(0xff0000, 0.5)
-        //         .drawRect(0, 0, 62*0.6, 55*0.6)
-        //         .endFill();
-        //     this.rectShape = new p2.Box({
-        //         width: 62*0.6, height: 55*0.6,
-        //         material: new p2.Material()
-        //     });
-        // }
 
         var showY = -item.y
         if (this.type == "snow" || this.type == "gem") {
@@ -93,14 +54,16 @@ export default class Obstacle {
             } else {
                 time = time + 1
             }
-            showY = lineInfo[time] - this.rectShape.height + 10
+            showY = lineInfo[time] - this.height*0.75
         }
 
         this.rectcoin.position.set(item.x, showY + 300)
-        // shapeshow.position.set(item.x + this.rectShape.width * 0.4, showY + 300 + this.rectShape.height * 0.2)
+        // shapeshow.position.set(item.x , showY + 300 )
+        this.x = item.x
+        this.y = showY + 300
         this.rectBody = new p2.Body({
             mass: 0,    //重量
-            position: [item.x + this.rectShape.width / 2 + this.rectShape.width * 0.4, (-showY) - 300 - this.rectShape.height / 2 - this.rectShape.height * 0.2]
+            position: [item.x + this.rectShape.width / 2 + this.rectShape.width * 0.4, (-showY) - 300 - this.rectShape.height / 2 - this.rectShape.height * 0.7]
         });
 
         this.rectBody.addShape(this.rectShape);

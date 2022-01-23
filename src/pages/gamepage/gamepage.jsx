@@ -185,6 +185,18 @@ class Gamepage extends React.Component {
     gameStore.getData(this.gamestage)
     gameStore.initbg()
 
+    const svgalist = ["stoneSvga","houseSvga","grassSvga","snowSvga"]
+    for(let i =0;i<svgalist.length;i++){
+      SvgaParser.loadSvga(RES_PATH+'svga/'+svgalist[i]+".svga", (data) => {
+          // console.log(this, 'this')
+          //创建SvgaAni对象
+          const svga = gameStore[svgalist[i]] = gameStore.bgCon.addChild(new FYGE.SvgaAni(data));
+          gameStore[svgalist[i]].position.set(900,300)
+          svga.visible = false
+
+      })
+    }
+    
 
     //帧刷新
     this.gamestage.addEventListener(FYGE.Event.ENTER_FRAME, this.flushfunc);

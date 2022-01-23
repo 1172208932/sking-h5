@@ -5,15 +5,50 @@
   position: absolute;
   transform: rotate(90deg);
   margin-top: -100px;
+
+  .inviteLimitbg{
+    width: 1624px;
+    height: 750px;
+    left: -381px;
+    top: 0px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    .sparkBg("common/inviteLimitbg.png");
+  }
+
   .content-gamefail {
     width: 704px;
     height: 562px;
+    left: 71px;
+    top: -35px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    .sparkBg("common/inviteLimit.png");
+    .title {
+      font-size: 43px;
+      color: #205e8b;
+      font-weight: bold;
+      position: absolute;
+      top:240px;
+    }
+    .subT {
+      text-align: center;
+      margin-top: 340px;
+      font-size: 30px;
+      color: rgba(32, 94, 139, 1);
+    }
+  }
+  .content-gamefail2 {
+    width: 704px;
+    height: 566px;
     left: 71px;
     top: 0px;
     position: relative;
     display: flex;
     justify-content: center;
-    .sparkBg("common/inviteLimit.png");
+    .sparkBg("common/inviteLimit2.png");
     .title {
       font-size: 43px;
       color: #205e8b;
@@ -66,10 +101,32 @@
     top: 588px;
     position: absolute;
     color: #424242;
-    font-size: 36px;
+    font-size: 28px;
     font-weight: bold;
     line-height: 88px;
     text-align: center;
     .sparkBg("复活弹窗1/out.png");
+  }
+
+  .out2 {
+    width: 395px;
+    height: 88px;
+    left: 0px;
+    top: 588px;
+    position: absolute;
+    color: #424242;
+    text-align: center;
+    .sparkBg("复活弹窗1/out.png");
+    .outt1{
+      margin-top: 5px;
+      width: 395px;
+      font-size: 36px;
+      font-weight: bold;
+    }
+    .outt2{
+      margin-top: -5px;
+      width: 395px;
+      font-size: 22px;
+    }
   }
 }

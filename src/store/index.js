@@ -57,7 +57,7 @@ const store = makeAutoObservable({
           const {success,data} = await API.startGame()
           hideLoading()
           if(success && data) {
-            Toast("金币-"+this.homeInfo?.joinGolds||0);
+            // Toast("金币-"+this.homeInfo?.joinGolds||0);
             this.setStartId(data)
             this.changePage("Gamepage");
           }

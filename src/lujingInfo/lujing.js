@@ -6,7 +6,7 @@ export const propSize = {
         width: 244, height: 146
     },
     "stone": {
-        width: 79, height: 68
+        width: 99, height: 85
     },
     "bigstone": {
         width: 142, height: 120

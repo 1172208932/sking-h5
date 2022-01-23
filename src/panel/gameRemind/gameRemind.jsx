@@ -35,7 +35,7 @@ class GameRemind extends React.Component {
           const {success,data} = await API.startGame()
           hideLoading()
           if(success && data) {
-            Toast("金币-"+store.homeInfo?.joinGolds||0);
+            // Toast("金币-"+store.homeInfo?.joinGolds||0);
             store.setStartId(data)
             store.changePage("Gamepage");
           }

@@ -18,7 +18,7 @@ class GameFail extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      outTimer: 10,
+      outTimer: 5,
     }
     this.timer = null
   }
@@ -82,7 +82,7 @@ class GameFail extends React.Component {
     })
     hideLoading()
     if(success&&data) {
-      Toast(`金币-${popData?.reGold}`)
+      // Toast(`金币-${popData?.reGold}`)
       // 再来一句,记得关当前弹窗
       store.setStartId(data);
       modalStore.closePop("PayConfirm")
@@ -122,11 +122,16 @@ class GameFail extends React.Component {
 
     return (
       <div className="gameFailPanel">
-        <div className="content-gamefail">
-          <p className="title">{popData?.answerFlag ?'游戏失败参与知识答题':`闯关失败`}</p>
+        {
+          popData?.answerFlag &&(
+            <div className="inviteLimitbg"></div>
+          )
+        }
+        <div className={popData?.answerFlag ?'content-gamefail2':'content-gamefail'}>
+          <p className="title">{popData?.answerFlag ?'答题赢复活机会':`闯关失败`}</p>
           {popData?.answerFlag ? (
             <p className="subT">
-              参与谷爱凌知识答题
+              参与知识答题
               <br />
               答对即可免费再来一次
             </p>
@@ -138,11 +143,20 @@ class GameFail extends React.Component {
         <div className="again-fail" onClick={this.clickAgain}>
           <p className="goanswer">{popData?.answerFlag ?'去答题得机会':'再来一次'}</p>
           <div className="participateInAnswer2">
-            <p className="participationAnswer3">{popData?.answerFlag ? '参与答题' : `支付${popData?.reGold || 0}金币`}</p>
+            <p className="participationAnswer3">{popData?.answerFlag ? '参与答题' : `剩余${store?.homeInfo?.goldNum || 0}金币`}</p>
           </div>
         </div>
         {/* 确认退出 */}
-        <p className="out" onClick={this.clickOut}>{popData?.answerFlag ? '先不了休息一下':`${outTimer}s后自动退出`}</p>
+        {
+          popData?.answerFlag?(
+            <p className="out" onClick={this.clickOut}>先不了休息一下</p>
+          ):(
+            <div className="out2" onClick={this.clickOut}>
+              <div className="outt1">休息一下</div>
+              <div className="outt2">{`（${outTimer}s后自动退出）`}</div>
+            </div>
+          )
+        }
       </div>
     );
   }
