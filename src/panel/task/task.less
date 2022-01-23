@@ -41,10 +41,12 @@
         min-height: 73px;
         display: flex;
         justify-content: center;
+
         .signitem {
           width: 56px;
           margin-right: 14px;
           text-align: center;
+          position: relative;
           &.last-child {
             margin-right: unset;
           }
@@ -77,6 +79,15 @@
             width: 36px;
             font-size: 18px;
             color: #585858;
+          }
+          .gesturesAperture {
+            width: 144px;
+            height: 151px;
+            top: 0px;
+            right: -70px;
+            position: absolute;
+            pointer-events: none;
+            transform: scale(0.7);
           }
         }
       }

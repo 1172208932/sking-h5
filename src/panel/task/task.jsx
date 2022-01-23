@@ -9,6 +9,7 @@ import API from "../../api";
 import { showLoading,hideLoading, Toast } from "@spark/ui";
 import "./task.less";
 import { _throttle } from "@src/utils/utils.js";
+import { SvgaPlayer } from "@spark/animation";
 
 @observer
 class Task extends React.Component {
@@ -110,6 +111,10 @@ class Task extends React.Component {
                         )}
                       </div>
                       <p className="signitem-day textover">{index + 1}日</p>
+                      {index == signDetail?.signDay && !signDetail?.todaySign && <SvgaPlayer
+                        className="gesturesAperture"
+                        src={`${RES_PATH}svga/手势单击.svga`}
+                      />}
                     </div>
                   );
                 })}

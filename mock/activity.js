@@ -483,8 +483,8 @@ const doSign = {
 const signQuery = {
   success: true,
   data: {
-    todaySign: false, //今天是否签到 true-签到
-    signDay: 0,//连续/累计签到天数
+    todaySign: true, //今天是否签到 true-签到
+    signDay: 1,//连续/累计签到天数
   }
 }
 

@@ -24,7 +24,7 @@ class ExchangeConfirm extends React.Component {
     })
     store.getHomeInfo();
     if(success) {
-      Toast("购买成功");
+      Toast("兑换成功\n可在【我的奖品】中查看");
       modalStore.closePop("all");
     }
   })

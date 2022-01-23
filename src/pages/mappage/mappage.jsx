@@ -7,9 +7,6 @@ import store from "../../store/index";
 import modalStore from "@src/store/modal";
 import API from "../../api";
 import "./mappage.less";
-import AvatarBox from "@src/components/AvatarBox/AvatarBox";
-import CoinBox from "@src/components/CoinBox/CoinBox";
-import DecCoinBox from "@src/components/DecCoinBox/DecCoinBox";
 import LastPrize from "@src/components/LastPrize/LastPrize.jsx";
 import MapBox from "@src/components/MapBox/MapBox.jsx";
 import { Tool } from '@src/utils/Tool.js';
@@ -107,11 +104,6 @@ class Mappage extends React.Component {
 
           {/* 牛蒙蒙形象 */}
           <div className="mengmeng"></div>
-          {/* 100关 */}
-          <MapBox />
-
-          {/* 终极大奖 */}
-          <LastPrize />
 
           {/* 引导时屏蔽点击。这样最简单上盖一层div */}
           {
@@ -142,6 +134,16 @@ class Mappage extends React.Component {
             }}
           ></span>
         </div>
+
+        {/* 地图内容-主 */}
+        <div className="mapcontent">
+          {/* 100关 */}
+          <MapBox />
+
+          {/* 终极大奖 */}
+          <LastPrize />
+        </div>
+         
       </>
     );
   }

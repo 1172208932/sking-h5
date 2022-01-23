@@ -93,7 +93,7 @@ class HomePage extends React.Component {
         <div className="homepage">
           <span className="title"></span>
           <div className="leftName"></div>
-          <SvgaPlayer src={`${RES_PATH}svga/标题与人物.svga`} className='title-person'></SvgaPlayer>
+          {/* <SvgaPlayer src={`${RES_PATH}svga/标题与人物.svga`} className='title-person'></SvgaPlayer> */}
           <div className="rightName"></div>
          
           {/* 开始游戏按钮 */}
