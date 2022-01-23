@@ -12,6 +12,7 @@ const store = makeAutoObservable({
   inviteCode: null,
   newGuideStep: {}, // 新手引导详情
   isPlayMusic: true,
+  carouselList: [], // 中奖轮播
   setMusic(value){
     this.isPlayMusic = value
   },
@@ -83,8 +84,16 @@ const store = makeAutoObservable({
   async queryNewGuide() {
     const {success, data} = await API.queryNewGuide();
     if(success && data) {
-      this.newGuideStep = data
+      this.newGuideStep = data;
     }
-  }
+  },
+
+  // 中奖轮播
+  async getCarousel() {
+    const { success, data } = await API.carousel()
+    if (success && data?.list?.length) {
+      this.carouselList = data.list
+    }
+  },
 });
 export default store;

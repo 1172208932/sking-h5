@@ -211,7 +211,7 @@ class Gamepage extends React.Component {
     //   gameStore.beginGame = true
     // });
     await store.queryNewGuide();
-    if (store?.newGuideStep?.alreadyGuideSteps == 2 && store.currentGameLevel == 1) {
+    if (store?.newGuideStep?.alreadyGuideSteps == 3 && store.currentGameLevel == 1) {
       modalStore.pushPop("GameGuide")
     } else {
       this.setTimeStatus()

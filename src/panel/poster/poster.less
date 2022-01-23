@@ -1,29 +1,42 @@
 @import "../../res.less";
 
 .posterpage {
-  width: 750px;
-  height: 1624px;
-  .sparkBg("homePage/poster.jpg");
-  position: relative;
-  .posterTitle {
-    position: absolute;
-    width: 750px;
-    height: 242px;
-    top:230px;
-    .sparkBg("homePage/posterTitle.png");
-
-  }
+  width: 956px;
+  height: 607px;
+  .sparkBg("homePage/poster.png");
+  position: absolute;
+  transform: rotate(90deg);
   .posterpage-img {
-    width: 750px;
-    height: 1624px;
+    width: 956px;
+    height: 607px;
+  }
+  .userInfo-poster {
+    position: absolute;
+    top: 334px;
+    left:47px;
+    display: flex;
+    align-items: center;
+    img {
+      width: 69px;
+      height: 69px;
+      border: 2px solid #fff;
+      box-sizing: border-box;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+    p {
+      color: #0d7bd8;
+      font-size: 26px;
+      font-weight: bold;
+    }
   }
   .codeBox {
     position: absolute;
-    top: 1160px;
-    left: 258px;
+    top: 417px;
+    left: 722px;
     overflow:hidden;
-    width: 220px;
-    height: 220px;
+    width: 146px;
+    height: 146px;
     // border-radius: 50%;
     display: flex;
     align-items: center;
@@ -48,25 +61,25 @@
     z-index: -1;
   }
   .back-poster {
+    width: 50px;
+    height: 50px;
+    left: 980px;
+    top: 0px;
     position: absolute;
-    left: -20px;
-    padding-left: 15px;
-    box-sizing: border-box;
-    top:230px;
-    width: 120px;
-    height: 40px;
-    line-height: 40px;
-    background: rgba(0,0,0,0.5);
-    font-size: 24px;
-    border-radius: 20px;
-    color: #fff;
-    text-align: center;
     // 禁止默认事件
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    .sparkBg("common/close.png");
+  }
+  .longpress-text {
+    position: absolute;
+    top: 624px;
+    left: 382px;
+    color: #fff;
+    font-size: 24px;
   }
 }

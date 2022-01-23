@@ -94,7 +94,7 @@ export const shareWXmini = (code) => {
     data: {
       title: "这个滑雪游戏好好玩，还可以冲关夺黄金", // 标题
       desc: "这个滑雪游戏好好玩，还可以冲关夺黄金", // 描述
-      imgUrl: "https://yun.duiba.com.cn/aurora/assets/c8fcffbdb1eb3576452060d18af6ff9f9760e382.jpg", // 图片
+      imgUrl: "https://yun.duiba.com.cn/aurora/assets/64eea9a7869761a9c37aa3f350cc7c3ad2ac5278.jpg", // 图片
       link: CFG.shareUrl + '&inviteCode='+ code, // 链接
     }
   });

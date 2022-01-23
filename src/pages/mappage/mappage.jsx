@@ -15,6 +15,8 @@ import MapBox from "@src/components/MapBox/MapBox.jsx";
 import { Tool } from '@src/utils/Tool.js';
 import { toJS } from "mobx";
 import { SvgaPlayer } from '@spark/animation';
+import IndexBtn from '@src/components/IndexBtn/IndexBtn.jsx';
+
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 @observer
 class Mappage extends React.Component {
@@ -42,7 +44,7 @@ class Mappage extends React.Component {
     let queryNewGuideInfo = await API.queryNewGuide()
 
 
-    if (store?.newGuideStep?.alreadyGuideSteps == 1) {
+    if (store?.newGuideStep?.alreadyGuideSteps == 2) {
       document.body.style.overflow = "hidden";
       let clientHeight = document.documentElement.clientHeight || document.body.clientHeight
       let toHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight) - clientHeight
@@ -111,10 +113,6 @@ class Mappage extends React.Component {
           {/* 终极大奖 */}
           <LastPrize />
 
-          {/* 谷爱凌形象 */}
-          <div className="guailing"></div>
-
-
           {/* 引导时屏蔽点击。这样最简单上盖一层div */}
           {
             showMask &&
@@ -135,17 +133,7 @@ class Mappage extends React.Component {
         </div>
         {/* 按钮 */}
         <div className="map-btnbox">
-          <div className="topleftIcon">
-            {/* 头像 */}
-            <AvatarBox />
-            {/* 金币数量 */}
-            <CoinBox />
-          </div>
-          {/* 扣除多少金币 */}
-          {/* <DecCoinBox /> */}
-          <div className="mapPage-tiShi textover">
-            有{homeInfo?.pvNum || 0}位用户与你一起闯关
-          </div>
+          <IndexBtn />
           {/* 返回首页按钮 */}
           <span
             className="backbtn"

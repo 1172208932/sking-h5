@@ -4,13 +4,13 @@ module.exports = {
     joinGolds: 88,//参与消耗金币数
     reGolds: 10,//复活消耗金币数
     inviteGolds: 24,//邀请获得金币数
-    rankReceiveFlag: 3,//地图页终极大奖：1-无法领取 2-待领取 3-已领取
+    rankReceiveFlag: 2,//地图页终极大奖：1-无法领取 2-待领取 3-已领取
     nickName: "小巨蛋小巨蛋小巨蛋小巨蛋小巨蛋小巨蛋",
     avatar:
       "//yun.duiba.com.cn/aurora/assets/a51a8f870e3031792ae2b27e435fca4abb79181d.png",
     activityEndTime: 12,
     currentTime: 10,
-    openPrizeTime: 12,
+    openPrizeTime: 10,
     pvNum: 86505640.30935124, //用户参与数量
     assistInfo: {
       assistNum: 0, //邀请人数

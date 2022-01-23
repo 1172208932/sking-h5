@@ -43,16 +43,18 @@ class Poster extends React.Component {
   
   render() {
     const {posterImg, codeImg} = this.state;
+    const {homeInfo} = store;
     return (
       <div className="posterpage" ref={(el) => (this.poster = el)}>
-        <div src="" alt="" className="posterTitle"></div>
-        {/* <div className="codeBox" ref={(el) => (this.erCode = el)}>
-
-        </div> */}
+        <div className="userInfo-poster">
+          <img src={homeInfo?.avatar || USER_AVATAR} alt="" className="avatar" />
+          <p>我正在和{homeInfo?.pvNum||0}人一起冰雪跑酷</p>
+        </div>
         <img src={codeImg} alt="" className="codeBox"/>
         {/* <img src={USER_AVATAR} alt="" className="ren"/> */}
         {/* <img src={posterImg} className="posterpage-img"/> */}
-        <div className="back-poster" onClick={() => modalStore.closePop("Poster")}>返回</div>
+        <div className="back-poster" onClick={() => modalStore.closePop("Poster")}></div>
+        <p className="longpress-text">长按保存邀请海报</p>
       </div>
     );
   }

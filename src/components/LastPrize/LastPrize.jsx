@@ -22,7 +22,7 @@ class LastPrize extends React.Component {
     const { homeInfo } = store;
     if(!store?.newGuideStep?.completeGuide) return false;
     if(homeInfo?.openPrizeTime > homeInfo?.currentTime) {
-      Toast("别急，快去闯关吧！2月18日开奖哦")
+      Toast("别急，快去闯关吧！2月20日24点整开奖哦")
     } else if(homeInfo?.rankReceiveFlag == 2) {
       const { success, data } = await API.rankingAward();
       if (success && data) {
@@ -46,7 +46,7 @@ class LastPrize extends React.Component {
       <div className="giftbox">
         <span className="giftboxtitle"></span>
         <span className="giftboximg"></span>
-        <div className="giftlist">
+        {/* <div className="giftlist">
           <div className="lastPrizeBox">
             {Boolean(homeInfo.rankPrize?.length) &&
               homeInfo.rankPrize.map((item, index) => {
@@ -60,22 +60,20 @@ class LastPrize extends React.Component {
                 );
               })}
           </div>
-        </div>
+        </div> */}
         {/* 按钮 */}
         <div className="lastprizeBtn">
           <div
             className={`btn`}
             onClick={this.clickReceive}
           >
-            {!store?.newGuideStep?.completeGuide
-              ? "通关开启"
-              : homeInfo?.openPrizeTime > homeInfo?.currentTime
-              ? "2月18日开奖"
-              : homeInfo?.rankReceiveFlag == 2
-              ? "领取奖励"
-              : homeInfo?.rankReceiveFlag == 3
-              ? "已领取"
-              : "排名未入前百"}
+            {(!store?.newGuideStep?.completeGuide || homeInfo?.openPrizeTime > homeInfo?.currentTime) ? <img src={`${RES_PATH}mapPage/2月20.png`} alt=""  className="yue20"/>:
+            homeInfo?.rankReceiveFlag == 2
+            ? "领取奖励"
+            : homeInfo?.rankReceiveFlag == 3
+            ? "已领取"
+            : "排名未入前百"
+            }
           </div>
           {/* 手势 */}
           {homeInfo?.rankReceiveFlag == 2 && (
@@ -86,9 +84,9 @@ class LastPrize extends React.Component {
           )}
         </div>
         {/* 文字 */}
-        <div className="prizedetailtext">
+        {/* <div className="prizedetailtext">
           奖品依据排行榜名次发放，将在活动结束后发放至「我的奖品」
-        </div>
+        </div> */}
         {/* <span className="giftboxpoint"></span> */}
       </div>
     );

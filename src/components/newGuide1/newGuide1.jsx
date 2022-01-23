@@ -20,7 +20,7 @@ class NewGuide1 extends React.Component {
   componentDidMount() {
   }
 
-  clickStart = async() => {
+  clickStart = _throttle(async() => {
     const {judgeEndTime} = this.props
     if(judgeEndTime()) {
       // 递进新手引导
@@ -30,7 +30,7 @@ class NewGuide1 extends React.Component {
         store.changePage("Mappage")
       }
     }
-  }
+  })
  
   render() {
     return (
