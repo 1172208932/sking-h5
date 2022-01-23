@@ -68,10 +68,21 @@
 
 .mapcontent {
   position: absolute;
+  left: -288px;
   transform: rotate(90deg);
   transform-origin: calc(100vw / 2) calc(100vw / 2);
 }
+.backbtn {
+  width: 118px;
+  height: 118px;
+  left: 23%;
+  top: 100px;
+  position: fixed;
+  z-index: 100;
+  .sparkBg("mapPage/backBtn.png");
+  transform: rotate(90deg);
 
+}
 .map-btnbox {
   width: 100vh;
   height: 100vw;
@@ -81,14 +92,7 @@
   transform: rotate(90deg);
   transform-origin: calc(100vw / 2) calc(100vw / 2);
 
-  .backbtn {
-    width: 118px;
-    height: 118px;
-    left: 3%;
-    top: 450px;
-    position: fixed;
-    .sparkBg("mapPage/backBtn.png");
-  }
+
 
 
   .closebtn {

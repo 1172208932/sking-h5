@@ -126,13 +126,7 @@ class Mappage extends React.Component {
         {/* 按钮 */}
         <div className="map-btnbox">
           <IndexBtn />
-          {/* 返回首页按钮 */}
-          <span
-            className="backbtn"
-            onClick={() => {
-              store.changePage("homePage");
-            }}
-          ></span>
+         
         </div>
 
         {/* 地图内容-主 */}
@@ -143,7 +137,13 @@ class Mappage extends React.Component {
           {/* 终极大奖 */}
           <LastPrize />
         </div>
-         
+        {/* 返回首页按钮 */}
+        <span
+          className="backbtn"
+          onClick={() => {
+            store.changePage("homePage");
+          }}
+        ></span>
       </>
     );
   }
