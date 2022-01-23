@@ -9,7 +9,7 @@ import API from "../../api";
 import {_throttle} from "@src/utils/utils"
 import { htmlShot } from "@spark/utils";
 import "./poster.less";
-
+import {USER_AVATAR} from "@src/utils/constants"
 @observer
 class Poster extends React.Component {
   constructor(props) {

@@ -45,7 +45,8 @@
         if (!getUrlParam("appID")) {
             // alert("【警告】检测到活动url中没有appID参数\n缺少该参数会导致埋点、分享、app信息获取错误。")
         }
-        CFG.shareUrl = "https://85771.activity-17.m.duiba.com.cn/projectx/p3e5f7210/index.html?appID=85771";
+        // https://85771.activity-17.m.duiba.com.cn/projectx/pfcdcd18f/index.html?appID=85771
+        CFG.shareUrl = "https://85771.activity-17.m.duiba.com.cn/projectx/" + CFG.projectId +  "/index.html?appID=" + CFG.appID;
         function judgeIsIOS(){
             var u = window.navigator.userAgent;
             window.isIos = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端

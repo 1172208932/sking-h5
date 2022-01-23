@@ -67,8 +67,11 @@ class RockPrize extends React.Component {
   getRockPrizeList = async () => {
     const { success, data } = await API.rockQuery();
     if (success && data?.options?.length) {
+      let list = data.options.filter(item => {
+        return item.optionId != 'thanks'
+      })
       this.setState({
-        prizeList: data.options,
+        prizeList: list,
       });
     }
   };
