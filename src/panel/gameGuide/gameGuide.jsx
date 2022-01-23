@@ -39,13 +39,13 @@ class GameGuide extends React.Component {
     })
   }
 
-  async beginGame() {
+  beginGame = _throttle(async() => {
     const {success} = await API.stepNewGuide()
-    if(success){
+    // if(success){
       modalStore.closePop("GameGuide");
       EventBus.fire('BEGIN_DOWNTIME')
-    }
-  }
+    // }
+  })
 
   renderStepCenter(step) {
     switch (step) {
