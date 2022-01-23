@@ -370,7 +370,7 @@ const gameStore = makeAutoObservable(mix({
     },
     //填充
     stockArea(i,Shapestock) {
-        // console.log(i, "当前")
+        console.log(i, "当前")
         
         Shapestock.beginGradientFill([(i-1) * 100, this.lineInfo[i] +1300, i * 100,this.lineInfo[i-1] +300], [[0, lineColor[Math.floor((store.currentGameLevel-1)/20)], 1], [1, "#ffffff", 1]])
         Shapestock.lineTo((i - 1) * 100, (this.lineInfo[i - 1]) + 300)
