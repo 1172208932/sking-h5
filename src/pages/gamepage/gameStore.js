@@ -48,8 +48,8 @@ const gameStore = makeAutoObservable(mix({
 
 
     addPropGuide1(){
-        const propGuide = FYGE.Sprite.fromUrl("//yun.duiba.com.cn/aurora/assets/421a46bf9980bc655c608079fd831351bf0ab554.png")
-        propGuide.x =  9841
+        const propGuide = FYGE.Sprite.fromUrl("//yun.duiba.com.cn/aurora/assets/538c007f534b184d79d4e18594615f1df3a2c6b1.png")
+        propGuide.x =  9751
         propGuide.y =  2206
         this.bgCon.addChildAt(propGuide,1)
 
@@ -59,9 +59,9 @@ const gameStore = makeAutoObservable(mix({
         this.bgCon.addChildAt(propGuideNice,1)
 
 
-        const propGuide2 = FYGE.Sprite.fromUrl("//yun.duiba.com.cn/aurora/assets/421a46bf9980bc655c608079fd831351bf0ab554.png")
-        propGuide2.x =  29170 // 29212 6655
-        propGuide2.y =  6535
+        const propGuide2 = FYGE.Sprite.fromUrl("//yun.duiba.com.cn/aurora/assets/5cd95e8f0c35efefc6e051df324867089b0e456f.png")
+        propGuide2.x =  29120 // 29212 6655
+        propGuide2.y =  6475
         this.bgCon.addChildAt(propGuide2,1)
 
         const propGuideNice2 = FYGE.Sprite.fromUrl("//yun.duiba.com.cn/aurora/assets/940f611ebd4024cdb1698f8919873660293adb0f.png")
