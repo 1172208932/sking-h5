@@ -92,8 +92,10 @@ class HomePage extends React.Component {
       <div className="homePagebox">
         <div className="homepage">
           <span className="title"></span>
+          <div className="leftName"></div>
           <SvgaPlayer src={`${RES_PATH}svga/标题与人物.svga`} className='title-person'></SvgaPlayer>
-
+          <div className="rightName"></div>
+         
           {/* 开始游戏按钮 */}
           <SvgaPlayer className="startga" src={`${RES_PATH}svga/开始游戏.svga`} onClick={_throttle(() => { if (this.judgeEndTime()) { store.changePage('Mappage') } })} />
           <IndexBtn />
