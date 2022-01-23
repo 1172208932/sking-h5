@@ -85,9 +85,12 @@ function generateAPI(apiList) {
 					if(document.getElementById("overlay_layer")) {
 						document.getElementById("overlay_layer").style.display = 'block';
 					}
-					Toast(result.message || '接口错误',2000,{didClose: ()=> {
-						document.getElementById("overlay_layer").style.display = 'none';
-					}});
+					if(result.code == "200900"){
+					}else{
+						Toast(result.message || '接口错误',2000,{didClose: ()=> {
+							document.getElementById("overlay_layer").style.display = 'none';
+						}});
+					}
 				}
 				//返回整个结果
 				return result;
