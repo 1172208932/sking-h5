@@ -54,10 +54,10 @@ function generateAPI(apiList) {
 					token = await getPxToken();
 				} catch (e) {
 					if(document.getElementById("overlay_layer")) {
-						document.getElementById("overlay_layer").style.zIndex = 2001;
+						document.getElementById("overlay_layer").style.display = 'block';
 					}
 					Toast('网络异常',2000,{didClose: ()=> {
-						document.getElementById("overlay_layer").style.zIndex = -1;
+						document.getElementById("overlay_layer").style.display = 'none';
 					}});
 					return;
 				}
@@ -73,20 +73,20 @@ function generateAPI(apiList) {
 				.catch(e => {
 					//捕获网络异常
 					if(document.getElementById("overlay_layer")) {
-						document.getElementById("overlay_layer").style.zIndex = 2001;
+						document.getElementById("overlay_layer").style.display = 'block';
 					}
 					Toast(e.message || '网络异常',2000,{didClose: ()=> {
-						document.getElementById("overlay_layer").style.zIndex = -1;
+						document.getElementById("overlay_layer").style.display = 'none';
 					}});
 				});
 			if (result) {
 				//判断接口错误
 				if (!result.success && !hideError) {
 					if(document.getElementById("overlay_layer")) {
-						document.getElementById("overlay_layer").style.zIndex = 2001;
+						document.getElementById("overlay_layer").style.display = 'block';
 					}
 					Toast(result.message || '接口错误',2000,{didClose: ()=> {
-						document.getElementById("overlay_layer").style.zIndex = -1;
+						document.getElementById("overlay_layer").style.display = 'none';
 					}});
 				}
 				//返回整个结果

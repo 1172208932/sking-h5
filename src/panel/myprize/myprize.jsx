@@ -20,13 +20,13 @@ class Myprize extends React.Component {
   componentDidMount() {
     this.getPrizeList();
     if(document.getElementById("overlay_layer")) {
-      document.getElementById("overlay_layer").style.zIndex = -1;
+      document.getElementById("overlay_layer").style.display = 'none';
     }
   }
 
   componentWillUnmount() {
     if(document.getElementById("overlay_layer")) {
-      document.getElementById("overlay_layer").style.zIndex = 2001;
+      document.getElementById("overlay_layer").style.display = 'block';
     }
   }
 

@@ -26,14 +26,14 @@ class ExchangeShop extends React.Component {
   async componentDidMount() {
     this.getList();
     if(document.getElementById("overlay_layer")) {
-      document.getElementById("overlay_layer").style.zIndex = -1;
+      document.getElementById("overlay_layer").style.display = 'none';
     }
     await loadOneImg("https://yun.duiba.com.cn/aurora/assets/b415744ec711daa4c93365b157c356ce38b6f726.png")
   }
 
   componentWillUnmount() {
     if(document.getElementById("overlay_layer")) {
-      document.getElementById("overlay_layer").style.zIndex = 2001;
+      document.getElementById("overlay_layer").style.display = 'block';
     }
   }
 
@@ -60,10 +60,10 @@ class ExchangeShop extends React.Component {
     const { homeInfo } = store;
     if (!isNow) {
       if(document.getElementById("overlay_layer")) {
-        document.getElementById("overlay_layer").style.zIndex = 2001;
+        document.getElementById("overlay_layer").style.display = 'block';
       }
       Toast("即将开启，明日0点开抢!",2000,{didClose: ()=> {
-        document.getElementById("overlay_layer").style.zIndex = -1;
+        document.getElementById("overlay_layer").style.display = 'none';
       }});
       return false;
     }
@@ -79,18 +79,18 @@ class ExchangeShop extends React.Component {
       },true);
     } else if(item?.consumeSps?.[0]?.quantity > homeInfo?.goldNum){
       if(document.getElementById("overlay_layer")) {
-        document.getElementById("overlay_layer").style.zIndex = 2001;
+        document.getElementById("overlay_layer").style.display = 'block';
       }
       // 金币不足
       Toast("金币不足，快去赚金币吧!",2000,{didClose: ()=> {
-        document.getElementById("overlay_layer").style.zIndex = -1;
+        document.getElementById("overlay_layer").style.display = 'none';
       }});
     } else {
       if(document.getElementById("overlay_layer")) {
-        document.getElementById("overlay_layer").style.zIndex = 2001;
+        document.getElementById("overlay_layer").style.display = 'block';
       }
       Toast("库存不足",2000,{didClose: ()=> {
-        document.getElementById("overlay_layer").style.zIndex = -1;
+        document.getElementById("overlay_layer").style.display = 'none';
       }})
     }
   });

@@ -7,8 +7,7 @@ import { SvgaPlayer } from "@spark/animation";
 import { RES_PATH } from "../../../sparkrc.js";
 import "./LastPrize.less";
 import API from "../../api";
-
-import { _throttle } from "@src/utils/utils";
+import { _throttle, CusToast } from "@src/utils/utils";
 import modalStore from "@src/store/modal";
 import { Toast } from "@spark/ui";
 
@@ -23,6 +22,12 @@ class LastPrize extends React.Component {
     if(!store?.newGuideStep?.completeGuide) return false;
     if(homeInfo?.openPrizeTime > homeInfo?.currentTime) {
       Toast("别急，快去闯关吧！\n2月20日24点整开奖哦")
+      // if(document.getElementById("overlay_layer")) {
+      //   document.getElementById("overlay_layer").style.display = 'block';
+      // }
+      // Toast("别急，快去闯关吧！\n2月20日24点整开奖哦",2000,{didClose: ()=> {
+      //   document.getElementById("overlay_layer").style.display = 'none';
+      // }})
     } else if(homeInfo?.rankReceiveFlag == 2) {
       const { success, data } = await API.rankingAward();
       if (success && data) {
