@@ -22,7 +22,7 @@ class LastPrize extends React.Component {
     const { homeInfo } = store;
     if(!store?.newGuideStep?.completeGuide) return false;
     if(homeInfo?.openPrizeTime > homeInfo?.currentTime) {
-      Toast("别急，快去闯关吧！2月20日24点整开奖哦")
+      Toast("别急，快去闯关吧！\n2月20日24点整开奖哦")
     } else if(homeInfo?.rankReceiveFlag == 2) {
       const { success, data } = await API.rankingAward();
       if (success && data) {
