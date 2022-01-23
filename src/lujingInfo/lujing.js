@@ -6,10 +6,10 @@ export const propSize = {
         width: 244, height: 146
     },
     "stone": {
-        width: 99, height: 85
+        width: 182, height: 91
     },
     "bigstone": {
-        width: 142, height: 120
+        width: 142, height: 125
     },
     "gem": {
         width: 62, height: 55
