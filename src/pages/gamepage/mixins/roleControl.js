@@ -9,8 +9,8 @@ import store from '@src/store/index.js';
 import { playSound, stopSound, preloadSounds, registerSounds } from '@spark/utils';
 
 const sorceConfig = {
-    "snow":1,
-    "gem":5
+    "snow":10,
+    "gem":30
 }
 
 export const RoleControl = {
@@ -205,7 +205,7 @@ export const RoleControl = {
                     (e.bodyA == this.role.carBody && e.bodyB == this.additiveslist[i].rectBody)
                 ){
 						if(this.additiveslist[i].type == "snow" || this.additiveslist[i].type == "gem"){
-                            console.log(this.additiveslist[i].rectcoin.x,this.additiveslist[i].rectcoin.y)
+                            console.warn(this.additiveslist[i].rectcoin.x,this.additiveslist[i].rectcoin.y)
 							this.phyworld.removeBody(this.additiveslist[i].rectBody)
 							this.bgCon.removeChild(this.additiveslist[i].rectcoin)
                             this.score =this.score + sorceConfig[this.additiveslist[i].type]
@@ -231,11 +231,12 @@ export const RoleControl = {
                                   })
                             }
 						}else {
+                            console.warn(this.additiveslist[i].rectcoin.x,this.additiveslist[i].rectcoin.y)
                             this.role.carBody.sleep()
 							this.role.circleBody.sleep()
 							this.role.circleBody2.sleep()
                             this.count = 0;
-
+                           
 							console.log("die")
 							this.gameEnd = true
 							this.dieItem = this.additiveslist[i]
@@ -244,6 +245,7 @@ export const RoleControl = {
                             if(this.additiveslist[i].type == "grass"){
                                 showtype = "grassSvga"
                             }else if(this.additiveslist[i].type == "stone" || this.additiveslist[i].type == "bigstone"){
+                                // console.log(this.additiveslist[i].rectcoin.x,this.additiveslist[i].rectcoin.y,'stone')
                                 showtype = "stoneSvga"
                             }else if(this.additiveslist[i].type == "house"){
                                 showtype = "houseSvga"
