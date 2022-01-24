@@ -43,15 +43,15 @@ class Mappage extends React.Component {
 
     if (store?.newGuideStep?.alreadyGuideSteps == 2) {
       document.body.style.overflow = "hidden";
-      // let clientHeight = document.documentElement.clientHeight || document.body.clientHeight
-      // let toHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight) - clientHeight
-      // let scrTop = document.documentElement || document.body;
+      let clientHeight = document.documentElement.clientHeight || document.body.clientHeight
+      let toHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight) - clientHeight
+      let scrTop = document.documentElement || document.body;
 
-      // scrTop.scrollTop = toHeight
-      // document.body.scrollTop = toHeight
-      // document.documentElement.scrollTop = toHeight
+      scrTop.scrollTop = toHeight
+      document.body.scrollTop = toHeight
+      document.documentElement.scrollTop = toHeight
 
-      await delay(500)
+      await delay(1500)
       this.setState({
         queryNewGuideInfo: queryNewGuideInfo.data,
         showMist: true
@@ -59,28 +59,22 @@ class Mappage extends React.Component {
     }
   }
   showMoveMap() {
-    // let clientHeight = document.documentElement.clientHeight || document.body.clientHeight
-    // let toHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight) - clientHeight
+    let clientHeight = document.documentElement.clientHeight || document.body.clientHeight
+    let toHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight) - clientHeight
     console.info('showMoveMap')
     this.setState({
       showMask: true,
       showMist: false
     }, async () => {
-
-      await API.stepNewGuide()
-      await store.queryNewGuide();
-      this.setState({
-        showMask: false,
+      let doc = document.documentElement || document.body;
+      Tool.tweenReaptToto2(doc, toHeight, 0, 0, async () => {
+        this.setState({
+          showMask: false,
+        })
+        document.body.style.overflow = 'auto';
+        await API.stepNewGuide()
+        await store.queryNewGuide();
       })
-      // let doc = document.documentElement || document.body;
-      // Tool.tweenReaptToto2(doc, toHeight, 0, 5000, async () => {
-      //   this.setState({
-      //     showMask: false,
-      //   })
-      //   document.body.style.overflow = 'auto';
-      //   await API.stepNewGuide()
-      //   await store.queryNewGuide();
-      // })
     })
   }
   /**
