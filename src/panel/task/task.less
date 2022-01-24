@@ -28,7 +28,7 @@
       position: absolute;
       top: 155px;
       .signBox-line {
-        width: 462px;
+        width: 330px;
         height: 5px;
         background: #d7e6f5;
         position: absolute;
@@ -37,7 +37,7 @@
       .signItemBox {
         position: absolute;
         top: 26px;
-        width: 100%;
+        width: 330px;
         min-height: 73px;
         display: flex;
         justify-content: center;
@@ -47,7 +47,7 @@
           margin-right: 14px;
           text-align: center;
           position: relative;
-          &.last-child {
+          &:last-child {
             margin-right: unset;
           }
           .signitem-btn {
@@ -89,6 +89,19 @@
             pointer-events: none;
             transform: scale(0.7);
           }
+        }
+      }
+      .signBtn {
+        position: absolute;
+        right: -20px;
+        top: 20px;
+        width: 158px;
+        height: 44px;
+        &.signdidbtn {
+          .sparkBg("任务弹窗1/已签到.png");
+        }
+        &.nosignbtn  {
+          .sparkBg("任务弹窗1/去签到.png");
         }
       }
     }

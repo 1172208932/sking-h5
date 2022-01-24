@@ -49,18 +49,11 @@ class Task extends React.Component {
   };
 
   // 点击签到
-  clickSign = _throttle(async(index) => {
+  clickSign = _throttle((index) => {
     const { signDetail } = this.state;
     if(signDetail?.todaySign) return false;
     if(index == signDetail?.signDay) {
-      showLoading()
-      const {success, data} = await API.doSign();
-      hideLoading()
-      if(success) {
-        Toast(`签到成功，金币+${data?.options?.[0]?.sendCount || 0}`)
-        this.getSignDetail();
-        store.getHomeInfo();
-      }
+      this.toSign()
     }
   })
 
@@ -82,6 +75,23 @@ class Task extends React.Component {
     modalStore.closePop("Task")
     store.toInvite()
   })
+
+  clickSignBtn = _throttle(() => {
+    const { signDetail } = this.state;
+    if(signDetail?.todaySign) return false;
+    this.toSign()
+  })
+
+  toSign = async() => {
+    showLoading()
+    const {success, data} = await API.doSign();
+    hideLoading()
+    if(success) {
+      Toast(`签到成功，金币+${data?.options?.[0]?.sendCount || 0}`)
+      this.getSignDetail();
+      store.getHomeInfo();
+    }
+  }
   render() {
     const {homeInfo} = store;
     const { signPrizeConfig, signDetail, totalInviteCount } = this.state;
@@ -96,7 +106,7 @@ class Task extends React.Component {
               {signPrizeConfig &&
                 signPrizeConfig.map((item, index) => {
                   return (
-                    <div className="signitem" key={index} onClick={() => this.clickSign(index)}>
+                    <div className="signitem" key={index}>
                       <div
                         className={`signitem-btn ${
                           index < signDetail?.signDay ? "signover" : ""
@@ -111,14 +121,15 @@ class Task extends React.Component {
                         )}
                       </div>
                       <p className="signitem-day textover">{index + 1}日</p>
-                      {index == signDetail?.signDay && !signDetail?.todaySign && <SvgaPlayer
+                      {/* {index == signDetail?.signDay && !signDetail?.todaySign && <SvgaPlayer
                         className="gesturesAperture"
                         src={`${RES_PATH}svga/手势单击.svga`}
-                      />}
+                      />} */}
                     </div>
                   );
                 })}
             </div>
+            <div className={`signBtn ${signDetail?.todaySign ? 'signdidbtn': 'nosignbtn'}`} onClick={this.clickSignBtn}></div>
           </div>
           {/* 邀请 */}
           <div className="inviteBox">

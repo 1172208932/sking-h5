@@ -44,9 +44,10 @@ const store = makeAutoObservable({
   },
   // 开始游戏
   async startGame(level) {
+    let lastLevel = this.homeInfo?.gameInfo?.length > 0 ? this.homeInfo.gameInfo[this.homeInfo?.gameInfo?.length-1].level : null;
     if (this.homeInfo?.joinGolds > this.homeInfo?.goldNum) {
       modalStore.pushPop("NoMoney");
-    } else if(this.homeInfo?.desc) {
+    } else if(this.homeInfo?.desc && level == (Number(lastLevel.split("_")[0])+1)) {
       modalStore.pushPop("GameRemind",{level:level})
     } else {
       modalStore.pushPop("PayConfirm",{
