@@ -17,10 +17,10 @@ class ActivityFail extends React.Component {
       <div className="acivityFail">
         <p className="title">当前活动太火爆了</p>
         <p className="subT">稍等刷新一下游戏再一起冲关哦~</p>
-        <span
+        {/* <span
           className="shutDown"
           onClick={() => modalStore.closePop("ActivityFail")}
-        ></span>
+        ></span> */}
       </div>
     )
   }

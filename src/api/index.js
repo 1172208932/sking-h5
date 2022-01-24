@@ -1,8 +1,7 @@
 import apiCfg from './apicfg';
 import {getPxToken} from "@spark/projectx";
 import {callApi} from '@spark/api-base'
-import {Toast} from '@spark/ui'
-
+import {hideLoading, Toast} from '@spark/ui'
 import {isFromShare, newUser} from 'duiba-utils';
 import modalStore from '@src/store/modal';
 
@@ -56,6 +55,7 @@ function generateAPI(apiList) {
 				} catch (e) {
 					if(e.payload.code == 429) {
 						modalStore.pushPop("ActivityFail");
+						hideLoading();
 						return false
 					}
 					if(document.getElementById("overlay_layer")) {
@@ -79,6 +79,7 @@ function generateAPI(apiList) {
 					//捕获网络异常
 					if(e.payload.code == 429) {
 						modalStore.pushPop("ActivityFail");
+						hideLoading();
 						return false
 					}
 					if(document.getElementById("overlay_layer")) {

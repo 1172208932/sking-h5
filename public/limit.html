@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>活动太火爆啦</title>
+  <style>
+    body {
+      width: 100vh;
+      height: 100vw;
+      transform: rotate(90deg);
+      transform-origin: calc(100vw / 2) calc(100vw / 2);
+      position: fixed;
+      margin:0;
+      padding:0;
+    }
+    .box {
+      /* width: 100%;
+      height: 100%; */
+      position: fixed;
+      top: 0;
+      left:50%;
+      transform: translateX(-50%);
+      background: url("https://yun.duiba.com.cn/aurora/assets/1d25b8c7f1d4f9bc52f32215ac7df1b6542baaac.png") no-repeat;
+      background-size: 100% 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="box" id="box">
+
+  </div>
+</body>
+<script>
+  console.log( document.getElementById("box"))
+  document.getElementById("box").style.width = (window.innerWidth/750)*1624 + 'px';
+  document.getElementById("box").style.height =  window.innerWidth + 'px';
+</script>
+</html>

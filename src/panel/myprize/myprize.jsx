@@ -62,7 +62,7 @@ class Myprize extends React.Component {
           className="shutDown"
           onClick={() => modalStore.closePop("Myprize")}
         ></span>
-        <p className="text-prize">将在活动结束后5个工作日内统一发货
+        <p className="text-prize">获得实物奖品将在活动结束后15日内发货
 </p>
         <div className="prizelistbox">
           {list?.length ? list.map((item, index) => {
