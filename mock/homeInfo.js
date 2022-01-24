@@ -199,6 +199,12 @@ module.exports = {
         star: "3",
         receive: "1",
       }, {
+        level: "30_gift", // i=10,len=11
+        score: "0",
+        star: "0",
+        receive: "2",//"0-未完成 1-已领取 2-待领取
+      },
+      {
         level: "31",
         score: "0",
         star: "3",
@@ -233,30 +239,100 @@ module.exports = {
         star: "3",
         receive: "1",
       },
-      // {
-      //   level: "37",
-      //   score: "0",
-      //   star: "1",
-      //   receive: "1",
-      // },
-      // {
-      //   level: "38",
-      //   score: "0",
-      //   star: "3",
-      //   receive: "1",
-      // },
-      // {
-      //   level: "39",
-      //   score: "0",
-      //   star: "3",
-      //   receive: "1",
-      // },
-      // {
-      //   level: "40",
-      //   score: "0",
-      //   star: "3",
-      //   receive: "1",
-      // },
+      {
+        level: "37",
+        score: "0",
+        star: "1",
+        receive: "1",
+      },
+      {
+        level: "38",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "39",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "40",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "40_gift", // i=10,len=11
+        score: "0",
+        star: "0",
+        receive: "2",//"0-未完成 1-已领取 2-待领取
+      },{
+        level: "41",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "42",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "43",
+        score: "0",
+        star: "1",
+        receive: "1",
+      },
+      {
+        level: "44",
+        score: "0",
+        star: "3",
+        receive: "1",
+      }, {
+        level: "45",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "46",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "47",
+        score: "0",
+        star: "1",
+        receive: "1",
+      },
+      {
+        level: "48",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "49",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "50",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "50_gift", // i=10,len=11
+        score: "0",
+        star: "0",
+        receive: "2",//"0-未完成 1-已领取 2-待领取
+      },
     ],
     url: "http://www.baidu.com",
     rankPrize: [
@@ -511,6 +587,65 @@ module.exports = {
       },
       {
         "level": "40",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },{
+        "level": "41",
+        "star2": 111,
+        "star1": -21961016.039620325,
+        "star3": 2222
+      },
+      {
+        "level": "42",
+        "star2": 2222,
+        "star1": -91712480.21939173,
+        "star3": 33333
+      },
+      {
+        "level": "43",
+        "star2": 4444,
+        "star1": 43446922.92147857,
+        "star3": 5555
+      },
+      {
+        "level": "44",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "45",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "46",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "47",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "48",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "49",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "50",
         "star2": 666,
         "star1": -14169123.906866238,
         "star3": 7777

@@ -249,6 +249,10 @@ export const RoleControl = {
                                 showtype = "stoneSvga"
                             }else if(this.additiveslist[i].type == "house"){
                                 showtype = "houseSvga"
+                            }else if(this.additiveslist[i].type == "floor"){
+                                showtype = ""
+                                EventBus.fire('GAME_OVER',{score:this.score})
+                                return
                             }
                             this[showtype].startAniRange(0, undefined, 1,()=>{
                                 this[showtype].visible = false
