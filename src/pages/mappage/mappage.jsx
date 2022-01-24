@@ -94,7 +94,7 @@ class Mappage extends React.Component {
     const { homeInfo, newGuideStep } = store;
     const { showMask, showMist } = this.state
     return (
-      <>
+      <div id="mapPageId">
         <div className="mappage">
           {/* 背景 */}
           <div className="mapBgbox">
@@ -151,7 +151,7 @@ class Mappage extends React.Component {
         }
 
 
-      </>
+      </div>
     );
   }
 }
