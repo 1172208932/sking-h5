@@ -73,6 +73,7 @@ class Mappage extends React.Component {
         })
         document.body.style.overflow = 'auto';
         await API.stepNewGuide()
+        await store.queryNewGuide();
       })
     })
   }
