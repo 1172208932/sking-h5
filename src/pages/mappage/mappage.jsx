@@ -67,7 +67,7 @@ class Mappage extends React.Component {
       showMist: false
     }, async () => {
       let doc = document.documentElement || document.body;
-      Tool.tweenReaptToto2(doc, toHeight, 0, toHeight, async () => {
+      Tool.tweenReaptToto2(doc, toHeight, 0, 5000, async () => {
         this.setState({
           showMask: false,
         })
