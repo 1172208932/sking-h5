@@ -137,7 +137,7 @@ class ExchangeShop extends React.Component {
                       </p>
                       <div className="bottom">
                         <span className="number textover">
-                          数量 {item?.options?.[0]?.optionStock}
+                          {/* 数量 {item?.options?.[0]?.optionStock} */}
                         </span>
                         {/* 按钮区域 */}
                         {/* xx金币抢购 */}
