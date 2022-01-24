@@ -9,8 +9,8 @@ import store from '@src/store/index.js';
 import { playSound, stopSound, preloadSounds, registerSounds } from '@spark/utils';
 
 const sorceConfig = {
-    "snow":1,
-    "gem":5
+    "snow":10,
+    "gem":30
 }
 
 export const RoleControl = {
@@ -245,6 +245,7 @@ export const RoleControl = {
                             if(this.additiveslist[i].type == "grass"){
                                 showtype = "grassSvga"
                             }else if(this.additiveslist[i].type == "stone" || this.additiveslist[i].type == "bigstone"){
+                                // console.log(this.additiveslist[i].rectcoin.x,this.additiveslist[i].rectcoin.y,'stone')
                                 showtype = "stoneSvga"
                             }else if(this.additiveslist[i].type == "house"){
                                 showtype = "houseSvga"

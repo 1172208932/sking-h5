@@ -11,7 +11,7 @@ module.exports = {
     activityEndTime: 12,
     currentTime: 10,
     openPrizeTime: 12,
-    pvNum: 86505640.30935124, //用户参与数量
+    pvNum: 86505640, //用户参与数量
     assistInfo: {
       assistNum: 0, //邀请人数
       assistGoldNum: 127283683648374, //获得金币数量
