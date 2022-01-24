@@ -67,14 +67,26 @@ class Mappage extends React.Component {
       showMist: false
     }, async () => {
       let doc = document.documentElement || document.body;
-      Tool.tweenReaptToto2(doc, toHeight, 0, 0, async () => {
-        this.setState({
-          showMask: false,
-        })
-        document.body.style.overflow = 'auto';
-        await API.stepNewGuide()
-        await store.queryNewGuide();
+      document.body.scrollTop = 0
+      document.documentElement.scrollTop = 0
+
+      this.setState({
+        showMask: false,
       })
+      document.body.style.overflow = 'auto';
+      await API.stepNewGuide()
+      await store.queryNewGuide();
+      //todo 开始游戏
+
+
+      // Tool.tweenReaptToto2(doc, toHeight, 0, 0, async () => {
+      //   this.setState({
+      //     showMask: false,
+      //   })
+      //   document.body.style.overflow = 'auto';
+      //   await API.stepNewGuide()
+      //   await store.queryNewGuide();
+      // })
     })
   }
   /**
