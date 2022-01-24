@@ -248,7 +248,12 @@ export const RoleControl = {
                                 // console.log(this.additiveslist[i].rectcoin.x,this.additiveslist[i].rectcoin.y,'stone')
                                 showtype = "stoneSvga"
                             }else if(this.additiveslist[i].type == "house"){
+                                // console.log(this.additiveslist[i].rectcoin.x,this.additiveslist[i].rectcoin.y,'house')
                                 showtype = "houseSvga"
+                            }else if(this.additiveslist[i].type == "floor"){
+                                showtype = ""
+                                EventBus.fire('GAME_OVER',{score:this.score})
+                                return
                             }
                             this[showtype].startAniRange(0, undefined, 1,()=>{
                                 this[showtype].visible = false
