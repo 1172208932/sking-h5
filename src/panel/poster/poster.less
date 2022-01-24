@@ -3,31 +3,40 @@
 .posterpage {
   width: 956px;
   height: 607px;
-  .sparkBg("homePage/poster.png");
   position: absolute;
   transform: rotate(90deg);
   .posterpage-img {
     width: 956px;
     height: 607px;
+    // transform: rotate(-90deg);
+    // opacity: 0;
+  }
+  .poster {
+    width: 956px;
+    height: 607px;
+    position: absolute;
+    z-index: -1;
+    .sparkBg("homePage/poster.png");
+
   }
   .userInfo-poster {
     position: absolute;
     top: 334px;
     left:47px;
-    display: flex;
-    align-items: center;
+    // display: flex;
+    // align-items: center;
     img {
       width: 69px;
       height: 69px;
-      border: 2px solid #fff;
-      box-sizing: border-box;
-      border-radius: 50%;
-      margin-right: 8px;
+      // border: 2px solid #fff;
+      // box-sizing: border-box;
+      // border-radius: 50%;
+      // margin-right: 8px;
     }
-    p {
+    .haveperson {
       color: #0d7bd8;
       font-size: 26px;
-      font-weight: bold;
+      // font-weight: bold;
     }
   }
   .codeBox {
@@ -47,6 +56,14 @@
       // border-radius: 50%;
       overflow:hidden;
     }
+  }
+  .codeImg {
+    position: absolute;
+    width: 146px;
+    height: 146px;
+    top: 417px;
+    left: 722px;
+    opacity: 0;
   }
   .ren {
     position: absolute;
