@@ -237,29 +237,29 @@ export const RoleControl = {
 							// this.role.circleBody2.sleep()
                             // this.count = 0;
                            
-							console.log("die")
-							this.gameEnd = true
-							this.dieItem = this.additiveslist[i]
-                            this.role.smokeSvga.visible = false
-                            let showtype = ""
-                            if(this.additiveslist[i].type == "grass"){
-                                showtype = "grassSvga"
-                            }else if(this.additiveslist[i].type == "stone" || this.additiveslist[i].type == "bigstone"){
-                                // console.log(this.additiveslist[i].rectcoin.x,this.additiveslist[i].rectcoin.y,'stone')
-                                showtype = "stoneSvga"
-                            }else if(this.additiveslist[i].type == "house"){
-                                // console.log(this.additiveslist[i].rectcoin.x,this.additiveslist[i].rectcoin.y,'house')
-                                showtype = "houseSvga"
-                            }else if(this.additiveslist[i].type == "floor"){
-                                showtype = ""
-                                EventBus.fire('GAME_OVER',{score:this.score})
-                                return
-                            }
-                            this[showtype].startAniRange(0, undefined, 1,()=>{
-                                this[showtype].visible = false
-                                EventBus.fire('GAME_OVER',{score:this.score})
-                            });
-                            this[showtype].visible = true
+							// console.log("die")
+							// this.gameEnd = true
+							// this.dieItem = this.additiveslist[i]
+                            // this.role.smokeSvga.visible = false
+                            // let showtype = ""
+                            // if(this.additiveslist[i].type == "grass"){
+                            //     showtype = "grassSvga"
+                            // }else if(this.additiveslist[i].type == "stone" || this.additiveslist[i].type == "bigstone"){
+                            //     // console.log(this.additiveslist[i].rectcoin.x,this.additiveslist[i].rectcoin.y,'stone')
+                            //     showtype = "stoneSvga"
+                            // }else if(this.additiveslist[i].type == "house"){
+                            //     // console.log(this.additiveslist[i].rectcoin.x,this.additiveslist[i].rectcoin.y,'house')
+                            //     showtype = "houseSvga"
+                            // }else if(this.additiveslist[i].type == "floor"){
+                            //     showtype = ""
+                            //     EventBus.fire('GAME_OVER',{score:this.score})
+                            //     return
+                            // }
+                            // this[showtype].startAniRange(0, undefined, 1,()=>{
+                            //     this[showtype].visible = false
+                            //     EventBus.fire('GAME_OVER',{score:this.score})
+                            // });
+                            // this[showtype].visible = true
                             
                             // this[showtype].position.set(this.additiveslist[i].x,this.additiveslist[i].y-this.additiveslist[i].height*0.6)
                             
