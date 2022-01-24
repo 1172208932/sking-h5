@@ -1793,6 +1793,7 @@ body {
   position: absolute;
   -webkit-transform: rotate(90deg);
   transform: rotate(90deg);
+  overflow: hidden;
 }
 
 .addedPopover1 .low {
@@ -1839,7 +1840,6 @@ body {
   position: absolute;
   font-size: 0.26rem;
   color: #535353;
-  overflow-x: hidden;
   overflow-y: auto;
 }
 .inviteLimit {
@@ -4328,4 +4328,4 @@ body {
   user-select: none;
 }
 
-/*# sourceMappingURL=main.08ca9f0af45564871806.css.map*/
+/*# sourceMappingURL=main.789266067b5880b0c2c2.css.map*/
