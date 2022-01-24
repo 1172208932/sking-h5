@@ -82,7 +82,7 @@ class ExchangeShop extends React.Component {
         document.getElementById("overlay_layer").style.display = 'block';
       }
       // 金币不足
-      Toast("金币不足，快去赚金币吧!",2000,{didClose: ()=> {
+      Toast("啊哦～你的金币不够哦，快速赚金币吧!",2000,{didClose: ()=> {
         document.getElementById("overlay_layer").style.display = 'none';
       }});
     } else {
@@ -159,7 +159,10 @@ class ExchangeShop extends React.Component {
                           {isNow &&
                             item?.consumeSps?.[0]?.quantity >
                               homeInfo?.goldNum && (
-                              <div className="button noMoney-shop"></div>
+                              <div className="button canBuy">
+                                <p>{item?.consumeSps?.[0]?.quantity}</p>
+                                <div className="coin"></div>
+                              </div>
                             )}
                           {/* 暂无库存 */}
                           {isNow &&

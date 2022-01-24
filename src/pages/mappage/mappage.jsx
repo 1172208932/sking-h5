@@ -94,6 +94,7 @@ class Mappage extends React.Component {
   render() {
     const { homeInfo, newGuideStep } = store;
     const { showMask, showMist } = this.state
+    this.moveMap()
     return (
       <div id="mapPageId">
         <div className="mappage">

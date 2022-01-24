@@ -31,7 +31,7 @@
 
         var CFG = CFG || {};
         CFG.projectId = location.pathname.split('/')[2] || '1';
-        CFG.open = 200
+        CFG.open = 21; //21
         function getUrlParam(name) {
             var search = window.location.search;
             var matched = search
@@ -41,7 +41,7 @@
         }
 
         CFG.appID = '${APPID}';
-        CFG.inviteCode = getUrlParam("inviteCode");
+        CFG.inviteCode = getUrlParam("inviteCode") || getUrlParam("shareCode");
         if (!getUrlParam("appID")) {
             // alert("【警告】检测到活动url中没有appID参数\n缺少该参数会导致埋点、分享、app信息获取错误。")
         }

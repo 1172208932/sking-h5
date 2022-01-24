@@ -1,9 +1,11 @@
 import React, { Component } from "react";
-import { ExchangeShop, ExchangeConfirm, Rule, Myprize, Rank, InviteSuccess, TurnTable, DrawPrize, Answer, GameFail, Task, ToInvite, NoMoney, GameRemind, InviteLimit, RockPrize, GameSuccess, GameLeave,GameGuide, PayConfirm, Poster, SendCoin } from "../panel/index.js";
+import { ExchangeShop, ExchangeConfirm, Rule, Myprize, Rank, InviteSuccess, TurnTable, DrawPrize, Answer, GameFail, Task, ToInvite, NoMoney, GameRemind, InviteLimit, RockPrize, GameSuccess, GameLeave,GameGuide, PayConfirm, Poster, SendCoin,ActivityFail } from "../panel/index.js";
 import './modal.less';
 import { observer } from 'mobx-react';
 import modalStore from '../store/modal';
 import { toJS } from 'mobx';
+import store from "../store/index";
+
 export const cfg = {
   ExchangeShop,
   ExchangeConfirm,
@@ -26,7 +28,8 @@ export const cfg = {
   GameGuide,
   PayConfirm,
   Poster,
-  SendCoin
+  SendCoin,
+  ActivityFail
 };
 
 @observer
@@ -43,8 +46,24 @@ class Modal extends Component {
     if(!document.getElementById("mapPageId")) return false;
     if(!list.length) {
       document.getElementById("mapPageId").style.position = 'absolute';
+      this.moveMap();
     } else {
       document.getElementById("mapPageId").style.position = 'fixed';
+    }
+  }
+
+   /**
+   * 关卡移动
+   * 当关卡》3时，位于从左到右的第三关
+   * @returns 
+   */
+  moveMap = () => {
+    const remscale = window.remScale;
+    const { homeInfo } = store;
+    let len = homeInfo?.gameInfo?.length ? homeInfo.gameInfo.length : 0;
+    if (len >= 3) {
+      // 3移动1，4移动2个
+      window.scrollTo(0, remscale * 340 + ((14413 * remscale) / 108) * (len - 3));
     }
   }
 

@@ -232,10 +232,10 @@ export const RoleControl = {
                             }
 						}else {
                             console.error(this.additiveslist[i].rectcoin.x,this.additiveslist[i].rectcoin.y)
-                            // this.role.carBody.sleep()
-							// this.role.circleBody.sleep()
-							// this.role.circleBody2.sleep()
-                            // this.count = 0;
+                            this.role.carBody.sleep()
+							this.role.circleBody.sleep()
+							this.role.circleBody2.sleep()
+                            this.count = 0;
                            
 							// console.log("die")
 							// this.gameEnd = true
@@ -261,7 +261,7 @@ export const RoleControl = {
                             // });
                             // this[showtype].visible = true
                             
-                            // this[showtype].position.set(this.additiveslist[i].x,this.additiveslist[i].y-this.additiveslist[i].height*0.6)
+                            this[showtype].position.set(this.additiveslist[i].x,this.additiveslist[i].y-this.additiveslist[i].height*0.6)
                             
                             
                            

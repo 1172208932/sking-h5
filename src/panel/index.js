@@ -20,4 +20,5 @@ import GameGuide from "./gameGuide/gameGuide"
 import PayConfirm from './payConfirm/payConfirm'
 import Poster from "./poster/poster"
 import SendCoin from "./sendCoin/sendCoin"
-export {ExchangeShop, ExchangeConfirm,Rule,Myprize,Rank,InviteSuccess,TurnTable,DrawPrize,Answer,GameFail, Task,ToInvite,NoMoney,GameRemind,InviteLimit,RockPrize,GameSuccess,GameLeave,GameGuide,PayConfirm,Poster,SendCoin}
+import ActivityFail from "./acivityFail/acivityFail"
+export {ExchangeShop, ExchangeConfirm,Rule,Myprize,Rank,InviteSuccess,TurnTable,DrawPrize,Answer,GameFail, Task,ToInvite,NoMoney,GameRemind,InviteLimit,RockPrize,GameSuccess,GameLeave,GameGuide,PayConfirm,Poster,SendCoin, ActivityFail}
