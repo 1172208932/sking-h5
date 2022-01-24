@@ -1,0 +1,409 @@
+.gamepage {
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.gamepage .startpop {
+  width: 1673px;
+  height: 738px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0px;
+  position: absolute;
+}
+.gamepage .startpop .startaim {
+  width: 1673px;
+  height: 738px;
+  left: 0px;
+  top: 0px;
+  position: absolute;
+}
+.gamepage .startpop .startaim .startbg {
+  width: 1673px;
+  height: 259px;
+  left: 0px;
+  top: 258px;
+  position: absolute;
+  opacity: 0.5;
+  background-color: #000000;
+}
+.gamepage .startpop .startaim .oneaim {
+  width: 227px;
+  height: 41px;
+  left: 706px;
+  top: 322px;
+  position: absolute;
+}
+.gamepage .startpop .startaim .oneaim .oneaimstar {
+  width: 42px;
+  height: 41px;
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  background: url("/src/assets/GamePage/oneaimstar.png") no-repeat top left / 100% 100%;
+}
+.gamepage .startpop .startaim .oneaim .oneaimlab {
+  width: 540px;
+  height: 27px;
+  left: 63px;
+  top: 6px;
+  position: absolute;
+  font-size: 28px;
+  line-height: 27px;
+  color: #ffffff;
+  overflow: hidden;
+  /*超出部分隐藏*/
+  text-overflow: ellipsis;
+  /* 超出部分显示省略号 */
+  white-space: nowrap;
+  /*规定段落中的文本不进行换行 */
+}
+.gamepage .startpop .startaim .twoaim {
+  width: 389px;
+  height: 41px;
+  left: 656px;
+  top: 380px;
+  position: absolute;
+}
+.gamepage .startpop .startaim .twoaim .twoaimstar {
+  width: 92px;
+  height: 41px;
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  background: url("/src/assets/GamePage/twoaimstar.png") no-repeat top left / 100% 100%;
+}
+.gamepage .startpop .startaim .twoaim .twoaimlab {
+  width: 540px;
+  height: 27px;
+  left: 114px;
+  top: 6px;
+  position: absolute;
+  font-size: 28px;
+  line-height: 27px;
+  color: #ffffff;
+  overflow: hidden;
+  /*超出部分隐藏*/
+  text-overflow: ellipsis;
+  /* 超出部分显示省略号 */
+  white-space: nowrap;
+  /*规定段落中的文本不进行换行 */
+}
+.gamepage .startpop .startaim .threeaim {
+  width: 463px;
+  height: 41px;
+  left: 598px;
+  top: 438px;
+  position: absolute;
+}
+.gamepage .startpop .startaim .threeaim .thaimstar {
+  width: 148px;
+  height: 41px;
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  background: url("/src/assets/GamePage/thaimstar.png") no-repeat top left / 100% 100%;
+}
+.gamepage .startpop .startaim .threeaim .thaimlab {
+  width: 540px;
+  height: 27px;
+  left: 172px;
+  top: 8px;
+  position: absolute;
+  font-size: 28px;
+  line-height: 27px;
+  color: #ffffff;
+  overflow: hidden;
+  /*超出部分隐藏*/
+  text-overflow: ellipsis;
+  /* 超出部分显示省略号 */
+  white-space: nowrap;
+  /*规定段落中的文本不进行换行 */
+}
+.gamepage .startpop .startaim .starttitle {
+  width: 500px;
+  height: 76px;
+  left: calc(50% - (500px / 2));
+  top: 234px;
+  position: absolute;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.gamepage .startpop .startaim .starttitle .title_di {
+  width: 74px;
+  height: 76px;
+  top: 0px;
+  position: relative;
+  background: url("/src/assets/GamePage/第.png") no-repeat top left / 100% 100%;
+}
+.gamepage .startpop .startaim .starttitle .title_guan {
+  width: 74px;
+  height: 76px;
+  top: 0px;
+  position: relative;
+  background: url("/src/assets/GamePage/关.png") no-repeat top left / 100% 100%;
+}
+.gamepage .startpop .startaim .starttitle .title_ge {
+  width: 49px;
+  height: 65px;
+  top: 0px;
+  position: relative;
+}
+.gamepage .startpop .startaim .starttitle .title_shi {
+  width: 49px;
+  height: 65px;
+  top: 0px;
+  position: relative;
+}
+.gamepage .startpop .startaim .starttitle .title_bai {
+  width: 49px;
+  height: 65px;
+  top: 0px;
+  position: relative;
+}
+.gamepage .startpop .startaim .startsnow {
+  width: 1544px;
+  height: 738px;
+  left: 26px;
+  top: 0px;
+  position: absolute;
+  background: url("/src/assets/GamePage/startsnow.png") no-repeat top left / 100% 100%;
+}
+.gamepage .startpop .startready {
+  width: 176px;
+  height: 89px;
+  left: 743px;
+  top: 267px;
+  position: absolute;
+  background: url("/src/assets/GamePage/startready.png") no-repeat top left / 100% 100%;
+}
+.gamepage .startpop .startgo {
+  width: 171px;
+  height: 91px;
+  left: 746px;
+  top: 266px;
+  position: absolute;
+  background: url("/src/assets/GamePage/startgo.png") no-repeat top left / 100% 100%;
+}
+.gamepage .canvasbox {
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  position: absolute;
+}
+.gamepage .canvasbox .canvas {
+  width: 1624px;
+  height: 750px;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  position: absolute;
+}
+.gamepage .iconarea {
+  width: 1308px;
+  height: 92px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 5%;
+  position: absolute;
+}
+.gamepage .iconarea .distance {
+  width: 292px;
+  height: 92px;
+  left: 70px;
+  top: 0px;
+  position: absolute;
+}
+.gamepage .iconarea .distance .distancebg {
+  width: 292px;
+  height: 92px;
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  background: url("/src/assets/GamePage/distancebg.png") no-repeat top left / 100% 100%;
+}
+.gamepage .iconarea .distance .distancenum {
+  width: 135px;
+  height: 31px;
+  left: 140px;
+  top: 31px;
+  position: absolute;
+  font-size: 40px;
+  line-height: 31px;
+  color: #ffffff;
+}
+.gamepage .iconarea .bar {
+  width: 480px;
+  height: 64px;
+  left: 414px;
+  top: 14px;
+  position: absolute;
+}
+.gamepage .iconarea .bar .three {
+  width: 480px;
+  height: 56px;
+  left: 0px;
+  top: 8px;
+  position: absolute;
+}
+.gamepage .iconarea .bar .three .bj {
+  width: 480px;
+  height: 24px;
+  left: 0px;
+  top: 32px;
+  position: absolute;
+  background: url("/src/assets/GamePage/bj.png") no-repeat top left / 100% 100%;
+}
+.gamepage .iconarea .bar .three .baron_mask {
+  width: 479px;
+  height: 22px;
+  left: 1px;
+  top: 33px;
+  position: absolute;
+  overflow: hidden;
+  border-radius: 11px;
+}
+.gamepage .iconarea .bar .three .baron_mask .baron {
+  width: 479px;
+  height: 22px;
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  background: url("/src/assets/GamePage/baron.png") no-repeat top left / 100% 100%;
+}
+.gamepage .iconarea .bar .three .baron_mask .baron_svga {
+  width: 479px;
+  height: 22px;
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  pointer-events: none;
+}
+.gamepage .iconarea .bar .three .twoarea {
+  width: 61px;
+  height: 55px;
+  left: 255px;
+  top: 0px;
+  position: absolute;
+}
+.gamepage .iconarea .bar .three .twoarea .twobg {
+  width: 61px;
+  height: 30px;
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  opacity: 0.3;
+  background: url("/src/assets/GamePage/twobg.png") no-repeat top left / 100% 100%;
+}
+.gamepage .iconarea .bar .three .twoarea .twoscore {
+  width: 60px;
+  height: 18px;
+  left: 0px;
+  top: 6px;
+  position: absolute;
+  font-size: 24px;
+  line-height: 18px;
+  color: #ffffff;
+  text-align: center;
+}
+.gamepage .iconarea .bar .three .twoarea .twostar {
+  width: 48px;
+  height: 22px;
+  left: 5px;
+  top: 33px;
+  position: absolute;
+  background: url("/src/assets/GamePage/twostar.png") no-repeat top left / 100% 100%;
+}
+.gamepage .iconarea .bar .three .threearea {
+  width: 76px;
+  height: 55px;
+  left: 399px;
+  top: 0px;
+  position: absolute;
+}
+.gamepage .iconarea .bar .three .threearea .threebg {
+  width: 76px;
+  height: 30px;
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  opacity: 0.3;
+  background: url("/src/assets/GamePage/threebg.png") no-repeat top left / 100% 100%;
+}
+.gamepage .iconarea .bar .three .threearea .threescore {
+  width: 80px;
+  height: 18px;
+  left: 0px;
+  top: 6px;
+  position: absolute;
+  font-size: 24px;
+  line-height: 18px;
+  color: #ffffff;
+  text-align: center;
+}
+.gamepage .iconarea .bar .three .threearea .threestar {
+  width: 74px;
+  height: 22px;
+  left: 2px;
+  top: 33px;
+  position: absolute;
+  background: url("/src/assets/GamePage/threestar.png") no-repeat top left / 100% 100%;
+}
+.gamepage .iconarea .bar .bartip {
+  width: 112px;
+  height: 25px;
+  left: 3px;
+  top: 2px;
+  position: absolute;
+  font-size: 26px;
+  line-height: 25px;
+  color: #ffffff;
+}
+.gamepage .iconarea .bar .barscore {
+  width: 78px;
+  height: 31px;
+  left: 117px;
+  top: 0px;
+  position: absolute;
+  font-size: 40px;
+  line-height: 31px;
+  color: #fdac2f;
+}
+.gamepage .iconarea .sound {
+  width: 59px;
+  height: 58px;
+  left: 945px;
+  top: 17px;
+  position: absolute;
+}
+.gamepage .iconarea .sound .soundf {
+  width: 59px;
+  height: 58px;
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  background: url("/src/assets/GamePage/soundoff.png") no-repeat top left / 100% 100%;
+}
+.gamepage .iconarea .sound .soundon {
+  width: 59px;
+  height: 58px;
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  background: url("/src/assets/GamePage/soundon.png") no-repeat top left / 100% 100%;
+}
+.gamepage .iconarea .back {
+  width: 59px;
+  height: 58px;
+  left: 1049px;
+  top: 17px;
+  position: absolute;
+  background: url("/src/assets/GamePage/back.png") no-repeat top left / 100% 100%;
+}
