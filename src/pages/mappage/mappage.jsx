@@ -83,7 +83,7 @@ class Mappage extends React.Component {
    */
   moveMap = () => {
     const remscale = window.remScale;
-    const { homeInfo } = store;
+    const { homeInfo, newGuideStep } = store;
     let len = homeInfo?.gameInfo?.length ? homeInfo.gameInfo.length : 0;
     if (len >= 3) {
       // 3移动1，4移动2个
@@ -91,7 +91,7 @@ class Mappage extends React.Component {
     }
   }
   render() {
-    const { homeInfo } = store;
+    const { homeInfo, newGuideStep } = store;
     const { showMask, showMist } = this.state
     return (
       <>
@@ -105,28 +105,11 @@ class Mappage extends React.Component {
           {/* 牛蒙蒙形象 */}
           <div className="mengmeng"></div>
 
-          {/* 引导时屏蔽点击。这样最简单上盖一层div */}
-          {
-            showMask &&
-            <div className="mapBgbox_mask">
-            </div>
-          }
-
-          {
-            showMist &&
-            <SvgaPlayer className="mist_svga" src={`${RES_PATH}svga/云过渡.svga`}
-              loop={1}
-              onEnd={() => {
-                this.showMoveMap()
-              }}
-            />
-          }
-
         </div>
         {/* 按钮 */}
         <div className="map-btnbox">
           <IndexBtn />
-         
+
         </div>
 
         {/* 地图内容-主 */}
@@ -144,6 +127,30 @@ class Mappage extends React.Component {
             store.changePage("homePage");
           }}
         ></span>
+
+        {
+          newGuideStep?.alreadyGuideSteps == 2 &&
+          <div className="mapBgbox_div">
+            {/* 引导时屏蔽点击。这样最简单上盖一层div */}
+            {
+              showMask &&
+              <div className="mapBgbox_mask">
+              </div>
+            }
+
+            {
+              showMist &&
+              <SvgaPlayer className="mist_svga" src={`${RES_PATH}svga/云过渡.svga`}
+                loop={1}
+                onEnd={() => {
+                  this.showMoveMap()
+                }}
+              />
+            }
+          </div>
+        }
+
+
       </>
     );
   }
