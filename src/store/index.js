@@ -2,7 +2,7 @@ import { makeAutoObservable } from 'mobx';
 import API from '../api/index';
 import modalStore from "@src/store/modal";
 import { hideLoading, showLoading, Toast } from '@spark/ui';
-
+import {shareWXmini} from "@src/utils/share"
 const store = makeAutoObservable({
   ruleInfo: '',
   curPage: 'homePage',
@@ -73,7 +73,8 @@ const store = makeAutoObservable({
     if(success && data) {
       this.setInviteCode(data.inviteCode);
       // 海报
-      modalStore.pushPop("Poster")
+      modalStore.pushPop("Poster");
+      shareWXmini(data.inviteCode)
     }
   },
   setInviteCode(data) {

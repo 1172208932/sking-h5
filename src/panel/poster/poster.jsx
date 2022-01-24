@@ -54,7 +54,10 @@ class Poster extends React.Component {
 
     var image = new Image();  
     image.src = this.canvasRef.toDataURL("image/png");
-    console.log(image)
+    this.setState({
+      posterImg: image.src
+    })
+    console.info(image)
   };
 
   loadImg = (src) => {
@@ -109,7 +112,7 @@ class Poster extends React.Component {
         ></canvas>
         {/* 二维码图片 */}
         <img src={codeImg} className="codeImg"/>
-        <img src="" alt="" className="posterImg" />
+        <img src={posterImg} alt="" className="posterImg" />
         <div
           className="back-poster"
           onClick={() => modalStore.closePop("Poster")}
