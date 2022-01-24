@@ -26,7 +26,7 @@ const listExchangeLimit = {
                 "http://yun.duiba.com.cn/polaris/丝倍亮小型犬幼年年期全价犬粮7.5kg.c27e9ef4b4d418e8a90faa76798e20cb4f18a490.jpg",
               prizeId: "123",
               prizeType: 1,
-              userLimitCount: 1,
+              userLimitCount: 19999,
             },
           ],
         },

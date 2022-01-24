@@ -10,6 +10,7 @@ import { _throttle } from "@src/utils/utils";
 import { htmlShot } from "@spark/utils";
 import "./poster.less";
 import { USER_AVATAR } from "@src/utils/constants";
+import { hideLoading, showLoading } from "@spark/ui";
 @observer
 class Poster extends React.Component {
   constructor(props) {
@@ -51,12 +52,12 @@ class Poster extends React.Component {
     ctx.arc(82, 369, 35, 0, 2 * Math.PI);
     ctx.clip();
     ctx.drawImage(imgs[1], 47, 334, 70, 70);
-
     var image = new Image();  
     image.src = this.canvasRef.toDataURL("image/png");
     this.setState({
       posterImg: image.src
     })
+    hideLoading()
     console.info(image)
   };
 
@@ -71,6 +72,7 @@ class Poster extends React.Component {
 
   // 获取二维码图片
   getErCodeImg = async () => {
+    showLoading()
     const { success, data } = await API.getCode({
       shareCode: store.inviteCode,
     });
@@ -79,6 +81,8 @@ class Poster extends React.Component {
         codeImg: data.imageUrl,
       });
       this.canvasDraw(data.imageUrl);
+    } else {
+      hideLoading()
     }
   };
 
