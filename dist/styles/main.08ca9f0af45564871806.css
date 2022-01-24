@@ -1,0 +1,4331 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font-size: 0.24rem;
+  width: 100%;
+  height: 100%;
+  -webkit-text-size-adjust: 100% !important;
+  -ms-text-size-adjust: 100% !important;
+  text-size-adjust: 100% !important;
+  -moz-text-size-adjust: 100% !important;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+#toast_layer {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  overflow: hidden;
+  overflow-x: auto;
+}
+
+#loading_layer {
+  background: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  overflow-x: auto;
+}
+
+.textover {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.textover2 {
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+@-webkit-keyframes breath {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+
+@keyframes breath {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+
+@-webkit-keyframes rotateAni {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateAni {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes left-right {
+  0% {
+    -webkit-transform: translateX(-0.1rem);
+    transform: translateX(-0.1rem);
+  }
+
+  50% {
+    -webkit-transform: translateX(0.1rem);
+    transform: translateX(0.1rem);
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes left-right {
+  0% {
+    -webkit-transform: translateX(-0.1rem);
+    transform: translateX(-0.1rem);
+  }
+
+  50% {
+    -webkit-transform: translateX(0.1rem);
+    transform: translateX(0.1rem);
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes breathBig {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(0.7);
+    transform: scale(0.7);
+  }
+}
+
+@keyframes breathBig {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(0.7);
+    transform: scale(0.7);
+  }
+}
+.exchangeShopWillAdvance1Tomorrow {
+  width: 8.6rem;
+  height: 6.05rem;
+  position: absolute;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  overflow: hidden;
+}
+
+.exchangeShopWillAdvance1Tomorrow .popupWindowBottom {
+  width: 6.15rem;
+  height: 5.96rem;
+  left: 1.25rem;
+  top: 0;
+  position: absolute;
+}
+
+.exchangeShopWillAdvance1Tomorrow .popupWindowBottom .exchangeShop {
+  width: 4.41rem;
+  height: 0.79rem;
+  left: 0.21rem;
+  top: 0;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/兑换商店明日预1/兑换商店.png") no-repeat top left / 100% 100%;
+}
+
+.exchangeShopWillAdvance1Tomorrow .popupWindowBottom .goldCoins {
+  width: 1.34rem;
+  height: 0.53rem;
+  left: 4.7rem;
+  top: 0.24rem;
+  position: relative;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/兑换商店明日预1/iconbg.png") no-repeat top left / 100% 100%;
+}
+
+.exchangeShopWillAdvance1Tomorrow .popupWindowBottom .goldCoins .layer3618 {
+  width: 0.75rem;
+  height: 0.34rem;
+  line-height: 0.34rem;
+  left: 0.53rem;
+  top: 0.14rem;
+  position: absolute;
+  font-size: 0.24rem;
+  color: #219fcf;
+  text-align: center;
+}
+
+.exchangeShopWillAdvance1Tomorrow .shopBox {
+  width: 6.15rem;
+  height: 5.19rem;
+  left: 1.25rem;
+  top: 0.77rem;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-size: 100%;
+}
+
+.exchangeShopWillAdvance1Tomorrow .shopBox .shopbtnBox {
+  width: 100%;
+  height: 0.75rem;
+  margin-top: 0.15rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.exchangeShopWillAdvance1Tomorrow .shopBox .shopbtnBox .now {
+  width: 50%;
+  height: 100%;
+}
+
+.exchangeShopWillAdvance1Tomorrow .shopBox .shopList {
+  width: 5.64rem;
+  height: 4.18rem;
+  overflow-y: auto;
+}
+
+.exchangeShopWillAdvance1Tomorrow .shopBox .shopList .item {
+  width: 100%;
+  height: 1.42rem;
+  padding: 0 0.14rem 0 0.14rem;
+  margin-bottom: 0.17rem;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/兑换商店明日预1/prizebg.png") no-repeat top left / 100% 100%;
+}
+
+.exchangeShopWillAdvance1Tomorrow .shopBox .shopList .item .imgbox {
+  width: 1.08rem;
+  height: 1.12rem;
+  margin-right: 0.15rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.exchangeShopWillAdvance1Tomorrow .shopBox .shopList .item .imgbox img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.exchangeShopWillAdvance1Tomorrow .shopBox .shopList .item .right-good {
+  width: 3.98rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.exchangeShopWillAdvance1Tomorrow .shopBox .shopList .item .right-good .productNameProductName {
+  width: 100%;
+  color: #3870a0;
+  font-weight: bold;
+  font-size: 0.24rem;
+}
+
+.exchangeShopWillAdvance1Tomorrow .shopBox .shopList .item .right-good .bottom {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+}
+
+.exchangeShopWillAdvance1Tomorrow .shopBox .shopList .item .right-good .bottom .number {
+  width: 1.84rem;
+  opacity: 0.8;
+  font-size: 0.2rem;
+  color: #3870a0;
+}
+
+.exchangeShopWillAdvance1Tomorrow .shopBox .shopList .item .right-good .bottom .button {
+  width: 2.04rem;
+  height: 0.48rem;
+  line-height: 0.48rem;
+  text-align: center;
+}
+
+.exchangeShopWillAdvance1Tomorrow .shopBox .shopList .item .right-good .bottom .button.canBuy {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #6b3e05;
+  font-size: 0.22rem;
+  font-weight: bold;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/兑换商店明日预1/兑换按钮.png") no-repeat top left / 100% 100%;
+}
+
+.exchangeShopWillAdvance1Tomorrow .shopBox .shopList .item .right-good .bottom .button.canBuy .coin {
+  width: 0.32rem;
+  height: 0.31rem;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/兑换商店明日预1/小金币.png") no-repeat top left / 100% 100%;
+}
+
+.exchangeShopWillAdvance1Tomorrow .shopBox .shopList .item .right-good .bottom .button.tomorrowbuy {
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/兑换商店明日预1/即将开启.png") no-repeat top left / 100% 100%;
+}
+
+.exchangeShopWillAdvance1Tomorrow .shopBox .shopList .item .right-good .bottom .button.nokucun {
+  color: #393939;
+  font-weight: bold;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/兑换商店明日预1/灰色背景.png") no-repeat top left / 100% 100%;
+}
+
+.exchangeShopWillAdvance1Tomorrow .shopBox .shopList .item .right-good .bottom .button.noMoney-shop {
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/兑换商店明日预1/金币不足.png") no-repeat top left / 100% 100%;
+}
+
+.exchangeShopWillAdvance1Tomorrow .shopBox .shopList .nodata {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.36rem;
+}
+
+.exchangeShopWillAdvance1Tomorrow .shuya {
+  width: 0.6rem;
+  height: 0.65rem;
+  position: absolute;
+  right: 1.1rem;
+  bottom: 0;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/common/小树.png") no-repeat top left / 100% 100%;
+}
+
+.exchangeShopWillAdvance1Tomorrow .shutDown {
+  width: 0.5rem;
+  height: 0.5rem;
+  left: 7.7rem;
+  top: 0.8rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/common/close.png") no-repeat top left / 100% 100%;
+}
+
+.exchangeShopWillAdvance1Tomorrow .snowAndIceAtmosphere {
+  width: 8.6rem;
+  height: 2.19rem;
+  left: 0;
+  top: 1.88rem;
+  position: absolute;
+  pointer-events: none;
+}
+.exchangeShopConfirmed1Twice {
+  width: 7.04rem;
+  height: 3.51rem;
+  position: absolute;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.exchangeShopConfirmed1Twice .popupWindowBottom {
+  width: 7.04rem;
+  height: 3.51rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/兑换商店二次确1/弹窗底板.png") no-repeat top left / 100% 100%;
+}
+
+.exchangeShopConfirmed1Twice .sureCost300 {
+  width: 98%;
+  text-align: center;
+  left: 1%;
+  top: 0.6rem;
+  position: absolute;
+  font-size: 0.36rem;
+  color: #1e4a79;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+
+.exchangeShopConfirmed1Twice .sureCost300 img {
+  width: 0.62rem;
+  height: 0.62rem;
+}
+
+.exchangeShopConfirmed1Twice .forgetIt {
+  width: 2.89rem;
+  height: 0.93rem;
+  left: 0.39rem;
+  top: 2rem;
+  position: absolute;
+  color: #424242;
+  font-weight: bold;
+  font-size: 0.36rem;
+  text-align: center;
+  line-height: 0.93rem;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/兑换商店二次确1/算了.png") no-repeat top left / 100% 100%;
+}
+
+.exchangeShopConfirmed1Twice .buy {
+  width: 2.89rem;
+  height: 0.93rem;
+  left: 3.62rem;
+  top: 2rem;
+  position: absolute;
+  color: #6b3e05;
+  font-weight: bold;
+  font-size: 0.36rem;
+  text-align: center;
+  line-height: 0.93rem;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/兑换商店二次确1/购买.png") no-repeat top left / 100% 100%;
+}
+.rule {
+  width: 8.2rem;
+  height: 5.61rem;
+  position: absolute;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  overflow: hidden !important;
+}
+
+.rule .rule-fenwei {
+  position: absolute;
+  left: 0;
+  top: 1.5rem;
+  width: 8.2rem;
+  height: 2.19rem;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/common/冰雪氛围2.png") no-repeat top left / 100% 100%;
+}
+
+.rule .popoverBaseplate5 {
+  width: 6rem;
+  height: 5.43rem;
+  left: 1.11rem;
+  top: 0.2rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/rule/弹窗底板5.png") no-repeat top left / 100% 100%;
+}
+
+.rule .ruleInfo {
+  width: 4.8rem;
+  height: 3.8rem;
+  left: 1.58rem;
+  top: 1.34rem;
+  font-size: 0.24rem;
+  color: #2f77b3;
+  position: absolute;
+  overflow-x: auto;
+}
+
+.rule .snowAndIceAtmosphere4 {
+  width: 8.2rem;
+  height: 4.17rem;
+  left: 0;
+  top: 1.26rem;
+  position: absolute;
+  pointer-events: none;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/common/冰雪氛围.png") no-repeat top left / 100% 100%;
+}
+
+.rule .close {
+  width: 0.5rem;
+  height: 0.5rem;
+  left: 6.4rem;
+  top: 0;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/common/close.png") no-repeat top left / 100% 100%;
+}
+.myprize {
+  width: 8.2rem;
+  height: 5.64rem;
+  position: absolute;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  overflow: hidden;
+}
+
+.myprize .fenwei {
+  position: absolute;
+  left: 0;
+  top: 1.5rem;
+  width: 8.2rem;
+  height: 2.19rem;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/common/冰雪氛围2.png") no-repeat top left / 100% 100%;
+}
+
+.myprize .popoverBaseplate3 {
+  width: 6.37rem;
+  height: 5.45rem;
+  left: 0.84rem;
+  top: 0.19rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/myPrize/弹窗底板3.png") no-repeat top left / 100% 100%;
+}
+
+.myprize .text-prize {
+  position: absolute;
+  top: 1.18rem;
+  color: #000;
+  width: 5.35rem;
+  left: 1.26rem;
+  text-align: center;
+}
+
+.myprize .shutDown {
+  width: 0.5rem;
+  height: 0.51rem;
+  left: 6.45rem;
+  top: 0;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/common/close.png") no-repeat top left / 100% 100%;
+}
+
+.myprize .prizelistbox {
+  width: 5.35rem;
+  height: 3.66rem;
+  position: relative;
+  top: 1.6rem;
+  left: 1.27rem;
+  overflow-y: auto;
+}
+
+.myprize .prizelistbox .prizelistitem {
+  width: 100%;
+  height: 1.16rem;
+  margin-bottom: 0.17rem;
+  padding: 0.15rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: #ebf2f9;
+  border: 0.02rem solid #dae5ea;
+  border-radius: 0.1rem;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.myprize .prizelistbox .prizelistitem .prizelistimg {
+  width: 0.82rem;
+  height: 0.82rem;
+  margin-right: 0.15rem;
+  border-radius: 0.1rem;
+  background: #fff;
+}
+
+.myprize .prizelistbox .prizelistitem .right-detail {
+  width: 4.07rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  color: #3870a0;
+}
+
+.myprize .prizelistbox .prizelistitem .right-detail .namePrize {
+  width: 100%;
+  font-size: 0.28rem;
+  font-weight: bold;
+}
+
+.myprize .prizelistbox .prizelistitem .right-detail .time-prize {
+  width: 100%;
+  font-size: 0.24rem;
+}
+
+.myprize .prizelistbox .nodata {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.36rem;
+}
+
+.myprize .iceAndSnowAtmosphere2 {
+  width: 8.2rem;
+  height: 4.17rem;
+  left: 0;
+  top: 1.47rem;
+  position: absolute;
+  pointer-events: none;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/common/冰雪氛围.png") no-repeat top left / 100% 100%;
+}
+.rank {
+  width: 8.6rem;
+  height: 6.09rem;
+  position: absolute;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  overflow: hidden;
+  margin-top: -0.7rem;
+}
+
+.rank .popupWindowBottom {
+  width: 6.37rem;
+  height: 5.71rem;
+  left: 1.44rem;
+  top: 0.29rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/排行榜/弹窗底板.png") no-repeat top left / 100% 100%;
+}
+
+.rank .shutDown {
+  width: 0.5rem;
+  height: 0.51rem;
+  left: 7.11rem;
+  top: 0;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/common/close.png") no-repeat top left / 100% 100%;
+}
+
+.rank .rank-prizeList {
+  width: 5.9rem;
+  height: 1.9rem;
+  left: 1.55rem;
+  top: 1.45rem;
+  position: absolute;
+}
+
+.rank .rank-prizeList .beforeInvitingFriends {
+  width: 100%;
+  text-align: center;
+  font-size: 0.24rem;
+  color: #191d20;
+}
+
+.rank .rank-prizeList .prizeListBox {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-top: 0.22rem;
+}
+
+.rank .rank-prizeList .prizeListBox .rankprizeItem {
+  width: 1.35rem;
+  margin-right: 0.07rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.rank .rank-prizeList .prizeListBox .rankprizeItem:last-child {
+  margin-right: 0;
+}
+
+.rank .rank-prizeList .prizeListBox .rankprizeItem .imgbox {
+  width: 1.08rem;
+  height: 1.12rem;
+  border-radius: 0.1rem;
+  background: #e7f0f9;
+  border: 0.02rem solid #dee8ed;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.rank .rank-prizeList .prizeListBox .rankprizeItem .imgbox img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.rank .rank-prizeList .prizeListBox .rankprizeItem .rankprizescore {
+  width: 100%;
+  text-align: center;
+  font-size: 0.18rem;
+  color: #585858;
+  margin-top: 0.1rem;
+}
+
+.rank .rank-rankList {
+  width: 5.9rem;
+  left: 1.55rem;
+  top: 4.04rem;
+  position: absolute;
+  color: #4587bf;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  z-index: 1000000;
+}
+
+.rank .rank-rankList .myrank {
+  width: 5.45rem;
+  height: 0.4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0.2rem;
+}
+
+.rank .rank-rankList .myrank .myrank-rank {
+  width: 0.98rem;
+  height: 0.4rem;
+  margin-right: 0.2rem;
+  text-align: center;
+  line-height: 0.4rem;
+}
+
+.rank .rank-rankList .myrank .rank-nickName {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-right: 0.05rem;
+}
+
+.rank .rank-rankList .myrank .rank-nickName .rank-avatar {
+  width: 0.28rem;
+  height: 0.28rem;
+  margin-right: 0.15rem;
+  border-radius: 0.04rem;
+  overflow: hidden;
+}
+
+.rank .rank-rankList .myrank .rank-nickName .rank-name {
+  width: 2.6rem;
+}
+
+.rank .rank-rankList .myrank .rank-score {
+  width: 1.24rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.rank .rank-rankList .rank-otherRank {
+  width: 5.45rem;
+  height: 1.1rem;
+  overflow-y: auto;
+  padding-bottom: 0.1rem;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.rank .nodata {
+  margin-top: 0.3rem;
+  text-align: center;
+}
+
+.rank .button3 {
+  width: 2.98rem;
+  height: 0.52rem;
+  left: 3rem;
+  top: 5.57rem;
+  position: absolute;
+  color: #6b3e05;
+  font-size: 0.26rem;
+  font-weight: bold;
+  line-height: 0.52rem;
+  text-align: center;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/排行榜/按钮3.png") no-repeat top left / 100% 100%;
+}
+
+.rank .snowAndIceAtmosphere {
+  width: 8.6rem;
+  height: 2.19rem;
+  left: 0;
+  top: 1.83rem;
+  position: absolute;
+  pointer-events: none;
+}
+.invitationSuccessful1 {
+  width: 15.44rem;
+  height: 7.38rem;
+  position: absolute;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  margin-top: -0.2rem;
+}
+
+.invitationSuccessful1 .invitationSuccessful1-bg {
+  width: 6.16rem;
+  height: 6.46rem;
+  left: 5.04rem;
+  top: 0.46rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/邀请成功1/bg.png") no-repeat top left / 100% 100%;
+}
+
+.invitationSuccessful1 .me {
+  width: 100%;
+  top: 3.2rem;
+  position: absolute;
+  font-size: 0.36rem;
+  color: #1e4a79;
+}
+
+.invitationSuccessful1 .me .xNumberFriendsWereInvited {
+  width: 100%;
+  text-align: center;
+}
+
+.invitationSuccessful1 .me .receivedXxxGold {
+  width: 100%;
+  text-align: center;
+}
+
+.invitationSuccessful1 .button2 {
+  width: 3.99rem;
+  height: 0.93rem;
+  left: 1.06rem;
+  top: 4.6rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/邀请成功1/按钮2.png") no-repeat top left / 100% 100%;
+}
+
+.invitationSuccessful1 .atmosphere {
+  width: 15.44rem;
+  height: 7.38rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+  pointer-events: none;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/common/大氛围.png") no-repeat top left / 100% 100%;
+}
+.turntable {
+  width: 15.44rem;
+  height: 7.47rem;
+  position: absolute;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.turntable .light {
+  width: 16.24rem;
+  height: 7.5rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+}
+
+.turntable .drawbg {
+  width: 6.51rem;
+  height: 5.09rem;
+  left: 4.4rem;
+  top: 1.64rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/turnTable/drawbg.png") no-repeat top left / 100% 100%;
+}
+
+.turntable .drawbg .drawlight2 {
+  width: 5.12rem;
+  height: 4.76rem;
+  position: absolute;
+  left: 1.06rem;
+  top: 0.22rem;
+}
+
+.turntable .title {
+  width: 5.83rem;
+  height: 1.21rem;
+  left: 5.11rem;
+  top: 0.6rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/turnTable/标题.png") no-repeat top left / 100% 100%;
+}
+
+.turntable .go {
+  width: 1.45rem;
+  height: 1.35rem;
+  left: 7.3rem;
+  top: 3.6rem;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/turnTable/GO.png") no-repeat top left / 100% 100%;
+}
+
+.turntable .go .togo {
+  width: 1.08rem;
+  height: 0.92rem;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/turnTable/togo.png") no-repeat top left / 100% 100%;
+}
+
+.turntable .go .togo.move {
+  -webkit-animation: breath 1s infinite;
+  animation: breath 1s infinite;
+}
+
+.turntable .ribbon {
+  width: 6.69rem;
+  height: 3.4rem;
+  left: 4.62rem;
+  top: 0.84rem;
+  position: absolute;
+  pointer-events: none;
+}
+
+.turntable .snowAndIceAtmosphere {
+  width: 15.44rem;
+  height: 7.47rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+  pointer-events: none;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/turnTable/冰雪氛围.png") no-repeat top left / 100% 100%;
+}
+
+.turntable .turnBox {
+  width: 4.52rem;
+  height: 4.23rem;
+  position: relative;
+  left: 5.77rem;
+  top: 2.13rem;
+}
+
+.turntable .turnBox .turn-prize {
+  position: absolute;
+  width: 1.44rem;
+  height: 1.34rem;
+  background: #f5fcfe;
+  border-radius: 0.08rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.turntable .turnBox .turn-prize img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.turntable .turnBox .turn-prize-choose {
+  background: #fef6cd;
+  border: 0.04rem solid #fdd570;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.turntable .turnBox .turn-prize0 {
+  left: 0;
+  top: 0.05rem;
+}
+
+.turntable .turnBox .turn-prize1 {
+  left: 1.52rem;
+  top: 0.05rem;
+}
+
+.turntable .turnBox .turn-prize2 {
+  left: 3.04rem;
+  top: 0.05rem;
+}
+
+.turntable .turnBox .turn-prize3 {
+  left: 3.04rem;
+  top: 1.45rem;
+}
+
+.turntable .turnBox .turn-prize4 {
+  left: 3.04rem;
+  top: 2.85rem;
+}
+
+.turntable .turnBox .turn-prize5 {
+  left: 1.52rem;
+  top: 2.85rem;
+}
+
+.turntable .turnBox .turn-prize6 {
+  left: 0;
+  top: 2.85rem;
+}
+
+.turntable .turnBox .turn-prize7 {
+  left: 0;
+  top: 1.45rem;
+}
+
+.turntable .shutDown {
+  width: 0.5rem;
+  height: 0.51rem;
+  left: 10.45rem;
+  top: 0.5rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/common/close.png") no-repeat top left / 100% 100%;
+}
+.drawFeedback1 {
+  width: 15.44rem;
+  height: 7.38rem;
+  position: absolute;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  margin-top: -1rem;
+}
+
+.drawFeedback1 .bg {
+  width: 6.16rem;
+  height: 6.56rem;
+  left: 5.04rem;
+  top: 0.4rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/抽奖反馈1/bg.png") no-repeat top left / 100% 100%;
+}
+
+.drawFeedback1 .content {
+  width: 5.5rem;
+  height: 2.32rem;
+  left: 5.3rem;
+  top: 3.05rem;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.drawFeedback1 .content .prizena {
+  width: 100%;
+  text-align: center;
+  font-size: 0.36rem;
+  color: #1e4a79;
+}
+
+.drawFeedback1 .content .imgbox {
+  width: 1.61rem;
+  height: 1.65rem;
+  margin-top: 0.1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.drawFeedback1 .content .imgbox img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.drawFeedback1 .button {
+  width: 3.99rem;
+  height: 0.93rem;
+  left: 6.07rem;
+  top: 5.4rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/抽奖反馈1/按钮.png") no-repeat top left / 100% 100%;
+}
+
+.drawFeedback1 .snowAndIceAtmosphere {
+  width: 15.44rem;
+  height: 7.38rem;
+  left: 0;
+  top: 0.2rem;
+  position: absolute;
+  pointer-events: none;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/common/大氛围.png") no-repeat top left / 100% 100%;
+}
+
+.drawFeedback1 .drawFeedback1-in {
+  position: absolute;
+  top: 6.44rem;
+  color: #1e4a79;
+  font-size: 0.24rem;
+  left: 5.34rem;
+  width: 5.5rem;
+  text-align: center;
+}
+.iDidntChoose1 {
+  width: 7.04rem;
+  height: 6.69rem;
+  position: absolute;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  padding: 0 0.63rem;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.iDidntChoose1 .datidejihui {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.3rem;
+  z-index: 1;
+  width: 4.55rem;
+  height: 0.91rem;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/答题未选1/答题得机会.png") no-repeat top left / 100% 100%;
+}
+
+.iDidntChoose1 .topAvatar {
+  width: 5.02rem;
+  height: 2.57rem;
+  left: 1.06rem;
+  position: absolute;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.iDidntChoose1 .topAvatar .avatar-svga {
+  width: 5.02rem;
+  height: 2.57rem;
+}
+
+.iDidntChoose1 .topAvatar .avatar-fail {
+  width: 1.82rem;
+  height: 2.35rem;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/答题未选1/晕.png") no-repeat top left / 100% 100%;
+}
+
+.iDidntChoose1 .popupWindowBottom {
+  width: 7.04rem;
+  height: 4.32rem;
+  left: 0;
+  top: 1.7rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/答题未选1/弹窗底板.png") no-repeat top left / 100% 100%;
+}
+
+.iDidntChoose1 .title {
+  width: 5.95rem;
+  top: 2.1rem;
+  position: absolute;
+  font-size: 0.36rem;
+  color: #1e4a79;
+}
+
+.iDidntChoose1 .answerlist {
+  width: 5.74rem;
+  height: 2.1rem;
+  position: absolute;
+  top: 3.39rem;
+  left: 0.71rem;
+}
+
+.iDidntChoose1 .answerlist .answeritem {
+  width: 100%;
+  height: 0.53rem;
+  padding: 0 0.22rem 0 0.29rem;
+  border-radius: 0.08rem;
+  background: #dcf3f8;
+  margin-bottom: 0.23rem;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.iDidntChoose1 .answerlist .answeritem.errorBg {
+  background: #f83c3c;
+  color: #fff;
+}
+
+.iDidntChoose1 .answerlist .answeritem.rightBg {
+  background: #2a9b38;
+  color: #fff;
+}
+
+.iDidntChoose1 .answerlist .answeritem .answertitle {
+  width: 4.87rem;
+  font-size: 0.3rem;
+  color: #1e4a79;
+}
+
+.iDidntChoose1 .answerlist .answeritem .rightIcon {
+  max-width: 0.34rem;
+  min-width: 0.26rem;
+  max-height: 0.26rem;
+  min-height: 0.24rem;
+}
+
+.iDidntChoose1 .answerlist .answeritem .rightIcon .right {
+  width: 0.34rem;
+  height: 0.24rem;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/答题未选1/对.png") no-repeat top left / 100% 100%;
+}
+
+.iDidntChoose1 .answerlist .answeritem .rightIcon .wrong {
+  width: 0.26rem;
+  height: 0.26rem;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/答题未选1/错.png") no-repeat top left / 100% 100%;
+}
+
+.iDidntChoose1 .answer-result {
+  width: 7.8rem;
+  height: 5.03rem;
+  position: absolute;
+  top: 1.2rem;
+  left: -0.4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.iDidntChoose1 .answer-result .answer-ok-svga {
+  width: 7.8rem;
+  height: 5.03rem;
+}
+
+.iDidntChoose1 .answer-result .answer-fail-png {
+  width: 6.86rem;
+  height: 1.32rem;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/答题未选1/失败背景.png") no-repeat top left / 100% 100%;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-animation: fadeIn 1s forwards;
+  animation: fadeIn 1s forwards;
+}
+
+.iDidntChoose1 .answer-result .answer-fail-png .fail {
+  width: 1.98rem;
+  height: 0.54rem;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/答题未选1/答题失败.png") no-repeat top left / 100% 100%;
+}
+.gameFailPanel {
+  width: 8.61rem;
+  height: 6.76rem;
+  position: absolute;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  margin-top: -1rem;
+}
+
+.gameFailPanel .inviteLimitbg {
+  width: 16.24rem;
+  height: 7.5rem;
+  left: -3.81rem;
+  top: 0;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/common/inviteLimitbg.png") no-repeat top left / 100% 100%;
+}
+
+.gameFailPanel .content-gamefail {
+  width: 7.04rem;
+  height: 5.62rem;
+  left: 0.71rem;
+  top: -0.35rem;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/common/inviteLimit.png") no-repeat top left / 100% 100%;
+}
+
+.gameFailPanel .content-gamefail .title {
+  font-size: 0.43rem;
+  color: #205e8b;
+  font-weight: bold;
+  position: absolute;
+  top: 2.4rem;
+}
+
+.gameFailPanel .content-gamefail .subT {
+  text-align: center;
+  margin-top: 3.4rem;
+  font-size: 0.3rem;
+  color: #205e8b;
+}
+
+.gameFailPanel .content-gamefail2 {
+  width: 7.04rem;
+  height: 5.66rem;
+  left: 0.71rem;
+  top: 0;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/common/inviteLimit2.png") no-repeat top left / 100% 100%;
+}
+
+.gameFailPanel .content-gamefail2 .title {
+  font-size: 0.43rem;
+  color: #205e8b;
+  font-weight: bold;
+  position: absolute;
+  top: 2.4rem;
+}
+
+.gameFailPanel .content-gamefail2 .subT {
+  text-align: center;
+  margin-top: 3.4rem;
+  font-size: 0.3rem;
+  color: #205e8b;
+}
+
+.gameFailPanel .again-fail {
+  width: 3.95rem;
+  height: 0.88rem;
+  left: 4.41rem;
+  top: 5.88rem;
+  position: absolute;
+  text-align: center;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/复活弹窗1/again.png") no-repeat top left / 100% 100%;
+}
+
+.gameFailPanel .again-fail .goanswer {
+  line-height: 0.88rem;
+  color: #204979;
+  font-size: 0.36rem;
+  font-weight: bold;
+}
+
+.gameFailPanel .again-fail .participateInAnswer2 {
+  width: 1.22rem;
+  height: 0.37rem;
+  right: 0;
+  top: -0.2rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/common/红色角标.png") no-repeat top left / 100% 100%;
+}
+
+.gameFailPanel .again-fail .participateInAnswer2 .participationAnswer3 {
+  width: 1.22rem;
+  font-size: 0.2rem;
+  line-height: 0.33rem;
+  text-align: center;
+  color: #ffffff;
+}
+
+.gameFailPanel .out {
+  width: 3.95rem;
+  height: 0.88rem;
+  left: 0;
+  top: 5.88rem;
+  position: absolute;
+  color: #424242;
+  font-size: 0.28rem;
+  font-weight: bold;
+  line-height: 0.88rem;
+  text-align: center;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/复活弹窗1/out.png") no-repeat top left / 100% 100%;
+}
+
+.gameFailPanel .out2 {
+  width: 3.95rem;
+  height: 0.88rem;
+  left: 0;
+  top: 5.88rem;
+  position: absolute;
+  color: #424242;
+  text-align: center;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/复活弹窗1/out.png") no-repeat top left / 100% 100%;
+}
+
+.gameFailPanel .out2 .outt1 {
+  margin-top: 0.05rem;
+  width: 3.95rem;
+  font-size: 0.36rem;
+  font-weight: bold;
+}
+
+.gameFailPanel .out2 .outt2 {
+  margin-top: -0.05rem;
+  width: 3.95rem;
+  font-size: 0.22rem;
+}
+.taskPopup1 {
+  width: 8.2rem;
+  height: 5.61rem;
+  position: absolute;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.taskPopup1 .snowAndIceAtmosphere {
+  width: 8.2rem;
+  height: 2.19rem;
+  left: 0;
+  top: 1.44rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/任务弹窗1/冰雪氛围.png") no-repeat top left / 100% 100%;
+}
+
+.taskPopup1 .popupWindowBottom {
+  width: 6.26rem;
+  height: 5.4rem;
+  left: 0.85rem;
+  top: 0.21rem;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/任务弹窗1/弹窗底板.png") no-repeat top left / 100% 100%;
+}
+
+.taskPopup1 .popupWindowBottom .signBox {
+  width: 4.96rem;
+  min-height: 1rem;
+  position: absolute;
+  top: 1.55rem;
+}
+
+.taskPopup1 .popupWindowBottom .signBox .signBox-line {
+  width: 4.62rem;
+  height: 0.05rem;
+  background: #d7e6f5;
+  position: absolute;
+  top: 0.42rem;
+}
+
+.taskPopup1 .popupWindowBottom .signBox .signItemBox {
+  position: absolute;
+  top: 0.26rem;
+  width: 100%;
+  min-height: 0.73rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.taskPopup1 .popupWindowBottom .signBox .signItemBox .signitem {
+  width: 0.56rem;
+  margin-right: 0.14rem;
+  text-align: center;
+  position: relative;
+}
+
+.taskPopup1 .popupWindowBottom .signBox .signItemBox .signitem.last-child {
+  margin-right: unset;
+}
+
+.taskPopup1 .popupWindowBottom .signBox .signItemBox .signitem .signitem-btn {
+  width: 0.36rem;
+  height: 0.36rem;
+  background: #3296e0;
+  border-radius: 0.18rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.taskPopup1 .popupWindowBottom .signBox .signItemBox .signitem .signitem-btn.signover {
+  background: #9bc0e5;
+}
+
+.taskPopup1 .popupWindowBottom .signBox .signItemBox .signitem .signitem-btn p {
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  font-size: 0.16rem;
+  text-align: center;
+  line-height: 0.36rem;
+}
+
+.taskPopup1 .popupWindowBottom .signBox .signItemBox .signitem .signitem-btn .rightIcon {
+  width: 0.28rem;
+  height: 0.19rem;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/答题未选1/对.png") no-repeat top left / 100% 100%;
+}
+
+.taskPopup1 .popupWindowBottom .signBox .signItemBox .signitem .signitem-day {
+  width: 0.36rem;
+  font-size: 0.18rem;
+  color: #585858;
+}
+
+.taskPopup1 .popupWindowBottom .signBox .signItemBox .signitem .gesturesAperture {
+  width: 1.44rem;
+  height: 1.51rem;
+  top: 0;
+  right: -0.7rem;
+  position: absolute;
+  pointer-events: none;
+  -webkit-transform: scale(0.7);
+  transform: scale(0.7);
+}
+
+.taskPopup1 .popupWindowBottom .inviteBox {
+  position: absolute;
+  top: 3rem;
+  left: 0.42rem;
+  width: 5.42rem;
+  height: 1.06rem;
+  padding: 0 0.18rem;
+  background: #ebf2f9;
+  border-radius: 0.1rem;
+  border: 0.02rem solid #d9dfe5;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.taskPopup1 .popupWindowBottom .inviteBox .avatar-invite {
+  width: 0.63rem;
+  height: 0.63rem;
+  background: #fff;
+  border-radius: 0.06rem;
+  margin-right: 0.16rem;
+}
+
+.taskPopup1 .popupWindowBottom .inviteBox .centerInfo-invite {
+  width: 2.65rem;
+  color: #3870a0;
+}
+
+.taskPopup1 .popupWindowBottom .inviteBox .centerInfo-invite .title {
+  width: 100%;
+  font-size: 0.24rem;
+  font-weight: bold;
+}
+
+.taskPopup1 .popupWindowBottom .inviteBox .centerInfo-invite .subTitle {
+  font-size: 0.18rem;
+}
+
+.taskPopup1 .popupWindowBottom .inviteBox .inviteBtn {
+  margin-top: 0.2rem;
+  width: 1.58rem;
+  height: 0.44rem;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/任务弹窗1/按钮.png") no-repeat top left / 100% 100%;
+}
+
+.taskPopup1 .shutDown {
+  width: 0.5rem;
+  height: 0.51rem;
+  left: 6.56rem;
+  top: 0;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/common/close.png") no-repeat top left / 100% 100%;
+}
+.unlockPopover1 {
+  width: 6.68rem;
+  height: 6.8rem;
+  position: absolute;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  margin-left: -0.5rem;
+}
+
+.unlockPopover1 .bg {
+  width: 6.68rem;
+  height: 6.8rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/解锁弹窗1/bg.png") no-repeat top left / 100% 100%;
+}
+
+.unlockPopover1 .title {
+  width: 5rem;
+  text-align: center;
+  position: absolute;
+  top: 2rem;
+  left: 0.8rem;
+  color: #1e4a79;
+  font-size: 0.36rem;
+  font-weight: bold;
+}
+
+.unlockPopover1 .shutDown {
+  width: 0.46rem;
+  height: 0.45rem;
+  left: 5.83rem;
+  top: 1.14rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/common/close.png") no-repeat top left / 100% 100%;
+}
+
+.unlockPopover1 .button {
+  width: 3.99rem;
+  height: 0.93rem;
+  left: 1.34rem;
+  top: 4.25rem;
+  position: absolute;
+  color: #6b3e05;
+  font-weight: bold;
+  text-align: center;
+  line-height: 0.88rem;
+  font-size: 0.36rem;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/解锁弹窗1/按钮.png") no-repeat top left / 100% 100%;
+}
+.noMoney {
+  width: 8.61rem;
+  height: 6.76rem;
+  position: absolute;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.noMoney .content-gamefail {
+  width: 7.04rem;
+  height: 5.6rem;
+  left: 0.71rem;
+  top: 0;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/noMoney/bg.png") no-repeat top left / 100% 100%;
+}
+
+.noMoney .content-gamefail p {
+  text-align: center;
+  margin-top: 3.4rem;
+  font-size: 0.3rem;
+  color: #205e8b;
+}
+
+.noMoney .nomoney-btn {
+  width: 3.96rem;
+  height: 0.88rem;
+  position: absolute;
+  top: 4.5rem;
+  left: 2.28rem;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/noMoney/btn.png") no-repeat top left / 100% 100%;
+}
+
+.noMoney .noMoney-close {
+  width: 0.5rem;
+  height: 0.5rem;
+  left: 6.9rem;
+  top: 0.5rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/common/close.png") no-repeat top left / 100% 100%;
+}
+.addedPopover1 {
+  width: 10.7rem;
+  height: 5.07rem;
+  position: absolute;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.addedPopover1 .low {
+  width: 10.7rem;
+  height: 4.89rem;
+  left: 0;
+  top: 0.18rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/新增弹窗1/低.png") no-repeat top left / 100% 100%;
+}
+
+.addedPopover1 .title {
+  width: 7.44rem;
+  height: 0.97rem;
+  left: 0.15rem;
+  top: 0;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/新增弹窗1/标题.png") no-repeat top left / 100% 100%;
+}
+
+.addedPopover1 .shutDown {
+  width: 0.5rem;
+  height: 0.5rem;
+  left: 10.19rem;
+  top: 0.18rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/common/close.png") no-repeat top left / 100% 100%;
+}
+
+.addedPopover1 .button {
+  width: 3.6rem;
+  height: 0.92rem;
+  left: 2.07rem;
+  top: 4.15rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/新增弹窗1/按钮.png") no-repeat top left / 100% 100%;
+}
+
+.addedPopover1 .copywritingCopywriting {
+  width: 5.81rem;
+  height: 2.1rem;
+  left: 0.63rem;
+  top: 1.76rem;
+  position: absolute;
+  font-size: 0.26rem;
+  color: #535353;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.inviteLimit {
+  width: 7.04rem;
+  height: 5.6rem;
+  position: absolute;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.inviteLimit .low {
+  width: 7.04rem;
+  height: 5.6rem;
+  left: 0;
+  top: 0.18rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/common/inviteLimit.png") no-repeat top left / 100% 100%;
+}
+
+.inviteLimit .close {
+  width: 0.5rem;
+  height: 0.5rem;
+  left: 6.4rem;
+  top: 0.78rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/common/close.png") no-repeat top left / 100% 100%;
+}
+
+.inviteLimit .title {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  margin-top: 3.4rem;
+  font-size: 0.3rem;
+  color: #205e8b;
+}
+.fullStarDraw1 {
+  width: 15.44rem;
+  height: 7.38rem;
+  position: absolute;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  margin-top: -0.2rem;
+}
+
+.fullStarDraw1 .snowAndIceAtmosphere {
+  width: 16.24rem;
+  height: 7.5rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+}
+
+.fullStarDraw1 .light {
+  width: 6.16rem;
+  height: 6.1rem;
+  left: 5rem;
+  top: 0.67rem;
+  position: absolute;
+  -webkit-animation: rotateAni 5s linear infinite;
+  animation: rotateAni 5s linear infinite;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/common/light.png") no-repeat top left / 100% 100%;
+}
+
+.fullStarDraw1 .title {
+  width: 7.73rem;
+  height: 2.81rem;
+  left: 4.25rem;
+  top: 0.33rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/满星抽奖1/标题.png") no-repeat top left / 100% 100%;
+}
+
+.fullStarDraw1 .rockBox {
+  width: 6.81rem;
+  height: 4.46rem;
+  left: 4.63rem;
+  top: 1.81rem;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/满星抽奖1/bg.png") no-repeat top left / 100% 100%;
+}
+
+.fullStarDraw1 .rockBox .rock {
+  width: 4.66rem;
+  height: 2.67rem;
+  margin-left: 0.08rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.fullStarDraw1 .rockBox .rock .item {
+  position: absolute;
+  top: -0.68rem;
+  display: block;
+  width: 1.48rem;
+  margin-right: 0.07rem;
+  overflow: hidden;
+  font-size: 0;
+}
+
+.fullStarDraw1 .rockBox .rock .item:nth-child(2) {
+  left: 1.57rem;
+}
+
+.fullStarDraw1 .rockBox .rock .item:nth-child(3) {
+  left: 3.16rem;
+  margin-right: 0;
+}
+
+.fullStarDraw1 .rockBox .rock .roller {
+  position: relative;
+}
+
+.fullStarDraw1 .rockBox .rock .roller li {
+  width: 100%;
+  height: 1.36rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.fullStarDraw1 .rockBox .rock .roller li:last-child {
+  top: 100%;
+  left: 0;
+}
+
+.fullStarDraw1 .rockBox .rock .roller li .img-box {
+  width: 1.2rem;
+  height: 1.14rem;
+  font-size: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background: #fbf4e1;
+  border-radius: 0.12rem;
+  overflow: hidden;
+  border: 0.02rem solid #fff;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.fullStarDraw1 .rockBox .rock .roller li .img-box .img-icon {
+  position: absolute;
+  max-width: 1.2rem;
+  max-height: 1.14rem;
+  border-radius: 0.32rem;
+  font-size: 0;
+}
+
+.fullStarDraw1 .highlightPoints {
+  width: 5.3rem;
+  height: 3.13rem;
+  left: 5.42rem;
+  top: 2.52rem;
+  position: absolute;
+  pointer-events: none;
+}
+
+.fullStarDraw1 .ribbon {
+  width: 6.61rem;
+  height: 5.03rem;
+  left: 4.49rem;
+  top: 1.35rem;
+  position: absolute;
+}
+
+.rock .roller.fx-roll {
+  -webkit-filter: blur(0.03rem);
+  filter: blur(0.03rem);
+  -webkit-animation: fx-roll 1s 0s infinite linear;
+  animation: fx-roll 1s 0s infinite linear;
+}
+
+.rock .roller.fx-bounce {
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+}
+
+.m-lottery-tiger {
+  position: relative;
+  width: 16rem;
+  min-height: 100%;
+  margin: 0 auto;
+  padding-top: 5.5rem;
+  background-size: 100% auto;
+}
+
+.m-lottery-tiger .game {
+  position: relative;
+}
+
+.m-lottery-tiger .game .back {
+  width: 16rem;
+  height: 10.8rem;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.m-lottery-tiger .game .item {
+  position: absolute;
+  top: 1.925rem;
+  width: 2.75rem;
+  height: 3.375rem;
+  overflow: hidden;
+}
+
+.m-lottery-tiger .game .item:nth-child(1) {
+  left: 3.475rem;
+}
+
+.m-lottery-tiger .game .item:nth-child(2) {
+  left: 6.625rem;
+}
+
+.m-lottery-tiger .game .item:nth-child(3) {
+  left: 9.775rem;
+}
+
+.m-lottery-tiger .game .item .roller {
+  position: relative;
+}
+
+.m-lottery-tiger .game .item .roller li.z-last {
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+
+.m-lottery-tiger .game .item .roller.fx-bounce {
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+}
+
+.m-lottery-tiger .game .item .roller.fx-roll {
+  -webkit-filter: blur(0.03rem);
+  filter: blur(0.03rem);
+  -webkit-animation: fx-roll 0.3s 0s infinite linear;
+  animation: fx-roll 0.3s 0s infinite linear;
+}
+
+.m-lottery-tiger .game .item img {
+  display: block;
+  width: 2.75rem;
+  height: 3.375rem;
+}
+
+.m-lottery-tiger .game .btn {
+  position: absolute;
+  left: 50%;
+  top: 7.65rem;
+  width: 10.1rem;
+  height: 1.25rem;
+  margin-left: -5.05rem;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.m-lottery-tiger .game .btn span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.m-lottery-tiger .des {
+  padding: 0 1.1rem 0.5rem;
+  line-height: 1.15rem;
+  font-size: 0.6rem;
+  color: #b26722;
+}
+
+.m-lottery-tiger .des dt {
+  line-height: 1.2rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+@-webkit-keyframes fx-roll {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    -webkit-transform: translate3d(0, -80%, 0);
+    transform: translate3d(0, -80%, 0);
+  }
+}
+
+@keyframes fx-roll {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    -webkit-transform: translate3d(0, -80%, 0);
+    transform: translate3d(0, -80%, 0);
+  }
+}
+
+.fx-bounce {
+  -webkit-animation-name: bounce;
+  animation-name: bounce;
+  -webkit-transform-origin: center bottom;
+  transform-origin: center bottom;
+}
+
+@-webkit-keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  40%, 43% {
+    -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -0.3rem, 0);
+    transform: translate3d(0, -0.3rem, 0);
+  }
+
+  70% {
+    -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -0.15rem, 0);
+    transform: translate3d(0, -0.15rem, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0, -0.04rem, 0);
+    transform: translate3d(0, -0.04rem, 0);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  40%, 43% {
+    -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -0.3rem, 0);
+    transform: translate3d(0, -0.3rem, 0);
+  }
+
+  70% {
+    -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -0.15rem, 0);
+    transform: translate3d(0, -0.15rem, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0, -0.04rem, 0);
+    transform: translate3d(0, -0.04rem, 0);
+  }
+}
+.gameSuccessIsLessThanStar1 {
+  width: 15.44rem;
+  height: 7.5rem;
+  position: absolute;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  margin-top: -1.25rem;
+}
+
+.gameSuccessIsLessThanStar1 .snowAndIceAtmosphere {
+  width: 15.44rem;
+  height: 7.38rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/游戏成功未满星1/冰雪氛围.png") no-repeat top left / 100% 100%;
+}
+
+.gameSuccessIsLessThanStar1 .light {
+  width: 6.04rem;
+  height: 6.05rem;
+  left: 4.8rem;
+  top: 1.45rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/游戏成功未满星1/light.png") no-repeat top left / 100% 100%;
+}
+
+.gameSuccessIsLessThanStar1 .copy {
+  width: 5.17rem;
+  height: 1.82rem;
+  left: 5.49rem;
+  top: 3.54rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/游戏成功未满星1/scoreBo.png") no-repeat top left / 100% 100%;
+}
+
+.gameSuccessIsLessThanStar1 .copy .layer4773 {
+  width: 50%;
+  top: 1.01rem;
+  text-align: center;
+  position: absolute;
+  font-size: 0.48rem;
+  color: #fcf29f;
+}
+
+.gameSuccessIsLessThanStar1 .copy .layer300 {
+  width: 50%;
+  left: 50%;
+  top: 1.01rem;
+  text-align: center;
+  position: absolute;
+  font-size: 0.48rem;
+  color: #fcf29f;
+}
+
+.gameSuccessIsLessThanStar1 .title {
+  width: 7.73rem;
+  height: 2.74rem;
+  left: 3.98rem;
+  top: 0.6rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/游戏成功未满星1/title.png") no-repeat top left / 100% 100%;
+}
+
+.gameSuccessIsLessThanStar1 .headings {
+  width: 3rem;
+  height: 0.35rem;
+  left: 6.49rem;
+  top: 2.82rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/游戏成功未满星1/小标题1.png") no-repeat top left / 100% 100%;
+}
+
+.gameSuccessIsLessThanStar1 .headings2 {
+  width: 2.87rem;
+  height: 0.35rem;
+  left: 6.5rem;
+  top: 2.82rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/游戏成功未满星1/小标题2.png") no-repeat top left / 100% 100%;
+}
+
+.gameSuccessIsLessThanStar1 .stars {
+  width: 4.02rem;
+  height: 2.08rem;
+  left: 6.89rem;
+  top: 0.74rem;
+  position: absolute;
+}
+
+.gameSuccessIsLessThanStar1 .stars .star-svga {
+  width: 4.02rem;
+  height: 2.08rem;
+  position: absolute;
+  left: -0.76rem;
+  top: -0.74rem;
+}
+
+.gameSuccessIsLessThanStar1 .stars .star2 {
+  width: 0.8rem;
+  height: 0.79rem;
+  left: 0.77rem;
+  top: 0;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/游戏成功未满星1/star3.png") no-repeat top left / 100% 100%;
+}
+
+.gameSuccessIsLessThanStar1 .stars .star1 {
+  width: 0.81rem;
+  height: 0.79rem;
+  left: 0;
+  top: 0.1rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/游戏成功未满星1/star2.png") no-repeat top left / 100% 100%;
+}
+
+.gameSuccessIsLessThanStar1 .stars .star3 {
+  width: 0.81rem;
+  height: 0.79rem;
+  left: 1.52rem;
+  top: 0.1rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/游戏成功未满星1/star2.png") no-repeat top left / 100% 100%;
+}
+
+.gameSuccessIsLessThanStar1 .stars .nullsta1 {
+  width: 0.62rem;
+  height: 0.58rem;
+  left: 0.1rem;
+  top: 0.19rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/游戏成功未满星1/nullsta.png") no-repeat top left / 100% 100%;
+}
+
+.gameSuccessIsLessThanStar1 .stars .nullsta2 {
+  width: 0.62rem;
+  height: 0.58rem;
+  left: 0.87rem;
+  top: 0.1rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/游戏成功未满星1/nullsta.png") no-repeat top left / 100% 100%;
+}
+
+.gameSuccessIsLessThanStar1 .stars .nullsta3 {
+  width: 0.62rem;
+  height: 0.58rem;
+  left: 1.62rem;
+  top: 0.19rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/游戏成功未满星1/nullsta.png") no-repeat top left / 100% 100%;
+}
+
+.gameSuccessIsLessThanStar1 .ribbon {
+  width: 6.49rem;
+  height: 3.4rem;
+  left: 4.82rem;
+  top: 0.84rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/游戏成功未满星1/彩带.png") no-repeat top left / 100% 100%;
+}
+
+.gameSuccessIsLessThanStar1 .bottomBtnBox2 {
+  width: 8.62rem;
+  height: 0.88rem;
+  position: absolute;
+  top: 5.89rem;
+  left: 3.71rem;
+}
+
+.gameSuccessIsLessThanStar1 .bottomBtnBox2 .button5 {
+  width: 4.93rem;
+  height: 0.88rem;
+  left: 1.85rem;
+  top: 0.1rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/游戏成功未满星1/按钮__m.png") no-repeat top left / 100% 100%;
+}
+
+.gameSuccessIsLessThanStar1 .bottomBtnBox {
+  width: 8.62rem;
+  position: absolute;
+  top: 5.89rem;
+  left: 3.71rem;
+}
+
+.gameSuccessIsLessThanStar1 .bottomBtnBox .leftButton {
+  width: 4.2rem;
+  height: 0.96rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+}
+
+.gameSuccessIsLessThanStar1 .bottomBtnBox .leftButton .button5 {
+  width: 3.95rem;
+  height: 0.88rem;
+  left: 0;
+  top: 0.08rem;
+  position: absolute;
+  font-size: 0.36rem;
+  text-align: center;
+  line-height: 0.88rem;
+  color: #204979;
+  font-weight: bold;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/游戏成功未满星1/bluebg.png") no-repeat top left / 100% 100%;
+}
+
+.gameSuccessIsLessThanStar1 .bottomBtnBox .leftButton .participateInAnswer2 {
+  width: 1.22rem;
+  height: 0.37rem;
+  right: 0;
+  top: -0.1rem;
+  position: absolute;
+  pointer-events: none;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/common/红色角标.png") no-repeat top left / 100% 100%;
+}
+
+.gameSuccessIsLessThanStar1 .bottomBtnBox .leftButton .participateInAnswer2 .participationAnswer3 {
+  width: 1.22rem;
+  font-size: 0.18rem;
+  line-height: 0.33rem;
+  text-align: center;
+  color: #ffffff;
+}
+
+.gameSuccessIsLessThanStar1 .bottomBtnBox .button4 {
+  width: 3.95rem;
+  height: 0.88rem;
+  left: 4.68rem;
+  top: 0.1rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/游戏成功未满星1/按钮4.png") no-repeat top left / 100% 100%;
+  -webkit-animation: breath 1s infinite;
+  animation: breath 1s infinite;
+}
+.gameLeavePanel {
+  width: 8.61rem;
+  height: 6.76rem;
+  position: absolute;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  margin-top: -0.4rem;
+}
+
+.gameLeavePanel .content-gamefail {
+  width: 7.04rem;
+  height: 5.62rem;
+  left: 0.71rem;
+  top: 0;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/复活弹窗1/background.png") no-repeat top left / 100% 100%;
+}
+
+.gameLeavePanel .content-gamefail p {
+  text-align: center;
+  margin-top: 3.4rem;
+  font-size: 0.3rem;
+  color: #205e8b;
+}
+
+.gameLeavePanel .gameLeaveTitle {
+  width: 7.04rem;
+  height: 1rem;
+  left: 0.71rem;
+  top: 2.3rem;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.gameLeavePanel .gameLeaveTitle p {
+  font-weight: bold;
+  text-align: center;
+  margin-top: 0;
+  font-size: 0.43rem;
+  color: #205e8b;
+}
+
+.gameLeavePanel .again-fail {
+  width: 3.95rem;
+  height: 0.88rem;
+  left: 4.41rem;
+  top: 5.88rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/复活弹窗1/continueBtnBg.png") no-repeat top left / 100% 100%;
+  text-align: center;
+  line-height: 0.88rem;
+  font-weight: bold;
+  font-size: 0.36rem;
+  color: #204979;
+}
+
+.gameLeavePanel .out {
+  width: 3.95rem;
+  height: 0.88rem;
+  left: 0;
+  top: 5.88rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/复活弹窗1/out.png") no-repeat top left / 100% 100%;
+  color: #424242;
+  font-size: 0.36rem;
+  font-weight: bold;
+  line-height: 0.88rem;
+  text-align: center;
+}
+.gameGuidePanel {
+  width: 8.61rem;
+  height: 6.76rem;
+  position: absolute;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.gameGuidePanel .content-gameGuide {
+  width: 8.2rem;
+  height: 6.55rem;
+  left: 0.44rem;
+  top: 0;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/gameGuide/gameGuideBg.png") no-repeat top left / 100% 100%;
+}
+
+.gameGuidePanel .guideContext1 {
+  width: 4.59rem;
+  height: 3.36rem;
+  left: 2.01rem;
+  top: 1.6rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/gameGuide/step1.png") no-repeat top left / 100% 100%;
+}
+
+.gameGuidePanel .guideContext2 {
+  width: 4.59rem;
+  height: 3.36rem;
+  left: 2.01rem;
+  top: 1.6rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/gameGuide/step2.png") no-repeat top left / 100% 100%;
+}
+
+.gameGuidePanel .guideContext3 {
+  width: 4.59rem;
+  height: 3.36rem;
+  left: 2.01rem;
+  top: 1.6rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/gameGuide/step3.png") no-repeat top left / 100% 100%;
+}
+
+.gameGuidePanel .gameGuideNextBtn {
+  width: 3.99rem;
+  height: 0.93rem;
+  left: 2.31rem;
+  top: 5.2rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/gameGuide/nextBtn.png") no-repeat top left / 100% 100%;
+}
+
+.gameGuidePanel .gameGuideBeginBtn {
+  width: 3.99rem;
+  height: 0.93rem;
+  left: 2.31rem;
+  top: 5.2rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/gameGuide/beginBtn.png") no-repeat top left / 100% 100%;
+}
+
+.gameGuidePanel .gameGuideLeftBtn {
+  width: 0.26rem;
+  height: 0.37rem;
+  left: 1.54rem;
+  top: 3.1rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/gameGuide/leftBtn.png") no-repeat top left / 100% 100%;
+}
+
+.gameGuidePanel .gameGuideRightBtn {
+  width: 0.26rem;
+  height: 0.37rem;
+  left: 6.74rem;
+  top: 3.1rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/gameGuide/rightBtn.png") no-repeat top left / 100% 100%;
+}
+
+.gameGuidePanel .gameLeaveTitle {
+  width: 7.04rem;
+  height: 1rem;
+  left: 0.71rem;
+  top: 2.3rem;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.gameGuidePanel .gameLeaveTitle p {
+  font-weight: bold;
+  text-align: center;
+  margin-top: 0;
+  font-size: 0.43rem;
+  color: #205e8b;
+}
+
+.gameGuidePanel .again-fail {
+  width: 3.95rem;
+  height: 0.88rem;
+  left: 4.41rem;
+  top: 5.88rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/复活弹窗1/continueBtnBg.png") no-repeat top left / 100% 100%;
+  text-align: center;
+  line-height: 0.88rem;
+  font-weight: bold;
+  font-size: 0.36rem;
+  color: #204979;
+}
+
+.gameGuidePanel .out {
+  width: 3.95rem;
+  height: 0.88rem;
+  left: 0;
+  top: 5.88rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/复活弹窗1/out.png") no-repeat top left / 100% 100%;
+}
+.exchangeShopConfirmed1Twice {
+  width: 7.04rem;
+  height: 3.51rem;
+  position: absolute;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.exchangeShopConfirmed1Twice .popupWindowBottom {
+  width: 7.04rem;
+  height: 3.51rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/兑换商店二次确1/弹窗底板.png") no-repeat top left / 100% 100%;
+}
+
+.exchangeShopConfirmed1Twice .sureCost300 {
+  width: 98%;
+  text-align: center;
+  left: 1%;
+  top: 0.6rem;
+  position: absolute;
+  font-size: 0.36rem;
+  color: #1e4a79;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+
+.exchangeShopConfirmed1Twice .sureCost300 img {
+  width: 0.62rem;
+  height: 0.62rem;
+}
+
+.exchangeShopConfirmed1Twice .forgetIt {
+  width: 2.89rem;
+  height: 0.93rem;
+  left: 0.39rem;
+  top: 2rem;
+  position: absolute;
+  color: #424242;
+  font-weight: bold;
+  font-size: 0.36rem;
+  text-align: center;
+  line-height: 0.93rem;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/兑换商店二次确1/算了.png") no-repeat top left / 100% 100%;
+}
+
+.exchangeShopConfirmed1Twice .buy {
+  width: 2.89rem;
+  height: 0.93rem;
+  left: 3.62rem;
+  top: 2rem;
+  position: absolute;
+  color: #6b3e05;
+  font-weight: bold;
+  font-size: 0.36rem;
+  text-align: center;
+  line-height: 0.93rem;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/兑换商店二次确1/购买.png") no-repeat top left / 100% 100%;
+}
+.posterpage {
+  width: 9.56rem;
+  height: 6.07rem;
+  position: absolute;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.posterpage .posterpage-img {
+  width: 9.56rem;
+  height: 6.07rem;
+  position: absolute;
+}
+
+.posterpage .poster {
+  width: 9.56rem;
+  height: 6.07rem;
+  position: absolute;
+  z-index: -1;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/homePage/poster.png") no-repeat top left / 100% 100%;
+}
+
+.posterpage .userInfo-poster {
+  position: absolute;
+  top: 3.34rem;
+  left: 0.47rem;
+}
+
+.posterpage .userInfo-poster img {
+  width: 0.69rem;
+  height: 0.69rem;
+}
+
+.posterpage .userInfo-poster .haveperson {
+  color: #0d7bd8;
+  font-size: 0.26rem;
+}
+
+.posterpage .codeBox {
+  position: absolute;
+  top: 4.17rem;
+  left: 7.22rem;
+  overflow: hidden;
+  width: 1.46rem;
+  height: 1.46rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.posterpage .codeBox img,
+.posterpage .codeBox canvas {
+  overflow: hidden;
+}
+
+.posterpage .codeImg {
+  position: absolute;
+  width: 1.46rem;
+  height: 1.46rem;
+  top: 4.17rem;
+  left: 7.22rem;
+  opacity: 0;
+}
+
+.posterpage .ren {
+  position: absolute;
+  width: 0.8rem;
+  height: 0.8rem;
+  top: 12.2rem;
+  left: 3.35rem;
+  border: 0.03rem solid #fff;
+  border-radius: 50%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.posterpage .back-poster {
+  width: 0.5rem;
+  height: 0.5rem;
+  left: 9.8rem;
+  top: 0;
+  position: absolute;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/common/close.png") no-repeat top left / 100% 100%;
+}
+
+.posterpage .longpress-text {
+  position: absolute;
+  top: 6.24rem;
+  left: 3.82rem;
+  color: #fff;
+  font-size: 0.24rem;
+}
+
+.posterpage .posterImg {
+  width: 9.56rem;
+  height: 6.07rem;
+  position: absolute;
+}
+.sendCoin {
+  width: 15.44rem;
+  height: 7.38rem;
+  position: absolute;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  margin-top: -1rem;
+}
+
+.sendCoin .bg {
+  width: 6.16rem;
+  height: 6.56rem;
+  left: 5.04rem;
+  top: 0.4rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/sendPrize/bg.png") no-repeat top left / 100% 100%;
+}
+
+.sendCoin .content {
+  width: 5.5rem;
+  height: 2.32rem;
+  left: 5.3rem;
+  top: 3.05rem;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.sendCoin .content .prizena {
+  width: 100%;
+  text-align: center;
+  font-size: 0.36rem;
+  color: #1e4a79;
+}
+
+.sendCoin .content .imgbox {
+  width: 1.61rem;
+  height: 1.65rem;
+  margin-top: 0.1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.sendCoin .content .imgbox img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.sendCoin .button {
+  width: 3.99rem;
+  height: 0.93rem;
+  left: 6.07rem;
+  top: 5.6rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/sendPrize/按钮.png") no-repeat top left / 100% 100%;
+}
+
+.sendCoin .fenwei-sencoin {
+  width: 16.24rem;
+  height: 7.5rem;
+  left: 0;
+  top: 0.2rem;
+  position: absolute;
+  pointer-events: none;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/sendPrize/大氛围3.png") no-repeat top left / 100% 100%;
+}
+
+.sendCoin .drawFeedback1-in {
+  position: absolute;
+  top: 6.44rem;
+  color: #1e4a79;
+  font-size: 0.24rem;
+  left: 5.34rem;
+  width: 5.5rem;
+  text-align: center;
+}
+.modal-hoc-bg {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.modal-hoc-bg .leftlogo {
+  width: 1.49rem;
+  height: 0.42rem;
+  position: absolute;
+  right: -1%;
+  top: 8%;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/common/leftLogo.png") no-repeat top left / 100% 100%;
+}
+
+.modal-hoc-bg .rightlogo {
+  width: 2.84rem;
+  height: 1.13rem;
+  position: absolute;
+  left: -7%;
+  top: 84%;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/common/rightLogo.png") no-repeat top left / 100% 100%;
+}
+.homePagebox {
+  width: 100vh;
+  height: 100vw;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-transform-origin: calc(100vw / 2) calc(100vw / 2);
+  transform-origin: calc(100vw / 2) calc(100vw / 2);
+  position: fixed;
+}
+
+.homepage {
+  width: 16.24rem;
+  height: 7.5rem;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/homePage/bgindex.png") no-repeat top left / 100% 100%;
+}
+
+.homepage .title {
+  width: 6.39rem;
+  height: 1.83rem;
+  left: 4.95rem;
+  top: 1.87rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/homePage/title.png") no-repeat top left / 100% 100%;
+}
+
+.homepage .leftPerson {
+  position: absolute;
+  width: 4.93rem;
+  height: 4.21rem;
+  left: 1.36rem;
+  top: 1.84rem;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/homePage/谷爱凌.png") no-repeat top left / 100% 100%;
+}
+
+.homepage .rightPerson {
+  position: absolute;
+  width: 5.12rem;
+  height: 2.87rem;
+  left: 9.17rem;
+  top: 2.58rem;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/homePage/牛蒙蒙.png") no-repeat top left / 100% 100%;
+}
+
+.homepage .title-person {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 16.24rem;
+  height: 7.5rem;
+}
+
+.homepage .startga {
+  width: 3.86rem;
+  height: 1.34rem;
+  left: 6.2rem;
+  top: 5.25rem;
+  position: absolute;
+}
+
+.homepage .shoushi-gesturesAperture {
+  position: absolute;
+  left: 6.2rem;
+  top: 5.78rem;
+  width: 3.86rem;
+  height: 1.51rem;
+  pointer-events: none;
+}
+
+.homepage .shoushi-gesturesAperture .gesturesAperture {
+  width: 1.44rem;
+  height: 1.51rem;
+  right: -0.3rem;
+  top: 0;
+  position: absolute;
+}
+
+.homepage .shoushi-gesturesAperture p {
+  position: absolute;
+  left: 0;
+  top: 0.8rem;
+  width: 100%;
+  font-size: 0.24rem;
+  color: #4c5974;
+  text-align: center;
+}
+
+.homepage .leftName {
+  position: absolute;
+  width: 0.69rem;
+  height: 1.56rem;
+  top: 2rem;
+  left: 2.3rem;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/homePage/左边名字.png") no-repeat top left / 100% 100%;
+}
+
+.homepage .rightName {
+  position: absolute;
+  width: 0.17rem;
+  height: 0.51rem;
+  top: 4rem;
+  left: 13.5rem;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/homePage/右边名字.png") no-repeat top left / 100% 100%;
+}
+
+.sui-marquee-container .marquee-list .marquee-item {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.picture2 {
+  width: 2.18rem;
+  height: 0.74rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 0.5rem;
+}
+
+.picture2 .picture3 {
+  width: 0.58rem;
+  height: 0.58rem;
+  left: 0.12rem;
+  top: 0.08rem;
+  position: absolute;
+  border-radius: 50%;
+  border: 0.02rem solid #fff;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/homePage/头像3.png") no-repeat top left / 100% 100%;
+}
+
+.picture2 .currentScore {
+  width: 0.94rem;
+  height: 0.21rem;
+  left: 0.81rem;
+  top: 0.12rem;
+  position: absolute;
+  font-size: 0.22rem;
+  line-height: 0.21rem;
+  color: #ffffff;
+}
+
+.picture2 .layer34173 {
+  width: 1.34rem;
+  left: 0.81rem;
+  top: 0.34rem;
+  position: absolute;
+  font-size: 0.22rem;
+  color: #ebf7ff;
+}
+.goldCoins {
+  width: 1.72rem;
+  height: 0.55rem;
+  left: 2.49rem;
+  top: 0.13rem;
+  position: absolute;
+}
+
+.goldCoins .coin {
+  width: 1.72rem;
+  height: 0.55rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/homePage/coin.png") no-repeat top left / 100% 100%;
+}
+
+.goldCoins .layer3418 {
+  width: 0.84rem;
+  height: 0.3rem;
+  line-height: 0.3rem;
+  text-align: center;
+  left: 0.57rem;
+  top: 0.15rem;
+  position: absolute;
+  font-size: 0.22rem;
+  color: #ebf7ff;
+}
+.newGuide1 {
+  width: 16.24rem;
+  height: 7.5rem;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  position: fixed;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.newGuide1 .startga {
+  width: 3.86rem;
+  height: 1.34rem;
+  left: 6.2rem;
+  top: 5.25rem;
+  position: absolute;
+}
+
+.newGuide1 .shoushi-gesturesAperture {
+  position: absolute;
+  left: 6.2rem;
+  top: 5.78rem;
+  width: 3.86rem;
+  height: 1.51rem;
+  pointer-events: none;
+}
+
+.newGuide1 .shoushi-gesturesAperture .gesturesAperture {
+  width: 1.44rem;
+  height: 1.51rem;
+  right: -0.3rem;
+  top: 0;
+  position: absolute;
+}
+
+.newGuide1 .shoushi-gesturesAperture p {
+  position: absolute;
+  left: 0;
+  top: 0.8rem;
+  width: 100%;
+  font-size: 0.24rem;
+  color: #4c5974;
+  text-align: center;
+}
+.bottoml {
+  width: 3.02rem;
+  height: 1.38rem;
+  left: 2.5rem;
+  top: 6.12rem;
+  position: absolute;
+}
+
+.bottoml .duiHuanShangDian {
+  width: 1.32rem;
+  height: 1.15rem;
+  left: 0;
+  top: 0.23rem;
+  position: relative;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/homePage/兑换商店.png") no-repeat top left / 100% 100%;
+}
+
+.bottoml .duiHuanShangDian .duihaoli {
+  position: absolute;
+  top: -0.6rem;
+  left: 0.08rem;
+  width: 1.16rem;
+  height: 0.38rem;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/homePage/兑好礼.png") no-repeat top left / 100% 100%;
+}
+
+.bottoml .duiHuanShangDian .store-svga {
+  position: absolute;
+  top: -0.24rem;
+  left: 0.15rem;
+  width: 1rem;
+  height: 0.96rem;
+}
+
+.bottoml .deJinBi {
+  width: 1.3rem;
+  height: 1.38rem;
+  left: 1.72rem;
+  top: 0;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/homePage/得金币.png") no-repeat top left / 100% 100%;
+}
+
+.bottomr {
+  width: 2.98rem;
+  height: 1.39rem;
+  left: 10.7rem;
+  top: 6.11rem;
+  position: absolute;
+}
+
+.bottomr .yinghuangjin {
+  position: absolute;
+  width: 1.16rem;
+  height: 0.38rem;
+  top: -0.4rem;
+  left: 0.09rem;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/homePage/赢黄金.png") no-repeat top left / 100% 100%;
+}
+
+.bottomr .ultimateLeaderboard {
+  width: 1.3rem;
+  height: 1.36rem;
+  left: 0;
+  top: 0.03rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/homePage/终极排行榜.png") no-repeat top left / 100% 100%;
+}
+
+.bottomr .moreGifts {
+  width: 1.31rem;
+  height: 1.39rem;
+  left: 1.67rem;
+  top: 0;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/homePage/更多好礼.png") no-repeat top left / 100% 100%;
+}
+
+.topleft {
+  width: 4.21rem;
+  height: 0.74rem;
+  left: 2.5rem;
+  top: 0.24rem;
+  position: absolute;
+}
+
+.topleft .lunbo {
+  position: absolute;
+  left: 0;
+  top: 0.9rem;
+  width: 4.18rem;
+  height: 0.39rem;
+  padding: 0 0.2rem 0 0.52rem;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 0.2rem;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/homePage/轮播.png") no-repeat top left / 100% 100%;
+}
+
+.topright {
+  width: 4.48rem;
+  height: 0.58rem;
+  left: 8.53rem;
+  top: 0.37rem;
+  position: absolute;
+}
+
+.topright .tiShi {
+  width: 2.92rem;
+  height: 0.36rem;
+  left: 0;
+  top: 0.1rem;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 0.3rem;
+  line-height: 0.36rem;
+  font-size: 0.2rem;
+  text-align: center;
+  color: #4f95c7;
+  padding: 0 0.08rem;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.topright .jiangPin {
+  width: 0.59rem;
+  height: 0.58rem;
+  left: 3.14rem;
+  top: 0;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/homePage/奖品.png") no-repeat top left / 100% 100%;
+}
+
+.topright .guiZe {
+  width: 0.59rem;
+  height: 0.58rem;
+  left: 3.89rem;
+  top: 0;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/homePage/规则.png") no-repeat top left / 100% 100%;
+}
+.gamepage {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  position: fixed;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.gamepage .startpop {
+  width: 16.73rem;
+  height: 7.38rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  top: 0;
+  position: absolute;
+}
+
+.gamepage .startpop .startaim {
+  width: 16.73rem;
+  height: 7.38rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+}
+
+.gamepage .startpop .startaim .startbg {
+  width: 16.73rem;
+  height: 2.59rem;
+  left: 0;
+  top: 2.58rem;
+  position: absolute;
+  opacity: 0.5;
+  background-color: #000000;
+}
+
+.gamepage .startpop .startaim .oneaim {
+  width: 2.27rem;
+  height: 0.41rem;
+  left: 7.06rem;
+  top: 3.22rem;
+  position: absolute;
+}
+
+.gamepage .startpop .startaim .oneaim .oneaimstar {
+  width: 0.42rem;
+  height: 0.41rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/GamePage/oneaimstar.png") no-repeat top left / 100% 100%;
+}
+
+.gamepage .startpop .startaim .oneaim .oneaimlab {
+  width: 5.4rem;
+  height: 0.27rem;
+  left: 0.63rem;
+  top: 0.06rem;
+  position: absolute;
+  font-size: 0.28rem;
+  line-height: 0.27rem;
+  color: #ffffff;
+  overflow: hidden;
+  /*超出部分隐藏*/
+  text-overflow: ellipsis;
+  /* 超出部分显示省略号 */
+  white-space: nowrap;
+  /*规定段落中的文本不进行换行 */
+}
+
+.gamepage .startpop .startaim .twoaim {
+  width: 3.89rem;
+  height: 0.41rem;
+  left: 6.56rem;
+  top: 3.8rem;
+  position: absolute;
+}
+
+.gamepage .startpop .startaim .twoaim .twoaimstar {
+  width: 0.92rem;
+  height: 0.41rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/GamePage/twoaimstar.png") no-repeat top left / 100% 100%;
+}
+
+.gamepage .startpop .startaim .twoaim .twoaimlab {
+  width: 5.4rem;
+  height: 0.27rem;
+  left: 1.14rem;
+  top: 0.06rem;
+  position: absolute;
+  font-size: 0.28rem;
+  line-height: 0.27rem;
+  color: #ffffff;
+  overflow: hidden;
+  /*超出部分隐藏*/
+  text-overflow: ellipsis;
+  /* 超出部分显示省略号 */
+  white-space: nowrap;
+  /*规定段落中的文本不进行换行 */
+}
+
+.gamepage .startpop .startaim .threeaim {
+  width: 4.63rem;
+  height: 0.41rem;
+  left: 5.98rem;
+  top: 4.38rem;
+  position: absolute;
+}
+
+.gamepage .startpop .startaim .threeaim .thaimstar {
+  width: 1.48rem;
+  height: 0.41rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/GamePage/thaimstar.png") no-repeat top left / 100% 100%;
+}
+
+.gamepage .startpop .startaim .threeaim .thaimlab {
+  width: 5.4rem;
+  height: 0.27rem;
+  left: 1.72rem;
+  top: 0.08rem;
+  position: absolute;
+  font-size: 0.28rem;
+  line-height: 0.27rem;
+  color: #ffffff;
+  overflow: hidden;
+  /*超出部分隐藏*/
+  text-overflow: ellipsis;
+  /* 超出部分显示省略号 */
+  white-space: nowrap;
+  /*规定段落中的文本不进行换行 */
+}
+
+.gamepage .startpop .startaim .starttitle {
+  width: 5rem;
+  height: 0.76rem;
+  left: calc(50% - (5rem / 2));
+  top: 2.34rem;
+  position: absolute;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.gamepage .startpop .startaim .starttitle .title_di {
+  width: 0.74rem;
+  height: 0.76rem;
+  top: 0;
+  position: relative;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/GamePage/第.png") no-repeat top left / 100% 100%;
+}
+
+.gamepage .startpop .startaim .starttitle .title_guan {
+  width: 0.74rem;
+  height: 0.76rem;
+  top: 0;
+  position: relative;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/GamePage/关.png") no-repeat top left / 100% 100%;
+}
+
+.gamepage .startpop .startaim .starttitle .title_ge {
+  width: 0.49rem;
+  height: 0.65rem;
+  top: 0;
+  position: relative;
+}
+
+.gamepage .startpop .startaim .starttitle .title_shi {
+  width: 0.49rem;
+  height: 0.65rem;
+  top: 0;
+  position: relative;
+}
+
+.gamepage .startpop .startaim .starttitle .title_bai {
+  width: 0.49rem;
+  height: 0.65rem;
+  top: 0;
+  position: relative;
+}
+
+.gamepage .startpop .startaim .startsnow {
+  width: 15.44rem;
+  height: 7.38rem;
+  left: 0.26rem;
+  top: 0;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/GamePage/startsnow.png") no-repeat top left / 100% 100%;
+}
+
+.gamepage .startpop .startready {
+  width: 1.76rem;
+  height: 0.89rem;
+  left: 7.43rem;
+  top: 2.67rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/GamePage/startready.png") no-repeat top left / 100% 100%;
+}
+
+.gamepage .startpop .startgo {
+  width: 1.71rem;
+  height: 0.91rem;
+  left: 7.46rem;
+  top: 2.66rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/GamePage/startgo.png") no-repeat top left / 100% 100%;
+}
+
+.gamepage .canvasbox {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  position: absolute;
+}
+
+.gamepage .canvasbox .canvas {
+  width: 16.24rem;
+  height: 7.5rem;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  position: absolute;
+}
+
+.gamepage .iconarea {
+  width: 13.08rem;
+  height: 0.92rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  top: 5%;
+  position: absolute;
+}
+
+.gamepage .iconarea .distance {
+  width: 2.92rem;
+  height: 0.92rem;
+  left: 0.7rem;
+  top: 0;
+  position: absolute;
+}
+
+.gamepage .iconarea .distance .distancebg {
+  width: 2.92rem;
+  height: 0.92rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/GamePage/distancebg.png") no-repeat top left / 100% 100%;
+}
+
+.gamepage .iconarea .distance .distancenum {
+  width: 1.35rem;
+  height: 0.31rem;
+  left: 1.4rem;
+  top: 0.31rem;
+  position: absolute;
+  font-size: 0.4rem;
+  line-height: 0.31rem;
+  color: #ffffff;
+}
+
+.gamepage .iconarea .bar {
+  width: 4.8rem;
+  height: 0.64rem;
+  left: 4.14rem;
+  top: 0.14rem;
+  position: absolute;
+}
+
+.gamepage .iconarea .bar .three {
+  width: 4.8rem;
+  height: 0.56rem;
+  left: 0;
+  top: 0.08rem;
+  position: absolute;
+}
+
+.gamepage .iconarea .bar .three .bj {
+  width: 4.8rem;
+  height: 0.24rem;
+  left: 0;
+  top: 0.32rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/GamePage/bj.png") no-repeat top left / 100% 100%;
+}
+
+.gamepage .iconarea .bar .three .baron_mask {
+  width: 4.79rem;
+  height: 0.22rem;
+  left: 0.01rem;
+  top: 0.33rem;
+  position: absolute;
+  overflow: hidden;
+  border-radius: 0.11rem;
+}
+
+.gamepage .iconarea .bar .three .baron_mask .baron {
+  width: 4.79rem;
+  height: 0.22rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/GamePage/baron.png") no-repeat top left / 100% 100%;
+}
+
+.gamepage .iconarea .bar .three .baron_mask .baron_svga {
+  width: 4.79rem;
+  height: 0.22rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.gamepage .iconarea .bar .three .twoarea {
+  width: 0.61rem;
+  height: 0.55rem;
+  left: 2.55rem;
+  top: 0;
+  position: absolute;
+}
+
+.gamepage .iconarea .bar .three .twoarea .twobg {
+  width: 0.61rem;
+  height: 0.3rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+  opacity: 0.3;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/GamePage/twobg.png") no-repeat top left / 100% 100%;
+}
+
+.gamepage .iconarea .bar .three .twoarea .twoscore {
+  width: 0.6rem;
+  height: 0.18rem;
+  left: 0;
+  top: 0.06rem;
+  position: absolute;
+  font-size: 0.24rem;
+  line-height: 0.18rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+.gamepage .iconarea .bar .three .twoarea .twostar {
+  width: 0.48rem;
+  height: 0.22rem;
+  left: 0.05rem;
+  top: 0.33rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/GamePage/twostar.png") no-repeat top left / 100% 100%;
+}
+
+.gamepage .iconarea .bar .three .threearea {
+  width: 0.76rem;
+  height: 0.55rem;
+  left: 3.99rem;
+  top: 0;
+  position: absolute;
+}
+
+.gamepage .iconarea .bar .three .threearea .threebg {
+  width: 0.76rem;
+  height: 0.3rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+  opacity: 0.3;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/GamePage/threebg.png") no-repeat top left / 100% 100%;
+}
+
+.gamepage .iconarea .bar .three .threearea .threescore {
+  width: 0.8rem;
+  height: 0.18rem;
+  left: 0;
+  top: 0.06rem;
+  position: absolute;
+  font-size: 0.24rem;
+  line-height: 0.18rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+.gamepage .iconarea .bar .three .threearea .threestar {
+  width: 0.74rem;
+  height: 0.22rem;
+  left: 0.02rem;
+  top: 0.33rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/GamePage/threestar.png") no-repeat top left / 100% 100%;
+}
+
+.gamepage .iconarea .bar .bartip {
+  width: 1.12rem;
+  height: 0.25rem;
+  left: 0.03rem;
+  top: 0.02rem;
+  position: absolute;
+  font-size: 0.26rem;
+  line-height: 0.25rem;
+  color: #ffffff;
+}
+
+.gamepage .iconarea .bar .barscore {
+  width: 0.78rem;
+  height: 0.31rem;
+  left: 1.17rem;
+  top: 0;
+  position: absolute;
+  font-size: 0.4rem;
+  line-height: 0.31rem;
+  color: #fdac2f;
+}
+
+.gamepage .iconarea .sound {
+  width: 0.59rem;
+  height: 0.58rem;
+  left: 9.45rem;
+  top: 0.17rem;
+  position: absolute;
+}
+
+.gamepage .iconarea .sound .soundf {
+  width: 0.59rem;
+  height: 0.58rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/GamePage/soundoff.png") no-repeat top left / 100% 100%;
+}
+
+.gamepage .iconarea .sound .soundon {
+  width: 0.59rem;
+  height: 0.58rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/GamePage/soundon.png") no-repeat top left / 100% 100%;
+}
+
+.gamepage .iconarea .back {
+  width: 0.59rem;
+  height: 0.58rem;
+  left: 10.49rem;
+  top: 0.17rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/GamePage/back.png") no-repeat top left / 100% 100%;
+}
+.mappage {
+  width: 154.3rem;
+  height: 7.5rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+  -webkit-transform-origin: calc(100vw / 2) calc(100vw / 2);
+  transform-origin: calc(100vw / 2) calc(100vw / 2);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.mappage .mapBgbox {
+  width: 154.3rem;
+  height: 7.5rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+}
+
+.mappage .mapBgbox .mapBgimg1 {
+  width: 77.15rem;
+  height: 7.5rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/mapPage/mapBg1.png") no-repeat top left / 100% 100%;
+}
+
+.mappage .mapBgbox .mapBgimg2 {
+  width: 77.15rem;
+  height: 7.5rem;
+  position: absolute;
+  left: 77.15rem;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/mapPage/mapBg2.png") no-repeat top left / 100% 100%;
+}
+
+.mappage .mengmeng {
+  width: 128.61rem;
+  height: 3.58rem;
+  position: absolute;
+  bottom: 0.6rem;
+  left: 2.4rem;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/mapPage/牛蒙蒙形象.png") no-repeat top left / 100% 100%;
+}
+
+.mappage .guailing {
+  width: 1.06rem;
+  height: 1.77rem;
+  position: absolute;
+  right: 6.19rem;
+  top: 2.88rem;
+  pointer-events: none;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/mapPage/谷爱凌.png") no-repeat top left / 100% 100%;
+}
+
+.mappage .mapBgbox_mask {
+  width: 154.3rem;
+  height: 7.5rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+}
+
+.mappage .mist_svga {
+  width: 16.24rem;
+  height: 7.5rem;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+}
+
+.mapcontent {
+  position: absolute;
+  left: -2.88rem;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-transform-origin: calc(100vw / 2) calc(100vw / 2);
+  transform-origin: calc(100vw / 2) calc(100vw / 2);
+}
+
+.backbtn {
+  width: 1.18rem;
+  height: 1.18rem;
+  left: 23%;
+  top: 1rem;
+  position: fixed;
+  z-index: 100;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/mapPage/backBtn.png") no-repeat top left / 100% 100%;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.map-btnbox {
+  width: 100vh;
+  height: 100vw;
+  left: 0;
+  position: fixed;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-transform-origin: calc(100vw / 2) calc(100vw / 2);
+  transform-origin: calc(100vw / 2) calc(100vw / 2);
+}
+
+.map-btnbox .closebtn {
+  width: 1.73rem;
+  height: 0.63rem;
+  left: 13.35rem;
+  top: 0.02rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/mapPage/closeBtn.png") no-repeat top left / 100% 100%;
+}
+
+.map-btnbox .bottomr {
+  left: 71% !important;
+}
+
+.map-btnbox .topleft {
+  left: 4% !important;
+}
+
+.map-btnbox .topright {
+  left: 60% !important;
+}
+
+.map-btnbox .bottoml {
+  left: 4% !important;
+}
+
+.mapBgbox_div {
+  width: 154.3rem;
+  height: 7.5rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+  -webkit-transform-origin: calc(100vw / 2) calc(100vw / 2);
+  transform-origin: calc(100vw / 2) calc(100vw / 2);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  z-index: 101;
+}
+
+.mapBgbox_div .mapBgbox_mask {
+  width: 154.3rem;
+  height: 7.5rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+  z-index: 101;
+}
+
+.mapBgbox_div .mist_svga {
+  width: 16.24rem;
+  height: 7.5rem;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: 101;
+}
+.giftbox {
+  width: 7.15rem;
+  left: 145.92rem;
+  top: -2.02rem;
+  position: absolute;
+}
+
+.giftbox .giftboximg {
+  width: 6.73rem;
+  height: 4.32rem;
+  left: 0.82rem;
+  top: 1.03rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/mapPage/领奖台.png") no-repeat top left / 100% 100%;
+}
+
+.giftbox .giftlist {
+  width: 4.87rem;
+  height: 2.07rem;
+  left: 0;
+  top: 4.39rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/mapPage/giftListBg.png") no-repeat top left / 100% 100%;
+}
+
+.giftbox .giftlist .lastPrizeBox {
+  width: 4.46rem;
+  position: absolute;
+  top: 0.5rem;
+  left: 0.26rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.giftbox .giftlist .lastPrizeBox .lastPrizeItem {
+  width: 1.41rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.giftbox .giftlist .lastPrizeBox .lastPrizeItem .imgbox {
+  width: 1rem;
+  height: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-bottom: 0.05rem;
+  background: #fff;
+  border-radius: 0.04rem;
+  overflow: hidden;
+}
+
+.giftbox .giftlist .lastPrizeBox .lastPrizeItem .imgbox img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.giftbox .giftlist .lastPrizeBox .lastPrizeItem .prizeItem-score {
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 0.22rem;
+}
+
+.giftbox .giftboxtitle {
+  width: 5rem;
+  height: 1.34rem;
+  left: 2.15rem;
+  top: 0;
+  position: absolute;
+  pointer-events: none;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/mapPage/giftBoxTitle.png") no-repeat top left / 100% 100%;
+}
+
+.giftbox .lastprizeBtn {
+  width: 4.23rem;
+  height: 1.23rem;
+  left: 2.5rem;
+  top: 3.87rem;
+  position: absolute;
+}
+
+.giftbox .lastprizeBtn .btn {
+  width: 4.23rem;
+  height: 1.23rem;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/mapPage/领奖按钮.png") no-repeat top left / 100% 100%;
+  font-size: 0.37rem;
+  color: #854800;
+  font-weight: bold;
+  line-height: 1.1rem;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transform: scale(0.8);
+  transform: scale(0.8);
+}
+
+.giftbox .lastprizeBtn .yue20 {
+  width: 2.53rem;
+  height: 0.79rem;
+  margin-top: 0.13rem;
+}
+
+.giftbox .lastprizeBtn .gesturesAperture {
+  width: 1.44rem;
+  height: 1.51rem;
+  left: 2.7rem;
+  top: 0.18rem;
+  position: absolute;
+  pointer-events: none;
+}
+
+.giftbox .opengiftbtn {
+  width: 3.04rem;
+  height: 0.93rem;
+  left: 1.04rem;
+  top: 3.67rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/mapPage/openGiftBtn.png") no-repeat top left / 100% 100%;
+}
+
+.giftbox .getgiftbtn {
+  width: 3.04rem;
+  height: 0.93rem;
+  left: 1.04rem;
+  top: 3.67rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/mapPage/getGiftBtn.png") no-repeat top left / 100% 100%;
+}
+
+.giftbox .giftboxpoint {
+  width: 1.1rem;
+  height: 1.12rem;
+  left: 3.07rem;
+  top: 3.79rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/mapPage/giftBoxPoint.png") no-repeat top left / 100% 100%;
+}
+
+.giftbox .prizedetailtext {
+  font-size: 0.24rem;
+  position: absolute;
+  top: 6.4rem;
+  left: -0.35rem;
+  color: #32a9e4;
+  text-shadow: 0.01rem 0.01rem 0.01rem #fff;
+}
+.mapBox {
+  width: 144.13rem;
+  height: 3.17rem;
+  left: 3.41rem;
+  top: 0;
+  position: relative;
+}
+
+.mapBox .mapItem {
+  max-width: 1.13rem;
+  max-height: 1.34rem;
+  min-width: 1.04rem;
+  min-height: 0.75rem;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.mapBox .mapItem .starBox {
+  width: 1rem;
+  height: 0.31rem;
+  position: absolute;
+  top: -0.32rem;
+}
+
+.mapBox .mapItem .starBox img {
+  width: 0.28rem;
+  height: 0.28rem;
+}
+
+.mapBox .mapItem .starBox img:nth-child(2) {
+  margin: 0 0.07rem 0.05rem 0.07rem;
+}
+
+.mapBox .mapItem .head-hand {
+  position: absolute;
+  top: -0.78rem;
+  width: 1.44rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.mapBox .mapItem .head-hand .headiconbox {
+  width: 0.78rem;
+  height: 0.88rem;
+  position: absolute;
+  top: 0;
+  pointer-events: none;
+}
+
+.mapBox .mapItem .head-hand .headiconbox .headiconboxtitle {
+  width: 2.78rem;
+  height: 0.88rem;
+  position: absolute;
+  top: -0.3rem;
+  left: -1rem;
+  font-size: 0.22rem;
+  font-weight: bold;
+  text-shadow: -0.01rem 0 #ffffff, 0 0.01rem #ffffff, 0.01rem 0 #ffffff, 0 -0.01rem #ffffff;
+  text-align: center;
+  color: #3783D3;
+}
+
+.mapBox .mapItem .head-hand .headiconbox .headboxbottombg {
+  width: 0.78rem;
+  height: 0.88rem;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/mapPage/headBoxBottomBg.png") no-repeat top left / 100% 100%;
+}
+
+.mapBox .mapItem .head-hand .headiconbox .headboxbottomimg {
+  width: 0.7rem;
+  height: 0.7rem;
+  left: 0.05rem;
+  top: 0.04rem;
+  position: absolute;
+  border-radius: 0.35rem;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/mapPage/headBoxBottomImg.png") no-repeat top left / 100% 100%;
+}
+
+.mapBox .mapItem .head-hand .gesturesAperture {
+  width: 1.44rem;
+  height: 1.51rem;
+  top: 0.7rem;
+  right: -0.3rem;
+  position: absolute;
+  pointer-events: none;
+}
+
+.mapBox .mapItem .levelBox {
+  max-width: 1.13rem;
+  max-height: 1.34rem;
+  min-width: 1.04rem;
+  min-height: 0.75rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.mapBox .mapItem .levelBox.needwait {
+  width: 1.1rem;
+  height: 0.99rem;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/mapPage/敬请期待.png") no-repeat top left / 100% 100%;
+}
+
+.mapBox .mapItem .levelBox.needwait.active,
+.mapBox .mapItem .levelBox.needwait:active {
+  -webkit-animation: left-right 0.4s forwards;
+  animation: left-right 0.4s forwards;
+}
+
+.mapBox .mapItem .levelBox.lockBtn {
+  width: 1.1rem;
+  height: 0.99rem;
+  padding: 0 0.1rem 0.1rem 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/mapPage/lockBtn.png") no-repeat top left / 100% 100%;
+}
+
+.mapBox .mapItem .levelBox.lockBtn.active,
+.mapBox .mapItem .levelBox.lockBtn:active {
+  -webkit-animation: left-right 0.4s forwards;
+  animation: left-right 0.4s forwards;
+}
+
+.mapBox .mapItem .levelBox.greenBtn {
+  padding: 0 0 0.2rem 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/mapPage/greenLevelBg.png") no-repeat top left / 100% 100%;
+}
+
+.mapBox .mapItem .levelBox.greenBtn.active,
+.mapBox .mapItem .levelBox.greenBtn:active {
+  -webkit-animation: breath 0.5s forwards;
+  animation: breath 0.5s forwards;
+}
+
+.mapBox .mapItem .levelBox.giftBtn {
+  width: 1.13rem;
+  height: 1.34rem;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643005478227/mapPage/gift.png") no-repeat top left / 100% 100%;
+}
+
+.mapBox .mapItem .levelBox.giftBtn.active,
+.mapBox .mapItem .levelBox.giftBtn:active {
+  -webkit-animation: breathBig 0.4s forwards;
+  animation: breathBig 0.4s forwards;
+}
+
+.mapBox .mapItem .levelBox .num {
+  max-width: 0.18rem;
+  max-height: 0.22rem;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/*# sourceMappingURL=main.08ca9f0af45564871806.css.map*/
