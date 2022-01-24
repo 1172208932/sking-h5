@@ -76,7 +76,7 @@ class Myprize extends React.Component {
               </div>
             );
           }): 
-          <p className="nodata">暂无数据</p>
+          <div className="nodata"></div>
           }
         </div>
 

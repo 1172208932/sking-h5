@@ -4,6 +4,7 @@ import {callApi} from '@spark/api-base'
 import {Toast} from '@spark/ui'
 
 import {isFromShare, newUser} from 'duiba-utils';
+import modalStore from '@src/store/modal';
 
 let mergeData = {
 	user_type: newUser ? '0' : '1',
@@ -53,6 +54,10 @@ function generateAPI(apiList) {
 				try {
 					token = await getPxToken();
 				} catch (e) {
+					if(e.payload.code == 429) {
+						modalStore.pushPop("ActivityFail");
+						return false
+					}
 					if(document.getElementById("overlay_layer")) {
 						document.getElementById("overlay_layer").style.display = 'block';
 					}
@@ -72,6 +77,10 @@ function generateAPI(apiList) {
 			const result = await callApi(uri, params, method, mergedHeaders, false, secret, secretKey, contentType)
 				.catch(e => {
 					//捕获网络异常
+					if(e.payload.code == 429) {
+						modalStore.pushPop("ActivityFail");
+						return false
+					}
 					if(document.getElementById("overlay_layer")) {
 						document.getElementById("overlay_layer").style.display = 'block';
 					}
