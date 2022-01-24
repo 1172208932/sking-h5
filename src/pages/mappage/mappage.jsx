@@ -42,7 +42,7 @@ class Mappage extends React.Component {
 
 
     if (store?.newGuideStep?.alreadyGuideSteps == 2) {
-      document.body.style.overflow = "hidden";
+      // document.body.style.overflow = "hidden";
       let clientHeight = document.documentElement.clientHeight || document.body.clientHeight
       let toHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight) - clientHeight
       let scrTop = document.documentElement || document.body;
@@ -73,7 +73,7 @@ class Mappage extends React.Component {
       this.setState({
         showMask: false,
       })
-      document.body.style.overflow = 'auto';
+      // document.body.style.overflow = 'auto';
       await API.stepNewGuide()
       await store.queryNewGuide();
       //todo 开始游戏
