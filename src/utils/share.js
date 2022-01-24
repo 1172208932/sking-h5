@@ -93,9 +93,9 @@ export const shareWXmini = (code) => {
   console.info("执行了分享",inviteUrl);
   wx.miniProgram.postMessage({
     data: {
-      title: "这个滑雪游戏好好玩，还可以冲关夺黄金", // 标题
-      desc: "这个滑雪游戏好好玩，还可以冲关夺黄金", // 描述
-      imgUrl: "https://yun.duiba.com.cn/aurora/assets/64eea9a7869761a9c37aa3f350cc7c3ad2ac5278.jpg", // 图片
+      title: "在吗？帮我点一点，一起冲关夺黄金", // 标题
+      desc: "在吗？帮我点一点，一起冲关夺黄金", // 描述
+      imgUrl: "https://yun.duiba.com.cn/aurora/assets/27bd3f8f24b39df0237a39b049c7689032ec8c17.jpg", // 图片
       link: inviteUrl, // 链接
     }
   });

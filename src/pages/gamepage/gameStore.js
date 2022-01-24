@@ -70,6 +70,18 @@ const gameStore = makeAutoObservable(mix({
         this.bgCon.addChildAt(propGuideNice2,1)
     },
 
+    addPropGuide21(){
+        const propGuide21 = FYGE.Sprite.fromUrl("//yun.duiba.com.cn/aurora/assets/5cd95e8f0c35efefc6e051df324867089b0e456f.png")
+        propGuide21.x =  3740 // 29212 6655
+        propGuide21.y =  890
+        this.bgCon.addChildAt(propGuide21,1)
+
+        const propGuideNice21 = FYGE.Sprite.fromUrl("//yun.duiba.com.cn/aurora/assets/940f611ebd4024cdb1698f8919873660293adb0f.png")
+        propGuideNice21.x =  5020
+        propGuideNice21.y =  1290
+        this.bgCon.addChildAt(propGuideNice21,1)
+    },
+
 
     subdivision: 0,
     gameEnd: false,
@@ -252,6 +264,9 @@ const gameStore = makeAutoObservable(mix({
         if(store.currentGameLevel == 1){
             this.addPropGuide1()
         }
+        if(store.currentGameLevel == 21){
+            this.addPropGuide21()
+        }
         this.addFlag()
         // this.addRole()
         // this.updateRole(this.phyworld)
@@ -375,8 +390,8 @@ const gameStore = makeAutoObservable(mix({
         Shapestock.beginGradientFill([(i-1) * 100, this.lineInfo[i] +1300, i * 100,this.lineInfo[i-1] +300], [[0, lineColor[Math.floor((store.currentGameLevel-1)/20)], 1], [1, "#ffffff", 1]])
         Shapestock.lineTo((i - 1) * 100, (this.lineInfo[i - 1]) + 300)
         Shapestock.lineTo(i * 100, this.lineInfo[i] + 300)
-        Shapestock.lineTo(i * 100, this.lineInfo[i] + 900)
-        Shapestock.lineTo((i - 1) * 100, this.lineInfo[i] + 900)
+        Shapestock.lineTo(i * 100, this.lineInfo[i] + 1300)
+        Shapestock.lineTo((i - 1) * 100, this.lineInfo[i] + 1300)
         Shapestock.endFill()
         // return Shapestock;
     },

@@ -81,16 +81,13 @@ function generateAPI(apiList) {
 				});
 			if (result) {
 				//判断接口错误
-				if (!result.success && !hideError) {
+				if (!result.success && !hideError && result.code != "200900") {
 					if(document.getElementById("overlay_layer")) {
 						document.getElementById("overlay_layer").style.display = 'block';
 					}
-					if(result.code == "200900"){
-					}else{
-						Toast(result.message || '接口错误',2000,{didClose: ()=> {
-							document.getElementById("overlay_layer").style.display = 'none';
-						}});
-					}
+					Toast(result.message || '接口错误',2000,{didClose: ()=> {
+						document.getElementById("overlay_layer").style.display = 'none';
+					}});
 				}
 				//返回整个结果
 				return result;

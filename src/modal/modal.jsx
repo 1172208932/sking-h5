@@ -35,7 +35,19 @@ class Modal extends Component {
     super(props);
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+  }
+
+  componentDidUpdate() {
+    const list = toJS(modalStore.popList);
+    if(!document.getElementById("mapPageId")) return false;
+    if(!list.length) {
+      document.getElementById("mapPageId").style.position = 'absolute';
+    } else {
+      document.getElementById("mapPageId").style.position = 'fixed';
+    }
+  }
+
 
   render() {
     const list = toJS(modalStore.popList);

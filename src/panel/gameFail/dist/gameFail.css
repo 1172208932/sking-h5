@@ -1,0 +1,127 @@
+.gameFailPanel {
+  width: 861px;
+  height: 676px;
+  position: absolute;
+  transform: rotate(90deg);
+  margin-top: -100px;
+}
+.gameFailPanel .inviteLimitbg {
+  width: 1624px;
+  height: 750px;
+  left: -381px;
+  top: 0px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  background: url("/src/assets/common/inviteLimitbg.png") no-repeat top left / 100% 100%;
+}
+.gameFailPanel .content-gamefail {
+  width: 704px;
+  height: 562px;
+  left: 71px;
+  top: -35px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background: url("/src/assets/common/inviteLimit.png") no-repeat top left / 100% 100%;
+}
+.gameFailPanel .content-gamefail .title {
+  font-size: 43px;
+  color: #205e8b;
+  font-weight: bold;
+  position: absolute;
+  top: 240px;
+}
+.gameFailPanel .content-gamefail .subT {
+  text-align: center;
+  margin-top: 340px;
+  font-size: 30px;
+  color: #205e8b;
+}
+.gameFailPanel .content-gamefail2 {
+  width: 704px;
+  height: 566px;
+  left: 71px;
+  top: 0px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background: url("/src/assets/common/inviteLimit2.png") no-repeat top left / 100% 100%;
+}
+.gameFailPanel .content-gamefail2 .title {
+  font-size: 43px;
+  color: #205e8b;
+  font-weight: bold;
+  position: absolute;
+  top: 240px;
+}
+.gameFailPanel .content-gamefail2 .subT {
+  text-align: center;
+  margin-top: 340px;
+  font-size: 30px;
+  color: #205e8b;
+}
+.gameFailPanel .again-fail {
+  width: 395px;
+  height: 88px;
+  left: 441px;
+  top: 588px;
+  position: absolute;
+  text-align: center;
+  background: url("/src/assets/复活弹窗1/again.png") no-repeat top left / 100% 100%;
+}
+.gameFailPanel .again-fail .goanswer {
+  line-height: 88px;
+  color: #204979;
+  font-size: 36px;
+  font-weight: bold;
+}
+.gameFailPanel .again-fail .participateInAnswer2 {
+  width: 122px;
+  height: 37px;
+  right: 0;
+  top: -20px;
+  position: absolute;
+  background: url("/src/assets/common/红色角标.png") no-repeat top left / 100% 100%;
+}
+.gameFailPanel .again-fail .participateInAnswer2 .participationAnswer3 {
+  width: 122px;
+  font-size: 20px;
+  line-height: 33px;
+  text-align: center;
+  color: #ffffff;
+}
+.gameFailPanel .out {
+  width: 395px;
+  height: 88px;
+  left: 0px;
+  top: 588px;
+  position: absolute;
+  color: #424242;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 88px;
+  text-align: center;
+  background: url("/src/assets/复活弹窗1/out.png") no-repeat top left / 100% 100%;
+}
+.gameFailPanel .out2 {
+  width: 395px;
+  height: 88px;
+  left: 0px;
+  top: 588px;
+  position: absolute;
+  color: #424242;
+  text-align: center;
+  background: url("/src/assets/复活弹窗1/out.png") no-repeat top left / 100% 100%;
+}
+.gameFailPanel .out2 .outt1 {
+  margin-top: 5px;
+  width: 395px;
+  font-size: 36px;
+  font-weight: bold;
+}
+.gameFailPanel .out2 .outt2 {
+  margin-top: -5px;
+  width: 395px;
+  font-size: 22px;
+}
