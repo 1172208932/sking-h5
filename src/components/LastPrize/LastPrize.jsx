@@ -21,7 +21,7 @@ class LastPrize extends React.Component {
     const { homeInfo } = store;
     if(!store?.newGuideStep?.completeGuide) return false;
     if(homeInfo?.openPrizeTime > homeInfo?.currentTime) {
-      Toast("别急，快去闯关吧！\n2月20日24点整开奖哦")
+      Toast("别急，快去闯关吧！\n2月23日0点整开奖哦")
       // if(document.getElementById("overlay_layer")) {
       //   document.getElementById("overlay_layer").style.display = 'block';
       // }

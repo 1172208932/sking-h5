@@ -86,16 +86,17 @@ export const miniDoShare = (opts) => {
 }
 
 export const shareWXmini = (code) => {
-  console.info("执行了分享",CFG.shareUrl + '&inviteCode='+ code)
   // 微信小程序，加上也没用，不加了
   // await ensureDomain();
   // let ori = domain || location.origin;
+  let inviteUrl = code ? CFG.shareUrl + '&inviteCode='+ code : CFG.shareUrl
+  console.info("执行了分享",inviteUrl);
   wx.miniProgram.postMessage({
     data: {
       title: "这个滑雪游戏好好玩，还可以冲关夺黄金", // 标题
       desc: "这个滑雪游戏好好玩，还可以冲关夺黄金", // 描述
       imgUrl: "https://yun.duiba.com.cn/aurora/assets/64eea9a7869761a9c37aa3f350cc7c3ad2ac5278.jpg", // 图片
-      link: CFG.shareUrl + '&inviteCode='+ code, // 链接
+      link: inviteUrl, // 链接
     }
   });
   console.info("执行了分享之后")

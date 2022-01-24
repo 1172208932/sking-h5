@@ -27,7 +27,7 @@ class HomePage extends React.Component {
   async componentDidMount() {
     // 用户助力,要比首页接口先调用！！！
     await this.toAssist();
-    this.toGetInviteCode();
+    shareWXmini()
     loadLocalAssets();
     await store.getHomeInfo();
     // 新手引导
@@ -70,13 +70,6 @@ class HomePage extends React.Component {
     }
   }
 
-  toGetInviteCode = async() => {
-    const {success, data} = await API.getInviteCode();
-    if(success && data) {
-      store.setInviteCode(data.inviteCode);
-      shareWXmini(data.inviteCode)
-    }
-  }
 
   judgeEndTime = () => {
     const { homeInfo } = store;

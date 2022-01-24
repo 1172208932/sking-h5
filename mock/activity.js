@@ -549,16 +549,16 @@ const queryNewGuide = {
   "code": "",
   "data": {
     "skipNewGuide": false,
-    "completeGuide": true,
-    "alreadyGuideSteps": 3,
-    "allGuideSteps": 3,
+    "completeGuide": false,
+    "alreadyGuideSteps": 2,
+    "allGuideSteps": 4,
     "extra": ""
   }
 }
 
 //递进新手引导完成的步数
 const stepNewGuide = 
-{"code":"200900","data":null,"message":"新手引导已完成","success":false}
+{"code":"200900","data":null,"message":"新手引导已完成","success":true}
 
 // {
 //   "success": true,
