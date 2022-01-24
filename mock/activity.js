@@ -550,7 +550,7 @@ const queryNewGuide = {
   "data": {
     "skipNewGuide": false,
     "completeGuide": true,
-    "alreadyGuideSteps": 4,
+    "alreadyGuideSteps": 2,
     "allGuideSteps": 4,
     "extra": ""
   }
@@ -564,9 +564,9 @@ const stepNewGuide =
 //   "success": true,
 //   "code": "",
 //   "data": {
-//     "completeGuide": true,
-//     "alreadyGuideSteps": 3,
-//     "allGuideSteps": 3,
+//     "completeGuide": false,
+//     "alreadyGuideSteps": 2,
+//     "allGuideSteps": 4,
 //     "extra": ""
 //   }
 // }

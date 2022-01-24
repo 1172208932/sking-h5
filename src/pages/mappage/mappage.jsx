@@ -38,28 +38,33 @@ class Mappage extends React.Component {
     this.moveMap()
   }
   async queryNewGuide() {
-    let queryNewGuideInfo = await API.queryNewGuide()
-
+    // await store.queryNewGuide()
+    // console.log(store?.newGuideStep?.alreadyGuideSteps )
 
     if (store?.newGuideStep?.alreadyGuideSteps == 2) {
-      // document.body.style.overflow = "hidden";
-      let clientHeight = document.documentElement.clientHeight || document.body.clientHeight
-      let toHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight) - clientHeight
-      let scrTop = document.documentElement || document.body;
+      window.scrollTo(0,15430 * window.remScale);
+      setTimeout(() => {
+        this.setState({
+          showMist: true
+        })
+      },500)
+      // let clientHeight = document.documentElement.clientHeight || document.body.clientHeight
+      // let toHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight) - clientHeight
+      // let scrTop = document.documentElement || document.body;
 
-      scrTop.scrollTop = toHeight
-      document.body.scrollTop = toHeight
-      document.documentElement.scrollTop = toHeight
+      // scrTop.scrollTop = toHeight
+      // document.body.scrollTop = toHeight
+      // document.documentElement.scrollTop = toHeight
 
-      await delay(1500)
-      this.setState({
-        queryNewGuideInfo: queryNewGuideInfo.data,
-        showMist: true
-      },()=>{
-        let doc = document.documentElement || document.body;
-        document.body.scrollTop = 0
-        document.documentElement.scrollTop = 0
-      })
+      // await delay(1500)
+      // this.setState({
+      //   queryNewGuideInfo: queryNewGuideInfo.data,
+      //   showMist: true
+      // },()=>{
+      //   let doc = document.documentElement || document.body;
+      //   document.body.scrollTop = 0
+      //   document.documentElement.scrollTop = 0
+      // })
     }
   }
   showMoveMap() {
@@ -105,10 +110,21 @@ class Mappage extends React.Component {
       window.scrollTo(0, remscale * 340 + ((14413 * remscale) / 108) * (len - 3));
     }
   }
+
+  onProcess = (currentFrame) => {
+    if(currentFrame==50) {
+      window.scrollTo(0,0);
+    }
+  }
+
+  svgaEnd = async() => {
+    await API.stepNewGuide()
+    await store.queryNewGuide();
+  }
   render() {
     const { homeInfo, newGuideStep } = store;
     const { showMask, showMist } = this.state
-    this.moveMap()
+    // this.moveMap()
     return (
       <div id="mapPageId">
         <div className="mappage">
@@ -159,8 +175,10 @@ class Mappage extends React.Component {
               <SvgaPlayer className="mist_svga" src={`${RES_PATH}svga/云过渡.svga`}
                 loop={1}
                 onEnd={() => {
-                  this.showMoveMap()
+                  // this.showMoveMap()
+                  this.svgaEnd()
                 }}
+                onProcess={this.onProcess}
               />
             }
           </div>

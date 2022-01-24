@@ -4032,7 +4032,7 @@ body {
 .mapBgbox_div .mist_svga {
   width: 16.24rem;
   height: 7.5rem;
-  right: 0;
+  left: 0;
   bottom: 0;
   position: absolute;
   z-index: 101;
@@ -4393,4 +4393,4 @@ body {
   user-select: none;
 }
 
-/*# sourceMappingURL=main.a05f362ce145a5adb516.css.map*/
+/*# sourceMappingURL=main.b03cb2c5a355e97dece5.css.map*/
