@@ -55,6 +55,10 @@ class Mappage extends React.Component {
       this.setState({
         queryNewGuideInfo: queryNewGuideInfo.data,
         showMist: true
+      },()=>{
+        let doc = document.documentElement || document.body;
+        document.body.scrollTop = 0
+        document.documentElement.scrollTop = 0
       })
     }
   }
@@ -66,9 +70,7 @@ class Mappage extends React.Component {
       showMask: true,
       showMist: false
     }, async () => {
-      let doc = document.documentElement || document.body;
-      document.body.scrollTop = 0
-      document.documentElement.scrollTop = 0
+     
 
       this.setState({
         showMask: false,
