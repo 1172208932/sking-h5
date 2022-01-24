@@ -16,6 +16,7 @@ class MapBox extends React.Component {
     super(props);
     this.state = {
       mapList: null,
+      a:null
     };
   }
   mapTimer1= null;
@@ -23,13 +24,25 @@ class MapBox extends React.Component {
 
 
   componentDidMount() {
-    this.setMapList();
+    // this.setMapList();
+  }
+  componentDidUpdate() {
+    // setTimeout(() => {
+    //   console.log(2222)
+    //   this.setMapList();
+
+    // })
+  }
+
+  watah = () => {
+   
   }
 
   /**
    * 如果homeInfo?.gameInfo最后一项的level有gift&&receive!=1,其后面那一项不能是蓝色的
    */
   setMapList = () => {
+    console.log(11123231211);
     const { homeInfo } = store;
     const gameLen = homeInfo?.gameInfo?.length ? homeInfo.gameInfo.length : 0;
     let list = new Array(109).fill({
@@ -93,9 +106,11 @@ class MapBox extends React.Component {
       }
       list2.push(JSON.parse(JSON.stringify(list[i])));
     }
-    this.setState({
-      mapList: list2,
-    });
+
+    return list2;
+    // this.setState({
+    //   mapList: list2,
+    // });
   };
 
   clickStart = _throttle((item, index) => {
@@ -130,37 +145,22 @@ class MapBox extends React.Component {
   };
 
   // 动效，因为ios不支持active
-  toushStart = (i) => {
+  /**
+   * 
+   * @param {TouchEvent} e 
+   * @returns 
+   */
+  toushStart = (e) => {
+    console.log(e.currentTarget);
     if(!window.isIos) return false;
-    const {mapList} = this.state;
-    let list = []
-    mapList.map((item,index)=> {
-      if(index==i) {
-        item.classAct='active';
-      }
-      list.push(JSON.parse(JSON.stringify(item)))
-    })
-    this.setState({
-      mapList: list
-    })
+    e.currentTarget.classList.add("active");
   }
 
   // 动效，因为ios不支持active
-  touchEnd = (i) => {
+  touchEnd = (e) => {
     if(!window.isIos) return false;
-    const {mapList} = this.state;
-    let list = []
-    mapList.map((item,index)=> {
-      if(index==i) {
-        item.classAct=''
-      }
-      list.push(JSON.parse(JSON.stringify(item)))
-    })
-    this.mapTimer1 = setTimeout(() => {
-      this.setState({
-        mapList: list
-      })
-    },600)
+    e.persist();
+    e.currentTarget.classList.remove("active");
   }
 
   componentWillUnmount() {
@@ -170,8 +170,10 @@ class MapBox extends React.Component {
 
   render() {
     const { homeInfo } = store;
-    const { mapList } = this.state;
+    // const { mapList } = this.state;
     const gameLen = homeInfo?.gameInfo?.length ? homeInfo.gameInfo.length : 0;
+
+    const mapList = this.setMapList();
     return (
       <div className="mapBox">
         {Boolean(mapList?.length) &&
@@ -233,8 +235,8 @@ class MapBox extends React.Component {
                 )}
                 {/* 按钮 */}
                 <div
-                  onTouchStart={()=>this.toushStart(index,item.class)}
-                  onTouchEnd={() => this.touchEnd(index)}
+                  onTouchStart={(e)=>this.toushStart(e, index,item.class)}
+                  onTouchEnd={(e) => this.touchEnd(e, index)}
                   className={`levelBox ${item.class} ${item.classAct}`}
                   onClick={() => this.clickStart(item, index)}
                 >
