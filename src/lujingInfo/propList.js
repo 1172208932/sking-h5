@@ -2805,7 +2805,7 @@ export const proplevel24 = [
     { x: 24962.9408561145, y: -5103.234493339789, type: "snow" },
     { x: 24873.89098377995, y: -5104.283898227381, type: "snow" },
     { x: 24791.86091224943, y: -5137.200030134713, type: "snow" },
-    
+
     { x: 16915.5162518021, y: -3952.806318002131, type: "snow" },
     { x: 16863.5162518021, y: -3934.261173833434, type: "snow" },
     { x: 16811.5162518021, y: -3914.959138640381, type: "snow" },
@@ -2871,7 +2871,7 @@ export const proplevel24 = [
 ]
 
 export const proplevel25 = [
-    
+
     { x: 29079.88779957543, y: -6655.312990718042, type: "snow" },
     { x: 29131.88779957543, y: -6655.312990718042, type: "snow" },
     { x: 29392.1629765623, y: -6655.312990718042, type: "snow" },
@@ -3422,7 +3422,7 @@ export const proplevel28 = [
     { x: 80518.14001528584, y: -17170.76246181985, type: "snow" },
     { x: 80570.06289067303, y: -17171.05973886334, type: "snow" },
     { x: 80622.06289067303, y: -17170.84290426869, type: "snow" },
-    
+
     { x: 83847.90641638017, y: -17913.54411617691, type: "snow" },
     { x: 83899.78151775419, y: -17913.54411617691, type: "snow" },
     { x: 84013.82684322147, y: -17913.54411617691, type: "snow" },
@@ -7106,10 +7106,15 @@ export const proplevel51 = [
     { x: 35995.76083154097, y: -7354.236426208965, type: "house" },
     { x: 30359.0959142881, y: -6305.826296711234, type: "house" },
     { x: 4475.219067112496, y: -515.5197612186585, type: "house" },
-    { x: 8135, y: 0, type: "floor" },
-    { x: 11323, y: 0, type: "floor" },
-    { x: 14938, y: 0, type: "floor" },
-    { x: 17604, y: 0, type: "floor" },
+    { x: 10300, y: 0, type: "floor" },
+    { x: 19100, y: 0, type: "floor" },
+    { x: 40300, y: 0, type: "floor" },
+    { x: 60500, y: 0, type: "floor" },
+    { x: 68100, y: 0, type: "floor" },
+    { x: 72600, y: 0, type: "floor" },
+    { x: 76800, y: 0, type: "floor" },
+    { x: 26500, y: 0, type: "floor" }
+
 ]
 export const proplevel52 = [
     { x: 79284.4744688941, y: -16591.91013971661, type: "snow" },
@@ -7264,10 +7269,16 @@ export const proplevel52 = [
     { x: 54220.012836448, y: -11621.11565912306, type: "house" },
     { x: 42396.69292689057, y: -8910.753276644755, type: "house" },
     { x: 16976.83009112951, y: -3564.856949597219, type: "house" },
-    { x: 8135, y: 0, type: "floor" },
-    { x: 11323, y: 0, type: "floor" },
-    { x: 14938, y: 0, type: "floor" },
-    { x: 17604, y: 0, type: "floor" },
+    { x: 2000, y: 0, type: "floor" },
+    { x: 10000, y: 0, type: "floor" },
+    { x: 22300, y: 0, type: "floor" },
+    { x: 45500, y: 0, type: "floor" },
+    { x: 50000, y: 0, type: "floor" },
+    { x: 58100, y: 0, type: "floor" },
+    { x: 71900, y: 0, type: "floor" },
+    { x: 83400, y: 0, type: "floor" }
+
+
 ]
 export const proplevel53 = [
     { x: 84160.31295926242, y: -18532.01080132338, type: "snow" },
@@ -7422,10 +7433,14 @@ export const proplevel53 = [
     { x: 64370.63161297091, y: -14266.73108382119, type: "house" },
     { x: 31077.82225485596, y: -6429.7001961802, type: "house" },
     { x: 15813.75557501111, y: -3131.585741274054, type: "house" },
-    { x: 8135, y: 0, type: "floor" },
-    { x: 11323, y: 0, type: "floor" },
-    { x: 14938, y: 0, type: "floor" },
-    { x: 17604, y: 0, type: "floor" },
+    { x: 4700, y: 0, type: "floor" },
+    { x: 9100, y: 0, type: "floor" },
+    { x: 19200, y: 0, type: "floor" },
+    { x: 34700, y: 0, type: "floor" },
+    { x: 51400, y: 0, type: "floor" },
+    { x: 55400, y: 0, type: "floor" },
+    { x: 72200, y: 0, type: "floor" },
+    { x: 75400, y: 0, type: "floor" }
 ]
 export const proplevel54 = [
     { x: 6351.100251109718, y: -1203.609706753227, type: "snow" },
@@ -7580,10 +7595,14 @@ export const proplevel54 = [
     { x: 34711.50552418518, y: -7174.656709262495, type: "house" },
     { x: 54122.81207494318, y: -11594.72514834125, type: "house" },
     { x: 69151.90206044825, y: -14548.13936051136, type: "house" },
-    { x: 8135, y: 0, type: "floor" },
-    { x: 11323, y: 0, type: "floor" },
-    { x: 14938, y: 0, type: "floor" },
-    { x: 17604, y: 0, type: "floor" },
+    { x: 6100, y: 0, type: "floor" },
+    { x: 19000, y: 0, type: "floor" },
+    { x: 28000, y: 0, type: "floor" },
+    { x: 39300, y: 0, type: "floor" },
+    { x: 48800, y: 0, type: "floor" },
+    { x: 58000, y: 0, type: "floor" },
+    { x: 62000, y: 0, type: "floor" },
+    { x: 79600, y: 0, type: "floor" }
 
 ]
 export const proplevel55 = [
@@ -7739,10 +7758,14 @@ export const proplevel55 = [
     { x: 49966.00157897679, y: -11190.48380714098, type: "house" },
     { x: 53775.32203277171, y: -11917.28072624542, type: "house" },
     { x: 80955.52998701335, y: -17277.97462677128, type: "house" },
-    { x: 8135, y: 0, type: "floor" },
-    { x: 11323, y: 0, type: "floor" },
-    { x: 14938, y: 0, type: "floor" },
-    { x: 17604, y: 0, type: "floor" },
+    { x: 5900, y: 0, type: "floor" },
+    { x: 10000, y: 0, type: "floor" },
+    { x: 18900, y: 0, type: "floor" },
+    { x: 28500, y: 0, type: "floor" },
+    { x: 34900, y: 0, type: "floor" },
+    { x: 42100, y: 0, type: "floor" },
+    { x: 57300, y: 0, type: "floor" },
+    { x: 84000, y: 0, type: "floor" },
 ]
 export const proplevel56 = [
     { x: 61350.68085014039, y: -12989.02287562609, type: "snow" },
@@ -7899,10 +7922,14 @@ export const proplevel56 = [
     { x: 43755.11076838895, y: -9058.974275371878, type: "house" },
     { x: 40784.12770202589, y: -8435.918442605136, type: "house" },
     { x: 25332.30738662476, y: -5394.496452307893, type: "house" },
-    { x: 8135, y: 0, type: "floor" },
-    { x: 11323, y: 0, type: "floor" },
-    { x: 14938, y: 0, type: "floor" },
-    { x: 17604, y: 0, type: "floor" },
+    { x: 74600, y: 0, type: "floor" },
+    { x: 58100, y: 0, type: "floor" },
+    { x: 48000, y: 0, type: "floor" },
+    { x: 34800, y: 0, type: "floor" },
+    { x: 28800, y: 0, type: "floor" },
+    { x: 20900, y: 0, type: "floor" },
+    { x: 16900, y: 0, type: "floor" },
+    { x: 64200, y: 0, type: "floor" },
 ]
 export const proplevel57 = [
     { x: 49118.76496249012, y: -11016.60808087027, type: "snow" },
@@ -8062,10 +8089,14 @@ export const proplevel57 = [
     { x: 58754.18668434517, y: -12912.53884843309, type: "house" },
     { x: 33126.7401204227, y: -6991.458515771094, type: "house" },
     { x: 12114.47494508114, y: -2049.944369305649, type: "house" },
-    { x: 8135, y: 0, type: "floor" },
-    { x: 11323, y: 0, type: "floor" },
-    { x: 14938, y: 0, type: "floor" },
-    { x: 17604, y: 0, type: "floor" },
+    { x: 9500, y: 0, type: "floor" },
+    { x: 28800, y: 0, type: "floor" },
+    { x: 38000, y: 0, type: "floor" },
+    { x: 49000, y: 0, type: "floor" },
+    { x: 54600, y: 0, type: "floor" },
+    { x: 65000, y: 0, type: "floor" },
+    { x: 78000, y: 0, type: "floor" },
+    { x: 68400, y: 0, type: "floor" },
 
 ]
 export const proplevel58 = [
@@ -8223,10 +8254,14 @@ export const proplevel58 = [
     { x: 62259.6314204657, y: -13188.40237752229, type: "house" },
     { x: 54451.74882007143, y: -12152.89329590101, type: "house" },
     { x: 2896.712764423291, y: -515.9032251276255, type: "house" },
-    { x: 8135, y: 0, type: "floor" },
-    { x: 11323, y: 0, type: "floor" },
-    { x: 14938, y: 0, type: "floor" },
-    { x: 17604, y: 0, type: "floor" },
+    { x: 9200, y: 0, type: "floor" },
+    { x: 19000, y: 0, type: "floor" },
+    { x: 28900, y: 0, type: "floor" },
+    { x: 39000, y: 0, type: "floor" },
+    { x: 45200, y: 0, type: "floor" },
+    { x: 58400, y: 0, type: "floor" },
+    { x: 68000, y: 0, type: "floor" },
+    { x: 77600, y: 0, type: "floor" },
 ]
 export const proplevel59 = [
     { x: 32773.88613838241, y: -6980.719468325138, type: "snow" },
@@ -8383,10 +8418,14 @@ export const proplevel59 = [
     { x: 78592.59141097033, y: -16472.53409294811, type: "house" },
     { x: 84510.52712396359, y: -17740.17790908641, type: "house" },
     { x: 13249.80921893957, y: -2262.668798371443, type: "house" },
-    { x: 8135, y: 0, type: "floor" },
-    { x: 11323, y: 0, type: "floor" },
-    { x: 14938, y: 0, type: "floor" },
-    { x: 17604, y: 0, type: "floor" },
+    { x: 5500, y: 0, type: "floor" },
+    { x: 9500, y: 0, type: "floor" },
+    { x: 19000, y: 0, type: "floor" },
+    { x: 67500, y: 0, type: "floor" },
+    { x: 57300, y: 0, type: "floor" },
+    { x: 52100, y: 0, type: "floor" },
+    { x: 38700, y: 0, type: "floor" },
+    { x: 28800, y: 0, type: "floor" },
 ]
 export const proplevel60 = [
     { x: 72450.10064980907, y: -15942.4774486435, type: "snow" },
@@ -8548,9 +8587,13 @@ export const proplevel60 = [
     { x: 26580.71333438341, y: -6169.589756795438, type: "house" },
     { x: 22629.60407131517, y: -5055.535012356411, type: "house" },
     { x: 13931.53321007522, y: -2988.103420677007, type: "house" },
-    { x: 8135, y: 0, type: "floor" },
-    { x: 11323, y: 0, type: "floor" },
-    { x: 14938, y: 0, type: "floor" },
-    { x: 17604, y: 0, type: "floor" },
+    { x: 3400, y: 0, type: "floor" },
+    { x: 19000, y: 0, type: "floor" },
+    { x: 29500, y: 0, type: "floor" },
+    { x: 48700, y: 0, type: "floor" },
+    { x: 55000, y: 0, type: "floor" },
+    { x: 64400, y: 0, type: "floor" },
+    { x: 83900, y: 0, type: "floor" },
+    { x: 79100, y: 0, type: "floor" },
 ]
 
