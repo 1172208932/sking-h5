@@ -82,6 +82,18 @@ const gameStore = makeAutoObservable(mix({
         this.bgCon.addChildAt(propGuideNice21,1)
     },
 
+    addPropGuide41(){
+        const propGuide41 = FYGE.Sprite.fromUrl("//yun.duiba.com.cn/aurora/assets/5cd95e8f0c35efefc6e051df324867089b0e456f.png")
+        propGuide41.x =  9500 // 29212 6655
+        propGuide41.y =  2324
+        this.bgCon.addChildAt(propGuide41,1)
+
+        const propGuideNice41 = FYGE.Sprite.fromUrl("//yun.duiba.com.cn/aurora/assets/940f611ebd4024cdb1698f8919873660293adb0f.png")
+        propGuideNice41.x =  11020
+        propGuideNice41.y =  2290
+        this.bgCon.addChildAt(propGuideNice41,1)
+    },
+
 
     subdivision: 0,
     gameEnd: false,
@@ -266,6 +278,9 @@ const gameStore = makeAutoObservable(mix({
         }
         if(store.currentGameLevel == 21){
             this.addPropGuide21()
+        }
+        if(store.currentGameLevel == 41){
+            this.addPropGuide41()
         }
         this.addFlag()
         // this.addRole()
