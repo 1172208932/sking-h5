@@ -27,7 +27,7 @@ class GoodsDetail extends React.Component {
           <div className="imgbox">
             <img src={popData?.img} alt="" />
           </div>
-          <div className="goodtext" dangerouslySetInnerHTML={{ __html: JSON.stringify(popData?.goodDesc)}}></div>
+          <div className="goodtext" dangerouslySetInnerHTML={{ __html: popData?.goodDesc}}></div>
         </div>
         <div className="close" onClick={() => modalStore.closePop("GoodsDetail")}></div>
       </div>

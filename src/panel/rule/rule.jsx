@@ -39,13 +39,14 @@ class Rule extends React.Component {
 
   
         <div className="ruleInfo">
-          {
+          <img src="//yun.duiba.com.cn/aurora/assets/93a6932cf910aca83fc5d3551e8bc3b6ad17e1fc.png" alt="" className="ruleImg"/>
+          {/* {
             [1,2,3,4,5,6].map(item => {
               return (
                 <img key={item} src={`${RES_PATH}rule/${item}.jpg`} alt="" className={`ruleImg img${item}`} />
               )
             })
-          }
+          } */}
             </div>
           {/* <p>一、活动时间:</p>
           <p>北京时间2022年1月2５日0点-2月23日0点</p>

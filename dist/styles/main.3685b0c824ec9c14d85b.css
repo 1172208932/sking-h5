@@ -523,13 +523,18 @@ body {
 
 .rule .ruleInfo {
   width: 7.5rem;
-  height: 6.49rem;
+  height: 6rem;
   left: 0.97rem;
   top: 0.94rem;
   font-size: 0;
   color: #2f77b3;
   position: absolute;
   overflow-x: auto;
+}
+
+.rule .ruleImg {
+  width: 7.5rem;
+  height: 96.32rem;
 }
 
 .rule .snowAndIceAtmosphere4 {
@@ -4716,4 +4721,4 @@ body {
   user-select: none;
 }
 
-/*# sourceMappingURL=main.eb68126747bf11085027.css.map*/
+/*# sourceMappingURL=main.3685b0c824ec9c14d85b.css.map*/
