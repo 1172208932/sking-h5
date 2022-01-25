@@ -24,7 +24,7 @@ const listExchangeLimit = {
               optionStock: 10,
               optionImg:
                 "http://yun.duiba.com.cn/polaris/丝倍亮小型犬幼年年期全价犬粮7.5kg.c27e9ef4b4d418e8a90faa76798e20cb4f18a490.jpg",
-              prizeId: "123",
+              prizeId: "1",
               prizeType: 1,
               userLimitCount: 19999,
             },
@@ -50,7 +50,7 @@ const listExchangeLimit = {
               optionStock: 1,
               optionImg:
                 "http://yun.duiba.com.cn/polaris/丝倍亮小型犬幼年年期全价犬粮7.5kg.c27e9ef4b4d418e8a90faa76798e20cb4f18a490.jpg",
-              prizeId: "123",
+              prizeId: "2",
               prizeType: 1,
               userLimitCount: 1,
             },
@@ -75,7 +75,7 @@ const listExchangeLimit = {
               optionStock: 1,
               optionImg:
                 "http://yun.duiba.com.cn/polaris/丝倍亮小型犬幼年年期全价犬粮7.5kg.c27e9ef4b4d418e8a90faa76798e20cb4f18a490.jpg",
-              prizeId: "123",
+              prizeId: "3",
               prizeType: 1,
               userLimitCount: 1,
             },
@@ -128,7 +128,7 @@ const listExchangeLimit = {
               optionStock: 198198319831983198319831983198319833,
               optionImg:
                 "http://yun.duiba.com.cn/polaris/丝倍亮小型犬幼年年期全价犬粮7.5kg.c27e9ef4b4d418e8a90faa76798e20cb4f18a490.jpg",
-              prizeId: "123",
+              prizeId: "1",
               prizeType: 1,
               userLimitCount: 1,
             },
@@ -136,6 +136,16 @@ const listExchangeLimit = {
         },
       ],
     },
+    prizeDescList: [{
+      prizeId: 1,
+      desc: "1这就是倒计时的度假酒店身高多少法国红酒地方给大家个梵蒂冈结果还是鬼地方个好时机快递费感觉设计的鼓风机恢复删繁就简坚果都是刚发的"
+    },{
+      prizeId: 2,
+      desc: "2这就是倒计时的度假酒店身高多少法国红酒地方给大家个梵蒂冈结果还是鬼地方个好时机快递费感觉设计的鼓风机恢复删繁就简坚果都是刚发的"
+    },{
+      prizeId: 3,
+      desc: "3这就是倒计时的度假酒店身高多少法国红酒地方给大家个梵蒂冈结果还是鬼地方个好时机快递费感觉设计的鼓风机恢复删繁就简坚果都是刚发的"
+    },]
   },
 };
 

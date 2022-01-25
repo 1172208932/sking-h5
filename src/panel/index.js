@@ -24,6 +24,7 @@ import ActivityFail from "./acivityFail/acivityFail";
 import ToAssist from "./toAssist/toAssist";
 import AssistSuccess from "./assistSuccess/assistSuccess";
 import AssistFail from "./assistFail/assistFail";
+import GoodsDetail from "./goodsDetail/goodsDetail";
 export {
   ExchangeShop,
   ExchangeConfirm,
@@ -50,5 +51,6 @@ export {
   ActivityFail,
   ToAssist,
   AssistSuccess,
-  AssistFail
+  AssistFail,
+  GoodsDetail
 };

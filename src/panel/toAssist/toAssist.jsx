@@ -21,6 +21,7 @@ class ToAssist extends React.Component {
 
   componentDidMount() {
     this.getUserInfo()
+    sessionStorage.setItem("inviteCode", CFG.inviteCode)
   }
   getUserInfo = async() => {
     const {success,data} = await API.shareInfo({
@@ -37,7 +38,6 @@ class ToAssist extends React.Component {
     const { success,message,code } = await API.doAssist({
       inviteCode: CFG.inviteCode
     })
-    sessionStorage.setItem("inviteCode", CFG.inviteCode)
     if (success) {
       // Toast("助力成功")
       modalStore.pushPop("AssistSuccess")
