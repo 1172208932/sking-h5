@@ -58,7 +58,6 @@ class Poster extends React.Component {
       posterImg: image.src
     })
     hideLoading()
-    console.info(image)
   };
 
   loadImg = (src) => {
@@ -85,6 +84,11 @@ class Poster extends React.Component {
       hideLoading()
     }
   };
+
+  clickShare = () => {
+    modalStore.pushPop("Share")
+    modalStore.closePop("Poster")
+  }
 
   render() {
     const { posterImg, codeImg, showShare } = this.state;
@@ -116,9 +120,8 @@ class Poster extends React.Component {
             onClick={() => modalStore.closePop("Poster")}
           ></div>
           <p className="longpress-text">长按保存邀请海报</p>
-          <div className="shareBtn-poster" onClick={() => this.setState({showShare: true})}></div>
+          <div className="shareBtn-poster" onClick={this.clickShare}></div>
         </div>
-        {showShare && <div className="toShare-text"></div>}
       </div>
     );
   }

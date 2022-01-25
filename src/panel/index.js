@@ -25,6 +25,7 @@ import ToAssist from "./toAssist/toAssist";
 import AssistSuccess from "./assistSuccess/assistSuccess";
 import AssistFail from "./assistFail/assistFail";
 import GoodsDetail from "./goodsDetail/goodsDetail";
+import Share from "./share/share"
 export {
   ExchangeShop,
   ExchangeConfirm,
@@ -52,5 +53,6 @@ export {
   ToAssist,
   AssistSuccess,
   AssistFail,
-  GoodsDetail
+  GoodsDetail,
+  Share
 };

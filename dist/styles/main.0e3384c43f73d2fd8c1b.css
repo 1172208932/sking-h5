@@ -3329,6 +3329,21 @@ body {
   position: absolute;
   background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643126556822/common/close.png") no-repeat top left / 100% 100%;
 }
+.shareIconPage {
+  width: 100%;
+  height: 100%;
+}
+
+.shareIconPage .shareIcon {
+  position: absolute;
+  top: 12%;
+  left: 30%;
+  width: 5rem;
+  height: 2.4rem;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1643126556822/common/右上角.png") no-repeat top left / 100% 100%;
+}
 .modal-hoc-bg {
   position: fixed;
   top: 0;
@@ -4721,4 +4736,4 @@ body {
   user-select: none;
 }
 
-/*# sourceMappingURL=main.c147a23c87de1071e78e.css.map*/
+/*# sourceMappingURL=main.0e3384c43f73d2fd8c1b.css.map*/
