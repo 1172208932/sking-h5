@@ -7,7 +7,6 @@ import store from "../../store/index";
 import modalStore from "@src/store/modal";
 import API from "../../api";
 import { _throttle } from "@src/utils/utils";
-import { htmlShot } from "@spark/utils";
 import "./poster.less";
 import { USER_AVATAR } from "@src/utils/constants";
 import { hideLoading, showLoading } from "@spark/ui";
@@ -18,6 +17,7 @@ class Poster extends React.Component {
     this.state = {
       posterImg: "",
       codeImg: "",
+      showShare: false
     };
     this.timeOutEvent = null;
   }
@@ -86,42 +86,39 @@ class Poster extends React.Component {
     }
   };
 
-  // convertCanvasToImage(canvas) {
-  //   var image = new Image();
-  //   image.src = canvas.toDataURL("image/png");
-  //   return image;
-  // }
-
   render() {
-    const { posterImg, codeImg } = this.state;
-    const { homeInfo } = store;
+    const { posterImg, codeImg, showShare } = this.state;
     return (
-      <div className="posterpage">
-        {/* <div className="poster" ref={(el) => (this.poster = el)}>
-          <div className="userInfo-poster">
-            <img
-              src={homeInfo?.avatar || USER_AVATAR}
-              alt=""
-              className="avatar"
-            />
-            <p className="haveperson">
-              我正在和{homeInfo?.pvNum || 0}人一起冰雪跑酷
-            </p>
-          </div>
-          <img src={codeImg} alt="" className="codeBox"/>
-        </div> */}
-        <canvas
-          className="posterpage-img"
-          ref={(el) => (this.canvasRef = el)}
-        ></canvas>
-        {/* 二维码图片 */}
-        <img src={codeImg} className="codeImg"/>
-        <img src={posterImg} alt="" className="posterImg" />
-        <div
-          className="back-poster"
-          onClick={() => modalStore.closePop("Poster")}
-        ></div>
-        <p className="longpress-text">长按保存邀请海报</p>
+      <div className="posetrPagebox">
+        <div className="posterpage">
+          {/* <div className="poster" ref={(el) => (this.poster = el)}>
+            <div className="userInfo-poster">
+              <img
+                src={homeInfo?.avatar || USER_AVATAR}
+                alt=""
+                className="avatar"
+              />
+              <p className="haveperson">
+                我正在和{homeInfo?.pvNum || 0}人一起冰雪跑酷
+              </p>
+            </div>
+            <img src={codeImg} alt="" className="codeBox"/>
+          </div> */}
+          <canvas
+            className="posterpage-img"
+            ref={(el) => (this.canvasRef = el)}
+          ></canvas>
+          {/* 二维码图片 */}
+          <img src={codeImg} className="codeImg"/>
+          <img src={posterImg} alt="" className="posterImg" />
+          <div
+            className="back-poster"
+            onClick={() => modalStore.closePop("Poster")}
+          ></div>
+          <p className="longpress-text">长按保存邀请海报</p>
+          <div className="shareBtn-poster" onClick={() => this.setState({showShare: true})}></div>
+        </div>
+        {showShare && <div className="toShare-text"></div>}
       </div>
     );
   }

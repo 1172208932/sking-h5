@@ -91,6 +91,7 @@ const apiCfg = {
     method: "post",
   },
   getCode: `scoring/genQrCode.do`, // 获取分享海报二维码
+  shareInfo: `scoring/shareInfo.do`, // 获取昵称头像
 }
 
 export default apiCfg;

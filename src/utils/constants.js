@@ -18,6 +18,7 @@ export const MODAL_INDEX = {
 };
 export function ERROR_MESSSAGE(errorCode) {
   let message = "";
+  console.log("errorCode",errorCode)
   switch (errorCode) {
     // case 999101:
     //   message = "登录已过期";
@@ -30,6 +31,9 @@ export function ERROR_MESSSAGE(errorCode) {
       break;
     case 500022:
       message = "已经领取过了";
+      break;
+    case 200305:
+      message = "您已经为好友助力过啦！";
       break;
     default:
       message = "";

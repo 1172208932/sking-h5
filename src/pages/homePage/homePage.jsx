@@ -26,13 +26,15 @@ class HomePage extends React.Component {
   }
   async componentDidMount() {
     // 用户助力,要比首页接口先调用！！！
-    await this.toAssist();
+    if (CFG.inviteCode&&!sessionStorage.getItem("inviteCode")) {
+      modalStore.pushPop("ToAssist")
+    } else {
+      store.getHomeInfo();
+    }
     shareWXmini()
     loadLocalAssets();
-    await store.getHomeInfo();
     // 新手引导
     await store.queryNewGuide();
-    this.indexDataChange();
     store.getCarousel();
     // modalStore.pushPop("GameSuccess",{
     //   ...{sendGold:10,answerFlag:0,reGold:11,star:3},
@@ -40,33 +42,9 @@ class HomePage extends React.Component {
   }
 
 
-  // 首页接口数据处理
-  indexDataChange = () => {
-    // 有人助力成功弹窗
-    if (store.homeInfo?.assistInfo?.assistNum > 0) {
-      modalStore.pushPop("InviteSuccess")
-    }
-    // 助力上限
-    if (store?.homeInfo?.assistInfo?.limitNum > 0) {
-      modalStore.pushPop("InviteLimit")
-    }
-    // 新手引导1: 送金币
-    if(store?.newGuideStep?.alreadyGuideSteps == 0) {
-      modalStore.pushPop("SendCoin",{judgeEndTime: this.judgeEndTime})
-    }
-  }
-
   toAssist = async () => {
     if (CFG.inviteCode&&!sessionStorage.getItem("inviteCode")) {
-      const { success } = await API.doAssist({
-        inviteCode: CFG.inviteCode
-      })
-      sessionStorage.setItem("inviteCode", CFG.inviteCode)
-      if (success) {
-        Toast("助力成功")
-      } else {
-        Toast("助力失败")
-      }
+      modalStore.pushPop("ToAssist")
     }
   }
 

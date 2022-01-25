@@ -1,5 +1,20 @@
 @import "../../res.less";
-
+.posetrPagebox {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .toShare-text {
+    position: absolute;
+    width: 293px;
+    height: 138px;
+    top: 12%;
+    right: 0;
+    transform: rotate(90deg);
+    .sparkBg("common/右上角.png");
+  }
+}
 .posterpage {
   width: 956px;
   height: 607px;
@@ -9,6 +24,7 @@
     width: 956px;
     height: 607px;
     position: absolute;
+    transform: scale(0.9);
     // transform: rotate(-90deg);
     // opacity: 0;
   }
@@ -81,7 +97,7 @@
   .back-poster {
     width: 50px;
     height: 50px;
-    left: 980px;
+    left: 930px;
     top: 0px;
     position: absolute;
     // 禁止默认事件
@@ -95,8 +111,9 @@
   }
   .longpress-text {
     position: absolute;
-    top: 624px;
-    left: 382px;
+    top: -24px;
+    width: 100%;
+    text-align: center;
     color: #fff;
     font-size: 24px;
   }
@@ -104,6 +121,15 @@
     width: 956px;
     height: 607px;
     position: absolute;
+
+  }
+  .shareBtn-poster {
+    width: 399px;
+    height: 93px;
+    position: absolute;
+    bottom:-50px;
+    left: 300px;
+    .sparkBg("common/分享得金币.png");
 
   }
 }
