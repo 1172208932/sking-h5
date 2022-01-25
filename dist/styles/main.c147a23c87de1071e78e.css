@@ -484,7 +484,7 @@ body {
   transform: rotate(90deg);
   overflow: hidden !important;
   height: 100vw;
-  margin-top: 2rem;
+  margin-top: 0.4rem;
 }
 
 .rule .rule-title {
@@ -4721,4 +4721,4 @@ body {
   user-select: none;
 }
 
-/*# sourceMappingURL=main.3685b0c824ec9c14d85b.css.map*/
+/*# sourceMappingURL=main.c147a23c87de1071e78e.css.map*/
