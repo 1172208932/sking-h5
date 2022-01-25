@@ -23,7 +23,9 @@ class ToAssist extends React.Component {
     this.getUserInfo()
   }
   getUserInfo = async() => {
-    const {success,data} = await API.shareInfo()
+    const {success,data} = await API.shareInfo({
+      inviteCode: CFG.inviteCode
+    })
     if(success) {
       this.setState({
         shareInfo: data
