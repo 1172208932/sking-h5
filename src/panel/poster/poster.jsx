@@ -41,7 +41,7 @@ class Poster extends React.Component {
     ]);
     ctx.drawImage(imgs[0], 0, 0, width, height);
 
-    ctx.drawImage(imgs[2], 727, 420, 146, 146);
+    ctx.drawImage(imgs[2], 722, 420, 146, 146);
 
     ctx.font = "26px Arial";
     ctx.fillStyle = "#0d7bd8";

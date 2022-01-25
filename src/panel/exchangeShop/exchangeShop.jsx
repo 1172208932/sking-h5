@@ -42,10 +42,10 @@ class ExchangeShop extends React.Component {
     if (success && data) {
       let now,tomorrow;
       if(data?.todayResult?.conditions?.length) {
-        now = this.setDataList(data.todayResult.conditions,JSON.parse(data.prizeDescList))
+        now = this.setDataList(data.todayResult.conditions,data.prizeDescList)
       }
       if(data?.tomorrowResult?.conditions?.length) {
-        tomorrow = this.setDataList(data.tomorrowResult.conditions,JSON.parse(data.prizeDescList))
+        tomorrow = this.setDataList(data.tomorrowResult.conditions,data.prizeDescList)
       }
       this.setState({
         todayResult: now,

@@ -35,6 +35,9 @@ class Rule extends React.Component {
         {/* <div className="rule-title"></div> */}
         <p className="close" onClick={() => modalStore.closePop("Rule")}></p>
         {/* <article className="ruleInfo" dangerouslySetInnerHTML={{ __html: store.ruleInfo }}></article> */}
+        {/* <div className="ruleInfo-content"> */}
+
+  
         <div className="ruleInfo">
           {
             [1,2,3,4,5,6].map(item => {
@@ -43,7 +46,7 @@ class Rule extends React.Component {
               )
             })
           }
-          
+            </div>
           {/* <p>一、活动时间:</p>
           <p>北京时间2022年1月2５日0点-2月23日0点</p>
           <p>二、活动规则</p>
@@ -137,7 +140,7 @@ class Rule extends React.Component {
           <p>6.若发现异常参与活动行为(包括并不仅限于恶意刷 单邀请用户)，牛蒙蒙有权取消活动参与及中奖资格;</p>
           <p>7.牛蒙蒙小程序在线客服：【牛蒙蒙小程序】-【我的】-【我的服务】-【在线客服】( 工作日:9:00~18:00）</p> */}
         </div>
-      </div>
+      // </div>
     );
   }
 }
