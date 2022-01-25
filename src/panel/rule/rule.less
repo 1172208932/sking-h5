@@ -1,10 +1,20 @@
 @import "../../res.less";
 .rule {
-  width: 820px;
+  width: 1020px;
   height: 561px;
   position: absolute;
   transform: rotate(90deg);
   overflow:hidden !important;
+  height: 100vw;
+  margin-top: 200px;
+  .rule-title {
+    position: absolute;
+    left: 188px;
+    width: 455px;
+    height: 91px;
+    .sparkBg("rule/title.png");
+
+  }
   .rule-fenwei {
     position: absolute;
     left:0px;
@@ -15,18 +25,19 @@
   }
   .popoverBaseplate5 {
     width: 600px;
-    height: 543px;
+    height: 496px;
     left: 111px;
-    top: 20px;
+    top: 150px;
     position: absolute;
     .sparkBg("rule/弹窗底板5.png");
+    transform: scale(1.4);
   }
   .ruleInfo {
-    width: 480px;
-    height: 380px;
-    left: 158px;
-    top: 134px;
-    font-size: 24px;
+    width:750px;
+    height: 590px;
+    left: 22px;
+    top: 104px;
+    font-size: 0;
     color: #2f77b3;
     position: absolute;
     overflow-x: auto;
@@ -44,13 +55,39 @@
   .close {
     width: 50px;
     height: 50px;
-    left: 640px;
-    top: 0;
+    left: 820px;
+    top: 30px;
     position: absolute;
     .sparkBg("common/close.png")
   }
-  .img1,.img2,.img3,.img4,.img5,.img6,.img7,.img8,.img9,.img10 {
-    width: 180px;
-    height: 180px;
+  .ruleImg {
   }
+  .img1 {
+    width: 750px;
+    height: 1768px;
+  }
+  .img2 {
+    width: 750px;
+    height: 1058px;
+  }
+  .img3 {
+    width: 750px;
+    height: 1713px;
+  }
+  .img4 {
+    width: 750px;
+    height: 1232px;
+  }
+  .img5 {
+    width: 750px;
+    height: 2006px;
+  }
+  .img6 {
+    width: 750px;
+    height: 1854px;
+  }
+  // .img1,.img2,.img3,.img4,.img5,.img6,.img7,.img8,.img9,.img10 {
+  //   width: 180px;
+  //   height: 180px;
+  // }
 }
