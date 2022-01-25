@@ -243,6 +243,7 @@ export const RoleControl = {
                             this.role.smokeSvga.visible = false
                             let showtype = ""
                             if(this.additiveslist[i].type == "grass"){
+                                // console.log(this.additiveslist[i].rectcoin.x,this.additiveslist[i].rectcoin.y,'grass')
                                 showtype = "grassSvga"
                             }else if(this.additiveslist[i].type == "stone" || this.additiveslist[i].type == "bigstone"){
                                 // console.log(this.additiveslist[i].rectcoin.x,this.additiveslist[i].rectcoin.y,'stone')
@@ -251,6 +252,8 @@ export const RoleControl = {
                                 // console.log(this.additiveslist[i].rectcoin.x,this.additiveslist[i].rectcoin.y,'house')
                                 showtype = "houseSvga"
                             }else if(this.additiveslist[i].type == "floor"){
+                                // console.log(this.additiveslist[i].rectcoin.x,this.additiveslist[i].rectcoin.y,'floor')
+
                                 showtype = ""
                                 EventBus.fire('GAME_OVER',{score:this.score})
                                 return
