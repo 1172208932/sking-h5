@@ -466,7 +466,8 @@ const doAssist = {
   success: false,
   data: "1",
   message: "121271277",
-  code: 1,
+  code: 200305,
+  message: "好友助力过啦！"
 }
 
 const doSign = {
@@ -550,7 +551,7 @@ const queryNewGuide = {
   "data": {
     "skipNewGuide": false,
     "completeGuide": true,
-    "alreadyGuideSteps": 2,
+    "alreadyGuideSteps": 4,
     "allGuideSteps": 4,
     "extra": ""
   }
@@ -621,6 +622,14 @@ const getCode = {
   "success": true
 }
 
+const shareInfo = {
+  success:true,
+  data: {
+    avatar: "https://devnmmimage.myrtb.net/storage/qrcode/16427293746711.png",
+    nickName: "小小的小小的小小的小小的小小的小小的"
+  }
+}
+
 module.exports = {
   listExchangeLimit,
   doExchange,
@@ -644,5 +653,6 @@ module.exports = {
   startGame,
   gameSubmit,
   getInviteCode,
-  getCode
+  getCode,
+  shareInfo
 };
