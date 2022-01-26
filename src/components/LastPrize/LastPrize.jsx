@@ -40,6 +40,7 @@ class LastPrize extends React.Component {
           },
         });
       }
+      store.getHomeInfo();
     } else if(homeInfo?.rankReceiveFlag == 1){
       Toast("你的分数没有达到前百名，牛蒙蒙有更多惊喜等你解锁哦")
     }
