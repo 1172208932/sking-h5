@@ -70,7 +70,10 @@ const apiCfg = {
     method: "post",
   },
   inviteRecord: `assist_1/queryInviteRecords.do`, //查询我的邀请记录
-  rankingAward: `scoring/rankingAward.do`,
+  rankingAward: {
+    uri:`scoring/rankingAward.do`,
+    withToken: true,
+  },
   startGame: { // 开始游戏
     uri: `scoring/start.do`,
     withToken: true,
