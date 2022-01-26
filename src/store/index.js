@@ -34,7 +34,10 @@ const store = makeAutoObservable({
   },
   async getHomeInfo() {
     const { success, data } = await API.getIndex();
-    success && this.setHomeInfo(data);
+    if(success) {
+      this.setHomeInfo(data);
+      this.indexDataChange()
+    }
   },
   setCurrentGameLevel(level) {
     this.currentGameLevel = level;
@@ -97,5 +100,21 @@ const store = makeAutoObservable({
       this.carouselList = data.list
     }
   },
+
+  // 首页接口数据处理
+  indexDataChange() {
+    // 有人助力成功弹窗
+    if (this.homeInfo?.assistInfo?.assistNum > 0) {
+      modalStore.pushPop("InviteSuccess")
+    }
+    // 助力上限
+    if (this?.homeInfo?.assistInfo?.limitNum > 0) {
+      modalStore.pushPop("InviteLimit")
+    }
+    // 新手引导1: 送金币
+    if(this?.newGuideStep?.alreadyGuideSteps == 0) {
+      modalStore.pushPop("SendCoin")
+    }
+  }
 });
 export default store;

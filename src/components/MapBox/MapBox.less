@@ -91,11 +91,26 @@
       &.needwait {
         width: 110px;
         height: 99px;
-        .sparkBg("mapPage/敬请期待.png");
+        .sparkBg("mapPage/今日开放.png");
+
+        // .sparkBg("mapPage/敬请期待.png");
         &.active,&:active {
           animation: left-right 0.4s forwards;
         }
       }
+      &.todayBtn {
+        .sparkBg("mapPage/今日开放.png");
+      }
+      &.open1_28Btn {
+        .sparkBg("mapPage/1月28日开放.png");
+      }
+      &.open1_30Btn {
+        .sparkBg("mapPage/1月30日开放.png");
+      }
+      &.open2_8Btn {
+        .sparkBg("mapPage/2月8日开放.png");
+      }
+      
       &.lockBtn {
         width: 110px;
         height: 99px;

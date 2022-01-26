@@ -8,6 +8,7 @@ import modalStore from '@src/store/modal';
 import './sendCoin.less';
 import { _throttle } from '@src/utils/utils.js';
 import API from '../../api';
+import {Toast} from "@spark/ui"
 
 @observer
 class SendCoin extends React.Component {
@@ -16,9 +17,7 @@ class SendCoin extends React.Component {
   }
 
   clickBtn = _throttle(async() => {
-    const {popData} = this.props
-    const judgeEndTime = popData.judgeEndTime;
-    if(judgeEndTime()) {
+    if(this.judgeEndTime()) {
       // 递进新手引导
       const {success} = await API.stepNewGuide()
       await store.queryNewGuide();
@@ -27,6 +26,16 @@ class SendCoin extends React.Component {
       }
     }
   })
+
+
+  judgeEndTime = () => {
+    const { homeInfo } = store;
+    if (homeInfo?.activityEndTime <= homeInfo.currentTime) {
+      Toast("活动已结束");
+      return false;
+    }
+    return true;
+  }
 
   render() {
     return (

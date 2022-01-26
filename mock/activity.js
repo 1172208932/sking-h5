@@ -24,7 +24,7 @@ const listExchangeLimit = {
               optionStock: 10,
               optionImg:
                 "http://yun.duiba.com.cn/polaris/丝倍亮小型犬幼年年期全价犬粮7.5kg.c27e9ef4b4d418e8a90faa76798e20cb4f18a490.jpg",
-              prizeId: "123",
+              prizeId: "1",
               prizeType: 1,
               userLimitCount: 19999,
             },
@@ -50,7 +50,7 @@ const listExchangeLimit = {
               optionStock: 1,
               optionImg:
                 "http://yun.duiba.com.cn/polaris/丝倍亮小型犬幼年年期全价犬粮7.5kg.c27e9ef4b4d418e8a90faa76798e20cb4f18a490.jpg",
-              prizeId: "123",
+              prizeId: "2",
               prizeType: 1,
               userLimitCount: 1,
             },
@@ -75,7 +75,7 @@ const listExchangeLimit = {
               optionStock: 1,
               optionImg:
                 "http://yun.duiba.com.cn/polaris/丝倍亮小型犬幼年年期全价犬粮7.5kg.c27e9ef4b4d418e8a90faa76798e20cb4f18a490.jpg",
-              prizeId: "123",
+              prizeId: "3",
               prizeType: 1,
               userLimitCount: 1,
             },
@@ -128,7 +128,7 @@ const listExchangeLimit = {
               optionStock: 198198319831983198319831983198319833,
               optionImg:
                 "http://yun.duiba.com.cn/polaris/丝倍亮小型犬幼年年期全价犬粮7.5kg.c27e9ef4b4d418e8a90faa76798e20cb4f18a490.jpg",
-              prizeId: "123",
+              prizeId: "1",
               prizeType: 1,
               userLimitCount: 1,
             },
@@ -136,6 +136,12 @@ const listExchangeLimit = {
         },
       ],
     },
+    prizeDescList: [
+      {
+        prizeId:1,
+        desc:"东湖街道收到货款山<br/>东的海手东湖街道收到货款山东的海手动滑稽黑胡椒碎<br/>到货款山东的海手动东湖街道收到货款山东的海手动滑稽黑胡椒碎<br/>到货款山东的海手动动滑稽黑胡椒碎<br/>到货款山东的海手动"
+      }
+    ]
   },
 };
 
@@ -466,7 +472,8 @@ const doAssist = {
   success: false,
   data: "1",
   message: "121271277",
-  code: 1,
+  code: 200305,
+  message: "好友助力过啦！"
 }
 
 const doSign = {
@@ -621,6 +628,14 @@ const getCode = {
   "success": true
 }
 
+const shareInfo = {
+  success:true,
+  data: {
+    avatar: "https://devnmmimage.myrtb.net/storage/qrcode/16427293746711.png",
+    nickName: "小小的小小的小小的小小的小小的小小的"
+  }
+}
+
 module.exports = {
   listExchangeLimit,
   doExchange,
@@ -644,5 +659,6 @@ module.exports = {
   startGame,
   gameSubmit,
   getInviteCode,
-  getCode
+  getCode,
+  shareInfo
 };

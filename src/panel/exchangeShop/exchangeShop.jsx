@@ -40,12 +40,31 @@ class ExchangeShop extends React.Component {
   getList = async () => {
     const { success, data } = await API.listExchangeLimit();
     if (success && data) {
+      let now,tomorrow;
+      if(data?.todayResult?.conditions?.length) {
+        now = this.setDataList(data.todayResult.conditions,data.prizeDescList)
+      }
+      if(data?.tomorrowResult?.conditions?.length) {
+        tomorrow = this.setDataList(data.tomorrowResult.conditions,data.prizeDescList)
+      }
       this.setState({
-        todayResult: data?.todayResult?.conditions,
-        tomorrowResult: data?.tomorrowResult?.conditions,
+        todayResult: now,
+        tomorrowResult: tomorrow,
       });
     }
   };
+
+  // 烦死
+  setDataList = (list,prizeDescList) => {
+    for(let i=0;i <list.length;i++) {
+      for(let j=0;j<prizeDescList.length; j++) {
+        if(list[i].options[0].prizeId == prizeDescList[j].prizeId) {
+          list[i].goodDesc = prizeDescList[j].desc;
+        }
+      }
+    }
+    return list
+  }
 
   clickDateBtn = (flag) => {
     console.log(flag,this.state.isNow)
@@ -136,7 +155,8 @@ class ExchangeShop extends React.Component {
                         {item?.options?.[0]?.optionName}
                       </p>
                       <div className="bottom">
-                        <span className="number textover">
+                        <span className="number textover" onClick={() => modalStore.pushPop("GoodsDetail",{goodDesc: item.goodDesc, img: item?.options?.[0]?.optionImg},true)}>
+                          {`商品说明>`}
                           {/* 数量 {item?.options?.[0]?.optionStock} */}
                         </span>
                         {/* 按钮区域 */}

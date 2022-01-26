@@ -1,0 +1,50 @@
+@import "../../res.less";
+
+.toAssist {
+  width: 668px;
+  height: 610px;
+  .sparkBg("为他助力/bg.png");
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: rotate(90deg);
+  .btn {
+    position: absolute;
+    top: 440px;
+    width: 399px;
+    height: 93px;
+    .sparkBg("为他助力/按钮.png");
+  }
+  .userInfo {
+    position: absolute;
+    top: 80px;
+    width: 100%;
+    display: flex;
+    .avatar-assist {
+      width: 155px;
+      height: 155px;
+      border: 6px solid #43cdf3;
+      border-radius: 50%;
+      box-sizing: border-box;
+      position: absolute;
+      left: 250px;
+    }
+    .name {
+      width: 70%;
+      text-align: center;
+      position: absolute;
+      top: 160px;
+      left: 100px;
+      color: #1e4a79;
+      font-size: 24px;
+    }
+  }
+  .close {
+    width: 50px;
+    height: 50px;
+    left: 570px;
+    top: 100px;
+    position: absolute;
+    .sparkBg("common/close.png")
+  }
+}

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ExchangeShop, ExchangeConfirm, Rule, Myprize, Rank, InviteSuccess, TurnTable, DrawPrize, Answer, GameFail, Task, ToInvite, NoMoney, GameRemind, InviteLimit, RockPrize, GameSuccess, GameLeave,GameGuide, PayConfirm, Poster, SendCoin,ActivityFail } from "../panel/index.js";
+import { ExchangeShop, ExchangeConfirm, Rule, Myprize, Rank, InviteSuccess, TurnTable, DrawPrize, Answer, GameFail, Task, ToInvite, NoMoney, GameRemind, InviteLimit, RockPrize, GameSuccess, GameLeave,GameGuide, PayConfirm, Poster, SendCoin,ActivityFail,ToAssist, AssistSuccess, AssistFail, GoodsDetail, Share } from "../panel/index.js";
 import './modal.less';
 import { observer } from 'mobx-react';
 import modalStore from '../store/modal';
@@ -29,7 +29,12 @@ export const cfg = {
   PayConfirm,
   Poster,
   SendCoin,
-  ActivityFail
+  ActivityFail,
+  ToAssist,
+  AssistSuccess,
+  AssistFail,
+  GoodsDetail,
+  Share
 };
 
 @observer
@@ -105,8 +110,8 @@ class Modal extends Component {
         display: !!modalStore.popList.length ? 'flex' : 'none'
       }}><PopUpMulti popData={popUpMultiData} />
       </section>}
-      {popObj.key !="Poster"&&<div className="leftlogo"></div>}
-      {popObj.key !="Poster"&&<div className="rightlogo"></div>}
+      {(popObj.key !="Poster"&&popObj.key !="Share")&&<div className="leftlogo"></div>}
+      {(popObj.key !="Poster"&&popObj.key !="Share")&&<div className="rightlogo"></div>}
     </section>;
   }
 

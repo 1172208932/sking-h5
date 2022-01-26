@@ -267,6 +267,65 @@ module.exports = {
         star: "0",
         receive: "1",//receive":"0-未领取 1-已领取 2-待领取
       },
+      {
+        level: "41",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "42",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "43",
+        score: "0",
+        star: "1",
+        receive: "1",
+      },
+      {
+        level: "44",
+        score: "0",
+        star: "3",
+        receive: "1",
+      }, {
+        level: "45",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "46",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "47",
+        score: "0",
+        star: "1",
+        receive: "1",
+      },
+      {
+        level: "48",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "49",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "50",
+        score: "0",
+        star: "3",
+        receive: "1",
+      }
     ],
     url: "http://www.baidu.com",
     rankPrize: [
@@ -521,6 +580,66 @@ module.exports = {
       },
       {
         "level": "40",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "41",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "42",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "43",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "44",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "45",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "46",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "47",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "48",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "49",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "50",
         "star2": 666,
         "star1": -14169123.906866238,
         "star3": 7777
