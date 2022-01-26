@@ -253,8 +253,8 @@ module.exports = {
       {
         level: "39",
         score: "0",
-        star: "3",
-        receive: "1",
+        star: "2",
+        receive: "0",
       },
       {
         level: "40",
@@ -265,7 +265,7 @@ module.exports = {
         level: "40_gift",
         score: "0",
         star: "0",
-        receive: "1",//receive":"0-未领取 1-已领取 2-待领取
+        receive: "2",//receive":"0-未领取 1-已领取 2-待领取
       },
       // {
       //   level: "41",
