@@ -65,10 +65,21 @@ class MapBox extends React.Component {
         // 这是礼盒
         list[i].class = "giftBtn";
         list[i].iconList = [];
-      } else if (i >= CFG.open) {
-        //21
-        // 暂时未开放
-        list[i].class = "needwait";
+      } else if (i >= CFG.open && i<CFG.oneOpen) {
+        // 今日开放
+        list[i].class = "needwait todayBtn";
+        list[i].iconList = [];
+      } else if(i>=CFG.oneOpen && i<CFG.twoOpen) {
+        // 41-60
+        list[i].class = "needwait open1_28Btn";
+        list[i].iconList = [];
+      } else if(i>=CFG.twoOpen && i<CFG.threeOpen) {
+        // 61-80
+        list[i].class = "needwait open1_30Btn";
+        list[i].iconList = [];
+      } else if(i>=CFG.threeOpen) {
+        // 81-100
+        list[i].class = "needwait open2_8Btn";
         list[i].iconList = [];
       } else if (i > gameLen) {
         // 还没通过这一关，锁
@@ -212,7 +223,7 @@ class MapBox extends React.Component {
                 )}
                 {/* 头像+手指：该玩这关了 */}
                 {((index == gameLen &&
-                  item.class != "lockBtn"&&item.class!='needwait') ||
+                  item.class != "lockBtn"&&item.class.indexOf('needwait')<0) ||
                   (index == gameLen - 1 &&
                     item.class == "giftBtn" &&
                     homeInfo?.gameInfo?.[index]?.receive != 1)) && (

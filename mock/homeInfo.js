@@ -138,135 +138,135 @@ module.exports = {
         level: "20_gift",
         score: "0",
         star: "0",
-        receive: "1",//receive":"0-未领取 1-已领取 2-待领取
+        receive: "2",//receive":"0-未领取 1-已领取 2-待领取
       },
-      {
-        level: "21",
-        score: "0",
-        star: "3",
-        receive: "1",
-      },
-      {
-        level: "22",
-        score: "0",
-        star: "3",
-        receive: "1",
-      },
-      {
-        level: "23",
-        score: "0",
-        star: "1",
-        receive: "1",
-      },
-      {
-        level: "24",
-        score: "0",
-        star: "3",
-        receive: "1",
-      }, {
-        level: "25",
-        score: "0",
-        star: "3",
-        receive: "1",
-      },
-      {
-        level: "26",
-        score: "0",
-        star: "3",
-        receive: "1",
-      },
-      {
-        level: "27",
-        score: "0",
-        star: "1",
-        receive: "1",
-      },
-      {
-        level: "28",
-        score: "0",
-        star: "3",
-        receive: "1",
-      },
-      {
-        level: "29",
-        score: "0",
-        star: "3",
-        receive: "1",
-      },
-      {
-        level: "30",
-        score: "0",
-        star: "3",
-        receive: "1",
-      }, {
-        level: "30_gift",
-        score: "0",
-        star: "0",
-        receive: "1",//receive":"0-未领取 1-已领取 2-待领取
-      },{
-        level: "31",
-        score: "0",
-        star: "3",
-        receive: "1",
-      },
-      {
-        level: "32",
-        score: "0",
-        star: "3",
-        receive: "1",
-      },
-      {
-        level: "33",
-        score: "0",
-        star: "1",
-        receive: "1",
-      },
-      {
-        level: "34",
-        score: "0",
-        star: "3",
-        receive: "1",
-      }, {
-        level: "35",
-        score: "0",
-        star: "3",
-        receive: "1",
-      },
-      {
-        level: "36",
-        score: "0",
-        star: "3",
-        receive: "1",
-      },
-      {
-        level: "37",
-        score: "0",
-        star: "1",
-        receive: "1",
-      },
-      {
-        level: "38",
-        score: "0",
-        star: "3",
-        receive: "1",
-      },
-      {
-        level: "39",
-        score: "0",
-        star: "3",
-        receive: "1",
-      },
-      {
-        level: "40",
-        score: "0",
-        star: "3",
-        receive: "1",
-      },{
-        level: "40_gift",
-        score: "0",
-        star: "0",
-        receive: "1",//receive":"0-未领取 1-已领取 2-待领取
-      },
+      // {
+      //   level: "21",
+      //   score: "0",
+      //   star: "3",
+      //   receive: "1",
+      // },
+      // {
+      //   level: "22",
+      //   score: "0",
+      //   star: "3",
+      //   receive: "1",
+      // },
+      // {
+      //   level: "23",
+      //   score: "0",
+      //   star: "1",
+      //   receive: "1",
+      // },
+      // {
+      //   level: "24",
+      //   score: "0",
+      //   star: "3",
+      //   receive: "1",
+      // }, {
+      //   level: "25",
+      //   score: "0",
+      //   star: "3",
+      //   receive: "1",
+      // },
+      // {
+      //   level: "26",
+      //   score: "0",
+      //   star: "3",
+      //   receive: "1",
+      // },
+      // {
+      //   level: "27",
+      //   score: "0",
+      //   star: "1",
+      //   receive: "1",
+      // },
+      // {
+      //   level: "28",
+      //   score: "0",
+      //   star: "3",
+      //   receive: "1",
+      // },
+      // {
+      //   level: "29",
+      //   score: "0",
+      //   star: "3",
+      //   receive: "1",
+      // },
+      // {
+      //   level: "30",
+      //   score: "0",
+      //   star: "3",
+      //   receive: "1",
+      // }, {
+      //   level: "30_gift",
+      //   score: "0",
+      //   star: "0",
+      //   receive: "1",//receive":"0-未领取 1-已领取 2-待领取
+      // },{
+      //   level: "31",
+      //   score: "0",
+      //   star: "3",
+      //   receive: "1",
+      // },
+      // {
+      //   level: "32",
+      //   score: "0",
+      //   star: "3",
+      //   receive: "1",
+      // },
+      // {
+      //   level: "33",
+      //   score: "0",
+      //   star: "1",
+      //   receive: "1",
+      // },
+      // {
+      //   level: "34",
+      //   score: "0",
+      //   star: "3",
+      //   receive: "1",
+      // }, {
+      //   level: "35",
+      //   score: "0",
+      //   star: "3",
+      //   receive: "1",
+      // },
+      // {
+      //   level: "36",
+      //   score: "0",
+      //   star: "3",
+      //   receive: "1",
+      // },
+      // {
+      //   level: "37",
+      //   score: "0",
+      //   star: "1",
+      //   receive: "1",
+      // },
+      // {
+      //   level: "38",
+      //   score: "0",
+      //   star: "3",
+      //   receive: "1",
+      // },
+      // {
+      //   level: "39",
+      //   score: "0",
+      //   star: "3",
+      //   receive: "1",
+      // },
+      // {
+      //   level: "40",
+      //   score: "0",
+      //   star: "3",
+      //   receive: "1",
+      // },{
+      //   level: "40_gift",
+      //   score: "0",
+      //   star: "0",
+      //   receive: "1",//receive":"0-未领取 1-已领取 2-待领取
+      // },
     ],
     url: "http://www.baidu.com",
     rankPrize: [
