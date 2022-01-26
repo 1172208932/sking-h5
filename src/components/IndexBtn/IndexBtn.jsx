@@ -15,8 +15,8 @@ import { RES_PATH } from '../../../sparkrc.js';
 @observer
 class IndexBtn extends React.Component {
   clickRule = _throttle(async () => {
-    const { ruleInfo } = store;
-    !ruleInfo && await store.initRule();
+    // const { ruleInfo } = store;
+    // !ruleInfo && await store.initRule();
     modalStore.pushPop("Rule")
   })
 

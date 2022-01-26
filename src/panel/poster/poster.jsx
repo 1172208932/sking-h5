@@ -41,7 +41,7 @@ class Poster extends React.Component {
     ]);
     ctx.drawImage(imgs[0], 0, 0, width, height);
 
-    ctx.drawImage(imgs[2], 727, 420, 146, 146);
+    ctx.drawImage(imgs[2], 722, 420, 146, 146);
 
     ctx.font = "26px Arial";
     ctx.fillStyle = "#0d7bd8";
@@ -58,7 +58,6 @@ class Poster extends React.Component {
       posterImg: image.src
     })
     hideLoading()
-    console.info(image)
   };
 
   loadImg = (src) => {
@@ -85,6 +84,11 @@ class Poster extends React.Component {
       hideLoading()
     }
   };
+
+  clickShare = () => {
+    modalStore.pushPop("Share")
+    modalStore.closePop("Poster")
+  }
 
   render() {
     const { posterImg, codeImg, showShare } = this.state;
@@ -116,9 +120,8 @@ class Poster extends React.Component {
             onClick={() => modalStore.closePop("Poster")}
           ></div>
           <p className="longpress-text">长按保存邀请海报</p>
-          <div className="shareBtn-poster" onClick={() => this.setState({showShare: true})}></div>
+          <div className="shareBtn-poster" onClick={this.clickShare}></div>
         </div>
-        {showShare && <div className="toShare-text"></div>}
       </div>
     );
   }

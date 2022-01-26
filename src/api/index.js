@@ -95,7 +95,7 @@ function generateAPI(apiList) {
 					if(document.getElementById("overlay_layer")) {
 						document.getElementById("overlay_layer").style.display = 'block';
 					}
-					Toast(result.message || '接口错误',2000,{didClose: ()=> {
+					Toast(result?.message || '接口错误',2000,{didClose: ()=> {
 						document.getElementById("overlay_layer").style.display = 'none';
 					}});
 				}

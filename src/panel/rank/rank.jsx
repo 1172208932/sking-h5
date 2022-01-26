@@ -53,6 +53,7 @@ class Rank extends React.Component {
     return (
       <div className="rank">
         <span className="popupWindowBottom"></span>
+        <div className="title-rank"></div>
         <SvgaPlayer className="snowAndIceAtmosphere" src={`${RES_PATH}svga/雪花.svga`}></SvgaPlayer>
         <span className="shutDown" onClick={() => modalStore.closePop("Rank")}></span>
         {/* 奖品区域 */}

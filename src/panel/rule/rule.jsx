@@ -30,11 +30,25 @@ class Rule extends React.Component {
     return (
       <div className="rule">
         <div className="rule-fenwei"></div>
+      
         <span className="popoverBaseplate5"></span>
+        {/* <div className="rule-title"></div> */}
         <p className="close" onClick={() => modalStore.closePop("Rule")}></p>
         {/* <article className="ruleInfo" dangerouslySetInnerHTML={{ __html: store.ruleInfo }}></article> */}
+        {/* <div className="ruleInfo-content"> */}
+
+  
         <div className="ruleInfo">
-          <p>一、活动时间:</p>
+          <img src="//yun.duiba.com.cn/aurora/assets/93a6932cf910aca83fc5d3551e8bc3b6ad17e1fc.png" alt="" className="ruleImg"/>
+          {/* {
+            [1,2,3,4,5,6].map(item => {
+              return (
+                <img key={item} src={`${RES_PATH}rule/${item}.jpg`} alt="" className={`ruleImg img${item}`} />
+              )
+            })
+          } */}
+            </div>
+          {/* <p>一、活动时间:</p>
           <p>北京时间2022年1月2５日0点-2月23日0点</p>
           <p>二、活动规则</p>
           <p>1．游戏机制：</p>
@@ -125,9 +139,9 @@ class Rule extends React.Component {
           <p>4.所有实物奖品活动结束后15日内统一安排发货;</p>
           <p>5.所有奖品不得兑换现金或作价销售;</p>
           <p>6.若发现异常参与活动行为(包括并不仅限于恶意刷 单邀请用户)，牛蒙蒙有权取消活动参与及中奖资格;</p>
-          <p>7.牛蒙蒙小程序在线客服：【牛蒙蒙小程序】-【我的】-【我的服务】-【在线客服】( 工作日:9:00~18:00）</p>
+          <p>7.牛蒙蒙小程序在线客服：【牛蒙蒙小程序】-【我的】-【我的服务】-【在线客服】( 工作日:9:00~18:00）</p> */}
         </div>
-      </div>
+      // </div>
     );
   }
 }
