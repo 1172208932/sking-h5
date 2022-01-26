@@ -19,6 +19,12 @@ export const propSize = {
     },
     "floor":{
         width: 900, height: 5
+    },
+    "floor1":{
+        width: 5, height: 600
+    },
+    "floor2":{
+        width: 5, height: 600
     }
 }
 
