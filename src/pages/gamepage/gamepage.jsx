@@ -30,7 +30,24 @@ class Gamepage extends React.Component {
     EventBus.on('GAME_OVER', this.gameOver, this);
     EventBus.on('GAME_WIN', this.gameWin, this);
     EventBus.on('BEGIN_DOWNTIME', this.beginDownTime, this);
-    registerSounds({ 'game_bgmusic': RES_PATH + 'sound/游戏中背景音乐.mp3' })
+    // registerSounds({ 'game_bgmusic': RES_PATH + 'sound/游戏中背景音乐.mp3' })
+
+
+    let currentGameLevel = store.currentGameLevel
+
+    if(currentGameLevel >=1 && currentGameLevel <= 20){
+      registerSounds({ 'game_bgmusic': RES_PATH + 'sound/1~20.mp3' })
+    }else if(currentGameLevel >= 21 && currentGameLevel <= 40){
+      registerSounds({ 'game_bgmusic': RES_PATH + 'sound/21~40.mp3' })
+    }else if(currentGameLevel >= 41 && currentGameLevel <= 60){
+      registerSounds({ 'game_bgmusic': RES_PATH + 'sound/41~60.mp3' })
+    }else if(currentGameLevel >= 61 && currentGameLevel <= 80){
+      registerSounds({ 'game_bgmusic': RES_PATH + 'sound/61~80.mp3' })
+    }else{
+      registerSounds({ 'game_bgmusic': RES_PATH + 'sound/81~100.mp3' })
+    }
+
+
     registerSounds({ 'game_snow': RES_PATH + 'sound/吃雪花音效.mp3' })
     registerSounds({ 'game_gem': RES_PATH + 'sound/吃宝石音效.mp3' })
 
