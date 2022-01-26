@@ -5863,9 +5863,9 @@ export const proplevel43 = [
     { x: 21011.11933702901, y: -4359.848985084463, type: "house" },
     { x: 38580.28833278717, y: -8138.322520664527, type: "house" },
     { x: 46000, y: 0, type: "floor" },
-    { x: 35300, y: 0, type: "floor" },
-    { x: 65100, y: 0, type: "floor" },
-    { x: 77000, y: 0, type: "floor" },
+    { x: 34700, y: 0, type: "floor" },
+    { x: 65000, y: 0, type: "floor" },
+    { x: 77500, y: 0, type: "floor" },
 
 ]
 export const proplevel44 = [
