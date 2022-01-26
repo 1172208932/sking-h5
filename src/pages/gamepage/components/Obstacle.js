@@ -54,13 +54,20 @@ export default class Obstacle {
             showY = -item.y
         } else {
 
+           
             var time = Math.floor(item.x / 100)
             if (time + 1 > lineInfo.length) {
                 time = time
             } else {
                 time = time + 1
             }
-            showY = lineInfo[time] - this.height*0.75
+
+            if(item?.offsetY){
+                showY = lineInfo[time] - this.height*0.75 - item?.offsetY
+            }else{
+                showY = lineInfo[time] - this.height*0.75
+            }
+
             // if(this.type == "floor1"){
             //     showY = lineInfo[time] - this.height
             // }else if(this.type == "floor2"){
