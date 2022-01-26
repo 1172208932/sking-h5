@@ -9,7 +9,12 @@ import API from '../../api';
 import './gameRemind.less';
 import { _throttle } from '@src/utils/utils.js';
 import { hideLoading, showLoading, Toast } from '@spark/ui';
-
+const bgObj = {
+  21: `${RES_PATH}提醒弹窗/21关提醒.png`,
+  41: `${RES_PATH}提醒弹窗/41关提醒.png`,
+  61: `${RES_PATH}提醒弹窗/61关提醒.png`,
+  81: `${RES_PATH}提醒弹窗/81关提醒.png`,
+}
 @observer
 class GameRemind extends React.Component {
   constructor(props) {
@@ -45,9 +50,10 @@ class GameRemind extends React.Component {
   }
   render() {
     const {homeInfo} = store
+    const {popData} = this.props;
     return (
       <div className="addedPopover1">
-        <span className="low"></span>
+        <img className="low" src={bgObj[popData.level]}/>
         <span className="title"></span>
         <span className="shutDown" onClick={() => modalStore.closePop("GameRemind")}></span>
         <span className="button" onClick={this.clickStart}></span>
