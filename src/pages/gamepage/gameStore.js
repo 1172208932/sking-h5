@@ -402,11 +402,11 @@ const gameStore = makeAutoObservable(mix({
     stockArea(i,Shapestock) {
         console.log(i, "当前")
         
-        Shapestock.beginGradientFill([(i-1) * 100, this.lineInfo[i] +1300, i * 100,this.lineInfo[i-1] +300], [[0, lineColor[Math.floor((store.currentGameLevel-1)/20)], 1], [1, "#ffffff", 1]])
+        Shapestock.beginGradientFill([(i-1) * 100, this.lineInfo[i] +1200, i * 100,this.lineInfo[i-1] +300], [[0, lineColor[Math.floor((store.currentGameLevel-1)/20)], 1], [1, "#ffffff", 1]])
         Shapestock.lineTo((i - 1) * 100, (this.lineInfo[i - 1]) + 300)
         Shapestock.lineTo(i * 100, this.lineInfo[i] + 300)
-        Shapestock.lineTo(i * 100, this.lineInfo[i] + 1300)
-        Shapestock.lineTo((i - 1) * 100, this.lineInfo[i] + 1300)
+        Shapestock.lineTo(i * 100, this.lineInfo[i] + 1200)
+        Shapestock.lineTo((i - 1) * 100, this.lineInfo[i] + 1200)
         Shapestock.endFill()
         // return Shapestock;
     },

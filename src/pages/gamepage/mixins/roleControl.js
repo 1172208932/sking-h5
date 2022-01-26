@@ -32,6 +32,13 @@ export const RoleControl = {
         for (let addi = 0; addi < this.propInfo.length; addi++) {
             let coin = new Obstacle(this.propInfo[addi],this.lineInfo, this.phyworld, this.bgCon)
             this.additiveslist.push(coin)
+            if(this.propInfo[addi].type == "floor"){
+                // let floor1 = new Obstacle({x:this.propInfo[addi].x-100,y:this.propInfo[addi].y,type:"floor1"},this.lineInfo, this.phyworld, this.bgCon)
+                // this.additiveslist.push(floor1)
+                // let floor2 = new Obstacle({x:this.propInfo[addi].x+600,y:this.propInfo[addi].y,type:"floor2"},this.lineInfo, this.phyworld, this.bgCon)
+                // this.additiveslist.push(floor2)
+            }
+            
         }
         this.phyworld.addBody(this.role.circleBody);
         this.phyworld.addBody(this.role.circleBody2);

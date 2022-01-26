@@ -24,6 +24,12 @@ export default class Obstacle {
 
         this.rectcoin = new FYGE.Sprite()
         box.addChild(this.rectcoin);
+        if(this.type == "floor1" || this.type == "floor2"){
+            // box.setChildIndex(this.rectcoin,999)
+            console.log("当前节点层级：",box.getChildIndex(this.rectcoin))
+            
+
+        }
         //加载图片
         FYGE.GlobalLoader.loadImage((s, image) => {
             //纹理
@@ -48,17 +54,39 @@ export default class Obstacle {
             showY = -item.y
         } else {
 
+           
             var time = Math.floor(item.x / 100)
             if (time + 1 > lineInfo.length) {
                 time = time
             } else {
                 time = time + 1
             }
-            showY = lineInfo[time] - this.height*0.75
+
+            if(item?.offsetY){
+                showY = lineInfo[time] - this.height*0.75 - item?.offsetY
+            }else{
+                showY = lineInfo[time] - this.height*0.75
+            }
+
+            // if(this.type == "floor1"){
+            //     showY = lineInfo[time] - this.height
+            // }else if(this.type == "floor2"){
+            //     time = time - 2
+            //     showY = lineInfo[time+2]
+            // }else {
+            //     showY = lineInfo[time] - this.height*0.75
+            // }
+           
         }
 
         this.rectcoin.position.set(item.x, showY + 300)
-        // shapeshow.position.set(item.x , showY + 300 )
+      
+        
+        if(this.type == "floor1" || this.type == "floor2" )
+        {
+            console.log(this.type,showY,item.x,time)
+        }
+        
         this.x = item.x
         this.y = showY + 300
         this.rectBody = new p2.Body({
