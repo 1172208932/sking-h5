@@ -136,9 +136,9 @@ class Task extends React.Component {
             <img src={RES_PATH+"任务弹窗1/avatar.png"} alt="" className="avatar-invite" />
             <div className="centerInfo-invite">
               <p className="title textover">邀请好友（{totalInviteCount}/10)</p>
-              <p className="subTitle textover">邀请好友可得{homeInfo?.inviteGolds}金币</p>
+              <p className="subTitle textover">邀请新用户一起玩可得{homeInfo?.inviteGolds}金币</p>
             </div>
-            {/* 去邀请TODO */}
+            {/* 去邀请 */}
             <div className="inviteBtn" onClick={this.clickInvite}></div>
           </div>
         </div>
