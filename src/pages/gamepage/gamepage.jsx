@@ -51,6 +51,7 @@ class Gamepage extends React.Component {
     registerSounds({ 'game_snow': RES_PATH + 'sound/吃雪花音效.mp3' })
     registerSounds({ 'game_gem': RES_PATH + 'sound/吃宝石音效.mp3' })
 
+    console.log("初始化canvas,gamestage" , this.gamestage)
     this.initCanvas();
     this.setStarInfo()
     if(store.isPlayMusic){
@@ -154,6 +155,9 @@ class Gamepage extends React.Component {
     })
   }
 
+  componentWillUnmount(){
+    this.gamestage.destroy()
+  }
   gamestage;
   initCanvas() {
     var canvas = document.getElementById('gamestage')
@@ -172,9 +176,16 @@ class Gamepage extends React.Component {
     this.gamestage.addEventListener(FYGE.Event.INIT_STAGE, this.canvasUI, this);
     let self = this;
     (function loop() {
-      FYGE.Tween.flush();
-      self.gamestage.flush()
-      requestAnimationFrame(loop)
+      try {
+        FYGE.Tween.flush();
+        self.gamestage.flush()
+        requestAnimationFrame(loop)
+        
+      } catch (error) {
+        console.log("结束了")
+      }
+        
+      
     })()
   }
 
@@ -268,7 +279,9 @@ class Gamepage extends React.Component {
       gameStore.shape1.clear();
       gameStore.Shapestock0.clear(); // debug
       gameStore.Shapestock1.clear();
-
+      gameStore.shape0.destroy(); // debug
+      gameStore.shape1.destroy();
+      
       this.gamestage.removeEventListener(FYGE.Event.ENTER_FRAME, this.flushfunc);
       //点击
       this.gamestage.removeEventListener(FYGE.MouseEvent.MOUSE_DOWN, this.clickfunc);
@@ -285,7 +298,9 @@ class Gamepage extends React.Component {
       gameStore.phyworld.removeBody(gameStore.role.circleBody2)
       for (let i = 0; i < gameStore.additiveslist.length; i++) {
         gameStore.phyworld.removeBody(gameStore.additiveslist[i].rectBody)
+        gameStore.additiveslist[i].rectcoin.destroy()
       }
+      gameStore.additiveslist = []
       gameStore.distance = 0
       gameStore.phyworld.clear()
       gameStore.role = null
@@ -294,6 +309,8 @@ class Gamepage extends React.Component {
       gameStore.bgArea2X = 0
       gameStore.bgList3 = []
       gameStore.bgArea3X = 0
+      gameStore.floorIndex = 0
+      gameStore.bgCon.destroy();
       res()
     })
 
