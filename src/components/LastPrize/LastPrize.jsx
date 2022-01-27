@@ -22,12 +22,6 @@ class LastPrize extends React.Component {
     if(!store?.newGuideStep?.completeGuide) return false;
     if(homeInfo?.openPrizeTime > homeInfo?.currentTime) {
       Toast("别急，快去闯关吧！\n2月23日0点整开奖哦")
-      // if(document.getElementById("overlay_layer")) {
-      //   document.getElementById("overlay_layer").style.display = 'block';
-      // }
-      // Toast("别急，快去闯关吧！\n2月20日24点整开奖哦",2000,{didClose: ()=> {
-      //   document.getElementById("overlay_layer").style.display = 'none';
-      // }})
     } else if(homeInfo?.rankReceiveFlag == 2) {
       const { success, data } = await API.rankingAward();
       if (success && data) {
@@ -41,8 +35,10 @@ class LastPrize extends React.Component {
         });
       }
       store.getHomeInfo();
-    } else if(homeInfo?.rankReceiveFlag == 1){
+    } else if(homeInfo?.rank100Flag == 0){
       Toast("你的分数没有达到前百名，牛蒙蒙有更多惊喜等你解锁哦")
+    } else if(homeInfo?.rank100Flag ==1 && homeInfo?.gameInfo?.length<109) {
+      Toast("你未完成100关没有领奖资格哦")
     }
   });
 
@@ -78,7 +74,8 @@ class LastPrize extends React.Component {
             ? "领取奖励"
             : homeInfo?.rankReceiveFlag == 3
             ? "已领取"
-            : "排名未入前百"
+            : homeInfo?.rank100Flag == 0 ? "排名未入前百" :
+              <p className="no100">你未完成100关<br/>没有领奖资格哦</p>
             }
           </div>
           {/* 手势 */}

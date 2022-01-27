@@ -9,7 +9,7 @@ module.exports = {
     avatar:
       "//yun.duiba.com.cn/aurora/assets/a51a8f870e3031792ae2b27e435fca4abb79181d.png",
     activityEndTime: 12,
-    currentTime: 10,
+    currentTime: 14,
     openPrizeTime: 12,
     pvNum: 86505640, //用户参与数量
     assistInfo: {
@@ -19,6 +19,7 @@ module.exports = {
     },
     goldNum: 120,
     rankScore: 121121221121221, //排行榜分数
+    rank100Flag: 1,//是否进排行榜前百 1-是 0-否，仅到达开奖时间后返回	
     gameInfo: [
       {
         level: "1",
