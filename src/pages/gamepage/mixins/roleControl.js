@@ -262,7 +262,12 @@ export const RoleControl = {
                             }else if(this.additiveslist[i].type == "house"){
                                 // console.log(this.additiveslist[i].rectcoin.x,this.additiveslist[i].rectcoin.y,'house')
                                 showtype = "houseSvga"
-                            }else if(this.additiveslist[i].type == "floor" || this.additiveslist[i].type == "floor1" || this.additiveslist[i].type == "floor2"){
+                            }else if(this.additiveslist[i].type == "floor" || 
+                            this.additiveslist[i].type == "floor1" || 
+                            this.additiveslist[i].type == "floor2" ||
+                            this.additiveslist[i].type == "valley" || 
+                            this.additiveslist[i].type == "valley1" || 
+                            this.additiveslist[i].type == "valley2"){
                                 showtype = ""
                                 EventBus.fire('GAME_OVER',{score:this.score})
                                 return

@@ -5704,8 +5704,8 @@ export const proplevel42 = [
     { x: 2258.53418536918, y: -337.9023275437689, type: "bigstone" },
     { x: 41702.25440360252, y: -8506.960831937002, type: "bigstone" },
     { x: 73908.7342806926, y: -15875.4019238389, type: "house" },
-    { x: 17000, y: 0, type: "floor" },
-    { x: 29600, y: 0, type: "floor" },
+    { x: 17100, y: 0, type: "floor" },
+    { x: 29500, y: 0, type: "floor" },
     { x: 49000, y: 0, type: "floor" },
     { x: 81500, y: 0, type: "floor" },
 ]
