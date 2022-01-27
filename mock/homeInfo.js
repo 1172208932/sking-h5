@@ -257,17 +257,17 @@ module.exports = {
         star: "2",
         receive: "0",
       },
-      // {
-      //   level: "40",
-      //   score: "0",
-      //   star: "3",
-      //   receive: "1",
-      // },{
-      //   level: "40_gift",
-      //   score: "0",
-      //   star: "0",
-      //   receive: "0",//receive":"0-未领取 1-已领取 2-待领取
-      // },
+      {
+        level: "40",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },{
+        level: "40_gift",
+        score: "0",
+        star: "0",
+        receive: "0",//receive":"0-未领取 1-已领取 2-待领取
+      },
       // {
       //   level: "41",
       //   score: "0",
