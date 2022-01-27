@@ -390,7 +390,18 @@ module.exports = {
         score: "0",
         star: "3",
         receive: "1",
-      }
+      },{
+        level: "60_gift",
+        score: "0",
+        star: "0",
+        receive: "2",//receive":"0-未领取 1-已领取 2-待领取
+      },
+      {
+        level: "61",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
     ],
     url: "http://www.baidu.com",
     rankPrize: [
@@ -765,6 +776,12 @@ module.exports = {
       },
       {
         "level": "60",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "61",
         "star2": 666,
         "star1": -14169123.906866238,
         "star3": 7777
