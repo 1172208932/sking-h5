@@ -37,7 +37,7 @@ class LastPrize extends React.Component {
       store.getHomeInfo();
     } else if(homeInfo?.rank100Flag == 0){
       Toast("你的分数没有达到前百名，牛蒙蒙有更多惊喜等你解锁哦")
-    } else if(homeInfo?.rank100Flag ==1 && homeInfo?.gameInfo?.length<109) {
+    } else if(homeInfo?.gameInfo?.length<109) {
       Toast("你未完成100关没有领奖资格哦")
     }
   });
@@ -69,13 +69,12 @@ class LastPrize extends React.Component {
             className={`btn`}
             onClick={this.clickReceive}
           >
-            {(!store?.newGuideStep?.completeGuide || homeInfo?.openPrizeTime > homeInfo?.currentTime) ? <img src={`${RES_PATH}mapPage/2月20.png`} alt=""  className="yue20"/>:
+            {(homeInfo?.openPrizeTime > homeInfo?.currentTime) ? <img src={`${RES_PATH}mapPage/2月20.png`} alt=""  className="yue20"/>:
             homeInfo?.rankReceiveFlag == 2
             ? "领取奖励"
             : homeInfo?.rankReceiveFlag == 3
             ? "已领取"
-            : homeInfo?.rank100Flag == 0 ? "排名未入前百" :
-              <p className="no100">你未完成100关<br/>没有领奖资格哦</p>
+            : homeInfo?.gameInfo?.length<109 ? <p className="no100">你未完成100关<br/>没有领奖资格哦</p> : homeInfo?.rank100Flag == 0 ? "排名未入前百" : "无法领取"
             }
           </div>
           {/* 手势 */}
