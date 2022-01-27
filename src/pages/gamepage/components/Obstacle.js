@@ -81,7 +81,8 @@ export default class Obstacle {
         {
             // console.log(this.type,showY,item.x,time)
             if(this.type == "floor2"){
-                showX = showX+100
+                showX = showX-30
+                showY  = showY -20
             }
             
             this.rectShape = new p2.Box({
@@ -102,7 +103,7 @@ export default class Obstacle {
             let offx = 0
             let offy = 40
             if(this.type == "floor2"){
-                offx = 30
+                offx = 50
             }
             this.rectBody = new p2.Body({
                 mass: 0,    //重量
