@@ -61,7 +61,7 @@ export default class Obstacle {
                 showY = lineInfo[time] - this.height*0.75 - item?.offsetY
             }else{
                 if(this.type == "floor1"){
-                    showY = lineInfo[time] - this.height
+                    showY = lineInfo[time-1]
                 }else if(this.type == "floor2"){
                     showY = lineInfo[time+2]
                 }else {
