@@ -28,6 +28,7 @@ const gameStore = makeAutoObservable(mix({
     stoneSvga:'',
     grassSvga:"",
     houseSvga:"",
+    floorIndex:0,
     getData(stage){
         this.lineInfo = LujinList[store.currentGameLevel-1]
         this.propInfo = PropList[store.currentGameLevel-1]
@@ -90,6 +91,18 @@ const gameStore = makeAutoObservable(mix({
 
         const propGuideNice41 = FYGE.Sprite.fromUrl("//yun.duiba.com.cn/aurora/assets/940f611ebd4024cdb1698f8919873660293adb0f.png")
         propGuideNice41.x =  11020
+        propGuideNice41.y =  2290
+        this.bgCon.addChildAt(propGuideNice41,1)
+    },
+
+    addPropGuide61(){
+        const propGuide41 = FYGE.Sprite.fromUrl("//yun.duiba.com.cn/aurora/assets/5cd95e8f0c35efefc6e051df324867089b0e456f.png")
+        propGuide41.x =  9500 // 29212 6655
+        propGuide41.y =  2224
+        this.bgCon.addChildAt(propGuide41,1)
+
+        const propGuideNice41 = FYGE.Sprite.fromUrl("//yun.duiba.com.cn/aurora/assets/940f611ebd4024cdb1698f8919873660293adb0f.png")
+        propGuideNice41.x =  10720
         propGuideNice41.y =  2290
         this.bgCon.addChildAt(propGuideNice41,1)
     },
@@ -220,6 +233,7 @@ const gameStore = makeAutoObservable(mix({
         this.shape1 = new FYGE.Shape();
         this.Shapestock0 = new FYGE.Shape(); // debug
         this.Shapestock1 = new FYGE.Shape();
+        
         this.bgCon.addChild(this.shape0);   // debug
         //绘制地面线路
         
@@ -282,6 +296,9 @@ const gameStore = makeAutoObservable(mix({
         if(store.currentGameLevel == 41){
             this.addPropGuide41()
         }
+        if(store.currentGameLevel == 61){
+            this.addPropGuide61()
+        }
         this.addFlag()
         // this.addRole()
         // this.updateRole(this.phyworld)
@@ -319,6 +336,10 @@ const gameStore = makeAutoObservable(mix({
             this.shape0.clear()
             this.Shapestock0.clear()
             this.bgCon.addChild(this.shape0);
+            if(this.floorIndex != 0){
+                console.log("",this.floorIndex)
+                this.bgCon.setChildIndex(this.shape0,this.bgCon.getChildIndex(this.additiveslist[this.floorIndex].rectcoin))
+            }
             useShape = this.shape0
             this.shape0.addChild(this.Shapestock0)
             this.line0 = new p2.Body({
@@ -332,6 +353,9 @@ const gameStore = makeAutoObservable(mix({
             this.shape1.clear()
             this.Shapestock1.clear()
             this.bgCon.addChild(this.shape1);
+            if(this.floorIndex != 0){
+                this.bgCon.setChildIndex(this.shape1,this.bgCon.getChildIndex(this.additiveslist[this.floorIndex].rectcoin))
+            }
             this.shape1.addChild(this.Shapestock1)
             useShape = this.shape1
             this.line1 = new p2.Body({
@@ -400,7 +424,7 @@ const gameStore = makeAutoObservable(mix({
     },
     //填充
     stockArea(i,Shapestock) {
-        console.log(i, "当前")
+        // console.log(i, "当前")
         
         Shapestock.beginGradientFill([(i-1) * 100, this.lineInfo[i] +1200, i * 100,this.lineInfo[i-1] +300], [[0, lineColor[Math.floor((store.currentGameLevel-1)/20)], 1], [1, "#ffffff", 1]])
         Shapestock.lineTo((i - 1) * 100, (this.lineInfo[i - 1]) + 300)

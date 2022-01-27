@@ -24,12 +24,7 @@ export default class Obstacle {
 
         this.rectcoin = new FYGE.Sprite()
         box.addChild(this.rectcoin);
-        if(this.type == "floor1" || this.type == "floor2"){
-            // box.setChildIndex(this.rectcoin,999)
-            console.log("当前节点层级：",box.getChildIndex(this.rectcoin))
-            
 
-        }
         //加载图片
         FYGE.GlobalLoader.loadImage((s, image) => {
             //纹理
@@ -44,12 +39,10 @@ export default class Obstacle {
         // shapeshow.beginFill(0xff0000, 0.5)
         //     .drawRect(0, 0, propSize[this.type].width * 0.7, propSize[this.type].height * 0.7)
         //     .endFill();
-        this.rectShape = new p2.Box({
-            width: propSize[this.type].width * 0.6, height: propSize[this.type].height * 0.6,
-            material: new p2.Material()
-        });
+        
 
         var showY = -item.y
+        var showX = item.x
         if (this.type == "snow" || this.type == "gem") {
             showY = -item.y
         } else {
@@ -62,37 +55,67 @@ export default class Obstacle {
                 time = time + 1
             }
 
+            
+
             if(item?.offsetY){
                 showY = lineInfo[time] - this.height*0.75 - item?.offsetY
             }else{
-                showY = lineInfo[time] - this.height*0.75
+                if(this.type == "floor1"){
+                    showY = lineInfo[time] - this.height
+                }else if(this.type == "floor2"){
+                    showY = lineInfo[time+2]
+                }else {
+                    showY = lineInfo[time] - this.height*0.75
+                }
             }
 
-            // if(this.type == "floor1"){
-            //     showY = lineInfo[time] - this.height
-            // }else if(this.type == "floor2"){
-            //     time = time - 2
-            //     showY = lineInfo[time+2]
-            // }else {
-            //     showY = lineInfo[time] - this.height*0.75
-            // }
+            
+            
            
         }
 
-        this.rectcoin.position.set(item.x, showY + 300)
+        
       
         
-        if(this.type == "floor1" || this.type == "floor2" )
+        if(this.type == "floor2" || this.type == "floor1")
         {
-            console.log(this.type,showY,item.x,time)
+            // console.log(this.type,showY,item.x,time)
+            if(this.type == "floor2"){
+                showX = showX-30
+                showY  = showY -20
+            }
+            
+            this.rectShape = new p2.Box({
+                width: propSize[this.type].width, height: propSize[this.type].height,
+                material: new p2.Material()
+            });
+        }else{
+            this.rectShape = new p2.Box({
+                width: propSize[this.type].width * 0.6, height: propSize[this.type].height * 0.6,
+                material: new p2.Material()
+            });
+        }
+        this.rectcoin.position.set(showX, showY + 300)
+        this.x = showX
+        this.y = showY + 300
+
+        if(this.type == "floor2" || this.type == "floor1"){
+            let offx = 0
+            let offy = 40
+            if(this.type == "floor2"){
+                offx = 50
+            }
+            this.rectBody = new p2.Body({
+                mass: 0,    //重量
+                position: [showX + this.rectShape.width / 2+offx, (-showY) - 300 - this.rectShape.height / 2-offy]
+            });
+        }else{
+            this.rectBody = new p2.Body({
+                mass: 0,    //重量
+                position: [showX + this.rectShape.width / 2 + this.rectShape.width * 0.4, (-showY) - 300 - this.rectShape.height / 2 - this.rectShape.height * 0.7]
+            });
         }
         
-        this.x = item.x
-        this.y = showY + 300
-        this.rectBody = new p2.Body({
-            mass: 0,    //重量
-            position: [item.x + this.rectShape.width / 2 + this.rectShape.width * 0.4, (-showY) - 300 - this.rectShape.height / 2 - this.rectShape.height * 0.7]
-        });
 
         this.rectBody.addShape(this.rectShape);
 

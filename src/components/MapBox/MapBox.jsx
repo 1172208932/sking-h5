@@ -10,6 +10,7 @@ import { RES_PATH } from "../../../sparkrc.js";
 import { SvgaPlayer } from "@spark/animation";
 import { _throttle } from "@src/utils/utils";
 import API from "../../api";
+import { Toast } from "@spark/ui";
 @observer
 class MapBox extends React.Component {
   constructor(props) {
@@ -64,10 +65,6 @@ class MapBox extends React.Component {
       if (i % 11 == 10) {
         // 这是礼盒
         list[i].class = "giftBtn";
-        list[i].iconList = [];
-      } else if (i >= CFG.open && i<CFG.oneOpen) {
-        // 今日开放
-        list[i].class = "needwait todayBtn";
         list[i].iconList = [];
       } else if(i>=CFG.oneOpen && i<CFG.twoOpen) {
         // 41-60
@@ -125,6 +122,11 @@ class MapBox extends React.Component {
   };
 
   clickStart = _throttle((item, index) => {
+    const { homeInfo } = store;
+    if (homeInfo?.activityEndTime <= homeInfo.currentTime) {
+      Toast("活动已结束");
+      return false;
+    }
     if (item.class == "greenBtn") {
       // 绿色按钮，可以玩
       this.mapTimer2 = setTimeout(() => {
