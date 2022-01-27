@@ -66,10 +66,6 @@ class MapBox extends React.Component {
         // 这是礼盒
         list[i].class = "giftBtn";
         list[i].iconList = [];
-      } else if (i >= CFG.open && i<CFG.oneOpen) {
-        // 今日开放
-        list[i].class = "needwait todayBtn";
-        list[i].iconList = [];
       } else if(i>=CFG.oneOpen && i<CFG.twoOpen) {
         // 41-60
         list[i].class = "needwait open1_28Btn";

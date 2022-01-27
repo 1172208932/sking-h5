@@ -8,7 +8,7 @@ module.exports = {
     nickName: "小巨蛋小巨蛋小巨蛋小巨蛋小巨蛋小巨蛋",
     avatar:
       "//yun.duiba.com.cn/aurora/assets/a51a8f870e3031792ae2b27e435fca4abb79181d.png",
-    activityEndTime: 12,
+    activityEndTime: 18,
     currentTime: 14,
     openPrizeTime: 12,
     pvNum: 86505640, //用户参与数量
@@ -257,17 +257,17 @@ module.exports = {
         star: "2",
         receive: "0",
       },
-      {
-        level: "40",
-        score: "0",
-        star: "3",
-        receive: "1",
-      },{
-        level: "40_gift",
-        score: "0",
-        star: "0",
-        receive: "2",//receive":"0-未领取 1-已领取 2-待领取
-      },
+      // {
+      //   level: "40",
+      //   score: "0",
+      //   star: "3",
+      //   receive: "1",
+      // },{
+      //   level: "40_gift",
+      //   score: "0",
+      //   star: "0",
+      //   receive: "0",//receive":"0-未领取 1-已领取 2-待领取
+      // },
       // {
       //   level: "41",
       //   score: "0",
