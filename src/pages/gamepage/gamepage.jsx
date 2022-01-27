@@ -155,9 +155,6 @@ class Gamepage extends React.Component {
     })
   }
 
-  componentWillUnmount(){
-    this.gamestage.destroy()
-  }
   gamestage;
   initCanvas() {
     var canvas = document.getElementById('gamestage')
@@ -176,16 +173,10 @@ class Gamepage extends React.Component {
     this.gamestage.addEventListener(FYGE.Event.INIT_STAGE, this.canvasUI, this);
     let self = this;
     (function loop() {
-      try {
         FYGE.Tween.flush();
         self.gamestage.flush()
         requestAnimationFrame(loop)
-        
-      } catch (error) {
-        console.log("结束了")
-      }
-        
-      
+
     })()
   }
 
@@ -279,8 +270,6 @@ class Gamepage extends React.Component {
       gameStore.shape1.clear();
       gameStore.Shapestock0.clear(); // debug
       gameStore.Shapestock1.clear();
-      gameStore.shape0.destroy(); // debug
-      gameStore.shape1.destroy();
       
       this.gamestage.removeEventListener(FYGE.Event.ENTER_FRAME, this.flushfunc);
       //点击
@@ -310,7 +299,8 @@ class Gamepage extends React.Component {
       gameStore.bgList3 = []
       gameStore.bgArea3X = 0
       gameStore.floorIndex = 0
-      gameStore.bgCon.destroy();
+      gameStore.bgCon.destroy()
+      
       res()
     })
 

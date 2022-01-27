@@ -8,7 +8,7 @@ module.exports = {
     nickName: "小巨蛋小巨蛋小巨蛋小巨蛋小巨蛋小巨蛋",
     avatar:
       "//yun.duiba.com.cn/aurora/assets/a51a8f870e3031792ae2b27e435fca4abb79181d.png",
-    activityEndTime: 18,
+    activityEndTime: 16,
     currentTime: 14,
     openPrizeTime: 12,
     pvNum: 86505640, //用户参与数量
