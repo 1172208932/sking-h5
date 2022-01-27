@@ -8,7 +8,7 @@ module.exports = {
     nickName: "小巨蛋小巨蛋小巨蛋小巨蛋小巨蛋小巨蛋",
     avatar:
       "//yun.duiba.com.cn/aurora/assets/a51a8f870e3031792ae2b27e435fca4abb79181d.png",
-    activityEndTime: 18,
+    activityEndTime: 16,
     currentTime: 14,
     openPrizeTime: 12,
     pvNum: 86505640, //用户参与数量
@@ -268,65 +268,129 @@ module.exports = {
         star: "0",
         receive: "0",//receive":"0-未领取 1-已领取 2-待领取
       },
-      // {
-      //   level: "41",
-      //   score: "0",
-      //   star: "3",
-      //   receive: "1",
-      // },
-      // {
-      //   level: "42",
-      //   score: "0",
-      //   star: "3",
-      //   receive: "1",
-      // },
-      // {
-      //   level: "43",
-      //   score: "0",
-      //   star: "1",
-      //   receive: "1",
-      // },
-      // {
-      //   level: "44",
-      //   score: "0",
-      //   star: "3",
-      //   receive: "1",
-      // }, {
-      //   level: "45",
-      //   score: "0",
-      //   star: "3",
-      //   receive: "1",
-      // },
-      // {
-      //   level: "46",
-      //   score: "0",
-      //   star: "3",
-      //   receive: "1",
-      // },
-      // {
-      //   level: "47",
-      //   score: "0",
-      //   star: "1",
-      //   receive: "1",
-      // },
-      // {
-      //   level: "48",
-      //   score: "0",
-      //   star: "3",
-      //   receive: "1",
-      // },
-      // {
-      //   level: "49",
-      //   score: "0",
-      //   star: "3",
-      //   receive: "1",
-      // },
-      // {
-      //   level: "50",
-      //   score: "0",
-      //   star: "3",
-      //   receive: "1",
-      // }
+      {
+        level: "41",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "42",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "43",
+        score: "0",
+        star: "1",
+        receive: "1",
+      },
+      {
+        level: "44",
+        score: "0",
+        star: "3",
+        receive: "1",
+      }, {
+        level: "45",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "46",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "47",
+        score: "0",
+        star: "1",
+        receive: "1",
+      },
+      {
+        level: "48",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "49",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "50",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },{
+        level: "50_gift",
+        score: "0",
+        star: "0",
+        receive: "2",//receive":"0-未领取 1-已领取 2-待领取
+      },
+      {
+        level: "51",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "52",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "53",
+        score: "0",
+        star: "1",
+        receive: "1",
+      },
+      {
+        level: "54",
+        score: "0",
+        star: "3",
+        receive: "1",
+      }, {
+        level: "55",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "56",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "57",
+        score: "0",
+        star: "1",
+        receive: "1",
+      },
+      {
+        level: "58",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "59",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
+        level: "60",
+        score: "0",
+        star: "3",
+        receive: "1",
+      }
     ],
     url: "http://www.baidu.com",
     rankPrize: [
@@ -641,6 +705,66 @@ module.exports = {
       },
       {
         "level": "50",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "51",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "52",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "53",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "54",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "55",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "56",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "57",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "58",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "59",
+        "star2": 666,
+        "star1": -14169123.906866238,
+        "star3": 7777
+      },
+      {
+        "level": "60",
         "star2": 666,
         "star1": -14169123.906866238,
         "star3": 7777
