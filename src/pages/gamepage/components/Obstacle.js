@@ -110,7 +110,7 @@ export default class Obstacle {
             let offx = 0
             let offy = 40
             if(this.type == "floor2"|| this.type == "valley2"){
-                offx = 60
+                offx = 30
             }
             this.rectBody = new p2.Body({
                 mass: 0,    //重量
