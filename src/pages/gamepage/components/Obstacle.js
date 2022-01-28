@@ -60,9 +60,9 @@ export default class Obstacle {
             if(item?.offsetY){
                 showY = lineInfo[time] - this.height*0.75 - item?.offsetY
             }else{
-                if(this.type == "floor1"){
+                if(this.type == "floor1" || this.type == "valley1"){
                     showY = lineInfo[time-1]
-                }else if(this.type == "floor2"){
+                }else if(this.type == "floor2" || this.type == "valley2"){
                     showY = lineInfo[time+2]
                 }else {
                     showY = lineInfo[time] - this.height*0.75
@@ -77,12 +77,18 @@ export default class Obstacle {
         
       
         
-        if(this.type == "floor2" || this.type == "floor1")
+        if(this.type == "floor2" || this.type == "floor1"|| this.type == "valley2" || this.type == "valley1")
         {
             // console.log(this.type,showY,item.x,time)
-            if(this.type == "floor2"){
+            if(this.type == "floor2" ){
                 showX = showX-30
                 showY  = showY -20
+            }
+            if(this.type == "valley1"){
+                showX = showX-100
+            }
+            if(this.type == "valley2"){
+
             }
             
             this.rectShape = new p2.Box({
@@ -99,11 +105,11 @@ export default class Obstacle {
         this.x = showX
         this.y = showY + 300
 
-        if(this.type == "floor2" || this.type == "floor1"){
+        if(this.type == "floor2" || this.type == "floor1"|| this.type == "valley2" || this.type == "valley1"){
             let offx = 0
             let offy = 40
-            if(this.type == "floor2"){
-                offx = 50
+            if(this.type == "floor2"|| this.type == "valley2"){
+                offx = 60
             }
             this.rectBody = new p2.Body({
                 mass: 0,    //重量
