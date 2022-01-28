@@ -10843,6 +10843,15 @@ export const proplevel71 = [
     { x: 63417.25490833147, y: -13603.61408285758, type: "house" },
     { x: 25198.69628453689, y: -5630.315340156319, type: "house" },
     { x: 3851.96824387987, y: -382.8735962676196, type: "house" },
+    { x: 40700, y: 0, type: "floor" },
+    { x: 28400, y: 0, type: "floor" },
+    { x: 67800, y: 0, type: "valley" },
+    { x: 81600, y: 0, type: "valley" },
+    { x: 58400, y: 0, type: "valley" },
+    { x: 45600, y: 0, type: "valley" },
+    { x: 31900, y: 0, type: "valley" },
+    { x: 20100, y: 0, type: "valley" },
+
 ]
 export const proplevel72 = [
     { x: 38822.72256138338, y: -8484.649098039254, type: "snow" },
@@ -11031,6 +11040,14 @@ export const proplevel72 = [
     { x: 86058.10426090851, y: -18161.38816362371, type: "house" },
     { x: 17520.70714489937, y: -3720.761988163541, type: "house" },
     { x: 4101.837234123427, y: -765.1599610767875, type: "house" },
+    { x: 73300, y: 0, type: "floor" },
+    { x: 32400, y: 0, type: "floor" },
+    { x: 64600, y: 0, type: "valley" },
+    { x: 69100, y: 0, type: "valley" },
+    { x: 79600, y: 0, type: "valley" },
+    { x: 38400, y: 0, type: "valley" },
+    { x: 22600, y: 0, type: "valley" },
+    { x: 9300, y: 0, type: "valley" },
 
 ]
 export const proplevel73 = [
@@ -11221,6 +11238,14 @@ export const proplevel73 = [
     { x: 16424.28396123348, y: -3258.299270738492, type: "house" },
     { x: 36064.21338500115, y: -7598.696164027402, type: "house" },
     { x: 71700.05748247754, y: -15920.81792820335, type: "house" },
+    { x: 3000, y: 0, type: "floor" },
+    { x: 19200, y: 0, type: "floor" },
+    { x: 11300, y: 0, type: "valley" },
+    { x: 28200, y: 0, type: "valley" },
+    { x: 43800, y: 0, type: "valley" },
+    { x: 53800, y: 0, type: "valley" },
+    { x: 67400, y: 0, type: "valley" },
+    { x: 22200, y: 0, type: "valley" },
 
 ]
 export const proplevel74 = [
@@ -11412,6 +11437,14 @@ export const proplevel74 = [
     { x: 74819.60197332237, y: -15855.90067339634, type: "house" },
     { x: 81820.95814965901, y: -17055.20741311679, type: "house" },
     { x: 14927.04888322223, y: -2714.714639038878, type: "house" },
+    { x: 50100, y: 0, type: "floor" },
+    { x: 78000, y: 0, type: "floor" },
+    { x: 40300, y: 0, type: "valley" },
+    { x: 44000, y: 0, type: "valley" },
+    { x: 69600, y: 0, type: "valley" },
+    { x: 19000, y: 0, type: "valley" },
+    { x: 62600, y: 0, type: "valley" },
+    { x: 5800, y: 0, type: "valley" },
 
 ]
 export const proplevel75 = [
@@ -11602,6 +11635,14 @@ export const proplevel75 = [
     { x: 76475.63379372821, y: -16744.60944240279, type: "house" },
     { x: 15272.72571214641, y: -2819.538872270897, type: "house" },
     { x: 2670.362642051737, y: -217.927458078828, type: "house" },
+    { x: 52700, y: 0, type: "floor" },
+    { x: 39000, y: 0, type: "floor" },
+    { x: 49300, y: 0, type: "valley" },
+    { x: 82200, y: 0, type: "valley" },
+    { x: 45600, y: 0, type: "valley" },
+    { x: 28600, y: 0, type: "valley" },
+    { x: 18800, y: 0, type: "valley" },
+    { x: 11700, y: 0, type: "valley" },
 
 ]
 export const proplevel76 = [
@@ -11793,6 +11834,14 @@ export const proplevel76 = [
     { x: 39258.77449283259, y: -8149.334922953063, type: "house" },
     { x: 64491.10465386057, y: -13759.27584939069, type: "house" },
     { x: 72238.49003633643, y: -15311.22915044444, type: "house" },
+    { x: 5600, y: 0, type: "floor" },
+    { x: 68200, y: 0, type: "floor" },
+    { x: 2300, y: 0, type: "valley" },
+    { x: 14600, y: 0, type: "valley" },
+    { x: 46100, y: 0, type: "valley" },
+    { x: 56900, y: 0, type: "valley" },
+    { x: 75600, y: 0, type: "valley" },
+    { x: 79400, y: 0, type: "valley" },
 
 ]
 export const proplevel77 = [
@@ -11984,6 +12033,14 @@ export const proplevel77 = [
     { x: 16451.46775099453, y: -3462.317554554279, type: "house" },
     { x: 13142.42584949018, y: -2200.000052991268, type: "house" },
     { x: 4009.106226311713, y: -408.1285347488316, type: "house" },
+    { x: 70100, y: 0, type: "floor" },
+    { x: 19000, y: 0, type: "floor" },
+    { x: 85700, y: 0, type: "valley" },
+    { x: 63400, y: 0, type: "valley" },
+    { x: 59800, y: 0, type: "valley" },
+    { x: 42400, y: 0, type: "valley" },
+    { x: 32100, y: 0, type: "valley" },
+    { x: 38500, y: 0, type: "valley" },
 
 ]
 export const proplevel78 = [
@@ -12175,6 +12232,14 @@ export const proplevel78 = [
     { x: 33140.89898061632, y: -7222.215533306425, type: "house" },
     { x: 21246.8056530405, y: -4366.802463475926, type: "house" },
     { x: 9398.276262274245, y: -1715.578442085207, type: "house" },
+    { x: 29100, y: 0, type: "floor" },
+    { x: 17800, y: 0, type: "floor" },
+    { x: 84400, y: 0, type: "valley" },
+    { x: 54800, y: 0, type: "valley" },
+    { x: 40100, y: 0, type: "valley" },
+    { x: 36300, y: 0, type: "valley" },
+    { x: 11600, y: 0, type: "valley" },
+    { x: 1800, y: 0, type: "valley" },
 
 ]
 export const proplevel79 = [
@@ -12366,6 +12431,14 @@ export const proplevel79 = [
     { x: 28468.74010332644, y: -6104.457151055815, type: "house" },
     { x: 7440.890162290793, y: -1346.97888315615, type: "house" },
     { x: 2595.331108894024, y: -12.96812607361878, type: "house" },
+    { x: 17500, y: 0, type: "floor" },
+    { x: 41600, y: 0, type: "floor" },
+    { x: 83500, y: 0, type: "valley" },
+    { x: 60700, y: 0, type: "valley" },
+    { x: 70100, y: 0, type: "valley" },
+    { x: 80100, y: 0, type: "valley" },
+    { x: 25100, y: 0, type: "valley" },
+    { x: 11300, y: 0, type: "valley" },
 
 ]
 export const proplevel80 = [
@@ -12557,5 +12630,12 @@ export const proplevel80 = [
     { x: 71566.92908138367, y: -15624.39347385221, type: "house" },
     { x: 85472.32129851273, y: -18619.89725466875, type: "house" },
     { x: 9030.065929763619, y: -1707.611638165296, type: "house" },
-
+    { x: 18500, y: 0, type: "floor" },
+    { x: 4300, y: 0, type: "floor" },
+    { x: 24300, y: 0, type: "valley" },
+    { x: 53600, y: 0, type: "valley" },
+    { x: 57500, y: 0, type: "valley" },
+    { x: 68400, y: 0, type: "valley" },
+    { x: 75100, y: 0, type: "valley" },
+    { x: 78600, y: 0, type: "valley" },
 ]
