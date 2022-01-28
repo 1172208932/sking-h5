@@ -25,6 +25,15 @@ export const propSize = {
     },
     "floor2":{
         width: 10, height: 500
+    },
+    "valley":{
+        width: 900, height: 5
+    },
+    "valley1":{
+        width: 10, height: 600
+    },
+    "valley2":{
+        width: 10, height: 500
     }
 }
 
