@@ -42,6 +42,12 @@ export const RoleControl = {
                 let floor2 = new Obstacle({x:this.propInfo[addi].x+600,y:this.propInfo[addi].y,type:"floor2"},this.lineInfo, this.phyworld, this.bgCon)
                 this.additiveslist.push(floor2)
             }
+            if(this.propInfo[addi].type == "valley"){
+                let valley1 = new Obstacle({x:this.propInfo[addi].x-100,y:this.propInfo[addi].y,type:"valley1"},this.lineInfo, this.phyworld, this.bgCon)
+                this.additiveslist.push(valley1)
+                let valley2 = new Obstacle({x:this.propInfo[addi].x+600,y:this.propInfo[addi].y,type:"valley2"},this.lineInfo, this.phyworld, this.bgCon)
+                this.additiveslist.push(valley2)
+            }
             
         }
         this.phyworld.addBody(this.role.circleBody);
