@@ -63,7 +63,7 @@ export default class Obstacle {
                 if(this.type == "floor1" || this.type == "valley1"){
                     showY = lineInfo[time-1]
                 }else if(this.type == "floor2" || this.type == "valley2"){
-                    showY = lineInfo[time+2]
+                    showY = lineInfo[time+1]
                 }else {
                     showY = lineInfo[time] - this.height*0.75
                 }
@@ -82,7 +82,7 @@ export default class Obstacle {
             // console.log(this.type,showY,item.x,time)
             if(this.type == "floor2" ){
                 showX = showX-30
-                showY  = showY -20
+                showY  = showY -15
             }
             if(this.type == "valley1"){
                 showX = showX-100
