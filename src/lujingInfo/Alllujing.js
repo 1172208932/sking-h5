@@ -1,5 +1,5 @@
-import { level1, level2, level3, level4, level5, level6, level7, level8, level9, level10, level11, level12, level13, level14, level15, level16, level17, level18, level19, level20, level21, level22, level23, level24, level25, level26, level27, level28, level29, level30, level31, level32, level33, level35, level36, level37, level38, level39, level40, level34, level41, level42, level43, level44, level45, level46, level47, level48, level49, level50, level51, level52, level53, level54, level55, level56, level57, level58, level59, level60, level61 } from "./lujing";
-import { proplevel1, proplevel2, proplevel3, proplevel4, proplevel5, proplevel6, proplevel7, proplevel8, proplevel9, proplevel10, proplevel11, proplevel12, proplevel13, proplevel14, proplevel15, proplevel16, proplevel17, proplevel18, proplevel19, proplevel20, proplevel22, proplevel21, proplevel23, proplevel24, proplevel25, proplevel26, proplevel27, proplevel28, proplevel29, proplevel30, proplevel31, proplevel32, proplevel33, proplevel34, proplevel35, proplevel36, proplevel37, proplevel38, proplevel39, proplevel40, proplevel41, proplevel42, proplevel43, proplevel44, proplevel45, proplevel46, proplevel47, proplevel48, proplevel49, proplevel50, proplevel51, proplevel52, proplevel53, proplevel54, proplevel55, proplevel56, proplevel57, proplevel58, proplevel59, proplevel60, proplevel61} from "./propList";
+import { level1, level2, level3, level4, level5, level6, level7, level8, level9, level10, level11, level12, level13, level14, level15, level16, level17, level18, level19, level20, level21, level22, level23, level24, level25, level26, level27, level28, level29, level30, level31, level32, level33, level35, level36, level37, level38, level39, level40, level34, level41, level42, level43, level44, level45, level46, level47, level48, level49, level50, level51, level52, level53, level54, level55, level56, level57, level58, level59, level60, level61, level62, level63, level64, level65, level66, level67, level68, level69, level70 } from "./lujing";
+import { proplevel1, proplevel2, proplevel3, proplevel4, proplevel5, proplevel6, proplevel7, proplevel8, proplevel9, proplevel10, proplevel11, proplevel12, proplevel13, proplevel14, proplevel15, proplevel16, proplevel17, proplevel18, proplevel19, proplevel20, proplevel22, proplevel21, proplevel23, proplevel24, proplevel25, proplevel26, proplevel27, proplevel28, proplevel29, proplevel30, proplevel31, proplevel32, proplevel33, proplevel34, proplevel35, proplevel36, proplevel37, proplevel38, proplevel39, proplevel40, proplevel41, proplevel42, proplevel43, proplevel44, proplevel45, proplevel46, proplevel47, proplevel48, proplevel49, proplevel50, proplevel51, proplevel52, proplevel53, proplevel54, proplevel55, proplevel56, proplevel57, proplevel58, proplevel59, proplevel60, proplevel61, proplevel62, proplevel63, proplevel64, proplevel65, proplevel66, proplevel67, proplevel68, proplevel69, proplevel70} from "./propList";
 
 export const LujinList = [
     level1,
@@ -63,6 +63,15 @@ export const LujinList = [
     level59,
     level60,
     level61,
+    level62,
+    level63,
+    level64,
+    level65,
+    level66,
+    level67,
+    level68,
+    level69,
+    level70,
 
 ]
 
@@ -127,5 +136,14 @@ export const PropList = [
     proplevel58,
     proplevel59,
     proplevel60,
-    proplevel61
+    proplevel61,
+    proplevel62,
+    proplevel63,
+    proplevel64,
+    proplevel65,
+    proplevel66,
+    proplevel67,
+    proplevel68,
+    proplevel69,
+    proplevel70,
 ]
