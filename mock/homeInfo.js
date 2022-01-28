@@ -266,7 +266,7 @@ module.exports = {
         level: "40_gift",
         score: "0",
         star: "0",
-        receive: "1",//receive":"0-未领取 1-已领取 2-待领取
+        receive: "2",//receive":"0-未领取 1-已领取 2-待领取
       },
       {
         level: "41",
@@ -457,6 +457,12 @@ module.exports = {
         receive: "1",
       },
       {
+        level: "70_gift",
+        score: "0",
+        star: "3",
+        receive: "1",
+      },
+      {
         level: "71",
         score: "0",
         star: "3",
@@ -515,6 +521,12 @@ module.exports = {
         score: "0",
         star: "3",
         receive: "1",
+      },
+      {
+        level: "80_gift",
+        score: "0",
+        star: "3",
+        receive: "0",
       },
     ],
     url: "http://www.baidu.com",
