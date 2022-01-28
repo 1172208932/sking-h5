@@ -42,6 +42,12 @@ export const RoleControl = {
                 let floor2 = new Obstacle({x:this.propInfo[addi].x+600,y:this.propInfo[addi].y,type:"floor2"},this.lineInfo, this.phyworld, this.bgCon)
                 this.additiveslist.push(floor2)
             }
+            if(this.propInfo[addi].type == "valley"){
+                let valley1 = new Obstacle({x:this.propInfo[addi].x-100,y:this.propInfo[addi].y,type:"valley1"},this.lineInfo, this.phyworld, this.bgCon)
+                this.additiveslist.push(valley1)
+                let valley2 = new Obstacle({x:this.propInfo[addi].x+600,y:this.propInfo[addi].y,type:"valley2"},this.lineInfo, this.phyworld, this.bgCon)
+                this.additiveslist.push(valley2)
+            }
             
         }
         this.phyworld.addBody(this.role.circleBody);
@@ -216,7 +222,9 @@ export const RoleControl = {
                     (e.bodyA == this.role.carBody && e.bodyB == this.additiveslist[i].rectBody)
                 ){
 						if(this.additiveslist[i].type == "snow" || this.additiveslist[i].type == "gem"){
-                            // console.warn(this.additiveslist[i].rectcoin.x,this.additiveslist[i].rectcoin.y)
+
+                            console.warn(this.additiveslist[i].type + ">>>>>>>>>>>>",this.additiveslist[i].rectcoin.x,this.additiveslist[i].rectcoin.y)
+
 							this.phyworld.removeBody(this.additiveslist[i].rectBody)
 							this.bgCon.removeChild(this.additiveslist[i].rectcoin)
                             this.score =this.score + sorceConfig[this.additiveslist[i].type]
@@ -242,43 +250,43 @@ export const RoleControl = {
                                   })
                             }
 						}else {
-                            console.warn(this.additiveslist[i].rectcoin.x,this.additiveslist[i].rectcoin.y)
-                            this.role.carBody.sleep()
-							this.role.circleBody.sleep()
-							this.role.circleBody2.sleep()
-                            this.count = 0;
+                            console.error(this.additiveslist[i].rectcoin.x,this.additiveslist[i].rectcoin.y)
+                            // this.role.carBody.sleep()
+							// this.role.circleBody.sleep()
+							// this.role.circleBody2.sleep()
+                            // this.count = 0;
                            
-							console.log("die")
-							this.gameEnd = true
-							this.dieItem = this.additiveslist[i]
-                            this.role.smokeSvga.visible = false
-                            let showtype = ""
-                            if(this.additiveslist[i].type == "grass"){
-                                // console.log(this.additiveslist[i].rectcoin.x,this.additiveslist[i].rectcoin.y,'grass')
-                                showtype = "grassSvga"
-                            }else if(this.additiveslist[i].type == "stone" || this.additiveslist[i].type == "bigstone"){
-                                // console.log(this.additiveslist[i].rectcoin.x,this.additiveslist[i].rectcoin.y,'stone')
-                                showtype = "stoneSvga"
-                            }else if(this.additiveslist[i].type == "house"){
-                                // console.log(this.additiveslist[i].rectcoin.x,this.additiveslist[i].rectcoin.y,'house')
-                                showtype = "houseSvga"
-                            }else if(this.additiveslist[i].type == "floor" || 
-                            this.additiveslist[i].type == "floor1" || 
-                            this.additiveslist[i].type == "floor2" ||
-                            this.additiveslist[i].type == "valley" || 
-                            this.additiveslist[i].type == "valley1" || 
-                            this.additiveslist[i].type == "valley2"){
-                                showtype = ""
-                                EventBus.fire('GAME_OVER',{score:this.score})
-                                return
-                            }
-                            this[showtype].startAniRange(0, undefined, 1,()=>{
-                                this[showtype].visible = false
-                                EventBus.fire('GAME_OVER',{score:this.score})
-                            });
-                            this[showtype].visible = true
+							// console.log("die")
+							// this.gameEnd = true
+							// this.dieItem = this.additiveslist[i]
+                            // this.role.smokeSvga.visible = false
+                            // let showtype = ""
+                            // if(this.additiveslist[i].type == "grass"){
+                            //     // console.log(this.additiveslist[i].rectcoin.x,this.additiveslist[i].rectcoin.y,'grass')
+                            //     showtype = "grassSvga"
+                            // }else if(this.additiveslist[i].type == "stone" || this.additiveslist[i].type == "bigstone"){
+                            //     // console.log(this.additiveslist[i].rectcoin.x,this.additiveslist[i].rectcoin.y,'stone')
+                            //     showtype = "stoneSvga"
+                            // }else if(this.additiveslist[i].type == "house"){
+                            //     // console.log(this.additiveslist[i].rectcoin.x,this.additiveslist[i].rectcoin.y,'house')
+                            //     showtype = "houseSvga"
+                            // }else if(this.additiveslist[i].type == "floor" || 
+                            // this.additiveslist[i].type == "floor1" || 
+                            // this.additiveslist[i].type == "floor2" ||
+                            // this.additiveslist[i].type == "valley" || 
+                            // this.additiveslist[i].type == "valley1" || 
+                            // this.additiveslist[i].type == "valley2"){
+                            //     showtype = ""
+                            //     EventBus.fire('GAME_OVER',{score:this.score})
+                            //     return
+                            // }
+                            // this[showtype].startAniRange(0, undefined, 1,()=>{
+                            //     this[showtype].visible = false
+                            //     EventBus.fire('GAME_OVER',{score:this.score})
+                            // });
+                            // this[showtype].visible = true
                             
-                            this[showtype].position.set(this.additiveslist[i].x,this.additiveslist[i].y-this.additiveslist[i].height*0.6)
+                            // this[showtype].position.set(this.additiveslist[i].x,this.additiveslist[i].y-this.additiveslist[i].height*0.6)
                             
                             
                            
