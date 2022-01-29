@@ -525,8 +525,8 @@ module.exports = {
       {
         level: "80_gift",
         score: "0",
-        star: "3",
-        receive: "0",
+        star: "0",
+        receive: "1",
       },
     ],
     url: "http://www.baidu.com",
