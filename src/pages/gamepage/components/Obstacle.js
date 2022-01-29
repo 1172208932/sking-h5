@@ -89,7 +89,7 @@ export default class Obstacle {
             }
             if(this.type == "valley2"){
                 showY  = showY -15
-                showX = showX+20
+                showX = showX+30
             }
             
             this.rectShape = new p2.Box({
