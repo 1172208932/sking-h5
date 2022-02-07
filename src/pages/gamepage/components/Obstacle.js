@@ -23,7 +23,12 @@ export default class Obstacle {
             this.rectcoin = new FYGE.Container()
             this.rectcoin.x = item.x
             var time = Math.floor(item.x / 100)
-            this.rectcoin.y = lineInfo[time]-200
+            if(item.offsetY){
+                this.rectcoin.y = lineInfo[time]-200+item.offsetY
+            }else{
+                this.rectcoin.y = lineInfo[time]-200
+            }
+            
             box.addChild(this.rectcoin);
             box.setChildIndex(this.rectcoin,0)
             for(let i =0;i<4;i++){
