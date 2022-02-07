@@ -30,45 +30,29 @@ export const RoleControl = {
 
 		//添加各种障碍additives
         for (let addi = 0; addi < this.propInfo.length; addi++) {
-            if(this.propInfo[addi].type == "cave"){
-
-                for(let i = 0;i<4;i++){
-                    // var rectcoin = new FYGE.Sprite()
-                    // this.bgCon.addChild(this.rectcoin);
-
-                    // //加载图片
-                    // FYGE.GlobalLoader.loadImage((s, image) => {
-                    //     //纹理
-                    //     var texture = FYGE.Texture.fromImage(image);
-                    //     //显示对象
-                    //     this.rectcoin.texture = texture
-
-                    // }, `${RES_PATH}GamePage/level1/${this.type}.png`)
+            let coin = new Obstacle(this.propInfo[addi],this.lineInfo, this.phyworld, this.bgCon)
+            this.additiveslist.push(coin)
+            if(this.propInfo[addi].type == "floor"){
+                if(this.floorIndex == 0){
+                    
+                    this.floorIndex = addi
                 }
-            }else{
-                let coin = new Obstacle(this.propInfo[addi],this.lineInfo, this.phyworld, this.bgCon)
-                this.additiveslist.push(coin)
-                if(this.propInfo[addi].type == "floor"){
-                    if(this.floorIndex == 0){
-                        
-                        this.floorIndex = addi
-                    }
-                    let floor1 = new Obstacle({x:this.propInfo[addi].x-100,y:this.propInfo[addi].y,type:"floor1"},this.lineInfo, this.phyworld, this.bgCon)
-                    this.additiveslist.push(floor1)
-                    let floor2 = new Obstacle({x:this.propInfo[addi].x+600,y:this.propInfo[addi].y,type:"floor2"},this.lineInfo, this.phyworld, this.bgCon)
-                    this.additiveslist.push(floor2)
-                }
-                if(this.propInfo[addi].type == "valley"){
-                    let valley1 = new Obstacle({x:this.propInfo[addi].x-100,y:this.propInfo[addi].y,type:"valley1"},this.lineInfo, this.phyworld, this.bgCon)
-                    this.additiveslist.push(valley1)
-                    let valley2 = new Obstacle({x:this.propInfo[addi].x+600,y:this.propInfo[addi].y,type:"valley2"},this.lineInfo, this.phyworld, this.bgCon)
-                    this.additiveslist.push(valley2)
-                }
+                let floor1 = new Obstacle({x:this.propInfo[addi].x-100,y:this.propInfo[addi].y,type:"floor1"},this.lineInfo, this.phyworld, this.bgCon)
+                this.additiveslist.push(floor1)
+                let floor2 = new Obstacle({x:this.propInfo[addi].x+600,y:this.propInfo[addi].y,type:"floor2"},this.lineInfo, this.phyworld, this.bgCon)
+                this.additiveslist.push(floor2)
             }
+            if(this.propInfo[addi].type == "valley"){
+                let valley1 = new Obstacle({x:this.propInfo[addi].x-100,y:this.propInfo[addi].y,type:"valley1"},this.lineInfo, this.phyworld, this.bgCon)
+                this.additiveslist.push(valley1)
+                let valley2 = new Obstacle({x:this.propInfo[addi].x+600,y:this.propInfo[addi].y,type:"valley2"},this.lineInfo, this.phyworld, this.bgCon)
+                this.additiveslist.push(valley2)
+            }
+        }
                 
             
             
-        }
+        
         this.phyworld.addBody(this.role.circleBody);
         this.phyworld.addBody(this.role.circleBody2);
         this.phyworld.addBody(this.role.carBody);
