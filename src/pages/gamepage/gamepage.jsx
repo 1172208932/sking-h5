@@ -286,7 +286,9 @@ class Gamepage extends React.Component {
       gameStore.phyworld.removeBody(gameStore.role.circleBody)
       gameStore.phyworld.removeBody(gameStore.role.circleBody2)
       for (let i = 0; i < gameStore.additiveslist.length; i++) {
-        gameStore.phyworld.removeBody(gameStore.additiveslist[i].rectBody)
+        if(gameStore.additiveslist[i].type != "cave"){
+          gameStore.phyworld.removeBody(gameStore.additiveslist[i].rectBody)
+        }
         gameStore.additiveslist[i].rectcoin.destroy()
       }
       gameStore.additiveslist = []

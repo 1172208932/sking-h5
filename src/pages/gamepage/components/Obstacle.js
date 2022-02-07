@@ -7,6 +7,7 @@ import { propSize } from '@src/lujingInfo/lujing.js';
 const Sprite = FYGE.Sprite;
 const Shape = FYGE.Shape;
 
+const cavey = [0,19,268,666]
 export default class Obstacle {
     type = ""
     rectShape;//刚体形状
@@ -18,6 +19,26 @@ export default class Obstacle {
     y = 0;
     constructor(item, lineInfo, world, box) {
         this.type = item.type
+        if(this.type == "cave"){
+            this.rectcoin = new FYGE.Container()
+            this.rectcoin.x = item.x
+            var time = Math.floor(item.x / 100)
+            this.rectcoin.y = lineInfo[time]-200
+            box.addChild(this.rectcoin);
+            box.setChildIndex(this.rectcoin,0)
+            for(let i =0;i<4;i++){
+                //加载图片
+                FYGE.GlobalLoader.loadImage((s, image) => {
+                    //纹理
+                    var texture = FYGE.Texture.fromImage(image);
+                    //显示对象
+                    var img = this.rectcoin.addChild(new FYGE.Sprite(texture))
+                    img.x = i*600
+                    img.y = cavey[i]
+                }, `${RES_PATH}GamePage/level1/cave${i}.png`)
+            }
+            return;
+        }
 
         this.width = propSize[this.type].width;
         this.height = propSize[this.type].height;
