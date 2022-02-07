@@ -41,7 +41,7 @@ export const propSize = {
     "bigicicles": {
         width: 63, height: 168
     },
-    "cave":{
+    "cave": {
         width: 0, height: 0
     }
 }
@@ -76725,7 +76725,7 @@ export const level87 = [
     21131,
     21132
 ]
-export const level88 =[
+export const level88 = [
     42,
     45,
     49,
