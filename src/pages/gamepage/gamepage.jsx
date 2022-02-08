@@ -314,6 +314,7 @@ class Gamepage extends React.Component {
     gameStore.pasueGame()
     modalStore.pushPop("GameLeave", { removeGame: this.removeGame })
   }
+  
   render() {
     const { gameStep, startpop, starInfo, soundon } = this.state
     return (
