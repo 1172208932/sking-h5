@@ -253,7 +253,7 @@ export const RoleControl = {
                                   })
                             }
 						}else {
-                            console.error(this.additiveslist[i].rectcoin.x,this.additiveslist[i].rectcoin.y)
+                            // console.error(this.additiveslist[i].rectcoin.x,this.additiveslist[i].rectcoin.y)
                             this.role.carBody.sleep()
 							this.role.circleBody.sleep()
 							this.role.circleBody2.sleep()
