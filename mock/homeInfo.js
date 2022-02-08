@@ -17,7 +17,7 @@ module.exports = {
       assistGoldNum: 127283683648374, //获得金币数量
       limitNum: 0,//限制助力人数
     },
-    goldNum: 120,
+    goldNum: 12000,
     rankScore: 121121221121221, //排行榜分数
     rank100Flag: 1,//是否进排行榜前百 1-是 0-否，仅到达开奖时间后返回	
     gameInfo: [

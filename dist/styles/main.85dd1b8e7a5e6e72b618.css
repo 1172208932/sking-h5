@@ -1513,7 +1513,7 @@ body {
 }
 
 .gameFailPanel .again-fail .participateInAnswer2 {
-  width: 1.22rem;
+  width: 1.62rem;
   height: 0.37rem;
   right: 0;
   top: -0.2rem;
@@ -1522,7 +1522,7 @@ body {
 }
 
 .gameFailPanel .again-fail .participateInAnswer2 .participationAnswer3 {
-  width: 1.22rem;
+  width: 1.62rem;
   font-size: 0.2rem;
   line-height: 0.33rem;
   text-align: center;
@@ -4756,4 +4756,4 @@ body {
   user-select: none;
 }
 
-/*# sourceMappingURL=main.d8210b5e9b87f802d13f.css.map*/
+/*# sourceMappingURL=main.85dd1b8e7a5e6e72b618.css.map*/
