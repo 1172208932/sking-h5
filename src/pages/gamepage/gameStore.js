@@ -122,15 +122,13 @@ const gameStore = makeAutoObservable(mix({
 
     subdivision: 0,
     gameEnd: false,
+    gamePause:false,
 
     timeControl:null,
     deltaPoints:20,
     distance:0,
 	enterFrame(stage){
-
-        if(this.gameEnd){return}
-
-        
+        if(this.gamePause){return}
         if(this.slowState){
             this.phyworld.step(1 / 360);
         }else{
@@ -152,6 +150,7 @@ const gameStore = makeAutoObservable(mix({
             this.MoveBg()
         }
 
+        if(this.gameEnd){return}
 
         // 位置
         if (this.role.carBody.position[0] > this.deltaPoints *100 * (this.subdivision) +600) {
@@ -453,16 +452,10 @@ const gameStore = makeAutoObservable(mix({
         // return Shapestock;
     },
     pasueGame(){
-        this.gameEnd = true
-		// this.role.carBody.sleep()
-		// this.role.circleBody.sleep()
-		// this.role.circleBody2.sleep()
+        this.gamePause = true
     },
     goonGame(){
-        this.gameEnd = false
-		// this.role.carBody.wakeUp()
-		// this.role.circleBody.wakeUp()
-		// this.role.circleBody2.wakeUp()
+        this.gamePause = false
     }
 }, Background, RoleControl));
 export default gameStore;
