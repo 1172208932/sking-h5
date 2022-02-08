@@ -196,6 +196,7 @@ class Gamepage extends React.Component {
 
 
     gameStore.gameEnd = false
+    gameStore.gamePause = false
     gameStore.initbgUI(this.gamestage)
 
     gameStore.bgCon = new FYGE.Container();
@@ -282,6 +283,7 @@ class Gamepage extends React.Component {
 
       gameStore.score = 0
       gameStore.gameEnd = false
+      gameStore.gamePause = false
       gameStore.phyworld.removeBody(gameStore.role.carBody)
       gameStore.phyworld.removeBody(gameStore.role.circleBody)
       gameStore.phyworld.removeBody(gameStore.role.circleBody2)
