@@ -19,6 +19,7 @@ const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 class Gamepage extends React.Component {
   constructor(props) {
     super(props);
+    store.setCurrentGameLevel(1);
     this.state = {
       gameStep: 0,//第？关 0  准备1  出发2
       startpop: true, //是否需要显示开始
@@ -115,37 +116,6 @@ class Gamepage extends React.Component {
    */
   submitGame = async (score, pass) => {
     console.log(store.currentGameLevel, 11111, "currentGameLevel")
-    const { success, data } = await API.gameSubmit({
-      sign: md5(`9deb162d75304805b6a5a8d0b0d3d310${store.currentGameLevel}${score}${store.startId}${pass}`),
-      levelNum: store.currentGameLevel,
-      score,
-      startId: store.startId,
-      arrive: pass
-    })
-    await store.getHomeInfo();
-    if (success && data) {
-      if (pass == 0) {
-        // 游戏失败了
-        modalStore.pushPop("GameFail", {
-          ...data,
-          removeGame: this.removeGame,
-          canvasUI: this.canvasUI
-        })
-      } else {
-        // 通关
-        console.log(data, 'data')
-        modalStore.pushPop("GameSuccess", {
-          ...data,
-          score,
-          levelNum: store.currentGameLevel,
-          removeGame: this.removeGame,
-          canvasUI: this.canvasUI
-        })
-      }
-    } else {
-      await this.removeGame();
-      store.changePage("Mappage")
-    }
   }
 
   setStarInfo() {

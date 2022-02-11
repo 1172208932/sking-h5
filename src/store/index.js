@@ -5,7 +5,7 @@ import { hideLoading, showLoading, Toast } from '@spark/ui';
 import { shareWXmini } from '@src/utils/share';
 const store = makeAutoObservable({
   ruleInfo: '',
-  curPage: 'homePage',
+  curPage: 'Gamepage',
   homeInfo: {},
   currentGameLevel: 1,
   // 正在闯关的level
