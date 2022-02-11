@@ -2,12 +2,14 @@
     "name": "temp_base",
     "version": "3.4.5",
     "private": true,
+    "homepage": "https://1172208932.github.io/sking-h5",
     "scripts": {
         "dev": "cross-env NODE_ENV=development node ./config/scripts/assets/generateAssetList.js && node ./config/webpack.dev.config.js",
         "imgmin": "node ./config/scripts/assets/index.js imgmin",
         "imgup": "node ./config/scripts/assets/index.js imgup",
         "imgminup": "node ./config/scripts/assets/index.js imgmin imgup",
         "prod": "cross-env NODE_ENV=production node ./config/webpack.prod.config.js",
+        "deploy": "gh-pages -d dist",
         "build": "cross-env NODE_ENV=production node ./config/scripts/assets/generateAssetList.js && node ./config/scripts/assets/index.js imgmin imgup && node ./config/webpack.prod.config.js"
     },
     "dependencies": {
@@ -53,6 +55,7 @@
         "cross-env": "^7.0.3",
         "eslint-loader": "^4.0.2",
         "fs-extra": "^9.0.1",
+        "gh-pages": "^3.2.3",
         "html-webpack-plugin": "^4.5.1",
         "less": "^4.1.0",
         "less-loader": "^7.2.1",

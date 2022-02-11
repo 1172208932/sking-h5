@@ -5,11 +5,11 @@ import { RES_PATH } from '../../../sparkrc.js';
 import { observer } from 'mobx-react';
 import store from '../../store/index';
 import modalStore from '@src/store/modal';
-import API from '../../api';
 import './gamepage.less';
 import gameStore from './gameStore.js';
 import EventBus from '@duiba/event-bus';
 import { SvgaPlayer } from '@spark/animation';
+import {hideLoading, Toast} from '@spark/ui'
 
 import { toJS } from "mobx";
 import { md5 } from '@spark/utils';
@@ -116,6 +116,7 @@ class Gamepage extends React.Component {
    */
   submitGame = async (score, pass) => {
     console.log(store.currentGameLevel, 11111, "currentGameLevel")
+    Toast('游戏结束可以刷新页面重新开始')
   }
 
   setStarInfo() {
@@ -192,20 +193,8 @@ class Gamepage extends React.Component {
     this.gamestage.addEventListener(FYGE.Event.ENTER_FRAME, this.flushfunc);
     //点击
     this.gamestage.addEventListener(FYGE.MouseEvent.MOUSE_DOWN, this.clickfunc);
+    this.setTimeStatus()
 
-    // this.setState({
-    //   gameStep: 0,
-    //   startpop: false
-    // },()=>{
-    //   gameStore.addRole()
-    //   gameStore.beginGame = true
-    // });
-    await store.queryNewGuide();
-    if (store?.newGuideStep?.alreadyGuideSteps == 3 && store.currentGameLevel == 1) {
-      modalStore.pushPop("GameGuide")
-    } else {
-      this.setTimeStatus()
-    }
 
   }
 

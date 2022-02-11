@@ -3,7 +3,8 @@
 
 ![image-20211004163312936](https://yun.duiba.com.cn/aurora/assets/359b9dc0a46ac2245b272728fa3a9165a05b0b15.gif)
 ## 前言
-   文章的目的是分享滑雪游戏的实现方案，为之后的小伙伴提供参考意见，同时也欢迎大家提出改善意见，将会按照下面的步骤开始介绍
+   文章的目的是分享滑雪游戏的实现方案，为之后的小伙伴提供参考意见，同时也欢迎大家提出改善意见，将会按照下面的步骤开始介绍。
+   [游戏demo体验链接](https://1172208932.github.io/sking-h5/)
 
 - 技术栈
 - 需求分析
@@ -49,6 +50,26 @@ H5游戏引擎：选用的是目前公司自研的H5游戏引擎 FYGE（目前�
   ![image-682a254eb7e641f59733abc68feace9243846131](https://yun.duiba.com.cn/aurora/assets/bbed172cf8797f495779c46c69e58b349904c206.png)
     人物模型采用车的模型。（优点：运动流畅 缺点：模型复杂。）
 
+主要代码：
+```javascript
+        // 增加车身与两个轮子间的弹性约束
+        var c1 = new p2.PrismaticConstraint(this.role.carBody,this.role.circleBody,{
+            localAnchorA : [-45,-46],
+            localAnchorB : [0,0],
+            localAxisA : [0,1],
+            disableRotationalLock : true,
+        });
+        var c2 = new p2.PrismaticConstraint(this.role.carBody,this.role.circleBody2,{
+            localAnchorA : [ 45,-46],
+            localAnchorB : [0,0],
+            localAxisA : [0,1],
+            disableRotationalLock : true,
+        });
+        c1.setLimits(-8, 8);
+        c2.setLimits(-8, 8);
+        this.phyworld.addConstraint(c1);
+        this.phyworld.addConstraint(c2);
+```
 
 结论：综上都采用方案二的实现方式。
 
@@ -76,29 +97,4 @@ H5游戏引擎：选用的是目前公司自研的H5游戏引擎 FYGE（目前�
 
 ## 总结
 
-以上就是游戏的开发与设计思路，游戏实现方式还不够优雅，希望各位大神指点，给出宝贵建议。
-
-[项目地址](http://gitlab2.dui88.com/sparkprojects/sking_20220105/tree/dev)
-
-
-
-# spark-template
-
-烽火台app3.0中的静态模板配置
-
-# 安卓rotate后的滚动问题
-> 滚动元素的父元素或祖先设置`overflow:hidden`
-> 需要滚动的元素设置`overflow-x: auto`,不要写`overflow-y:hidden`
-```js
-componentDidMount() {
-  if(document.getElementById("overlay_layer")) {
-    document.getElementById("overlay_layer").style.display = 'none';
-  }
-}
-
-componentWillUnmount() {
-  if(document.getElementById("overlay_layer")) {
-    document.getElementById("overlay_layer").style.display = 'block;
-  }
-}
-```
+以上就是游戏的开发与设计思路，游戏实现方式还不够优雅，这是[github的demo地址](https://github.com/1172208932/sking-h5/tree/master)，欢迎大家在issues中留言。

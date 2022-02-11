@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ExchangeShop, ExchangeConfirm, Rule, Myprize, Rank, InviteSuccess, TurnTable, DrawPrize, Answer, GameFail, Task, ToInvite, NoMoney, GameRemind, InviteLimit, RockPrize, GameSuccess, GameLeave,GameGuide, PayConfirm, Poster, SendCoin,ActivityFail,ToAssist, AssistSuccess, AssistFail, GoodsDetail, Share } from "../panel/index.js";
+import {GameLeave} from "../panel/index.js";
 import './modal.less';
 import { observer } from 'mobx-react';
 import modalStore from '../store/modal';
@@ -7,34 +7,7 @@ import { toJS } from 'mobx';
 import store from "../store/index";
 
 export const cfg = {
-  ExchangeShop,
-  ExchangeConfirm,
-  Rule,
-  Myprize,
-  Rank,
-  InviteSuccess,
-  TurnTable,
-  DrawPrize,
-  Answer,
-  GameFail,
-  Task,
-  ToInvite,
-  NoMoney,
-  GameRemind,
-  InviteLimit,
-  RockPrize,
-  GameSuccess,
-  GameLeave,
-  GameGuide,
-  PayConfirm,
-  Poster,
-  SendCoin,
-  ActivityFail,
-  ToAssist,
-  AssistSuccess,
-  AssistFail,
-  GoodsDetail,
-  Share
+  GameLeave
 };
 
 @observer
