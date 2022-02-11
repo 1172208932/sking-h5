@@ -1,0 +1,766 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font-size: 0.24rem;
+  width: 100%;
+  height: 100%;
+  -webkit-text-size-adjust: 100% !important;
+  -ms-text-size-adjust: 100% !important;
+  text-size-adjust: 100% !important;
+  -moz-text-size-adjust: 100% !important;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+#toast_layer {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  overflow: hidden;
+  overflow-x: auto;
+}
+
+#loading_layer {
+  background: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  overflow-x: auto;
+}
+
+.textover {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.textover2 {
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+@-webkit-keyframes breath {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+
+@keyframes breath {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+
+@-webkit-keyframes rotateAni {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateAni {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes left-right {
+  0% {
+    -webkit-transform: translateX(-0.1rem);
+    transform: translateX(-0.1rem);
+  }
+
+  50% {
+    -webkit-transform: translateX(0.1rem);
+    transform: translateX(0.1rem);
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes left-right {
+  0% {
+    -webkit-transform: translateX(-0.1rem);
+    transform: translateX(-0.1rem);
+  }
+
+  50% {
+    -webkit-transform: translateX(0.1rem);
+    transform: translateX(0.1rem);
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes breathBig {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(0.7);
+    transform: scale(0.7);
+  }
+}
+
+@keyframes breathBig {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(0.7);
+    transform: scale(0.7);
+  }
+}
+.gameLeavePanel {
+  width: 8.61rem;
+  height: 6.76rem;
+  position: absolute;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  margin-top: -0.4rem;
+}
+
+.gameLeavePanel .content-gamefail {
+  width: 7.04rem;
+  height: 5.62rem;
+  left: 0.71rem;
+  top: 0;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1644306142506/复活弹窗1/background.png") no-repeat top left / 100% 100%;
+}
+
+.gameLeavePanel .content-gamefail p {
+  text-align: center;
+  margin-top: 3.4rem;
+  font-size: 0.3rem;
+  color: #205e8b;
+}
+
+.gameLeavePanel .gameLeaveTitle {
+  width: 7.04rem;
+  height: 1rem;
+  left: 0.71rem;
+  top: 2.3rem;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.gameLeavePanel .gameLeaveTitle p {
+  font-weight: bold;
+  text-align: center;
+  margin-top: 0;
+  font-size: 0.43rem;
+  color: #205e8b;
+}
+
+.gameLeavePanel .again-fail {
+  width: 3.95rem;
+  height: 0.88rem;
+  left: 4.41rem;
+  top: 5.88rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1644306142506/复活弹窗1/continueBtnBg.png") no-repeat top left / 100% 100%;
+  text-align: center;
+  line-height: 0.88rem;
+  font-weight: bold;
+  font-size: 0.36rem;
+  color: #204979;
+}
+
+.gameLeavePanel .out {
+  width: 3.95rem;
+  height: 0.88rem;
+  left: 0;
+  top: 5.88rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1644306142506/复活弹窗1/out.png") no-repeat top left / 100% 100%;
+  color: #424242;
+  font-size: 0.36rem;
+  font-weight: bold;
+  line-height: 0.88rem;
+  text-align: center;
+}
+.modal-hoc-bg {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.modal-hoc-bg .leftlogo {
+  width: 1.49rem;
+  height: 0.42rem;
+  position: absolute;
+  right: -1%;
+  top: 8%;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1644306142506/common/leftLogo.png") no-repeat top left / 100% 100%;
+}
+
+.modal-hoc-bg .rightlogo {
+  width: 2.84rem;
+  height: 1.13rem;
+  position: absolute;
+  left: -7%;
+  top: 84%;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1644306142506/common/rightLogo.png") no-repeat top left / 100% 100%;
+}
+.gamepage {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  position: fixed;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.gamepage .startpop {
+  width: 16.73rem;
+  height: 7.38rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  top: 0;
+  position: absolute;
+}
+
+.gamepage .startpop .startaim {
+  width: 16.73rem;
+  height: 7.38rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+}
+
+.gamepage .startpop .startaim .startbg {
+  width: 16.73rem;
+  height: 2.59rem;
+  left: 0;
+  top: 2.58rem;
+  position: absolute;
+  opacity: 0.5;
+  background-color: #000000;
+}
+
+.gamepage .startpop .startaim .oneaim {
+  width: 2.27rem;
+  height: 0.41rem;
+  left: 7.06rem;
+  top: 3.22rem;
+  position: absolute;
+}
+
+.gamepage .startpop .startaim .oneaim .oneaimstar {
+  width: 0.42rem;
+  height: 0.41rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1644306142506/GamePage/oneaimstar.png") no-repeat top left / 100% 100%;
+}
+
+.gamepage .startpop .startaim .oneaim .oneaimlab {
+  width: 5.4rem;
+  height: 0.27rem;
+  left: 0.63rem;
+  top: 0.06rem;
+  position: absolute;
+  font-size: 0.28rem;
+  line-height: 0.27rem;
+  color: #ffffff;
+  overflow: hidden;
+  /*超出部分隐藏*/
+  text-overflow: ellipsis;
+  /* 超出部分显示省略号 */
+  white-space: nowrap;
+  /*规定段落中的文本不进行换行 */
+}
+
+.gamepage .startpop .startaim .twoaim {
+  width: 3.89rem;
+  height: 0.41rem;
+  left: 6.56rem;
+  top: 3.8rem;
+  position: absolute;
+}
+
+.gamepage .startpop .startaim .twoaim .twoaimstar {
+  width: 0.92rem;
+  height: 0.41rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1644306142506/GamePage/twoaimstar.png") no-repeat top left / 100% 100%;
+}
+
+.gamepage .startpop .startaim .twoaim .twoaimlab {
+  width: 5.4rem;
+  height: 0.27rem;
+  left: 1.14rem;
+  top: 0.06rem;
+  position: absolute;
+  font-size: 0.28rem;
+  line-height: 0.27rem;
+  color: #ffffff;
+  overflow: hidden;
+  /*超出部分隐藏*/
+  text-overflow: ellipsis;
+  /* 超出部分显示省略号 */
+  white-space: nowrap;
+  /*规定段落中的文本不进行换行 */
+}
+
+.gamepage .startpop .startaim .threeaim {
+  width: 4.63rem;
+  height: 0.41rem;
+  left: 5.98rem;
+  top: 4.38rem;
+  position: absolute;
+}
+
+.gamepage .startpop .startaim .threeaim .thaimstar {
+  width: 1.48rem;
+  height: 0.41rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1644306142506/GamePage/thaimstar.png") no-repeat top left / 100% 100%;
+}
+
+.gamepage .startpop .startaim .threeaim .thaimlab {
+  width: 5.4rem;
+  height: 0.27rem;
+  left: 1.72rem;
+  top: 0.08rem;
+  position: absolute;
+  font-size: 0.28rem;
+  line-height: 0.27rem;
+  color: #ffffff;
+  overflow: hidden;
+  /*超出部分隐藏*/
+  text-overflow: ellipsis;
+  /* 超出部分显示省略号 */
+  white-space: nowrap;
+  /*规定段落中的文本不进行换行 */
+}
+
+.gamepage .startpop .startaim .starttitle {
+  width: 5rem;
+  height: 0.76rem;
+  left: calc(50% - (5rem / 2));
+  top: 2.34rem;
+  position: absolute;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.gamepage .startpop .startaim .starttitle .title_di {
+  width: 0.74rem;
+  height: 0.76rem;
+  top: 0;
+  position: relative;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1644306142506/GamePage/第.png") no-repeat top left / 100% 100%;
+}
+
+.gamepage .startpop .startaim .starttitle .title_guan {
+  width: 0.74rem;
+  height: 0.76rem;
+  top: 0;
+  position: relative;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1644306142506/GamePage/关.png") no-repeat top left / 100% 100%;
+}
+
+.gamepage .startpop .startaim .starttitle .title_ge {
+  width: 0.49rem;
+  height: 0.65rem;
+  top: 0;
+  position: relative;
+}
+
+.gamepage .startpop .startaim .starttitle .title_shi {
+  width: 0.49rem;
+  height: 0.65rem;
+  top: 0;
+  position: relative;
+}
+
+.gamepage .startpop .startaim .starttitle .title_bai {
+  width: 0.49rem;
+  height: 0.65rem;
+  top: 0;
+  position: relative;
+}
+
+.gamepage .startpop .startaim .startsnow {
+  width: 15.44rem;
+  height: 7.38rem;
+  left: 0.26rem;
+  top: 0;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1644306142506/GamePage/startsnow.png") no-repeat top left / 100% 100%;
+}
+
+.gamepage .startpop .startready {
+  width: 1.76rem;
+  height: 0.89rem;
+  left: 7.43rem;
+  top: 2.67rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1644306142506/GamePage/startready.png") no-repeat top left / 100% 100%;
+}
+
+.gamepage .startpop .startgo {
+  width: 1.71rem;
+  height: 0.91rem;
+  left: 7.46rem;
+  top: 2.66rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1644306142506/GamePage/startgo.png") no-repeat top left / 100% 100%;
+}
+
+.gamepage .canvasbox {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  position: absolute;
+}
+
+.gamepage .canvasbox .canvas {
+  width: 16.24rem;
+  height: 7.5rem;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  position: absolute;
+}
+
+.gamepage .iconarea {
+  width: 13.08rem;
+  height: 0.92rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  top: 5%;
+  position: absolute;
+}
+
+.gamepage .iconarea .distance {
+  width: 2.92rem;
+  height: 0.92rem;
+  left: 0.7rem;
+  top: 0;
+  position: absolute;
+}
+
+.gamepage .iconarea .distance .distancebg {
+  width: 2.92rem;
+  height: 0.92rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1644306142506/GamePage/distancebg.png") no-repeat top left / 100% 100%;
+}
+
+.gamepage .iconarea .distance .distancenum {
+  width: 1.35rem;
+  height: 0.31rem;
+  left: 1.4rem;
+  top: 0.31rem;
+  position: absolute;
+  font-size: 0.4rem;
+  line-height: 0.31rem;
+  color: #ffffff;
+}
+
+.gamepage .iconarea .bar {
+  width: 4.8rem;
+  height: 0.64rem;
+  left: 4.14rem;
+  top: 0.14rem;
+  position: absolute;
+}
+
+.gamepage .iconarea .bar .three {
+  width: 4.8rem;
+  height: 0.56rem;
+  left: 0;
+  top: 0.08rem;
+  position: absolute;
+}
+
+.gamepage .iconarea .bar .three .bj {
+  width: 4.8rem;
+  height: 0.24rem;
+  left: 0;
+  top: 0.32rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1644306142506/GamePage/bj.png") no-repeat top left / 100% 100%;
+}
+
+.gamepage .iconarea .bar .three .baron_mask {
+  width: 4.79rem;
+  height: 0.22rem;
+  left: 0.01rem;
+  top: 0.33rem;
+  position: absolute;
+  overflow: hidden;
+  border-radius: 0.11rem;
+}
+
+.gamepage .iconarea .bar .three .baron_mask .baron {
+  width: 4.79rem;
+  height: 0.22rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1644306142506/GamePage/baron.png") no-repeat top left / 100% 100%;
+}
+
+.gamepage .iconarea .bar .three .baron_mask .baron_svga {
+  width: 4.79rem;
+  height: 0.22rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.gamepage .iconarea .bar .three .twoarea {
+  width: 0.61rem;
+  height: 0.55rem;
+  left: 2.55rem;
+  top: 0;
+  position: absolute;
+}
+
+.gamepage .iconarea .bar .three .twoarea .twobg {
+  width: 0.61rem;
+  height: 0.3rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+  opacity: 0.3;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1644306142506/GamePage/twobg.png") no-repeat top left / 100% 100%;
+}
+
+.gamepage .iconarea .bar .three .twoarea .twoscore {
+  width: 0.6rem;
+  height: 0.18rem;
+  left: 0;
+  top: 0.06rem;
+  position: absolute;
+  font-size: 0.24rem;
+  line-height: 0.18rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+.gamepage .iconarea .bar .three .twoarea .twostar {
+  width: 0.48rem;
+  height: 0.22rem;
+  left: 0.05rem;
+  top: 0.33rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1644306142506/GamePage/twostar.png") no-repeat top left / 100% 100%;
+}
+
+.gamepage .iconarea .bar .three .threearea {
+  width: 0.76rem;
+  height: 0.55rem;
+  left: 3.99rem;
+  top: 0;
+  position: absolute;
+}
+
+.gamepage .iconarea .bar .three .threearea .threebg {
+  width: 0.76rem;
+  height: 0.3rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+  opacity: 0.3;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1644306142506/GamePage/threebg.png") no-repeat top left / 100% 100%;
+}
+
+.gamepage .iconarea .bar .three .threearea .threescore {
+  width: 0.8rem;
+  height: 0.18rem;
+  left: 0;
+  top: 0.06rem;
+  position: absolute;
+  font-size: 0.24rem;
+  line-height: 0.18rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+.gamepage .iconarea .bar .three .threearea .threestar {
+  width: 0.74rem;
+  height: 0.22rem;
+  left: 0.02rem;
+  top: 0.33rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1644306142506/GamePage/threestar.png") no-repeat top left / 100% 100%;
+}
+
+.gamepage .iconarea .bar .bartip {
+  width: 1.12rem;
+  height: 0.25rem;
+  left: 0.03rem;
+  top: 0.02rem;
+  position: absolute;
+  font-size: 0.26rem;
+  line-height: 0.25rem;
+  color: #ffffff;
+}
+
+.gamepage .iconarea .bar .barscore {
+  width: 0.78rem;
+  height: 0.31rem;
+  left: 1.17rem;
+  top: 0;
+  position: absolute;
+  font-size: 0.4rem;
+  line-height: 0.31rem;
+  color: #fdac2f;
+}
+
+.gamepage .iconarea .sound {
+  width: 0.59rem;
+  height: 0.58rem;
+  left: 9.45rem;
+  top: 0.17rem;
+  position: absolute;
+}
+
+.gamepage .iconarea .sound .soundf {
+  width: 0.59rem;
+  height: 0.58rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1644306142506/GamePage/soundoff.png") no-repeat top left / 100% 100%;
+}
+
+.gamepage .iconarea .sound .soundon {
+  width: 0.59rem;
+  height: 0.58rem;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1644306142506/GamePage/soundon.png") no-repeat top left / 100% 100%;
+}
+
+.gamepage .iconarea .back {
+  width: 0.59rem;
+  height: 0.58rem;
+  left: 10.49rem;
+  top: 0.17rem;
+  position: absolute;
+  background: url("//yun.duiba.com.cn/spark/v2/temp_base/1644306142506/GamePage/back.png") no-repeat top left / 100% 100%;
+}
+
+/*# sourceMappingURL=main.16e2ddfcffeb724ea103.css.map*/
